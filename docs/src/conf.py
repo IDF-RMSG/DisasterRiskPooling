@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.abspath(".."))
 
 # -- Project information -----------------------------------------------------
 
-project = "Risk Explorer"
+project = "DFA Tool"
 #copyright = ""
 author = "Insurance Development Forum"
-html_title = "Risk Explorer"
-html_short_title = "Risk Explorer"
+html_title = "DFA Tool"
+html_short_title = "DFA Tool"
 
 
 
@@ -59,7 +59,7 @@ html_css_files = "custom.css"
 
 
 #autoapi_generate_api_docs = False
-#autoapi_dirs = ["../../riskexplorer"]
+#autoapi_dirs = ["../../DFA Tool"]
 #autoapi_type = "python"
 #autoapi_root = "package"
 #autoapi_options = []

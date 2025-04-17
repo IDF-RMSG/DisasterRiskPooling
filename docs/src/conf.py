@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.abspath(".."))
 
 # -- Project information -----------------------------------------------------
 
-project = "DFA Tool"
+project = "Financial Risk Pooling Tool"
 #copyright = ""
 author = "Insurance Development Forum"
-html_title = "DFA Tool"
-html_short_title = "DFA Tool"
+html_title = "Financial Risk Pooling Tool"
+html_short_title = "Financial Risk Pooling Tool"
 
 
 

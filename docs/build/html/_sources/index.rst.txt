@@ -1,4 +1,4 @@
-DFA tool
+Financial Risk Pooling tool
 ====================================================
 
 Introduction 
@@ -6,12 +6,11 @@ Introduction
 
 Partners, purpose, etc
 
-The DFA tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Oasis <https://oasislmf.org>`_ and `Maximum Information <https://www.maxinfo.io/>`_.  
+The Financial Risk Pooling tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Oasis <https://oasislmf.org>`_, `Maximum Information <https://www.maxinfo.io/>`_ and the `World Bank Disaster Risk Financings and Insurance Program <https://www.worldbank.org/en/programs/disaster-risk-financing-and-insurance-program>`_.  
 
 
 
-
-This is a free and open-source tool, available under a `BSD-3-Clause license <https://github.com/OasisLMF/RiskExplorer#BSD-3-Clause-1-ov-file>`_. The code is available on `the DFA Tool GitHub repository <https://github.com/OasisLMF/DFATool>`_. 
+This is a free and open-source tool, available under a `BSD-3-Clause license <https://github.com/OasisLMF/RiskExplorer#BSD-3-Clause-1-ov-file>`_. The code is available on `the DFA Tool GitHub repository <https://github.com/OasisLMF/FinancialRiskPooling>`_. 
 
 
 Overview of Phases 

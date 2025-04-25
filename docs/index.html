@@ -63,8 +63,6 @@
 <li class="toctree-l1"><a class="reference internal" href="components/index_phase4.html">Phase 4: Emergency funding pool - financial analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_phase5.html">Phase 5: Optimising the pool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_Conclusion.html">Conclusion: what you now know</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_Glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_Disclaimer.html">Disclaimer</a></li>
 </ul>
 
         </div>
@@ -97,27 +95,93 @@
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>Partners, purpose, etc</p>
 <p>The Financial Risk Pooling tool is an educational tool developed by the <a class="reference external" href="https://www.insdevforum.org/">Insurance Development Forum</a>  in partnership with <a class="reference external" href="https://oasislmf.org">Oasis</a>, <a class="reference external" href="https://www.maxinfo.io/">Maximum Information</a> and the <a class="reference external" href="https://www.worldbank.org/en/programs/disaster-risk-financing-and-insurance-program">World Bank Disaster Risk Financings and Insurance Program</a>.</p>
-<p>This is a free and open-source tool, available under a <a class="reference external" href="https://github.com/OasisLMF/RiskExplorer#BSD-3-Clause-1-ov-file">BSD-3-Clause license</a>. The code is available on <a class="reference external" href="https://github.com/OasisLMF/FinancialRiskPooling">the DFA Tool GitHub repository</a>.</p>
+<p>This is a free and open-source tool with code available on the <a class="reference external" href="https://github.com/OasisLMF/FinancialRiskPooling">GitHub repository</a>.</p>
+<p>The Financial Risk Pooling tool introduces how to model and structure financial risk for a disaster fund covering multiple hazards (e.g., floods, droughts, earthquakes).</p>
+<p>The central purpose of this tool is educational, serving as an introduction to the different considerations that go into modelling financial risk within funds. The tool demonstrates how the processes of risk pooling and funding can be structured efficiently and responsibly even with events being highly uncertain year to year.</p>
+<p>By illustrating how risk pooling and funding can be set up with well-defined payouts, the tool demonstrates how to:</p>
+<ul class="simple">
+<li><p>Put in place pre arranged financing for multiple disaster risks.</p></li>
+<li><p>Increase efficiency in the use of funding.</p></li>
+<li><p>Provide positive incentives for preparedness, planning, and partnership-building at all levels.</p></li>
+<li><p>Enhance accountability and transparency in how emergency funds are allocated and used.</p></li>
+</ul>
+<div class="admonition-external-guidance-on-setting-up-disaster-risk-financing-systems admonition">
+<p class="admonition-title">External guidance on setting up disaster risk financing systems</p>
+<p>Start Networks resources on designing and implementing disaster risk financing systems: <a class="reference external" href="https://startnetwork.org/funds/disaster-risk-financing">Disaster Risk Financing | Start Network</a></p>
+<p>World Food Programmes case studies and resources: <a class="reference external" href="https://www.wfp.org/publications?f%5B0%5D=topics%3A2214">Publications | World Food Programme</a></p>
+<p>Anticipation Hub resources on Disaster risk financing for humanitarian action: <a class="reference external" href="https://www.anticipation-hub.org/learn/emerging-topics/disaster-risk-financing/">Disaster Risk Financing and Anticipatory Action - Anticipation Hub</a></p>
+<p>World Bank case studies and resources: <a class="reference external" href="https://www.gfdrr.org/en/disaster-risk-finance">Disaster Risk Finance | GFDRR</a></p>
+</div>
+<p>The tool guides those responsible for emergency fund allocations to take them through the steps of constructing structured disaster financing, exploring what decision-making is needed both outside of the tool and what the tool and technical calculations can support in terms of understanding.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../docs_img/Introduction.png"><img alt="Schematic of Risk Pooling Tool combining risks across multiple perils and geographies" src="../../docs_img/Introduction.png" /></a>
+</figure>
+<p>This documentation walks through each phase of setting up and optimising a risk pool, highlighting:</p>
+<ul class="simple">
+<li><p>Off-tool decisions (governance decisions, priorities, data choices).</p></li>
+<li><p>Tool-supported calculations (probability calculations, risk probabilities, coverage modelling).</p></li>
+</ul>
 </section>
 <section id="overview-of-phases">
 <h2>Overview of Phases<a class="headerlink" href="#overview-of-phases" title="Permalink to this heading"></a></h2>
-<p>Insert flowchart of phases</p>
-<p>The following sections of this user guide provide more general information, while the hazard-specific sections provide detailed methodology specific to those hazards.</p>
+<p><strong>Phase 1: Understanding the Risks:</strong></p>
+<p>If you manage a fund, you will be concerned about how much liability or pull different kinds of emergencies may have on your funding. You want to know which risks might be heavy and expensive, which need funding in high volumes regularly, and which are less so. So, understanding the statistical patterns and relationships of those different events is critical. Phase 1 involves gathering historical data, creating synthetic event catalogs if needed, and understanding the statistical patterns of each country-risk.</p>
+<p><strong>Phase 2: Setting Your Financial Structure:</strong></p>
+<p>Now that those patterns are better understood, we select what risks to include in the pool and how you want to arrange the funding to set guaranteed payments for specific crises based on risk triggers. In this phase, we look at parameterising and setting constraining rules on the funding. Phase 2 covers layering, attachments, and exhaustion points for coverage layers.</p>
+<p><strong>Phase 3: Country/Risk - Financial Analysis:</strong></p>
+<p>Once the tool has run, it presents results for each country in your risk pool, demonstrating the level of coverage from different layers, limits, and shapes. Exploring what your prepositioned funding looks like in respect to the overall funding need of that disaster risk. Phase 3 allows for a review of the coverage for each country-risk to ensure it aligns with operational objectives.</p>
+<p><strong>Phase 4: Emergency Funding Pool - Financial Analysis:</strong></p>
+<p>After viewing each country’s coverage individually, you can look at the financial implications of your risk pool, i.e. understanding the total funding you may need and the likelihood of you running out of funds. Review how much financial risk you want the pool to retain/hold and what you might want to transfer away (e.g., reinsurance).</p>
+<p><strong>Phase 5: Optimising the Pool:</strong></p>
+<p>After constructing your risk pool, you may find that you have exceeded the available funding, or that you could stretch the budget you have further. In that case, you need to go back and reduce or increase the risk burden on your pool. This can be achieved through adjusting parameters (attachment points, coverage limits, etc.) to match your budget and risk appetite, ensuring the pool remains financially viable.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../docs_img/Introduction.png"><img alt="Overview of the fives phases in developing a risk pool structure" src="../../docs_img/Introduction.png" /></a>
+</figure>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="components/index_phase1.html">Phase 1: Understanding the nature and shape of the risks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_phase2.html">Phase 2: Setting your financial structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_phase3.html">Phase 3: Country risk - financial analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_phase4.html">Phase 4: Emergency funding pool - financial analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_phase5.html">Phase 5: Optimising the pool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_Conclusion.html">Conclusion: what you now know</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_Glossary.html">Glossary</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#year-loss-table-ylt">Year Loss Table YLT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#historical-loss">Historical Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_phase1.html">Phase 1: Understanding the nature and shape of the risks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/index_phase1.html#step-1-gather-historical-event-data">Step 1: Gather Historical Event Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="components/index_phase1.html#key-decision-making-considerations">Key Decision-Making Considerations</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_Disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_phase1.html#step-2-creating-a-synthetic-stochastic-catalogue">Step 2: Creating a Synthetic (Stochastic) Catalogue.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="components/index_phase1.html#id1">Key Decision-Making Considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_phase1.html#step-3-add-your-synthetic-data-to-the-rpt">Step 3: Add Your Synthetic Data to the RPT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_phase2.html">Phase 2: Setting your financial structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/index_phase2.html#step-4-select-the-countries-and-risks-to-include">Step 4: Select the Countries and Risks to Include</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="components/index_phase2.html#key-decision-making-considerations">Key Decision-Making Considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_phase2.html#step-5-set-the-coverage-layers">Step 5: Set the Coverage Layers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_phase3.html">Phase 3: Country risk - financial analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/index_phase3.html#step-6-review-funding-coverage-for-each-country">Step 6: Review Funding Coverage for Each Country</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_phase3.html#step-7-check-coverage-vs-operational-needs">Step 7: Check Coverage vs. Operational Needs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="components/index_phase3.html#key-decision-making-considerations">Key Decision-Making Considerations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_phase4.html">Phase 4: Emergency funding pool - financial analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/index_phase4.html#step-8-total-liability-on-the-pool">Step 8: Total Liability on the Pool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_phase4.html#step-9-decide-how-much-to-retain-or-transfer">Step 9: Decide How Much to Retain or Transfer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="components/index_phase4.html#key-decision-making-considerations">Key Decision-Making Considerations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_phase5.html">Phase 5: Optimising the pool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/index_phase5.html#step-10-adjust-the-financial-structure">Step 10: Adjust the Financial Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_phase5.html#step-11-finalise-and-communicate">Step 11: Finalise and Communicate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_Conclusion.html">Conclusion: what you now know</a></li>
 </ul>
 </div>
 </section>

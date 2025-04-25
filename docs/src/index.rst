@@ -4,11 +4,9 @@ Financial Risk Pooling tool
 Introduction 
 --------------------
 
-Partners, purpose, etc
+The Financial Risk Pooling tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Maximum Information <https://www.maxinfo.io/>`_ and the `World Bank Disaster Risk Financings and Insurance Program <https://www.worldbank.org/en/programs/disaster-risk-financing-and-insurance-program>`_.  
 
-The Financial Risk Pooling tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Oasis <https://oasislmf.org>`_, `Maximum Information <https://www.maxinfo.io/>`_ and the `World Bank Disaster Risk Financings and Insurance Program <https://www.worldbank.org/en/programs/disaster-risk-financing-and-insurance-program>`_.  
-
-This is a free and open-source tool with code available on the `GitHub repository <https://github.com/OasisLMF/FinancialRiskPooling>`_. 
+This is a free and open-source tool with code available on the `GitHub repository <https://github.com/IDF-RMSG/FinancialRiskPooling>`_. 
 
 
 The Financial Risk Pooling tool introduces how to model and structure financial risk for a disaster fund covering multiple hazards (e.g., floods, droughts, earthquakes).

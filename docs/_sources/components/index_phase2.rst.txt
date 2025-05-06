@@ -25,15 +25,23 @@ Key Decision-Making Considerations
 **What other funding coverage is in place for those risks?** Providing funding coverage from your pool for the entirety of the possible funding risk is unlikely. Often, a mixture of funding lines come in for different emergencies and at different severities. So, understanding the landscape in which your prepositioned funding in the pool sits will be important before constructing the financial structuring. This will ensure the most efficient arrangement of funding for future crises is used. Having the financing for a crisis well strategically structured and arranged also means that the corresponding emergency planning and operations will be incentivised to do the same. Chaotic financing systems often intersect in creating chaotic operational systems in disasters. 
 
 
-.. admonition:: Tool Guidance
+Tool Guidance
+"""""""""""""""""
 
-   1. In the RPT Go to “Financial Structure Input” Tab
+1. In the RPT Go to “Financial Structure Input” Tab
 
-   2. Choose the countries to be included in your risk pool in the table in cells B6 to B10
+.. figure:: ../src_img/screenshots/step4_structure.png
+  :scale: 25%
+  :alt: Financial Structure Input
 
-   3. In the table in cells E6 to F15 you will now have those countries available in the drop down menu in column E. You can then go on to select the hazards (perils) from your catalogue that you want to cover in that country.
+  Financial Structure Input
 
-   These will now show up in the structuring table in cells in A and B 23.
+
+2. Choose the countries to be included in your risk pool in the table in cells B6 to B10
+
+3. In the table in cells E6 to F15 you will now have those countries available in the drop down menu in column E. You can then go on to select the hazards (perils) from your catalogue that you want to cover in that country.
+
+These will now show up in the structuring table in cells in A and B 23.
 
 
 
@@ -41,6 +49,14 @@ Key Decision-Making Considerations
 
 Step 5: Set the Coverage Layers
 ----------------------------------
+
+
+.. figure:: ../src_img/screenshots/step5_coverageLayers.png
+  :scale: 25%
+  :alt: Setting coverage layers
+
+  Setting coverage layers
+
 
 **5.1 Define the financing lines**
 
@@ -77,14 +93,6 @@ If you imagine, our layers are big tanks of water with many pipes and taps runni
    * Using the cost per person and the number of people the tool automatically generates the return period event level and financial level this relates to. This is automatically generated in column I and xxx
 
 
-
-.. admonition:: Fundamental Principal
-   
-   The magnitude frequency relationship can sometimes be displayed as a return period, also known as a recurrence interval or repeat interval. It is the average time or an estimated average time between events of the same magnitude. Impact metrics such as people at risk,  losses, costs or alike linked to the hazard magnitude can also be displayed as return periods of those occurrences. 
-
-
-
-
  2. The number of people covered (Cells F24 - 33): Here you can input the number of people at risk you would want to be covered by the funding. This will automatically generate the top of your coverage for that layer in column J - Equivalent monetary cost at Exhaustion.
 
 
@@ -101,6 +109,19 @@ If you imagine, our layers are big tanks of water with many pipes and taps runni
 
 
 **Repeat this parameterisation for Layer 2.**
+
+.. figure:: ../src_img/screenshots/step5_coverageLayers2.png
+  :scale: 25%
+  :alt: Setting coverage layers - layer 2
+
+  Setting coverage layers - layer 2
+
+
+
+.. admonition:: Fundamental Principal
+   
+   The magnitude frequency relationship can sometimes be displayed as a return period, also known as a recurrence interval or repeat interval. It is the average time or an estimated average time between events of the same magnitude. Impact metrics such as people at risk,  losses, costs or alike linked to the hazard magnitude can also be displayed as return periods of those occurrences. 
+
 
 
 When an event occurs or is forecasted to in some cases, all of the funding of that magnitude and below gets activated to begin flowing from the taps. When the prepositioned funding runs out in layer 1 through the taps, and we enter the layer two magnitude zone, then layer 2 taps start working up until the triggered level, and so on and so on.
@@ -123,3 +144,10 @@ The clever bit with risk sharing in a pool is that you are able to combine many 
 
 
 When all steps are complete, make sure all of the data checks are green and click Run Modelling to generate coverage results.
+
+.. figure:: ../src_img/screenshots/step5_Run.png
+  :scale: 25%
+  :alt: Run model
+
+  Run model
+

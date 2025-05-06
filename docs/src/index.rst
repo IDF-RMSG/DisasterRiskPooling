@@ -39,7 +39,7 @@ The tool guides those responsible for emergency fund allocations to take them th
 
 
 
-.. figure:: ../../docs/_images/guidanceimg/RPTschematic.png
+.. figure:: src_img/guidanceimg/RPTschematic.png
   :scale: 25%
   :alt: Schematic of Risk Pooling Tool combining risks across multiple perils and geographies 
   

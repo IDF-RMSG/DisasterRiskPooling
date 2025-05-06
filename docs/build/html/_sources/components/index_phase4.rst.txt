@@ -14,12 +14,18 @@ The tool has now calculated the probabilities of large volumes of scenarios of p
 Step 8: Total Liability on the Pool
 ---------------------------------------
 
-.. admonition:: Tool Guidance
+1. Go to Risk Pool Tab, which shows a “combined payout” scenario when all country-risks are included in Layer 2.
 
-   1. Go to Risk Pool Tab.
-   2. The DFT shows a “combined payout” scenario when all country-risks are included in Layer 2.
-   3. The chart on the left indicates which country-perils dominate the pool’s liability, or what's most likely to draw down the funding in payouts most heavily. You can consider the bigger the share, the heavier the risk within the pool. It is likely to drain your funding more than others. The heavier risks could be either a result of lots of funding being pre-positioned or the reinstatements on those risks. Or it could be that the frequency of the events depicted, if the attachment and exhaustion is high. 
-   4. The table in cells A23 to C23 displays the percentage share of each risk in the pool and the annual average loss (or payout) for that risk. 
+2. The chart on the left indicates which country-perils dominate the pool’s liability, or what's most likely to draw down the funding in payouts most heavily. You can consider the bigger the share, the heavier the risk within the pool. It is likely to drain your funding more than others. The heavier risks could be either a result of lots of funding being pre-positioned or the reinstatements on those risks. Or it could be that the frequency of the events depicted, if the attachment and exhaustion is high. 
+
+3. The table in cells A23 to C23 displays the percentage share of each risk in the pool and the annual average loss (or payout) for that risk. 
+
+
+.. figure:: ../src_img/screenshots/step8_totalLiability.png
+  :scale: 25%
+  :alt: Total liability on the pool
+
+  Total liability on the pool
 
 
 
@@ -66,23 +72,32 @@ In some cases, you may have other funds or parts of funds that you can use as yo
 This will differ with different funds. The predictability that risk financing and risk pooling bring is one of the biggest impacts and advantages in emergencies and funding mechanisms. So, it will be important to understand what level of guarantee recipients of the funding feel comfortable with and the level of risk they can accept. In some cases, you may have a legal contractual obligation, so understanding what level of guarantee and solvency you have agreed to is essential, along with clauses. Retaining funds for rarer events might be inefficient. Reinsurance (Layer 3) can transfer these “tail risks” for a premium.
 
 
+Tool Guidance
+""""""""""""""""""
 
-.. admonition:: Tool Guidance
+1. Cell I6 allows you to vary the standard deviation - this is what represents the premium costs loading in the tool.
 
-   1. Cell I6 allows you to vary the standard deviation - this is what represents the premium costs loading in the tool.
-   2. All of your parameters for the pool will have been automatically generated in the table in cells I9 to P9.
-   3. You now have the option to add in layer 3 - Reinsurance of the pool. Starting in Cell I10. Here you can add in a value for the total amount of coverage you would want from reinsurance. 
-   4. The total pool loss (expected payout total) is found in cell J9. The total funding needed is the total pool loss plus the standard deviation premium amount and the expected loss - this is found in P9. The same parameters are set for Layer 3 automatically. 
+**Important:** The standard deviation gives a rule of thumb method for loading a premium amount. However, how each individual insurance company arrives at a premium will be different, there is no way to consistently price risk. It will depend on a huge number of factors at the time, including what else is going on in the global market risk pool and their own risk appetite and cost of capital. This is why it is important to get different quotes for coverage. 
 
-   **Important:** The standard deviation gives a rule of thumb method for loading a premium amount. However, how each individual insurance company arrives at a premium will be different, there is no way to consistently price risk. It will depend on a huge number of factors at the time, including what else is going on in the global market risk pool and their own risk appetite and cost of capital. This is why it is important to get different quotes for coverage. 
+.. figure:: ../src_img/screenshots/step9.png
+  :scale: 25%
+  :alt: step9.png
 
-   5. The graph below in cell rows 29 to 44 displays the overall risk curve of the pool with all of the combined risks. The orange curve is the combined losses for all of the country risks in the pool in total. Then the grey area of the second plot line represents the losses from the pool. When the pool funding exhausts at the yellow dotted line, then the reinsurance comes in with the blue line at its attachment. The dotted blue line then cuts off with the exhaustion of the reinsurance. The green line shows the level of pay out from attachment of the insurance.
 
-   6. The graph can be scaled in cells H27 - L27.
+2. All of your parameters for the pool will have been automatically generated in the table in cells I9 to P9.
 
-   **Solvency:** you can now see from the graph how solvent your financial structure is. The percentile where all three layers have been exhausted is the % of risk you retain that you won't have enough funding to cover all of the potential losses (payouts). For commercial insurance their structures have to be solvent 1 in 200 year loss events as part of financial regulations for insurance companies. However this does not apply to other non commercial funding mechanisms.
+3. You now have the option to add in layer 3 - Reinsurance of the pool. Starting in Cell I10. Here you can add in a value for the total amount of coverage you would want from reinsurance. 
 
-   **Balancing priorities:** When using risk financing and structuring for emergency support, it can run counter intuitively to insurance and commercial structuring. In emergency management we want to payout as much as possible when needed, insurance companies don't want that as a business model. So if you want to be very solvent, this will reduce the amount of risk you are taking but also reduce the amount of coverage you can offer to countries' - basically you hold together the money. If you allow for high levels of risk of insolvency, you may be able to offer higher levels of funcing coverage and bigger payouts, but the risk of not having the money to meet that is much higher. A governance decision is required to decide this balance and to agree and hold the remaining risk. 
+4. The total pool loss (expected payout total) is found in cell J9. The total funding needed is the total pool loss plus the standard deviation premium amount and the expected loss - this is found in P9. The same parameters are set for Layer 3 automatically. 
+
+
+5. The graph below in cell rows 29 to 44 displays the overall risk curve of the pool with all of the combined risks. The orange curve is the combined losses for all of the country risks in the pool in total. Then the grey area of the second plot line represents the losses from the pool. When the pool funding exhausts at the yellow dotted line, then the reinsurance comes in with the blue line at its attachment. The dotted blue line then cuts off with the exhaustion of the reinsurance. The green line shows the level of pay out from attachment of the insurance.
+
+6. The graph can be scaled in cells H27 - L27.
+
+ * Solvency: you can now see from the graph how solvent your financial structure is. The percentile where all three layers have been exhausted is the % of risk you retain that you won't have enough funding to cover all of the potential losses (payouts). For commercial insurance their structures have to be solvent 1 in 200 year loss events as part of financial regulations for insurance companies. However this does not apply to other non commercial funding mechanisms.
+
+ * Balancing priorities:** When using risk financing and structuring for emergency support, it can run counter intuitively to insurance and commercial structuring. In emergency management we want to payout as much as possible when needed, insurance companies don't want that as a business model. So if you want to be very solvent, this will reduce the amount of risk you are taking but also reduce the amount of coverage you can offer to countries' - basically you hold together the money. If you allow for high levels of risk of insolvency, you may be able to offer higher levels of funding coverage and bigger payouts, but the risk of not having the money to meet that is much higher. A governance decision is required to decide this balance and to agree and hold the remaining risk. 
    
    **Note:** If you were to provide coverage to country risks they should be clearly informed of the solvency of any prepositioning they rely upon with the different layers.  
    

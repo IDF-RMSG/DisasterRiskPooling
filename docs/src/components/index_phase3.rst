@@ -28,20 +28,38 @@ Step 6: Review Funding Coverage for Each Country
 
 It may be helpful to review the coverage and risk profile of each country you have in your risk pool and the risk profiles that have been inputted into the sheet. 
 
+.. figure:: ../src_img/screenshots/step6_countryLossAnalysis.png
+  :scale: 25%
+  :alt: Country Loss Analysis
 
-.. admonition:: Tool Guidance
+  Country Loss Analysis
 
-   1. Go to Country Loss Analysis.
-   2. Select a country in the cell A6.
-   3. Event Type cell E6 - You can select “Event” if you want the analysis to look at the data event by event or you can select “Yearly”, where it will group together all events that happen in a year into yearly losses. 
-   4. The sheet displays a graph of the losses by percentile and return period (you can change between the two in cell L39
-   5. In Cells A11 B11 and D11 E11, you can adjust the graph scale. 
-   6. The red plot/line shows the total country risk for all of the risks included in the sheet for that country. 
-   7. The yellow solid plot/line displays layer 1s loss by Return period or percentile and the blue solid plot/line layer 2s loss by Return period or percentile.
-   8. The dashed lines display the excess and limit of each of those layers' coverage.
-   9. The table in cells I16 to M17 displays the attachment and exhaustion points for the layers. 
-   10. The table in cells I21 to N28 shows a number of key return period events and percentiles, with the results of the total country loss in column L. Then the total loss per layer of funding for each of those return period events. *Note:* Loss here is being used, as they are losses from the country and from the layers of funding  - but you can also think about it as the total financial requirement for those size events with the country loss. The layer losses you can also think of as the payouts from the layers to try and cover your part of the risk. 
-   11. The table at the bottom provides the more detailed granulation of the data provided in the graph and previous tables. 
+  
+
+Tool Guidance
+""""""""""""""""
+
+1. Go to Country Loss Analysis.
+
+2. Select a country in the cell A6.
+
+3. Event Type cell E6 - You can select “Event” if you want the analysis to look at the data event by event or you can select “Yearly”, where it will group together all events that happen in a year into yearly losses. 
+
+4. The sheet displays a graph of the losses by percentile and return period (you can change between the two in cell L39
+
+5. In Cells A11 B11 and D11 E11, you can adjust the graph scale. 
+
+6. The red plot/line shows the total country risk for all of the risks included in the sheet for that country. 
+
+7. The yellow solid plot/line displays layer 1s loss by Return period or percentile and the blue solid plot/line layer 2s loss by Return period or percentile.
+
+8. The dashed lines display the excess and limit of each of those layers' coverage.
+
+9. The table in cells I16 to M17 displays the attachment and exhaustion points for the layers. 
+
+10. The table in cells I21 to N28 shows a number of key return period events and percentiles, with the results of the total country loss in column L. Then the total loss per layer of funding for each of those return period events. *Note:* Loss here is being used, as they are losses from the country and from the layers of funding  - but you can also think about it as the total financial requirement for those size events with the country loss. The layer losses you can also think of as the payouts from the layers to try and cover your part of the risk. 
+
+11. The table at the bottom provides the more detailed granulation of the data provided in the graph and previous tables. 
 
 
 Step 7: Check Coverage vs. Operational Needs

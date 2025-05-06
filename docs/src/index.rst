@@ -39,7 +39,7 @@ The tool guides those responsible for emergency fund allocations to take them th
 
 
 
-.. figure:: ../../docs_img/Introduction.png
+.. figure:: ../../docs/_images/guidanceimg/RPTschematic.png
   :scale: 50%
   :alt: Schematic of Risk Pooling Tool combining risks across multiple perils and geographies 
   
@@ -75,7 +75,7 @@ After constructing your risk pool, you may find that you have exceeded the avail
 
 
 
-.. figure:: ../../docs_img/Introduction.png
+.. figure:: ../../docs/_images/guidanceimg/RPTphases.png
   :scale: 50%
   :alt: Overview of the fives phases in developing a risk pool structure
 

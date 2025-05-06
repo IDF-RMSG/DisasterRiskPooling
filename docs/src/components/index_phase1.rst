@@ -4,7 +4,7 @@ Phase 1: Understanding the nature and shape of the risks
 ==========================================================
 
 
-.. figure:: ../../docs_img/Introduction.png
+.. figure:: ../docs/_images/guidanceimg/phase1.jpg
   :scale: 50%
   :alt: Phase 1 steps
 
@@ -79,7 +79,7 @@ This is because, often, we will only have a small snapshot of those relationship
 
 
 
-.. figure:: ../../docs_img/Introduction.png
+.. figure:: .../docs/_images/guidanceimg/stochasticCat.png
   :scale: 50%
   :alt: Schematic of our limited set of observations of events.
 

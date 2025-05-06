@@ -3,7 +3,7 @@
 Phase 4: Emergency funding pool - financial analysis
 ==========================================================
 
-.. figure:: ../../docs_img/Introduction.png
+.. figure:: ../docs/_images/guidanceimg/phase4.jpg
   :scale: 50%
   :alt: Phase 4 steps 
 
@@ -30,11 +30,11 @@ The graphs help us to think now about how we might structure the pool so that we
 
 It's very difficult to justify in any context holding onto a very large amount of money, just in case a rare event happens, with small probabilities, when there are needs in so many other places. But we still want and need to ensure if those events do occur we have access to enough funding as best we can. However it is unlikely enough funding for all events will ever be in place fully.  So instead we can pay a small amount each year for someone else to have enough funding for us to cover those events through insurance. The reason insurance works is that it is set up best if covering only the rare events, it can use these probabilities to manage its financial risk across much larger diverse global pools of risks. 
 
-.. figure:: ../../docs_img/Introduction.png
+.. figure:: ../docs/_images/guidanceimg/GlobalInsPool.png
   :scale: 50%
   :alt: circles and boxes
 
-.. figure:: ../../docs_img/Introduction.png
+.. figure:: ../docs/_images/guidanceimg/retentionToTransfer.png
   :scale: 50%
   :alt: Retention and Risk transfer layers
 

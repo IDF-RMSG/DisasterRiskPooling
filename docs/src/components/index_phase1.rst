@@ -4,8 +4,8 @@ Phase 1: Understanding the nature and shape of the risks
 ==========================================================
 
 
-.. figure:: ../docs/_images/guidanceimg/phase1.jpg
-  :scale: 50%
+.. figure:: ../src_img/guidanceimg/phase1.jpg
+  :scale: 25%
   :alt: Phase 1 steps
 
 
@@ -79,15 +79,17 @@ This is because, often, we will only have a small snapshot of those relationship
 
 
 
-.. figure:: .../docs/_images/guidanceimg/stochasticCat.png
-  :scale: 50%
+.. figure:: ../src_img/guidanceimg/stochasticCat.png
+  :scale: 25%
   :alt: Schematic of our limited set of observations of events.
+  
+  Limited duration of event observation (boxed), and extension of that via stochastic simulation.
 
 
 
 
 
-Step 2: Creating a Synthetic (Stochastic) Catalogue.
+Step 2: Creating a Synthetic (Stochastic) Catalogue
 --------------------------------------------------------
 
 This step is about how we take all that information and try to project and understand more deeply the statistical patterns and likely probabilities of different events overall– this uses the tool to support creating a set of synthetic (or stochastic) events. This will generate from a relatively smaller number of event entries into tens of thousands of variations and extremes.

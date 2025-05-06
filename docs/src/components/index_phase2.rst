@@ -3,8 +3,8 @@
 Phase 2: Setting your financial structure
 ==========================================================
 
-.. figure:: ../docs/_images/guidanceimg/phase2.jpg
-  :scale: 50%
+.. figure:: ../src_img/guidanceimg/phase2.jpg
+  :scale: 25%
   :alt: Phase 2 steps 
 
 
@@ -69,9 +69,11 @@ In cells D24-33 select the average cost per person you are considering in your p
 
 If you imagine, our layers are big tanks of water with many pipes and taps running off them. To make sure we don’t drain the tank and not have available water/funds for when we really need it, we have to put some limits on the use of the taps and how and when they can draw water from the tank. This is how we set the financing structure. 
 
-   1. People Impacted at Attachment - Attachment Point (“trigger”) (cells E24-33):
+
+ 1. People Impacted at Attachment - Attachment Point (“trigger”) (cells E24-33):
   
    * The severity (e.g., 1-in-5-year event which is the same as an event with a 20% probability of occurring in any given year) at which a specific number of people are at risk and the funding layer begins paying out (when we can turn that tap on). This could also be called a trigger point or threshold. It is depicted by severity in the form of a return period value, with an associated number of people and financial requirement.
+
    * Using the cost per person and the number of people the tool automatically generates the return period event level and financial level this relates to. This is automatically generated in column I and xxx
 
 
@@ -82,22 +84,20 @@ If you imagine, our layers are big tanks of water with many pipes and taps runni
 
 
 
-   2. The number of people covered (Cells F24 - 33): Here you can input the number of people at risk you would want to be covered by the funding. This will automatically generate the top of your coverage for that layer in column J - Equivalent monetary cost at Exhaustion.
+
+ 2. The number of people covered (Cells F24 - 33): Here you can input the number of people at risk you would want to be covered by the funding. This will automatically generate the top of your coverage for that layer in column J - Equivalent monetary cost at Exhaustion.
 
 
-   3. Exhaustion Point (“cap”) (automatically generated): The point at which this layer stops paying (when the tap needs to be turned off), where another layer or additional coverage might start. This could also be referred to as a cap or a limit on when that layer of funding will be exhausted. For example, perhaps you have a national fund that covers your layer 1, but you know you will never have more than 1 million dollars to payout from that fund for that risk; this is when it exhausts. 
+ 3. Exhaustion Point (“cap”) (automatically generated): The point at which this layer stops paying (when the tap needs to be turned off), where another layer or additional coverage might start. This could also be referred to as a cap or a limit on when that layer of funding will be exhausted. For example, perhaps you have a national fund that covers your layer 1, but you know you will never have more than 1 million dollars to payout from that fund for that risk; this is when it exhausts. 
 
  
-   4. Percentage ceded to the layer:
-Each layer of risk will hold a total financial value, numbers of people at risk and equivalent monetary values, for the totality of the risk in that layer. This related to the severity RP of that scenario of disaster. But the whole of the risk may not be all of your burden to cover. It is likely that each of those layers of risk will have multiple actors and financing lines responding in such scenarios. In this case you may not need to have financial coverage for the whole layer. If this is the case you would need to identify the % of that layer you are covering in layer 1 and 2. This is another lever in which to increase or decrease your financial liability. You could think of it as how wide your tap is.
+ 4. Percentage ceded to the layer: Each layer of risk will hold a total financial value, numbers of people at risk and equivalent monetary values, for the totality of the risk in that layer. This related to the severity RP of that scenario of disaster. But the whole of the risk may not be all of your burden to cover. It is likely that each of those layers of risk will have multiple actors and financing lines responding in such scenarios. In this case you may not need to have financial coverage for the whole layer. If this is the case you would need to identify the % of that layer you are covering in layer 1 and 2. This is another lever in which to increase or decrease your financial liability. You could think of it as how wide your tap is.
 
 
-   5. Reinstatement count:
-How many times the full coverage can trigger in a year (how often we can turn the tap on and off in one year for a stated amount of water to flow) assuming full replenishment of funds each time. This refers to the number of times in a year the attachment or trigger will reset and allow for another payout. For example, you may allow for 3 full disbursement flood triggers in one year but no more after that. You have to limit how many times the tap can be used; otherwise, you may drain all the tanks at one time. 
+ 5. Reinstatement count: How many times the full coverage can trigger in a year (how often we can turn the tap on and off in one year for a stated amount of water to flow) assuming full replenishment of funds each time. This refers to the number of times in a year the attachment or trigger will reset and allow for another payout. For example, you may allow for 3 full disbursement flood triggers in one year but no more after that. You have to limit how many times the tap can be used; otherwise, you may drain all the tanks at one time. 
 
 
-   6. Aggregate Limit:
-This is the total potential amount of funding accounting for attachments, exhaustion and reinstatements that the layer could be liable for in any one year.  So, the total potential amount of water in the tank that would need to be available in the very worst case for that tap/risk (assuming the water gets replenished as per the reinstatement count). 
+ 6. Aggregate Limit: This is the total potential amount of funding accounting for attachments, exhaustion and reinstatements that the layer could be liable for in any one year.  So, the total potential amount of water in the tank that would need to be available in the very worst case for that tap/risk (assuming the water gets replenished as per the reinstatement count). 
 
 
 **Repeat this parameterisation for Layer 2.**
@@ -115,9 +115,11 @@ The clever bit with risk sharing in a pool is that you are able to combine many 
    This means we can be much more efficient and not allow money to sit around waiting for a trigger, or one that very rarely happens but still allows funding guarantees to be met, when the event occurs and hits attachment point. This kind of mechanism is also sometimes called a co-operative model. We will get to this more on the pool analysis tab. 
 
 
-.. figure:: ../../docs_img/Introduction.png
-  :scale: 50%
-  :alt: figure description needed.
+.. figure:: ../src_img/guidanceimg/globalRiskPool.png
+  :scale: 25%
+  :alt: Schematic of a risk pool
+  
+  Schematic of a risk pool
 
 
 When all steps are complete, make sure all of the data checks are green and click Run Modelling to generate coverage results.

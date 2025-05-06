@@ -4,7 +4,7 @@ Financial Risk Pooling tool
 Introduction 
 --------------------
 
-The Financial Risk Pooling tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Maximum Information <https://www.maxinfo.io/>`_ and the `World Bank Disaster Risk Financings and Insurance Program <https://www.worldbank.org/en/programs/disaster-risk-financing-and-insurance-program>`_.  
+The Financial Risk Pooling tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Maximum Information <https://www.maxinfo.io/>`_ and the `World Bank Disaster Risk Financing and Insurance Program <https://www.worldbank.org/en/programs/disaster-risk-financing-and-insurance-program>`_.  
 
 This is a free and open-source tool with code available on the `GitHub repository <https://github.com/idf-rmsg/FinancialRiskPooling>`_. 
 
@@ -40,9 +40,12 @@ The tool guides those responsible for emergency fund allocations to take them th
 
 
 .. figure:: ../../docs/_images/guidanceimg/RPTschematic.png
-  :scale: 50%
+  :scale: 25%
   :alt: Schematic of Risk Pooling Tool combining risks across multiple perils and geographies 
   
+  Risk Pooling Tool combining risks across multiple perils and geographies
+
+
 
 This documentation walks through each phase of setting up and optimising a risk pool, highlighting:
 
@@ -75,7 +78,7 @@ After constructing your risk pool, you may find that you have exceeded the avail
 
 
 
-.. figure:: ../../docs/_images/guidanceimg/RPTphases.png
+.. figure:: src_img/guidanceimg/RPTphases.jpg
   :scale: 50%
   :alt: Overview of the fives phases in developing a risk pool structure
 

@@ -4,8 +4,8 @@ Phase 5: Optimising the pool
 ==========================================================
 
 
-.. figure:: ../docs/_images/guidanceimg/phase5.jpg
-  :scale: 50%
+.. figure:: ../src_img/guidanceimg/phase5.jpg
+  :scale: 25%
   :alt: Phase 5 steps 
   
 
@@ -21,17 +21,20 @@ This is where you will need to go back and reduce or increase the amount of cove
 .. admonition:: Tool guide
 
    1. Identify the biggest country risk liabilities on the Pool Analysis tab.
-
+   
    2. Return to Financial Structure Input tab and adjust up or down:
+
     * Attachment/Exhaustion points.
     * Ceding Percentage.
     * Reinstatements.
     * Aggregate limit
-
+   
    3.Re-run the structure by pressing Run Model - every time you make adjustments you will need to run the model - and return to the country and pool analysis tabs to consider the new results. Until:
+
     * The pool funding requirement is within your budget.
     * You maximise the coverage while staying within your risk appetite on solvency.
     * You can balance the coverage needs requested from countries with affordability within your funds capacity.
+
 
 
 You are essentially moving different levers in the system until you have things balanced and arranged in a way that fits within your overall funding availability and aggregate limit, maximises the amount you can guarantee for each country-risk and is within your risk appetite for solvency. 

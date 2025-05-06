@@ -3,8 +3,8 @@
 Phase 4: Emergency funding pool - financial analysis
 ==========================================================
 
-.. figure:: ../../docs_img/Introduction.png
-  :scale: 50%
+.. figure:: ../src_img/guidanceimg/phase4.jpg
+  :scale: 25%
   :alt: Phase 4 steps 
 
 
@@ -30,13 +30,17 @@ The graphs help us to think now about how we might structure the pool so that we
 
 It's very difficult to justify in any context holding onto a very large amount of money, just in case a rare event happens, with small probabilities, when there are needs in so many other places. But we still want and need to ensure if those events do occur we have access to enough funding as best we can. However it is unlikely enough funding for all events will ever be in place fully.  So instead we can pay a small amount each year for someone else to have enough funding for us to cover those events through insurance. The reason insurance works is that it is set up best if covering only the rare events, it can use these probabilities to manage its financial risk across much larger diverse global pools of risks. 
 
-.. figure:: ../../docs_img/Introduction.png
-  :scale: 50%
-  :alt: circles and boxes
+.. figure:: ../src_img/guidanceimg/GlobalInsPool.png
+  :scale: 25%
+  :alt: Schematic of a risk pool with insurance
+  
+  Schematic of a risk pool with insurance
 
-.. figure:: ../../docs_img/Introduction.png
-  :scale: 50%
+.. figure:: ../src_img/guidanceimg/retentionToTransfer.png
+  :scale: 40%
   :alt: Retention and Risk transfer layers
+  
+  Retention and Risk transfer layers
 
 You may see it also depicted as above
 
@@ -51,14 +55,15 @@ So you don’t have to hold onto the total amount of money with such a low chanc
 Key Decision-Making Considerations
 """"""""""""""""""""""""""""""""""""""""
 
-**What level of insolvency are we willing to accept?** If you are operating an insurance company, your aim is to be as fully solvent as you can be while ensuring affordable premiums. For the market, this is regulated, with having to be solvent to 99.8% (a 1-in-200 year return period). However, in the case of an emergency fund, you need to balance how safe the fund is and how to maximise its utility and employment in emergency situations. In this case, the risk appetite may be greater for emergency funds as holding onto too much funding can have significant moral and operational hazards in the context of emergency funding. 
+**What level of insolvency are we willing to accept?** 
+If you are operating an insurance company, your aim is to be as fully solvent as you can be while ensuring affordable premiums. For the market, this is regulated, with having to be solvent to 99.8% (a 1-in-200 year return period). However, in the case of an emergency fund, you need to balance how safe the fund is and how to maximise its utility and employment in emergency situations. In this case, the risk appetite may be greater for emergency funds as holding onto too much funding can have significant moral and operational hazards in the context of emergency funding. 
 A balance on how much to hold, transfer, and accept insolvency will dictate the level of funding that will likely flow out of your pool each year (annual average loss). All of the operational, governance, and technical considerations have to be considered in the round. 
 
-**Do we have other means other than re-insurance to self-insure?** In some cases, you may have other funds or parts of funds that you can use as your backup in those very unlikely extreme years of drawdowns beyond the amount of funding you have.. What availability and agreement you could put in place for this would need to be identified.
+**Do we have other means other than re-insurance to self-insure?** 
+In some cases, you may have other funds or parts of funds that you can use as your backup in those very unlikely extreme years of drawdowns beyond the amount of funding you have.. What availability and agreement you could put in place for this would need to be identified.
 
-**What are the consequences if we cannot pay the total amounts we have guaranteed to countries?** This will differ with different funds. The predictability that risk financing and risk pooling bring is one of the biggest impacts and advantages in emergencies and funding mechanisms. So, it will be important to understand what level of guarantee recipients of the funding feel comfortable with and the level of risk they can accept. In some cases, you may have a legal contractual obligation, so understanding what level of guarantee and solvency you have agreed to is essential, along with clauses. 
-Retaining funds for rarer events might be inefficient.
-Reinsurance (Layer 3) can transfer these “tail risks” for a premium.
+**What are the consequences if we cannot pay the total amounts we have guaranteed to countries?** 
+This will differ with different funds. The predictability that risk financing and risk pooling bring is one of the biggest impacts and advantages in emergencies and funding mechanisms. So, it will be important to understand what level of guarantee recipients of the funding feel comfortable with and the level of risk they can accept. In some cases, you may have a legal contractual obligation, so understanding what level of guarantee and solvency you have agreed to is essential, along with clauses. Retaining funds for rarer events might be inefficient. Reinsurance (Layer 3) can transfer these “tail risks” for a premium.
 
 
 

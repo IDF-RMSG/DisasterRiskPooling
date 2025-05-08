@@ -17,12 +17,13 @@ This folder contains the **Excel-format spreadsheet tool** in which users can en
 
 Instructions
 ----------------
-Step 1	Paste in output from the IDF Loss Modelling for up to 5 countries in the respective Country X Data Input tabs							
-Step 2	Enter the countries you wish to cover at the top of the page in the Financial Structure Input tab (note these countries are the same countries for which you'd need to paste the model output 							
-Step 3	Enter the perils you wish to cover for these countries in the Financial Structure Input Tab							
-Step 4	Enter the terms of the risk pool and relevant layers							
-Step 5	Enter the individual country program terms in the sections below							
-Step 6	Consult data checks and remedy any issues							
-Step 7	Press the Run Modelling button to generate losses to the structure(s)							
-Step 8 	Go to Analytics section and check outputs							
-Step 9	Return to Financial Structure Input and make changes as required, you can use the Pool Analysis tab to quickly play with the pool structure/reinsurance without needing to press the Run Modelling button again
+Step-by-step overview:
+1.	Paste in output from the IDF Loss Modelling for up to 5 countries in the respective Country X Data Input tabs							
+2.	Enter the countries you wish to cover at the top of the page in the Financial Structure Input tab (note these countries are the same countries for which you'd need to paste the model output
+3.	Enter the perils you wish to cover for these countries in the Financial Structure Input Tab
+4.	Enter the terms of the risk pool and relevant layers
+5.	Enter the individual country program terms in the sections below
+6.	Consult data checks and remedy any issues
+7.	Press the Run Modelling button to generate losses to the structure(s)
+8.	Go to Analytics section and check outputs
+9.	Return to Financial Structure Input and make changes as required, you can use the Pool Analysis tab to quickly play with the pool structure/reinsurance without needing to press the Run Modelling button again

@@ -136,7 +136,7 @@ Tool xxxxxxxx allows you to only run one type of input at a time. For example yo
 Tool Guidance 
 """"""""""""""""""""""
 
-Full Tool 1 xxxxxxxxxx  can be found here:
+The tool for combining losses can be found here: https://github.com/IDF-RMSG/FinancialRiskPooling/tree/master/shiny_app
 
 1. Data Selection Tab
 

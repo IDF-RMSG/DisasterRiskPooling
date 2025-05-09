@@ -42,7 +42,7 @@ It's very difficult to justify in any context holding onto a very large amount o
   
   Schematic of a risk pool with insurance
 
-.. figure:: ../src_img/guidanceimg/retentionToTransfer.png
+.. figure:: ../src_img/guidanceimg/retentionToTransfer.jpg
   :scale: 40%
   :alt: Retention and Risk transfer layers
   
@@ -90,15 +90,15 @@ Tool Guidance
 
 4. The total pool loss (expected payout total) is found in cell J9. The total funding needed is the total pool loss plus the standard deviation premium amount and the expected loss - this is found in P9. The same parameters are set for Layer 3 automatically. 
 
-
 5. The graph below in cell rows 29 to 44 displays the overall risk curve of the pool with all of the combined risks. The orange curve is the combined losses for all of the country risks in the pool in total. Then the grey area of the second plot line represents the losses from the pool. When the pool funding exhausts at the yellow dotted line, then the reinsurance comes in with the blue line at its attachment. The dotted blue line then cuts off with the exhaustion of the reinsurance. The green line shows the level of pay out from attachment of the insurance.
 
 6. The graph can be scaled in cells H27 - L27.
 
- * Solvency: you can now see from the graph how solvent your financial structure is. The percentile where all three layers have been exhausted is the % of risk you retain that you won't have enough funding to cover all of the potential losses (payouts). For commercial insurance their structures have to be solvent 1 in 200 year loss events as part of financial regulations for insurance companies. However this does not apply to other non commercial funding mechanisms.
+ Solvency: you can now see from the graph how solvent your financial structure is. The percentile where all three layers have been exhausted is the % of risk you retain that you won't have enough funding to cover all of the potential losses (payouts). For commercial insurance their structures have to be solvent 1 in 200 year loss events as part of financial regulations for insurance companies. However this does not apply to other non commercial funding mechanisms.
 
- * Balancing priorities:** When using risk financing and structuring for emergency support, it can run counter intuitively to insurance and commercial structuring. In emergency management we want to payout as much as possible when needed, insurance companies don't want that as a business model. So if you want to be very solvent, this will reduce the amount of risk you are taking but also reduce the amount of coverage you can offer to countries' - basically you hold together the money. If you allow for high levels of risk of insolvency, you may be able to offer higher levels of funding coverage and bigger payouts, but the risk of not having the money to meet that is much higher. A governance decision is required to decide this balance and to agree and hold the remaining risk. 
+ Balancing priorities: When using risk financing and structuring for emergency support, it can run counter intuitively to insurance and commercial structuring. In emergency management we want to payout as much as possible when needed, insurance companies don't want that as a business model. So if you want to be very solvent, this will reduce the amount of risk you are taking but also reduce the amount of coverage you can offer to countries' - basically you hold together the money. If you allow for high levels of risk of insolvency, you may be able to offer higher levels of funding coverage and bigger payouts, but the risk of not having the money to meet that is much higher. A governance decision is required to decide this balance and to agree and hold the remaining risk. 
    
-   **Note:** If you were to provide coverage to country risks they should be clearly informed of the solvency of any prepositioning they rely upon with the different layers.  
+ Note: If you were to provide coverage to country risks they should be clearly informed of the solvency of any prepositioning they rely upon with the different layers.  
+
    
-   7. The Pool recoveries table from cell H48 displays all of the granular data from the graph. This may be helpful when it comes to optimising in the final step.
+7. The Pool recoveries table from cell H48 displays all of the granular data from the graph. This may be helpful when it comes to optimising in the final step.

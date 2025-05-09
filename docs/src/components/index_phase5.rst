@@ -30,7 +30,7 @@ Tool guidance
  * Reinstatements.
  * Aggregate limit
    
-3.Re-run the structure by pressing Run Model - every time you make adjustments you will need to run the model - and return to the country and pool analysis tabs to consider the new results. Until:
+3. Re-run the structure by pressing Run Model - every time you make adjustments you will need to run the model - and return to the country and pool analysis tabs to consider the new results. Until:
 
  * The pool funding requirement is within your budget.
  * You maximise the coverage while staying within your risk appetite on solvency.

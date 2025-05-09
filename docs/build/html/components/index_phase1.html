@@ -208,6 +208,9 @@ Choose country from the drop-down list</p>
 </figure>
 <p>In advanced mode, upload your CSV of historical events (completed in step 1).
 A graph of uploaded data appears at the bottom for validation.</p>
+<p>Set the cost per person you wish to set (this can be identified using losses divided by the number of people affected  and averaged - or there may be an established cost per person you may be using or already established for the country  and risk).
+Select the data type and the metrics which you would like displayed on the graphs.
+A graph of data appears at the bottom for validation.</p>
 <figure class="align-default" id="id5">
 <a class="reference internal image-reference" href="../_images/step2_2_manual_input.png"><img alt="Advanced csv file upload" src="../_images/step2_2_manual_input.png" style="width: 469.75px; height: 384.75px;" /></a>
 <figcaption>
@@ -219,8 +222,7 @@ A graph of uploaded data appears at the bottom for validation.</p>
 <li><p>Scaling</p></li>
 </ol>
 <blockquote>
-<div><p>(Optional) Upload historical population or inflation data for detrending.
-Tool 1 automatically removes linear trends if you select that option.</p>
+<div><p>Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling.</p>
 <figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="../_images/step2_3_scaling.png"><img alt="Scaling options" src="../_images/step2_3_scaling.png" style="width: 449.5px; height: 359.25px;" /></a>
 <figcaption>
@@ -233,16 +235,16 @@ Tool 1 automatically removes linear trends if you select that option.</p>
 <li><p>Simulation</p></li>
 </ol>
 <blockquote>
-<div><p>Click Run Tool to start fitting distributions.</p>
+<div><p>Click Run Tool (This could take up to 5 minutes).</p>
 <figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="../_images/step2_4_run.png"><img alt="Run tool - click button" src="../_images/step2_4_run.png" style="width: 543.25px; height: 205.0px;" /></a>
 <figcaption>
 <p><span class="caption-text">Run tool - click button</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>The tool tries multiple distributions, each with 15,000 simulated events.
-It ranks them by AIC weight—the higher, the better the fit.
-Advanced Mode: You can manually pick a different distribution if you disagree with the default choice.</p>
+<p>The tool tries multiple distributions, each with 15,000 simulated events and selects the best possible fit to the data.These include, Log Normal, Poisson, Pareto (curve shapes).
+You can change the distribution selection - but it is advised to only do this with technical expert support.</p>
+<p>The graph can display for each risk a display of the fitted distribution based on the observed data that was inputted, the simulated events through the model and both combined.</p>
 <figure class="align-default" id="id8">
 <a class="reference internal image-reference" href="../_images/step2_5_simulations.png"><img alt="Simulation options" src="../_images/step2_5_simulations.png" style="width: 451.75px; height: 203.0px;" /></a>
 <figcaption>
@@ -254,23 +256,25 @@ Advanced Mode: You can manually pick a different distribution if you disagree wi
 <li><p>Outputs</p></li>
 </ol>
 <blockquote>
-<div><figure class="align-default" id="id9">
+<div><p>Select each risk to see the simulated losses.
+Toggle 95% confidence intervals to see the range of uncertainty at each return period.
+The tool also provides graphs and other exhibits (e.g., estimated annual losses, loss exceedance curves, tables of return periods, comparisons of distributions).
+You can input a budget value to generate the graph 4 exhibit to identify the annual funding gap.</p>
+<figure class="align-default" id="id9">
 <a class="reference internal image-reference" href="../_images/step2_7_outputs.png"><img alt="Simulation outputs" src="../_images/step2_7_outputs.png" style="width: 439.75px; height: 352.25px;" /></a>
 <figcaption>
 <p><span class="caption-text">Simulation outputs</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>View the simulated losses for each peril. Toggle 95% confidence intervals to see the range of uncertainty at each return period.</p>
-<p>Download Simulations to save your new synthetic event catalog (in CSV format).</p>
+<p>Download Simulations to save your new synthetic event catalog (it will download in the format needed for input into the RPT).</p>
 <figure class="align-default" id="id10">
 <a class="reference internal image-reference" href="../_images/step2_8_downloadsims.png"><img alt="Download simulation outputs using the buttons" src="../_images/step2_8_downloadsims.png" style="width: 426.5px; height: 195.75px;" /></a>
 <figcaption>
 <p><span class="caption-text">Download simulation outputs using the buttons</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
+<p>Now you have a robust database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood. This gives a much stronger view of the statistical relationships.</p>
 </div></blockquote>
-<p>Tool 1 also provides graphs and other exhibits (e.g., tables of return periods, comparisons of distributions).</p>
-<p>Now, you have a robust database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood. This gives a much stronger view of the statistical relationships.</p>
 </section>
 </section>
 <section id="step-3-add-your-synthetic-data-to-the-rpt">

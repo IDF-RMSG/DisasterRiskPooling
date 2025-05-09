@@ -14,11 +14,13 @@ The tool has now calculated the probabilities of large volumes of scenarios of p
 Step 8: Total Liability on the Pool
 ---------------------------------------
 
-1. Go to Risk Pool Tab, which shows a “combined payout” scenario when all country-risks are included in Layer 2.
+1. Go to Pool Analysis Tab.
 
-2. The chart on the left indicates which country-perils dominate the pool’s liability, or what's most likely to draw down the funding in payouts most heavily. You can consider the bigger the share, the heavier the risk within the pool. It is likely to drain your funding more than others. The heavier risks could be either a result of lots of funding being pre-positioned or the reinstatements on those risks. Or it could be that the frequency of the events depicted, if the attachment and exhaustion is high. 
+2. The RPT shows a “combined payout” scenario when all country-risks are included in Layer 2.
 
-3. The table in cells A23 to C23 displays the percentage share of each risk in the pool and the annual average loss (or payout) for that risk. 
+3. The chart on the left indicates which country-perils dominate the pool’s liability, or what's most likely to draw down the funding in payouts most heavily. You can consider the bigger the share, the heavier the risk within the pool. It is likely to drain your funding more than others. The heavier risks could be either a result of lots of funding being pre-positioned or the reinstatements on those risks. Or it could be that the frequency of the events depicted, if the attachment and exhaustion is high. 
+
+4. The table in cells A23 to C23 displays the percentage share of each risk in the pool and the annual average loss (or payout) for that risk. 
 
 
 .. figure:: ../src_img/screenshots/step8_totalLiability.png
@@ -50,7 +52,8 @@ It's very difficult to justify in any context holding onto a very large amount o
 
 You may see it also depicted as above
 
-So the lower the return period or higher the probability and size of coverage, the more risk is transferred and taken on, so the higher the premium to account for that. The most uninsurable risk would be a high payout that happens frequently on the attachment. But this can be covered with layer 1 and 2 as these layers and instruments don't need to be necessarily market profitable, but efficient financially and operationally to ensure impact and predictability.
+So it becomes less cost effective to transfer risk the lower the return period or higher the probability and size of coverage. The more risk is transferred and taken on by an insurance company, the higher the premium to account for that. The most uninsurable risk would be a high payout that happens frequently on the attachment. But this can be covered with layer 1 and 2 as these layers and instruments don't need to be necessarily market profitable, but efficient financially and operationally to ensure impact and predictability.
+
 This is at the heart of why financial layering is so useful for disaster management, it allows money for crises to flow efficiently and operationally impactfully. It can create predictability in funding which is very important for good disaster management and preparedness systems. 
 
 The Risk pool of layer 2 allows us to share the risks and probabilities of loss (payout) across the different country risks in the tool. However insurance is able to share the transferred risk across many different kinds of global risks and probabilities (not only the ones that are being covered by your organisation). 
@@ -94,7 +97,8 @@ Tool Guidance
 
 6. The graph can be scaled in cells H27 - L27.
 
- Solvency: you can now see from the graph how solvent your financial structure is. The percentile where all three layers have been exhausted is the % of risk you retain that you won't have enough funding to cover all of the potential losses (payouts). For commercial insurance their structures have to be solvent 1 in 200 year loss events as part of financial regulations for insurance companies. However this does not apply to other non commercial funding mechanisms.
+ Solvency: you can now see from the graph how solvent your financial structure is. The percentile where all three layers have been exhausted is the % of risk you have decided to retain that you won't have enough funding to cover all of the potential losses (payouts). For commercial insurance their structures have to be solvent 1 in 200 year loss events as part of financial regulations for insurance companies. However this does not apply to other non commercial funding mechanisms.
+
 
  Balancing priorities: When using risk financing and structuring for emergency support, it can run counter intuitively to insurance and commercial structuring. In emergency management we want to payout as much as possible when needed, insurance companies don't want that as a business model. So if you want to be very solvent, this will reduce the amount of risk you are taking but also reduce the amount of coverage you can offer to countries' - basically you hold together the money. If you allow for high levels of risk of insolvency, you may be able to offer higher levels of funding coverage and bigger payouts, but the risk of not having the money to meet that is much higher. A governance decision is required to decide this balance and to agree and hold the remaining risk. 
    

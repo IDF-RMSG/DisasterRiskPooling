@@ -78,7 +78,7 @@ In cells D24-33 select the average cost per person you are considering in your p
 
 2. Use proxy metrics such as social protection payment methods or cost of the diet amounts.  The country may have an established budget per person or household method for different kinds of crisis. Often used in micro- and meso-level insurance schemes. 
 
-3. Create the cost per person using planning and delivery scenarios - using the loss catalogues to set quantitative scenarios, emergency plans and delivery needs and volumes for the cohorts of people at risk could be costed and a per person average budget obtained. The Start Ready approach is useful for sovereign risk financing and disaster operations planning.  
+3. Create the cost per person using planning and delivery scenarios - using the loss catalogues to set quantitative scenarios, emergency plans and delivery needs and volumes for the cohorts of people at risk could be costed and a per person average budget obtained. :ref:`The Start Ready approach<ExtGuidance_reference-label>`) is useful for sovereign risk financing and disaster operations planning.  
 
 
 **5.3: Controlling the taps**
@@ -102,7 +102,7 @@ If you imagine, our layers are big tanks of water with many pipes and taps runni
  4. Percentage ceded to the layer: Each layer of risk will hold a total financial value, numbers of people at risk and equivalent monetary values, for the totality of the risk in that layer. This related to the severity RP of that scenario of disaster. But the whole of the risk may not be all of your burden to cover. It is likely that each of those layers of risk will have multiple actors and financing lines responding in such scenarios. In this case you may not need to have financial coverage for the whole layer. If this is the case you would need to identify the % of that layer you are covering in layer 1 and 2. This is another lever in which to increase or decrease your financial liability. You could think of it as how wide your tap is.
 
 
- 5. Reinstatement count: How many times the full coverage can trigger in a year (how often we can turn the tap on and off in one year for a stated amount of water to flow) assuming full replenishment of funds each time. This refers to the number of times in a year the attachment or trigger will reset and allow for another payout. For example, you may allow for 3 full disbursement flood triggers in one year but no more after that. You have to limit how many times the tap can be used; otherwise, you may drain all the tanks at one time. 
+ 5. Reinstatement count: How many times the full coverage can trigger in a year (how often we can turn the tap on and off in one year for a stated amount of water to flow) assuming full replenishment of funds each time. This refers to the number of times in a year the attachment or trigger will reset and allow for another payout. For example, you may allow for three full disbursement flood triggers in one year but no more after that. You have to limit how many times the tap can be used; otherwise, you may drain all the tanks at one time. 
 
 
  6. Aggregate Limit: This is the total potential amount of funding accounting for attachments, exhaustion and reinstatements that the layer could be liable for in any one year.  So, the total potential amount of water in the tank that would need to be available in the very worst case for that tap/risk (assuming the water gets replenished as per the reinstatement count). 

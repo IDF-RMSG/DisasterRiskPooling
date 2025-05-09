@@ -22,7 +22,7 @@ By illustrating how risk pooling and funding can be set up with well-defined pay
 * Enhance accountability and transparency in how emergency funds are allocated and used.
 
 
-
+.. _ExtGuidance_reference-label:
 .. admonition:: External guidance on setting up disaster risk financing systems
    
    Start Networks resources on designing and implementing disaster risk financing systems: `Disaster Risk Financing | Start Network <https://startnetwork.org/funds/disaster-risk-financing>`_ 

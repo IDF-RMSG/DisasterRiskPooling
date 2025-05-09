@@ -12,6 +12,13 @@ Once your pool has run, you can review what the pre-arranged funding looks like 
 
 On the Financial Structure visualisation tab you can view how the coverage layers look in the context of the overall country risk. 
 
+.. figure:: ../src_img/screenshots/phase3intro_countryDrivers.png
+  :scale: 25%
+  :alt: Phase 3 steps 
+
+  Financial Structure visualisation tab
+
+
 You can select the country and risk in cell DF5
 
 Scale the visualisation in cells DF8 and DG8 (i.e. what return periods you are visualising).

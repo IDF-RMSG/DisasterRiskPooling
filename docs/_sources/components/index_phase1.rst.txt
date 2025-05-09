@@ -153,6 +153,10 @@ The tool for combining losses can be found here: https://github.com/IDF-RMSG/Fin
  In advanced mode, upload your CSV of historical events (completed in step 1).
  A graph of uploaded data appears at the bottom for validation.
 
+ Set the cost per person you wish to set (this can be identified using losses divided by the number of people affected  and averaged - or there may be an established cost per person you may be using or already established for the country  and risk).
+ Select the data type and the metrics which you would like displayed on the graphs.
+ A graph of data appears at the bottom for validation.
+
  .. figure:: ../src_img/screenshots/step2_2_manual_input.png
    :scale: 25%
    :alt: Advanced csv file upload
@@ -162,8 +166,8 @@ The tool for combining losses can be found here: https://github.com/IDF-RMSG/Fin
 
 2. Scaling
 
- (Optional) Upload historical population or inflation data for detrending. 
- Tool 1 automatically removes linear trends if you select that option.
+ Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling.
+
 
  .. figure:: ../src_img/screenshots/step2_3_scaling.png
    :scale: 25%
@@ -177,7 +181,7 @@ The tool for combining losses can be found here: https://github.com/IDF-RMSG/Fin
 
 3. Simulation
 
- Click Run Tool to start fitting distributions.
+ Click Run Tool (This could take up to 5 minutes).
 
  .. figure:: ../src_img/screenshots/step2_4_run.png
    :scale: 25%
@@ -186,9 +190,11 @@ The tool for combining losses can be found here: https://github.com/IDF-RMSG/Fin
    Run tool - click button
 
 
- The tool tries multiple distributions, each with 15,000 simulated events.
- It ranks them by AIC weight—the higher, the better the fit.
- Advanced Mode: You can manually pick a different distribution if you disagree with the default choice.
+ The tool tries multiple distributions, each with 15,000 simulated events and selects the best possible fit to the data.These include, Log Normal, Poisson, Pareto (curve shapes).
+ You can change the distribution selection - but it is advised to only do this with technical expert support. 
+
+ The graph can display for each risk a display of the fitted distribution based on the observed data that was inputted, the simulated events through the model and both combined.
+
 
  .. figure:: ../src_img/screenshots/step2_5_simulations.png
    :scale: 25%
@@ -199,6 +205,11 @@ The tool for combining losses can be found here: https://github.com/IDF-RMSG/Fin
    
 4. Outputs
 
+ Select each risk to see the simulated losses.
+ Toggle 95% confidence intervals to see the range of uncertainty at each return period.
+ The tool also provides graphs and other exhibits (e.g., estimated annual losses, loss exceedance curves, tables of return periods, comparisons of distributions).
+ You can input a budget value to generate the graph 4 exhibit to identify the annual funding gap. 
+
  .. figure:: ../src_img/screenshots/step2_7_outputs.png
    :scale: 25%
    :alt: Simulation outputs
@@ -206,9 +217,7 @@ The tool for combining losses can be found here: https://github.com/IDF-RMSG/Fin
    Simulation outputs
 
 
- View the simulated losses for each peril. Toggle 95% confidence intervals to see the range of uncertainty at each return period.
-   
- Download Simulations to save your new synthetic event catalog (in CSV format).
+ Download Simulations to save your new synthetic event catalog (it will download in the format needed for input into the RPT).
 
  .. figure:: ../src_img/screenshots/step2_8_downloadsims.png
    :scale: 25%
@@ -217,9 +226,7 @@ The tool for combining losses can be found here: https://github.com/IDF-RMSG/Fin
    Download simulation outputs using the buttons
 
 
-Tool 1 also provides graphs and other exhibits (e.g., tables of return periods, comparisons of distributions).
-
-Now, you have a robust database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood. This gives a much stronger view of the statistical relationships.
+ Now you have a robust database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood. This gives a much stronger view of the statistical relationships.
 
 
 

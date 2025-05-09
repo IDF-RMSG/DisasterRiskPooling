@@ -1,0 +1,227 @@
+/* Set the Font */
+body {
+  font-family: Raleway, Sans-Serif;
+  font-size: 16px;
+  padding-top: 80px
+}
+
+h1  {
+  font-family: Raleway, Sans-Serif;
+  font-size: 36px;
+  text-align: center;
+}
+
+h2  {
+  font-family: Raleway, Sans-Serif;
+  font-size: 30px;
+}
+
+h4  {
+  font-family: Raleway, Sans-Serif;
+  font-size: 18px;
+}
+
+/* logo */
+.skin-blue .main-header .logo {
+                      background-color: #D3D3D3;
+                      color: #000
+                      }
+
+/* logo when hovered */
+.skin-blue .main-header .logo:hover {
+                      background-color: #D3D3D3;
+                      color: #000
+                      }
+
+/* navbar (rest of the header) */
+.skin-blue .main-header .navbar {
+                      background-color: #D3D3D3;
+                      color: #000
+                      }
+
+/* main sidebar */
+.skin-blue .main-sidebar {
+                      background-color: #D3D3D3;
+                      color: #000
+                      }
+
+/* active selected tab in the sidebarmenu */
+.skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
+                      background-color: #F05023;
+                      color: #000;
+                      }
+
+/* other links in the sidebarmenu */
+.skin-blue .main-sidebar .sidebar .sidebar-menu a{
+                      background-color: #D3D3D3;
+                      color: #000;
+                      }
+
+/* other links in the sidebarmenu when hovered */
+ .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
+                      background-color: #009FDA;
+                      }
+/* toggle button when hovered  */
+ .skin-blue .main-header .navbar .sidebar-toggle:hover{
+                      background-color: #98252B;
+                      }
+
+/* */                      
+.main-header .sidebar-toggle {
+    float: left;
+    background-color: transparent;
+    background-image: none;
+    padding: 39px 5px;
+}
+
+/* background */
+/* body */
+.content-wrapper, .right-side {
+background-color: #FFFFFF;
+}
+
+.circle {
+  margin: 0 auto;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid #F05023;
+  border-radius: 50%;
+  font-size: 14px;
+  color: #F05023;
+  line-height: 25px;
+  text-align: center;
+  background: #FFFFFF;
+}
+.greycircle {
+  margin: 0 auto;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid #707372;
+  border-radius: 50%;
+  font-size: 14px;
+  color: #707372;
+  line-height: 25px;
+  text-align: center;
+  background: #FFFFFF;
+}
+
+/* Format the tabs for the 4 pages */
+.nav-tabs {
+  border-bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.nav-tabs li {
+  display: inline-block;
+  justify-content: space-evenly;
+  float: none;
+  width: 250px;
+  pointer-events: none;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  color: #FFFFFF;
+	border-style: none;
+  border: 0;
+}
+.nav-tabs>li>a, .nav-tabs>li>a:focus, .nav-tabs>li>a:hover {
+	color: #FFFFFF;
+	border-style: none;
+}
+
+/* Added 24/09/2020 by LD. CSS for tab colouring of Peril Data Bars / Peril Data Table tabs in main tab 1 (Data Selection) */
+.nav-tabs-custom .nav-tabs li.active:hover a, .nav-tabs-custom .nav-tabs li.active a {
+     background-color: transparent;
+     border-color: transparent;
+     color: #000;
+}
+
+.nav-tabs-custom .nav-tabs li {
+    float: left;
+    pointer-events: auto;
+}
+
+/* Active tab colour when selected */
+.nav-tabs-custom .nav-tabs li.active {
+     border-top-color: #00ADE4;
+     background-color: rgba(0, 173, 228, 0.5);
+}
+
+/* Non active tab colour on hover */
+.nav-tabs-custom .nav-tabs >li>a:hover {
+    background-color: rgba(0, 173, 228, 0.3);
+    color: #000;
+}
+
+/* Remove shadow/line under tabbox */
+.box {
+    -webkit-box-shadow: none; 
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.modal-dialog {
+  width: 800px;
+}
+
+.modal-body {
+  max-height: 650px;
+}
+
+.popover {
+  max-width: 10%;
+}
+
+/* Increase horizontal radio button spacing */
+.checkbox-inline, .radio-inline {
+    margin-right: 80px;
+}
+
+/* */
+@media (max-height: 650px) {
+  #DRFIP-wt {
+    max-height: 260px;
+    width: auto;
+    object-fit: scale-down;
+    position: sticky;
+    position: -webkit-sticky;
+    bottom: 0;
+  }
+  #logo-div {
+    position: fixed;
+    position: -webkit-sticky;
+    bottom: 0;
+    max-height: 260px;
+    width: auto;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 10px
+  }
+}
+@media (min-height: 651px) {
+  #DRFIP-wt {
+    max-width: 280px;
+    height: auto;
+    object-fit: scale-down;
+    position: sticky;
+    position: -webkit-sticky;
+    bottom: 0;
+  }
+  #logo-div {
+    position: fixed;
+    position: -webkit-sticky;
+    bottom: 0;
+    width: 280px;
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 10px
+  }
+}
+
+/* */
+@media (max-width: 850px) {
+  #top-logo {
+    max-width: 350px;
+    height: auto;
+  }
+}

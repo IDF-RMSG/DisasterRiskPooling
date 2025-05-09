@@ -1,0 +1,271 @@
+Country,Year,Type of event,Total Damage
+Afghanistan,2002,Earthquake,6538067
+Afghanistan,2004,Drought,30280806
+Afghanistan,2004,Flood,18500
+Afghanistan,2005,Earthquake,50000
+Afghanistan,2005,Flood,1695049
+Afghanistan,2006,Drought,75418979
+Afghanistan,2006,Flood,812341
+Afghanistan,2008,Drought,207691426
+Afghanistan,2010,Flood,3766416
+Algeria,2002,Flood,278633
+Algeria,2003,Earthquake,10699952
+Algeria,2006,Flood,2961700
+Angola,2009,Flood,83553
+Azerbaijan,2003,Flood,3247800
+Bangladesh,2002,Flood,1468536
+Bangladesh,2002,Storm,269276
+Bangladesh,2004,Flood,106343540
+Bangladesh,2007,Flood,84404963
+Bangladesh,2007,Storm,238224500
+Bangladesh,2009,Storm,14238651
+Bangladesh,2011,Flood,9242607
+Bangladesh,2012,Flood,5848778
+Bangladesh,2017,Flood,25431236
+Bangladesh,2019,Flood,11960776
+Bosnia and Herzegovina,2004,Flood,45000
+Bosnia and Herzegovina,2010,Flood,437741
+Bosnia and Herzegovina,2014,Flood,19564867
+Bulgaria,2005,Flood,2734811
+Costa Rica,2002,Flood,50000
+Costa Rica,2005,Flood,380528
+Costa Rica,2007,Flood,50000
+Costa Rica,2008,Flood,301018
+Costa Rica,2008,Storm,40000
+Costa Rica,2009,Earthquake,413061
+Costa Rica,2010,Flood,448993
+Costa Rica,2010,Storm,277704
+Costa Rica,2011,Flood,15075
+Djibouti,2004,Flood,177000
+Djibouti,2005,Drought,2747807
+Djibouti,2008,Drought,10968413
+Djibouti,2011,Drought,19370114
+Djibouti,2019,Flood,164019
+Dominican Republic,2003,Flood,1574447
+Dominican Republic,2004,Flood,12261746
+Dominican Republic,2004,Storm,78880
+Dominican Republic,2007,Storm,19030225
+Dominican Republic,2008,Storm,269778
+Dominican Republic,2010,Earthquake,8175084
+Dominican Republic,2011,Flood,288204
+Dominican Republic,2012,Storm,255054
+Dominican Republic,2017,Storm,299592
+El Salvador,2005,Flood,13906665
+El Salvador,2009,Storm,16596894
+El Salvador,2010,Storm,226942
+El Salvador,2011,Flood,14472959
+Ethiopia,2006,Flood,19080124
+Ethiopia,2010,Flood,254130
+Guatemala,2002,Drought,270758
+Guatemala,2005,Flood,43251606
+Guatemala,2008,Flood,519907
+Guatemala,2010,Storm,18551798
+Guatemala,2011,Flood,4626191
+Haiti,2002,Flood,570246
+Haiti,2004,Flood,21715524.5
+Haiti,2004,Storm,21715524.5
+Haiti,2006,Flood,2038684
+Haiti,2007,Storm,5741438
+Haiti,2008,Storm,129545703
+Haiti,2010,Earthquake,4433572691
+Haiti,2010,Storm,1032110
+Haiti,2016,Storm,140784747
+Haiti,2017,Storm,1726940
+Haiti,2018,Storm,3018807
+Honduras,2002,Flood,1822501
+Honduras,2005,Storm,677891
+Honduras,2007,Storm,364410
+Honduras,2008,Flood,10954626
+Honduras,2010,Storm,632357
+Honduras,2011,Flood,3252933
+India,2002,Drought,146063
+India,2002,Flood,93065240
+India,2003,Flood,78544
+India,2004,Flood,3390042
+India,2005,Earthquake,94060261
+India,2005,Flood,212192
+India,2006,Flood,4504069
+India,2007,Flood,20788834
+India,2008,Flood,1948130
+India,2009,Flood,727638
+India,2011,Earthquake,32597
+India,2011,Flood,5222436
+India,2011,Storm,1350160
+India,2012,Flood,2700304
+Indonesia,2002,Earthquake,148244
+Indonesia,2002,Flood,15848999
+Indonesia,2003,Flood,578095
+Indonesia,2004,Earthquake,2411528
+Indonesia,2005,Earthquake,984693145
+Indonesia,2006,Earthquake,114902281
+Indonesia,2006,Flood,5450580
+Indonesia,2007,Earthquake,3772445
+Indonesia,2007,Flood,7509426
+Indonesia,2009,Earthquake,87598196
+Indonesia,2010,Earthquake,7043059
+Indonesia,2018,Earthquake,49472857
+Indonesia,2019,Earthquake,10129314
+Iran (Islamic Republic Of),2002,Earthquake,4243623
+Iran (Islamic Republic Of),2003,Earthquake,266900
+Iran (Islamic Republic Of),2004,Earthquake,130225462
+Iran (Islamic Republic Of),2005,Earthquake,1944061
+Iran (Islamic Republic Of),2006,Earthquake,5314884
+Iran (Islamic Republic Of),2012,Earthquake,28539556
+Iran (Islamic Republic Of),2019,Flood,16676291
+Jamaica,2002,Flood,110117
+Jamaica,2004,Storm,4370104
+Jamaica,2007,Storm,4252567
+Jamaica,2008,Storm,1293073
+Jamaica,2010,Storm,68027
+Jamaica,2012,Storm,140987
+Jamaica,2016,Storm,108155
+Jamaica,2017,Storm,1.00E+05
+Kenya,2002,Drought,35420902
+Kenya,2002,Flood,5620693
+Kenya,2004,Drought,49434325
+Kenya,2006,Flood,53311578
+Kenya,2008,Flood,202102
+Kenya,2017,Drought,221803083
+Kyrgyzstan,2005,Flood,25000
+Kyrgyzstan,2006,Earthquake,559405
+Kyrgyzstan,2008,Earthquake,3751294
+Madagascar,2002,Storm,205123
+Madagascar,2003,Flood,646457
+Madagascar,2003,Storm,1294425
+Madagascar,2004,Storm,12507066
+Madagascar,2007,Flood,11389544
+Madagascar,2007,Storm,11389544
+Madagascar,2008,Storm,24898038
+Madagascar,2009,Storm,945255
+Madagascar,2010,Flood,50000
+Madagascar,2010,Storm,2040846
+Madagascar,2011,Storm,2090727
+Madagascar,2012,Storm,4412312
+Madagascar,2017,Storm,15595894
+Mexico,2002,Storm,450393
+Mexico,2003,Earthquake,228887
+Mexico,2005,Flood,128205
+Mexico,2005,Storm,1706722
+Mexico,2007,Flood,13133842
+Mexico,2007,Storm,571872
+Mexico,2010,Storm,273530
+Mexico,2011,Storm,70721
+Morocco,2002,Flood,1241409
+Morocco,2004,Earthquake,13302671
+Mozambique,2003,Flood,106908
+Mozambique,2007,Flood,36255202.5
+Mozambique,2007,Storm,14329125.5
+Mozambique,2008,Flood,18668573
+Mozambique,2008,Storm,8166054
+Mozambique,2012,Storm,4166169
+Mozambique,2013,Flood,17955387
+Mozambique,2015,Flood,11956010
+Mozambique,2017,Storm,6034027
+Mozambique,2019,Storm,280730254
+Myanmar,2004,Storm,263637
+Myanmar,2005,Earthquake,2103513
+Myanmar,2007,Flood,12500
+Myanmar,2007,Storm,12500
+Myanmar,2008,Storm,614053890
+Myanmar,2010,Flood,13261143
+Myanmar,2010,Storm,21655231
+Myanmar,2011,Earthquake,2558180
+Myanmar,2011,Flood,1185170
+Myanmar,2015,Flood,50000
+Namibia,2003,Flood,202766
+Namibia,2004,Flood,26000
+Namibia,2006,Flood,96772
+Namibia,2009,Flood,4153568
+Namibia,2011,Flood,2448550
+Nepal,2002,Flood,2335894
+Nepal,2003,Flood,85000
+Nepal,2004,Flood,847430
+Nepal,2006,Flood,422234
+Nepal,2007,Flood,3956269
+Nepal,2008,Flood,12796054
+Nepal,2015,Earthquake,855422970
+Nepal,2018,Earthquake,3018108
+Nicaragua,2002,Flood,1584031
+Nicaragua,2004,Flood,548352
+Nicaragua,2005,Storm,776623
+Nicaragua,2007,Flood,50000
+Nicaragua,2007,Storm,31935638
+Nicaragua,2008,Flood,123206
+Nicaragua,2010,Storm,254130
+Nicaragua,2011,Flood,7687745
+Niger (the),2005,Drought,119022584
+Niger (the),2006,Flood,327620
+Niger (the),2007,Flood,89400
+Niger (the),2009,Flood,1114242
+Niger (the),2011,Flood,31646
+Niger (the),2012,Flood,526857
+Pakistan,2002,Earthquake,304314
+Pakistan,2003,Flood,1389766
+Pakistan,2004,Earthquake,90000
+Pakistan,2005,Earthquake,2293651975
+Pakistan,2005,Flood,2456496
+Pakistan,2006,Earthquake,1466667
+Pakistan,2006,Flood,124277
+Pakistan,2007,Flood,20165726.5
+Pakistan,2007,Storm,18223122.5
+Pakistan,2008,Earthquake,16072040
+Pakistan,2010,Flood,3040538737
+Pakistan,2011,Flood,263672057
+Pakistan,2012,Flood,151189141
+Peru,2002,Flood,286436
+Peru,2002,Storm,2178725
+Peru,2003,Flood,325103
+Peru,2004,Drought,12500
+Peru,2004,Flood,12500
+Peru,2004,Storm,404805
+Peru,2007,Earthquake,54999126
+Peru,2008,Earthquake,1527099
+Peru,2017,Flood,22424731
+Philippines (the),2003,Flood,422999
+Philippines (the),2004,Flood,18582536
+Philippines (the),2006,Storm,18448989
+Philippines (the),2008,Flood,4673699
+Philippines (the),2009,Flood,110035
+Philippines (the),2009,Storm,109243447
+Philippines (the),2010,Flood,331196
+Philippines (the),2010,Storm,6455616
+Philippines (the),2011,Flood,7794530
+Philippines (the),2011,Storm,3637617
+Philippines (the),2012,Earthquake,219900
+Philippines (the),2012,Storm,119522
+Philippines (the),2014,Earthquake,16568850
+Philippines (the),2014,Storm,1278937166
+Romania,2005,Flood,4368482
+Romania,2008,Flood,501221
+Romania,2010,Flood,122084
+Somalia,2005,Earthquake,11775409
+Somalia,2006,Flood,22640665
+South Africa,2011,Flood,30030
+Sri Lanka,2002,Drought,477931
+Sri Lanka,2003,Flood,5730015
+Sri Lanka,2005,Earthquake,690440948
+Sri Lanka,2006,Flood,288523
+Sri Lanka,2007,Flood,128440
+Sri Lanka,2008,Flood,733115
+Sri Lanka,2010,Flood,456816
+Sri Lanka,2011,Flood,36056520
+Sri Lanka,2012,Storm,1048604
+Tajikistan,2002,Earthquake,29623
+Tajikistan,2002,Flood,3697763
+Tajikistan,2004,Flood,863146
+Tajikistan,2005,Flood,740580
+Tajikistan,2006,Earthquake,327462
+Tajikistan,2007,Earthquake,182065
+Tajikistan,2007,Flood,182065
+Tajikistan,2009,Flood,1844345
+Tajikistan,2010,Flood,513970
+Viet Nam,2002,Flood,1622174
+Viet Nam,2003,Flood,370316
+Viet Nam,2005,Storm,887290
+Viet Nam,2006,Storm,1525897
+Viet Nam,2007,Flood,4438680
+Viet Nam,2008,Flood,214880
+Viet Nam,2009,Storm,14359328
+Viet Nam,2010,Flood,2840965
+Viet Nam,2011,Flood,3880753
+Yemen,2008,Flood,213293255

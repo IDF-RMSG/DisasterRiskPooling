@@ -1,12 +1,15 @@
 .. _phase1_reference-label:
 
-Phase 1: Understanding the nature and shape of the risks
+Phase 1: Understanding the nature of the risks
 ==========================================================
+
+**This phase uses the Loss Curve Generator**, an R-Shiny app located at https://idf-rmsg.shinyapps.io/FinancialRiskPooling to demonstrate how to create disaster loss curves from public historical disaster loss data catalogue, EM-DAT.
 
 
 .. figure:: ../src_img/guidanceimg/phase1.jpg
   :scale: 25%
   :alt: Phase 1 steps
+
 
 
 Step 1: Gather Historical Event Data
@@ -31,8 +34,6 @@ The very first step is gathering data on past events for the risks you want to i
 
 
 
-
-
 **1.3 Identify possible sources of error:**
 
   * Gaps in historical records
@@ -41,16 +42,15 @@ The very first step is gathering data on past events for the risks you want to i
 
 
 
-Tool Guidance
+
+Guidance
 """"""""""""""""""
 
-1. For each country, compile a separate input sheet. The training tool allows you to include up to 5 countries and the 4 hazards of Cyclone, Flooding, Drought and Earthquake. 
+1. For each country and peril, compile a separate sheet.
 
-2. In the future the number of countries in each pool and the number of hazards will increase - this version of the tool is to be used for basic training. 
-
-3. Compile your event data in a CSV file. A template is provided on `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_).
+2. Compile your event data in an Excel file. A template is provided on `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_).
    
-4. Use a dummy dataset if you lack your own data. An example of data is provided on `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_).
+3. Use an example dataset if you lack your own data. An example of data is provided on `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_).
 
 
 
@@ -95,22 +95,22 @@ This is because, often, we will only have a small snapshot of those relationship
 
 
 Step 2: Creating a Synthetic (Stochastic) Catalogue
---------------------------------------------------------
+------------------------------------------------------
 
 This step is about how we take all that information and try to project and understand more deeply the statistical patterns and likely probabilities of different events overall – this uses the tool to support creating a set of synthetic (or stochastic) events. This will generate from a relatively smaller number of event entries into tens of thousands of variations and extremes.
 
 Because we want to understand the long-term pattern of impacts and losses from the hazards, it is often difficult to do this when we only have a short timeline in which we have data on past events; in some cases, we might only have two or three events with good data on impacts and losses. However, to address this, we create a stochastic or synthesised catalogue. This essentially uses the pattern of the data on events available to simulate the loss of other statistically possible events from that data, creating tens of thousands of synthetic events.This makes understanding the long-term pattern of those events more statistically robust. 
 
+This step uses the Loss Curve Generator, an online interface available at https://idf-rmsg.shinyapps.io/FinancialRiskPooling.
 
 
-Tool Guidance 
+Guidance 
 """"""""""""""""""""""
 
-The Excel spreadsheet tool for combining losses can downloaded `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb>`_).
 
 1. Data Selection Tab
 
- Choose Advanced or Basic Input.
+ In the Loss Curve Generator tool, choose Advanced or Basic Input.
  Choose country from the drop-down list
 
  .. figure:: ../src_img/screenshots/step2_1_input.png
@@ -187,7 +187,7 @@ The Excel spreadsheet tool for combining losses can downloaded `here on the Fina
    Simulation outputs
 
 
- Download Simulations to save your new synthetic event catalog (it will download in the format needed for input into the RPT).
+ Download Simulations to save your new synthetic event catalog (it will download in the format needed for input into the Risk Pool Structuring spreadsheet tool).
 
  .. figure:: ../src_img/screenshots/step2_8_downloadsims.png
    :scale: 25%
@@ -218,12 +218,13 @@ How well the selected distribution fits the data will generate uncertainty, wher
 **How reliable is our understanding of the magnitude frequency patterns?**
 Reviewing the quality of the event data available and the robustness of the distribution fitting will give decision-makers a clear idea of how reliable our knowledge of the magnitude frequency relationship is. This is important as the weight of the risk in the pool may be under or overestimated due to this. When it comes later on to assigning financial coverage to those risks, this would need to be a consideration alongside the nature of the risk depicted in the distribution. 
 
-You can use xxxxxxxxxxx tools to statistically simulate additional events, improving your understanding of how frequently certain severity levels might occur.
+You can use the Financial to statistically simulate additional events, improving your understanding of how frequently certain severity levels might occur.
 
 
-There are two kinds of catalogs that can be inputted. These include historical catalogs, where the base data you are inputting has come from recorded historical events. The second are catalogs which have already been generated by a model. In this case you may be using the tool to align to the 15 thousand years of events that this tool provides, to check the curve fitting or to convert the output into the format needed for the RPT.
+There are two kinds of catalogs that can be inputted. These include historical catalogs, where the base data you are inputting has come from recorded historical events. The second are catalogs which have already been generated by a model. In this case you may be using the tool to align to the 15 thousand years of events that this tool provides, to check the curve fitting or to convert the output into the format needed for the Risk Pool Structuring tool.
 
-Tool xxxxxxxx allows you to only run one type of input at a time. For example you can not add in historical events and modelled events into the tool for Earthquake in Chile and try to combine through the tool. You also cannot add both a modelled simulated catalog and an historic simulated catalog for the same country peril in the RPT tool. Currently it is either or for each country's risk. However if different risks and countries you can use a mixture in the RPT (i.e modelled simulation for drought in Mali and simulation based on historical data for flood in Colombia).
+The Loss Curve Generator allows you to only run one type of input at a time. For example you can not combine historical events _and_ modelled events for Earthquake in Chile. 
+You also cannot add both a modelled simulated catalog and an historic simulated catalog for the same country peril in the Risk Pool Structuring tool. Currently it is either or for each country's risk. However, if different risks and countries you can use a mixture in the Risk Pool Structuring Tool (i.e modelled simulation for drought in Mali and simulation based on historical data for flood in Colombia).
 
 
 
@@ -240,17 +241,24 @@ Tool xxxxxxxx allows you to only run one type of input at a time. For example yo
 
 
 
-Step 3: Add Your Synthetic Data to the RPT
----------------------------------------------
+Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool
+-----------------------------------------------------------------------
 
-Once the data set has been generated, it can be added to the RPT to begin to examine the different financial options in the global risk pool and what predictable funding this could provide for the different risks. 
+Once the data set has been generated, it can be added to the Risk Pool Structuring tool to begin to examine the different financial options in the global risk pool and what predictable funding this could provide for the different risks. 
+
+
+The Risk Pool Structuring tool can be accessed on the `Financial Risk Pooling Github <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb>`_, or `downloaded directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb>`_.
+
+
+Example data can be used to try the tool: `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_).
+
 
 
 
 Tool Guidance 
 """"""""""""""""""""""
 
-1. Open the Oasis RPT and select “Country 1 Data Input.”
+1. Open the Risk Pool Structuring tool and select “Country 1 Data Input.”
 
  .. figure:: ../src_img/screenshots/step3_dataInput.png
    :scale: 25%
@@ -263,7 +271,7 @@ Tool Guidance
 
 3. Check for Errors: Column G indicates True/False if any mismatch or missing data is found. Table A5 to D9 checks True/False errors on the peril information and type. Correct any issues, then re-upload if necessary.
 
-4. After successful upload, the RPT automatically generates various loss scenarios using the new data.
+4. After successful upload, the Risk Pool Structuring tool automatically generates various loss scenarios using the new data.
    
 
 Repeat this step for all of your country data sheets to upload them to the subsequent Country data input tabs. Remember you can only add in one catalog per country risk. You cannot add in both a modelled and historic based catalogue for the same country risk.  

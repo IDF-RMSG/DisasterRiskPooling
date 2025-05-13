@@ -15,16 +15,14 @@ Step 8: Total Liability on the Pool
 ---------------------------------------
 
 
-Tool Guidance
+Guidance
 """"""""""""""""""
 
-1. Go to Pool Analysis Tab.
+1. Go to the Pool Analysis Tab to show a “combined payout” scenario when all country-risks are included in Layer 2.
 
-2. The RPT shows a “combined payout” scenario when all country-risks are included in Layer 2.
+2. The chart on the left indicates which country-perils dominate the pool’s liability, or what's most likely to draw down the funding in payouts most heavily. You can consider the bigger the share, the heavier the risk within the pool. It is likely to drain your funding more than others. The heavier risks could be either a result of lots of funding being pre-positioned or the reinstatements on those risks. Or it could be that the frequency of the events depicted, if the attachment and exhaustion is high. 
 
-3. The chart on the left indicates which country-perils dominate the pool’s liability, or what's most likely to draw down the funding in payouts most heavily. You can consider the bigger the share, the heavier the risk within the pool. It is likely to drain your funding more than others. The heavier risks could be either a result of lots of funding being pre-positioned or the reinstatements on those risks. Or it could be that the frequency of the events depicted, if the attachment and exhaustion is high. 
-
-4. The table in cells A23 to C23 displays the percentage share of each risk in the pool and the annual average loss (or payout) for that risk. 
+3. The table in cells A23 to C23 displays the percentage share of each risk in the pool and the annual average loss (or payout) for that risk. 
 
 
 .. figure:: ../src_img/screenshots/step8_totalLiability.png
@@ -66,7 +64,7 @@ So you don’t have to hold onto the total amount of money with such a low chanc
 
 
 
-Tool Guidance
+Guidance
 """"""""""""""""""
 
 1. Cell I6 allows you to vary the standard deviation - this is what represents the premium costs loading in the tool.

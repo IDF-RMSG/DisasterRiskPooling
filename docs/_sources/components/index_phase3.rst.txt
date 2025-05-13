@@ -43,7 +43,7 @@ It may be helpful to review the coverage and risk profile of each country you ha
 
   
 
-Tool Guidance
+Guidance
 """"""""""""""""
 
 1. Go to Country Loss Analysis.
@@ -58,7 +58,7 @@ Tool Guidance
 
 6. The red plot/line shows the total country risk for all of the risks included in the sheet for that country. 
 
-7. The yellow solid plot/line displays layer 1s loss by Return period or percentile and the blue solid plot/line layer 2s loss by Return period or percentile.
+7. The yellow solid plot/line displays layer 1 loss by Return period or percentile and the blue solid plot/line layer 2 loss by Return period or percentile.
 
 8. The dashed lines display the excess and limit of each of those layers' coverage.
 

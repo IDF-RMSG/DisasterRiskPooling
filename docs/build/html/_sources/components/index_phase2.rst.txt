@@ -3,6 +3,12 @@
 Phase 2: Setting your financial structure
 ==========================================================
 
+From this phase, the Risk Pool Structuring tool is used.
+It enables you to include up to five countries and four hazards (cyclone, flood, drought and earthquake). 
+
+The Risk Pool Structuring tool can be downloaded `here on the Financial Risk Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb>`_).
+
+
 .. figure:: ../src_img/guidanceimg/phase2.jpg
   :scale: 25%
   :alt: Phase 2 steps 
@@ -15,10 +21,10 @@ Before we begin to add risks to our pool and add funding coverage against them. 
 
 
 
-Tool Guidance
+Guidance
 """""""""""""""""
 
-1. In the RPT Go to “Financial Structure Input” Tab
+1. In the Risk Pool Structuring tool go to “Financial Structure Input” Tab
 
 .. figure:: ../src_img/screenshots/step4_structure.png
   :scale: 25%
@@ -58,12 +64,12 @@ Step 5: Set the Coverage Layers
   Setting coverage layers
 
 
-Tool Guidance
+Guidance
 """""""""""""""""
 
 1. Define the financing lines
 
-The tool offers the opportunity to consider layering funding for the risk. This means identifying two financing lines for different severity events or types of actions:
+The Risk Pool Structuring tool offers the opportunity to consider layering funding for the risk. This means identifying two financing lines for different severity events or types of actions:
 
  * Layer 1 is funding that is perhaps covered by national or local funding lines or other risk financing mechanisms. It could also be called a deductible or excess in some cases. It's any funding to cover the risk not coming from your pool.  Layer 1: Local/national coverage or a “deductible.” Input values into - Cells E24-L33.
 

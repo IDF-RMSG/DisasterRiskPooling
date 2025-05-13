@@ -18,10 +18,10 @@ It's likely you may not have all the funding you need to cover everything you wo
 This is where you will need to go back and reduce or increase the amount of coverage for different risks to optimise your pool to your funding availability within the risk pool structuring.  
 
 
-Tool guidance
+guidance
 """"""""""""""""""
 
-1. Identify the biggest country risk liabilities on the Pool Analysis tab.
+1. Identify the biggest country risk liabilities on the Pool Analysis tab of the Risk Pool Structuring tool.
    
 2. Return to Financial Structure Input tab and adjust up or down:
 

@@ -48,9 +48,9 @@ Tool Guidance
 
 2. In the future the number of countries in each pool and the number of hazards will increase - this version of the tool is to be used for basic training. 
 
-3. Compile your event data in a CSV file. A template is provided on `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/master/Tool/tool1_model_data_upload.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/master/Tool/tool1_model_data_upload.xlsx>`_).
+3. Compile your event data in a CSV file. A template is provided on `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_).
    
-4. Use a dummy dataset if you lack your own data. An example of data is provided on `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/master/Tool/tool1_model_data_one_peril_ex3_historic.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/master/Tool/tool1_model_data_one_peril_ex3_historic.xlsx>`_).
+4. Use a dummy dataset if you lack your own data. An example of data is provided on `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_).
 
 
 
@@ -106,7 +106,7 @@ Because we want to understand the long-term pattern of impacts and losses from t
 Tool Guidance 
 """"""""""""""""""""""
 
-The Excel spreadsheet tool for combining losses can downloaded `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/master/Tool/idf_tool_20250306.xlsb>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/master/Tool/idf_tool_20250306.xlsb>`_).
+The Excel spreadsheet tool for combining losses can downloaded `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb>`_).
 
 1. Data Selection Tab
 

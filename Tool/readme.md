@@ -1,4 +1,4 @@
-The Risk Pooling Tool
+The Financial Risk Pooling Tool
 ====================
 
 The Financial Risk Pooling tool introduces how to model and structure financial risk for a disaster fund covering multiple hazards (e.g., floods, droughts, earthquakes).
@@ -12,12 +12,16 @@ By illustrating how risk pooling and funding can be set up with well-defined pay
 * Enhance accountability and transparency in how emergency funds are allocated and used.
 
 
-This folder contains the **Excel-format spreadsheet tool** in which users can enter modelled and non-modelled loss data for multiple hazards (perils) and countries, then investigate how the risk can be accumulate and diversify within different structures of a risk pool.
+Contents
+---------------------------------------------------------------
+* the **Excel-format spreadsheet tool** in which users can enter modelled and non-modelled loss data for multiple hazards (perils) and countries, then investigate how the risk can be accumulate and diversify within different structures of a risk pool. [idf_tool_20250306.xlsb](https://github.com/IDF-RMSG/FinancialRiskPooling/blob/master/Tool/idf_tool_20250306.xlsb)
+* A template for creating modelled losses: [tool1_model_data_upload.xlsx](https://github.com/IDF-RMSG/FinancialRiskPooling/blob/master/Tool/tool1_model_data_upload.xlsx)
+* An example of loss data to enter into the tool (in step 1 below): [tool1_model_data_one_peril_ex3_historic.xlsx](https://github.com/IDF-RMSG/FinancialRiskPooling/blob/master/Tool/tool1_model_data_one_peril_ex3_historic.xlsx)
+* Step-by-step guidance on using the tool at: https://idf-rmsg.github.io/FinancialRiskPooling/index.html
 
 
-Instructions
-----------------
-Step-by-step overview:
+Instructions for using the Excel-format spreadsheet tool
+---------------------------------------------------------------
 1.	Paste in output from the IDF Loss Modelling for up to 5 countries in the respective Country X Data Input tabs							
 2.	Enter the countries you wish to cover at the top of the page in the Financial Structure Input tab (note these countries are the same countries for which you'd need to paste the model output
 3.	Enter the perils you wish to cover for these countries in the Financial Structure Input Tab
@@ -27,3 +31,7 @@ Step-by-step overview:
 7.	Press the Run Modelling button to generate losses to the structure(s)
 8.	Go to Analytics section and check outputs
 9.	Return to Financial Structure Input and make changes as required, you can use the Pool Analysis tab to quickly play with the pool structure/reinsurance without needing to press the Run Modelling button again
+
+
+
+

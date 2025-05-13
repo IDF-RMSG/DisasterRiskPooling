@@ -85,7 +85,7 @@ After constructing your risk pool, you may find that you have exceeded the avail
 
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Contents:
 
    ../components/index_phase1.rst

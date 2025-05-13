@@ -14,6 +14,10 @@ The tool has now calculated the probabilities of large volumes of scenarios of p
 Step 8: Total Liability on the Pool
 ---------------------------------------
 
+
+Tool Guidance
+""""""""""""""""""
+
 1. Go to Pool Analysis Tab.
 
 2. The RPT shows a “combined payout” scenario when all country-risks are included in Layer 2.
@@ -54,25 +58,12 @@ You may see it also depicted as above
 
 So it becomes less cost effective to transfer risk the lower the return period or higher the probability and size of coverage. The more risk is transferred and taken on by an insurance company, the higher the premium to account for that. The most uninsurable risk would be a high payout that happens frequently on the attachment. But this can be covered with layer 1 and 2 as these layers and instruments don't need to be necessarily market profitable, but efficient financially and operationally to ensure impact and predictability.
 
-This is at the heart of why financial layering is so useful for disaster management, it allows money for crises to flow efficiently and operationally impactfully. It can create predictability in funding which is very important for good disaster management and preparedness systems. 
+This is at the heart of why financial layering is so useful for disaster management, it allows money for crises to flow efficiently and be operationally impactful. It can create predictability in funding which is very important for good disaster management and preparedness systems. 
 
 The Risk pool of layer 2 allows us to share the risks and probabilities of loss (payout) across the different country risks in the tool. However insurance is able to share the transferred risk across many different kinds of global risks and probabilities (not only the ones that are being covered by your organisation). 
 
 So you don’t have to hold onto the total amount of money with such a low chance of needing it all. But also ensure we have coverage if those less frequent events do happen. This is important because when money is tight, it's very hard to justify holding lots of money for events which may not happen, especially those with a  low probability. So, this type of structuring allows less to be held but still has a mechanism for the worst-case scenarios to meet the coverage. 
 
-
-Key Decision-Making Considerations
-""""""""""""""""""""""""""""""""""""""""
-
-**What level of insolvency are we willing to accept?** 
-If you are operating an insurance company, your aim is to be as fully solvent as you can be while ensuring affordable premiums. For the market, this is regulated, with having to be solvent to 99.8% (a 1-in-200 year return period). However, in the case of an emergency fund, you need to balance how safe the fund is and how to maximise its utility and employment in emergency situations. In this case, the risk appetite may be greater for emergency funds as holding onto too much funding can have significant moral and operational hazards in the context of emergency funding. 
-A balance on how much to hold, transfer, and accept insolvency will dictate the level of funding that will likely flow out of your pool each year (annual average loss). All of the operational, governance, and technical considerations have to be considered in the round. 
-
-**Do we have other means other than re-insurance to self-insure?** 
-In some cases, you may have other funds or parts of funds that you can use as your backup in those very unlikely extreme years of drawdowns beyond the amount of funding you have.. What availability and agreement you could put in place for this would need to be identified.
-
-**What are the consequences if we cannot pay the total amounts we have guaranteed to countries?** 
-This will differ with different funds. The predictability that risk financing and risk pooling bring is one of the biggest impacts and advantages in emergencies and funding mechanisms. So, it will be important to understand what level of guarantee recipients of the funding feel comfortable with and the level of risk they can accept. In some cases, you may have a legal contractual obligation, so understanding what level of guarantee and solvency you have agreed to is essential, along with clauses. Retaining funds for rarer events might be inefficient. Reinsurance (Layer 3) can transfer these “tail risks” for a premium.
 
 
 Tool Guidance
@@ -106,3 +97,18 @@ Tool Guidance
 
    
 7. The Pool recoveries table from cell H48 displays all of the granular data from the graph. This may be helpful when it comes to optimising in the final step.
+
+
+
+Key Decision-Making Considerations
+""""""""""""""""""""""""""""""""""""""""
+
+**What level of insolvency are we willing to accept?** 
+If you are operating an insurance company, your aim is to be as fully solvent as you can be while ensuring affordable premiums. For the market, this is regulated, with having to be solvent to 99.8% (a 1-in-200 year return period). However, in the case of an emergency fund, you need to balance how safe the fund is and how to maximise its utility and employment in emergency situations. In this case, the risk appetite may be greater for emergency funds as holding onto too much funding can have significant moral and operational hazards in the context of emergency funding. 
+A balance on how much to hold, transfer, and accept insolvency will dictate the level of funding that will likely flow out of your pool each year (annual average loss). All of the operational, governance, and technical considerations have to be considered in the round. 
+
+**Do we have other means other than re-insurance to self-insure?** 
+In some cases, you may have other funds or parts of funds that you can use as your backup in those very unlikely extreme years of drawdowns beyond the amount of funding you have.. What availability and agreement you could put in place for this would need to be identified.
+
+**What are the consequences if we cannot pay the total amounts we have guaranteed to countries?** 
+This will differ with different funds. The predictability that risk financing and risk pooling bring is one of the biggest impacts and advantages in emergencies and funding mechanisms. So, it will be important to understand what level of guarantee recipients of the funding feel comfortable with and the level of risk they can accept. In some cases, you may have a legal contractual obligation, so understanding what level of guarantee and solvency you have agreed to is essential, along with clauses. Retaining funds for rarer events might be inefficient. Reinsurance (Layer 3) can transfer these “tail risks” for a premium.

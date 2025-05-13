@@ -1,35 +1,35 @@
 # Load additional libraries
 library(shiny)
-library(shinydashboard)
-library(tidyverse)
-library(shinyjs)
-library(shinyBS)
-library(shinyjqui)
-library(bsplus)
-library(scales)
-library(shinycssloaders)
-library(plotly)
-library(reshape2)
-# library(WBTool1)
-library(readxl)
-library(qpcR)
-library(DT)
-library(ggplot2)
-library(ggthemes)
-library(shinyWidgets)
-library(shinythemes)
+#library(shinydashboard)
+#library(tidyverse)
+#library(shinyjs)
+#library(shinyBS)
+#library(shinyjqui)
+#library(bsplus)
+#library(scales)
+#library(shinycssloaders)
+#library(plotly)
+#library(reshape2)
+#library(WBTool1)
+#library(readxl)
+#library(qpcR)
+#library(DT)
+#library(ggplot2)
+#library(ggthemes)
+#library(shinyWidgets)
+#library(shinythemes)
 library(dplyr)
-library(htmltools)
-library(MASS)
-library(reshape2)
-library(optimx)
-library(fitdistrplus)
-library(actuar)
-library(Hmisc)
-library(boot)
-library(tidyr)
-library(data.table)
-library(tictoc)
+#library(htmltools)
+#library(MASS)
+#library(optimx)
+#library(reshape2)
+#library(fitdistrplus)
+#library(actuar)
+#library(Hmisc)
+#library(boot)
+#library(tidyr)
+#library(data.table)
+#library(tictoc)
 
 # Remove scientific notation in plots
 options(scipen = '999')
@@ -47,16 +47,20 @@ end_year <- 2024
 # EM-DAT
 
 emdat_data_occ <-
-  read.csv('data/Countries/emdat_country_occ.csv', stringsAsFactors = FALSE) |>
-  dplyr::filter(dplyr::between(.data$Year, start_year, end_year))
+  read.csv('data/Countries/emdat_country_occ.csv', stringsAsFactors = FALSE) %>%
+  dplyr::filter(
+    dplyr::between(
+      .data$Year, start_year, end_year
+      )
+    )
 
 emdat_data_yearly <-
-  emdat_data_occ |>
+  emdat_data_occ %>%
     dplyr::group_by(
       .data$`Country`,
       .data$`Year`,
       .data$Type.of.event
-    ) |>
+    ) %>%
     dplyr::summarise(
       `Total.affected` = sum(.data$`Sum.of.Total.affected`),
       `Total.Damage` = sum(.data$`Sum.of.Total.Damage`),
@@ -74,7 +78,7 @@ names(country_data) <-
 
 # Melt data to collapse damage type
 country_data <-
-  country_data |>
+  country_data %>%
   tidyr::pivot_longer(
     c("damage", "affected"),
     names_to = "damage_type"
@@ -100,31 +104,31 @@ cost_data <- dplyr::filter(country_data, .data$damage_type == 'affected')
 damage_data <-  dplyr::filter(country_data, .data$damage_type == 'damage')
 
 cost_freq <-
-  cost_data |>
+  cost_data %>%
   dplyr::group_by(
     .data$country,
     .data$year,
     .data$peril,
     .data$damage_type
-  ) |>
+  ) %>%
   dplyr::summarise(
      value = sum(.data$value > 0),
     .groups = "drop"
-  ) |>
+  ) %>%
   tidyr::complete(.data$country, .data$peril, .data$year, fill = list(value = 0))
 
 damage_freq <-
-  damage_data |>
+  damage_data %>%
   dplyr::group_by(
     .data$country,
     .data$year,
     .data$peril,
     .data$damage_type
-  ) |>
+  ) %>%
   dplyr::summarise(
     value = sum(.data$value > 0),
     .groups = "drop"
-  ) |>
+  ) %>%
   tidyr::complete(.data$country, .data$peril, .data$year, fill = list(value = 0))
 
 # Combine the cost per person and loss data
@@ -318,3 +322,4 @@ outputs_heading <-
     p("95% confidence intervals can be toggled. These show the range of possible values for each return period that 95% of losses will fall within."),
     br()
   ))
+

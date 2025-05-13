@@ -3,7 +3,8 @@
 # Added this to get wbtool1 functions
 file_sources <-
   list.files(
-    "C:/Users/JamesMcIlwaine/applications/idf.finance.tool1/R",
+    #"../../../../R/"
+    "C:/Users/stufraser/github/FinancialRiskPooling/shiny_app/inst/shiny-app/Tool1",
     pattern = "*.R",
     full.names = TRUE
   )
@@ -691,28 +692,28 @@ server <- function(input, output, session) {
 
     out <-
       if(input$view_data != 'Frequency'){
-        cored[[1]] |>
-          dplyr::group_by(.data$country, .data$peril, .data$year) |>
-          dplyr::summarise(value = sum(.data$value), .groups = "drop") |>
+        cored[[1]] %>%
+          dplyr::group_by(.data$country, .data$peril, .data$year) %>%
+          dplyr::summarise(value = sum(.data$value), .groups = "drop") %>%
           tidyr::complete(
             country, peril,
             year = cored[[3]]$`Min Year`:cored[[3]]$`Max Year`,
             fill = list(value = 0)
-          ) |>
+          ) %>%
           tidyr::pivot_wider(
             names_from = peril,
             values_from = value,
             names_glue = "{peril}, USD"
           )
       } else {
-        cored[[2]] |>
-          dplyr::group_by(.data$country, .data$peril, .data$year) |>
-          dplyr::summarise(value = sum(.data$value), .groups = "drop") |>
+        cored[[2]] %>%
+          dplyr::group_by(.data$country, .data$peril, .data$year) %>%
+          dplyr::summarise(value = sum(.data$value), .groups = "drop") %>%
           tidyr::complete(
             country, peril,
             year = cored[[3]]$`Min Year`:cored[[3]]$`Max Year`,
             fill = list(value = 0)
-          ) |>
+          ) %>%
           tidyr::pivot_wider(
             names_from = "peril", values_from = "value"
           )
@@ -721,8 +722,8 @@ server <- function(input, output, session) {
     country_name <- out$country[1]
 
     out <-
-      out |>
-      dplyr::select( -"country") |>
+      out %>%
+      dplyr::select( -"country") %>%
       dplyr::rename("Year" = "year")
 
       DT::datatable(out,
@@ -735,7 +736,7 @@ server <- function(input, output, session) {
                         buttons = c('copy', 'csv'),
                         columnDefs =
                           list(list(className = 'dt-center', targets = '_all')),
-                        dom ='Brt'))  |>
+                        dom ='Brt'))  %>%
         DT::formatRound(setdiff(names(out), "Year"), digits = 0, interval = 3, mark = ",")
 
   })
@@ -753,9 +754,9 @@ server <- function(input, output, session) {
 
     out <-
       if(input$view_data != 'Frequency'){
-          cored[[1]] |>
-            dplyr::group_by(.data$country, .data$peril, .data$year) |>
-            dplyr::summarise(value = sum(.data$value), .groups = "drop") |>
+          cored[[1]] %>%
+            dplyr::group_by(.data$country, .data$peril, .data$year) %>%
+            dplyr::summarise(value = sum(.data$value), .groups = "drop") %>%
             tidyr::complete(
               .data$country,
               .data$peril,
@@ -768,7 +769,7 @@ server <- function(input, output, session) {
     country_name <- out$country[1]
 
     out <-
-      out |>
+      out %>%
       dplyr::rename(
         "Year" = "year" ,
         "Cost" = "value" ,
@@ -796,7 +797,7 @@ server <- function(input, output, session) {
 
     if(!too_much_data) {
 
-      out |>
+      out %>%
         plotly::plot_ly(x = ~ Year,
                         y = ~ Cost,
                         type = "bar",
@@ -808,7 +809,7 @@ server <- function(input, output, session) {
                             width = 0.5
                           )
                         )
-                      )|>
+                      )%>%
         plotly::layout(title = paste0("<b>Average Annual Loss by Year Caused by Perils in ", country_name),
                        font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
                        yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
@@ -818,15 +819,15 @@ server <- function(input, output, session) {
 
     } else {
 
-      out |>
-        dplyr::group_by(.data$Disaster) |>
-        dplyr::summarise(Cost = sum(.data$Cost) / cored[[3]]$`Number of Years`) |>
+      out %>%
+        dplyr::group_by(.data$Disaster) %>%
+        dplyr::summarise(Cost = sum(.data$Cost) / cored[[3]]$`Number of Years`) %>%
         plotly::plot_ly(
           labels = ~Disaster,
           values = ~Cost,
           type = "pie",
           marker = list(colors = c("#D41F29", "grey", '#FF851B', "#FFF8DC"))
-        ) |>
+        ) %>%
         plotly::layout(
           title = paste0("<b>Losses Caused by Perils in ", country_name),
           font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
@@ -910,12 +911,12 @@ server <- function(input, output, session) {
           )
 
         data_temp[[1]] <-
-          selected_country() |>
+          selected_country() %>%
             dplyr::filter(
               .data$origin %in% best_data_source,
               .data$damage_type == chosen_dmg_type
-            ) |>
-            dplyr::select(-"origin", -"damage_type") |>
+            ) %>%
+            dplyr::select(-"origin", -"damage_type") %>%
             dplyr::mutate(
                   peril =
                     factor(
@@ -925,16 +926,16 @@ server <- function(input, output, session) {
                 )
 
         data_temp[[2]] <-
-          country_frequency() |>
-          dplyr::filter(.data$damage_type == chosen_dmg_type) |>
-          dplyr::select(-"damage_type") |>
-          dplyr::group_by(.data$country, .data$peril, .data$year) |>
-          dplyr::summarise(value = sum(.data$value), .groups = "drop") |>
+          country_frequency() %>%
+          dplyr::filter(.data$damage_type == chosen_dmg_type) %>%
+          dplyr::select(-"damage_type") %>%
+          dplyr::group_by(.data$country, .data$peril, .data$year) %>%
+          dplyr::summarise(value = sum(.data$value), .groups = "drop") %>%
           tidyr::complete(
             .data$peril, .data$country,
             year = data_temp[[3]]$`Min Year`[1]:data_temp[[3]]$`Max Year`[1],
             fill = list(value = 0)
-          ) |>
+          ) %>%
           dplyr::mutate(
               peril =
                 factor(
@@ -1019,7 +1020,7 @@ server <- function(input, output, session) {
       }
 
       cdx1 <-
-        readxl::read_xlsx(inFile$datapath, sheet = "data_upload") |>
+        readxl::read_xlsx(inFile$datapath, sheet = "data_upload") %>%
           dplyr::select(- dplyr::contains("..."))
 
       cdx_name <- names(cdx1)
@@ -1048,7 +1049,7 @@ server <- function(input, output, session) {
               reverting to standard data.'
         }
         cdx1 <-
-          cdx1 |>
+          cdx1 %>%
           dplyr::mutate(
             Year = as.integer(.data$Year),
             `Event Name or ID` = as.character(.data$`Event Name or ID`),
@@ -1059,7 +1060,7 @@ server <- function(input, output, session) {
             `Data Type` = "Historic"
           )
 
-        check_col_data <- purrr:::map(cdx1, \(x) all(is.na(x))) |> unlist()
+        check_col_data <- purrr:::map(cdx1, function(x) all(is.na(x))) %>% unlist()
 
         if(any(check_col_data == TRUE)) {
           err <-
@@ -1086,35 +1087,35 @@ server <- function(input, output, session) {
     if (is.null(val) || val == 'No Upload') {
 
       cdx1 <-
-        inFile$datapath |>
-        readxl::read_xlsx(sheet = "data_upload") |>
+        inFile$datapath %>%
+        readxl::read_xlsx(sheet = "data_upload") %>%
         dplyr::select(- dplyr::contains("..."))
 
       data_info <-
-        cdx1 |>
-          dplyr::select("Min Year", "Number of Years") |>
+        cdx1 %>%
+          dplyr::select("Min Year", "Number of Years") %>%
           dplyr::mutate(
             `Max Year` = .data$`Min Year` + .data$`Number of Years` - 1
-          ) |>
-          dplyr::slice(1) |>
+          ) %>%
+          dplyr::slice(1) %>%
           dplyr::mutate(`Data Type` = "Historical")
 
       cdx1 <-
-        cdx1  |>
+        cdx1  %>%
           dplyr::filter(
             .data$`Loss (USD)` > 0 & !is.na(.data$`Loss (USD)`),
             dplyr::between(
               .data$Year, data_info$`Min Year`[1], data_info$`Max Year`[1]
             )
-          ) |>
-          dplyr::select(-"Number of Years") |>
+          ) %>%
+          dplyr::select(-"Number of Years") %>%
           dplyr::rename(
             "id" = "Event Name or ID",
             "country" = "Country",
             "year" = "Year",
             "peril" = "Peril",
             "value" = "Loss (USD)"
-          ) |>
+          ) %>%
           dplyr::mutate(
                 peril =
                   factor(
@@ -1124,15 +1125,15 @@ server <- function(input, output, session) {
               )
 
       cdx2 <-
-        cdx1 |>
-          dplyr::group_by(.data$country, .data$peril, .data$year) |>
-          dplyr::summarise(value = dplyr::n(), .groups = "drop") |>
+        cdx1 %>%
+          dplyr::group_by(.data$country, .data$peril, .data$year) %>%
+          dplyr::summarise(value = dplyr::n(), .groups = "drop") %>%
           tidyr::complete(
             country,
             peril,
             year = data_info$`Min Year`[1]:data_info$`Max Year`[1],
             fill = list(value = 0)
-          )  |>
+          )  %>%
           dplyr::mutate(
             peril =
               factor(
@@ -1182,13 +1183,13 @@ server <- function(input, output, session) {
           )
 
         data[[1]] <-
-          selected_country() |>
+          selected_country() %>%
           dplyr::filter(
             .data$origin %in% best_data_source,
             .data$damage_type == chosen_dmg_type
-          ) |>
-          dplyr::mutate(value = input$cost_per_person * .data$value) |>
-          dplyr::select(-"origin", -"damage_type") |>
+          ) %>%
+          dplyr::mutate(value = input$cost_per_person * .data$value) %>%
+          dplyr::select(-"origin", -"damage_type") %>%
           dplyr::mutate(
             peril =
               factor(
@@ -1198,17 +1199,17 @@ server <- function(input, output, session) {
             )
 
         data[[2]] <-
-          country_frequency() |>
-          dplyr::filter(.data$damage_type == chosen_dmg_type) |>
-          dplyr::select( -"damage_type") |>
-          dplyr::group_by(.data$country, .data$peril, .data$year) |>
-          dplyr::summarise(value = sum(.data$value), .groups = "drop") |>
+          country_frequency() %>%
+          dplyr::filter(.data$damage_type == chosen_dmg_type) %>%
+          dplyr::select( -"damage_type") %>%
+          dplyr::group_by(.data$country, .data$peril, .data$year) %>%
+          dplyr::summarise(value = sum(.data$value), .groups = "drop") %>%
           tidyr::complete(
             country,
             peril,
             year = data[[3]]$`Min Year`[1]:data[[3]]$`Max Year`[1],
             fill = list(value = 0)
-          ) |>
+          ) %>%
           dplyr::mutate(
             peril =
               factor(
@@ -1236,12 +1237,12 @@ server <- function(input, output, session) {
         data <- list()
 
         data[[1]] <-
-          selected_archetype() |>
-            dplyr::select(-"data_type", -"damage_type", -"best_data") |>
+          selected_archetype() %>%
+            dplyr::select(-"data_type", -"damage_type", -"best_data") %>%
             dplyr::mutate(value = .data$value * input$cost_per_person)
 
         data[[2]] <-
-          archetype_frequency |>
+          archetype_frequency %>%
             dplyr::select(-"data_type", -"damage_type")
 
         data
@@ -1631,25 +1632,25 @@ server <- function(input, output, session) {
         shiny::req(get_right_data())
 
         out <-
-          get_right_data()[[1]] |>
-            dplyr::group_by(.data$country, .data$peril, .data$year) |>
+          get_right_data()[[1]] %>%
+            dplyr::group_by(.data$country, .data$peril, .data$year) %>%
             dplyr::summarise(
               value = sum(.data$value), .groups = "drop"
-            ) |>
+            ) %>%
             tidyr::complete(
               country, peril,
               year = get_right_data()[[3]]$`Min Year`:get_right_data()[[3]]$`Max Year`,
               fill = list(value = 0)
-            ) |>
+            ) %>%
             tidyr::pivot_wider(
               names_from = peril,
               values_from = value,
               names_glue = "{peril}, USD"
-            ) |>
-            dplyr::select(-"country") |>
+            ) %>%
+            dplyr::select(-"country") %>%
             dplyr::rename("Year" = "year")
 
-        out |>
+        out %>%
           DT::datatable(
             rownames = FALSE,
             extensions = 'Buttons',
@@ -1662,7 +1663,7 @@ server <- function(input, output, session) {
               )),
               dom = 'Brt'
             )
-          ) |>
+          ) %>%
           DT::formatRound(
             setdiff(names(out), "Year"),
             digits = 0,
@@ -1698,14 +1699,14 @@ server <- function(input, output, session) {
     perils_out <- paste(perils, currency_code, sep=", ")
 
     out <-
-      out |>
-        dplyr::group_by(.data$peril, .data$year) |>
-        dplyr::summarise(value = sum(.data$value), .groups = "drop") |>
+      out %>%
+        dplyr::group_by(.data$peril, .data$year) %>%
+        dplyr::summarise(value = sum(.data$value), .groups = "drop") %>%
         tidyr::complete(
           .data$peril,
           year = get_right_data()[[3]]$`Min Year`:get_right_data()[[3]]$`Max Year`,
           fill = list(value = 0)
-        ) |>
+        ) %>%
         dplyr::rename("Disaster" = "peril", "Cost"= "value", "Year" = "year")
 
     if(!too_much_data) {
@@ -1723,7 +1724,7 @@ server <- function(input, output, session) {
                         width = 0.5
                       )
                     )
-                  ) |>
+                  ) %>%
       plotly::layout(title = paste0("<b>Processed Losses Caused by Perils in ", country_name),
                      font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
                      yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
@@ -1732,15 +1733,15 @@ server <- function(input, output, session) {
                      legend = list(orientation = "h", xanchor = "center", x = 0.5))
     } else {
 
-      out |>
-        dplyr::group_by(.data$Disaster) |>
-        dplyr::summarise(Cost = sum(.data$Cost) / get_right_data()[[3]]$`Number of Years`) |>
+      out %>%
+        dplyr::group_by(.data$Disaster) %>%
+        dplyr::summarise(Cost = sum(.data$Cost) / get_right_data()[[3]]$`Number of Years`) %>%
         plotly::plot_ly(
           labels = ~ Disaster,
           values = ~ Cost,
           type = "pie",
           marker = list(colors = c("#D41F29", "grey", '#FF851B', "#FFF8DC"))
-        ) |>
+        ) %>%
         plotly::layout(
           title = paste0("<b>Processed Losses Caused by Perils in ", country_name),
           font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
@@ -1834,7 +1835,7 @@ server <- function(input, output, session) {
         scaling_error(FALSE)
       }
       out <-
-        combined_data |>
+        combined_data %>%
           dplyr::select("country", "peril", "year", "value")
       final_list[[1]] <- out
       final_list[[2]] <- second_part
@@ -2067,36 +2068,36 @@ server <- function(input, output, session) {
     } else {
 
       chosen_flood <-
-        fd  |>
-        dplyr::filter(.data$peril == 'Flood' & .data$distribution != "Freq") |>
-        dplyr::select("distribution") |>
-        unlist() |>
+        fd  %>%
+        dplyr::filter(.data$peril == 'Flood' & .data$distribution != "Freq") %>%
+        dplyr::select("distribution") %>%
+        unlist() %>%
         unname()
 
       chosen_earthquake <-
-        fd  |>
-        dplyr::filter(.data$peril == 'Earthquake' & .data$distribution != "Freq") |>
-        dplyr::select("distribution")|>
-        unlist() |>
+        fd  %>%
+        dplyr::filter(.data$peril == 'Earthquake' & .data$distribution != "Freq") %>%
+        dplyr::select("distribution")%>%
+        unlist() %>%
         unname()
 
       chosen_drought <-
-        fd  |>
-        dplyr::filter(.data$peril == 'Drought' & .data$distribution != "Freq") |>
-        dplyr::select("distribution")|>
-        unlist() |>
+        fd  %>%
+        dplyr::filter(.data$peril == 'Drought' & .data$distribution != "Freq") %>%
+        dplyr::select("distribution")%>%
+        unlist() %>%
         unname()
 
       chosen_storm <-
-        fd  |>
-        dplyr::filter(.data$peril == 'Cyclone' & .data$distribution != "Freq") |>
-        dplyr::select("distribution")|>
-        unlist() |>
+        fd  %>%
+        dplyr::filter(.data$peril == 'Cyclone' & .data$distribution != "Freq") %>%
+        dplyr::select("distribution")%>%
+        unlist() %>%
         unname()
 
       chosen_freq <-
-        fd |>
-          dplyr::filter(.data$distribution == "Freq") |>
+        fd %>%
+          dplyr::filter(.data$distribution == "Freq") %>%
             dplyr::mutate(
               distribution =
                 dplyr::case_when(
@@ -2361,17 +2362,17 @@ server <- function(input, output, session) {
     country_select <-
       if (input$data_type == 'Manual Input') {upload_name()} else {input$country}
 
-      ran_simulations()$Event |>
+      ran_simulations()$Event %>%
         dplyr::rename(
           "Simulation Number" = "year",
           "Loss (USD)" = "value",
           "Peril" = "key"
-        ) |>
+        ) %>%
         dplyr::mutate(
           `Event ID` = dplyr::row_number(),
           Region = country_select,
           Type = "Occurrence"
-        ) |>
+        ) %>%
         dplyr::select(
           "Simulation Number",
           "Type",
@@ -2471,11 +2472,11 @@ server <- function(input, output, session) {
         return(NULL)
       }
 
-      dat_sim$Yearly |>
-        dplyr::filter(!is.na(value)) |>
-        dplyr::select("key") |>
-        unique() |>
-        unlist() |>
+      dat_sim$Yearly %>%
+        dplyr::filter(!is.na(value)) %>%
+        dplyr::select("key") %>%
+        unique() %>%
+        unlist() %>%
         unname()
     }
   )
@@ -2642,10 +2643,10 @@ server <- function(input, output, session) {
         if(is.null(selected_perils)){
           NULL
         } else {
-          ran_simulations()$Yearly |>
-            dplyr::filter(.data$key %in% selected_perils) |>
-            dplyr::group_by(.data$year) |>
-            dplyr::summarise(value = sum(.data$value), .groups = "drop") |>
+          ran_simulations()$Yearly %>%
+            dplyr::filter(.data$key %in% selected_perils) %>%
+            dplyr::group_by(.data$year) %>%
+            dplyr::summarise(value = sum(.data$value), .groups = "drop") %>%
             dplyr::mutate(key = "all_perils", .after = "year")
         }
     }
@@ -2661,9 +2662,9 @@ server <- function(input, output, session) {
         dat <- get_right_data()
         dat <- dat[[1]]
         # filter selected_perils
-        dat |>
-          dplyr::filter(peril %in% selected_perils) |>
-          dplyr::group_by(.data$year) |>
+        dat %>%
+          dplyr::filter(peril %in% selected_perils) %>%
+          dplyr::group_by(.data$year) %>%
           dplyr::summarise(value = sum(.data$value))
       }
     )
@@ -2744,7 +2745,7 @@ server <- function(input, output, session) {
     shiny::reactive({
 
       shiny::req(input$select_peril)
-      
+
       if(filtered_distribution()$data_type[[1]] == "Model" |
         nrow(gather_data()) > 100)
       {
@@ -2758,8 +2759,8 @@ server <- function(input, output, session) {
           lapply(list(input$dist_drought_input,
                       input$dist_earthquake_input,
                       input$dist_flood_input,
-                      input$dist_storm_input), FUN = match_dist_names) |>
-          unlist() |>
+                      input$dist_storm_input), FUN = match_dist_names) %>%
+          unlist() %>%
           dplyr::bind_cols(c("Drought", "Earthquake", "Flood", "Cyclone"))
 
         names(peril_dists) <- c("dist", "peril")
@@ -2768,16 +2769,16 @@ server <- function(input, output, session) {
           dplyr::filter(peril_dists, .data$peril %in% input$select_peril)
 
         selected_dists <-
-          fitted_distribution()[[1]] |>
+          fitted_distribution()[[1]] %>%
           dplyr::inner_join(peril_dists, by = c("distribution" = "dist", "peril"))
 
         valid_perils <- unique(selected_dists$peril)
 
         selected_dists <-
-          fitted_distribution()[[1]] |>
+          fitted_distribution()[[1]] %>%
           dplyr::filter(
             .data$peril %in% valid_perils & .data$distribution == "Freq"
-          ) |>
+          ) %>%
           dplyr::bind_rows(selected_dists)
 
         selected_bootstraps <- list()
@@ -2787,12 +2788,12 @@ server <- function(input, output, session) {
           peril_name <- valid_perils[i]
 
           dist_name <-
-            selected_dists |>
+            selected_dists %>%
               dplyr::filter(
                 .data$distribution != "Freq" & .data$peril == peril_name
-              ) |>
-              dplyr::select("distribution") |>
-              unlist() |>
+              ) %>%
+              dplyr::select("distribution") %>%
+              unlist() %>%
               switch(
                 "Log normal" = "lnorm",
                 "Weibull" = "weibull",
@@ -2827,8 +2828,8 @@ server <- function(input, output, session) {
     } else {
       dat_sim <- dplyr::filter(gp, !is.na(.data$value))
       dat <-
-        gd |>
-          dplyr::filter(.data$value > 0) |>
+        gd %>%
+          dplyr::filter(.data$value > 0) %>%
           dplyr::arrange(.data$year)
 
       sub_dat <-
@@ -3278,12 +3279,12 @@ server <- function(input, output, session) {
     plot_dat <- annual_loss_gap_data()
 
     severe_prob <-
-      plot_dat |>
-        dplyr::filter(.data$variable == "Severe") |>
-        dplyr::mutate(value = .data$value / scale_size) |>
-        dplyr::select("value") |>
-        dplyr::slice(1) |>
-        unname() |>
+      plot_dat %>%
+        dplyr::filter(.data$variable == "Severe") %>%
+        dplyr::mutate(value = .data$value / scale_size) %>%
+        dplyr::select("value") %>%
+        dplyr::slice(1) %>%
+        unname() %>%
         round(digits = 2)
 
     valueBox(severe_prob,
@@ -3299,12 +3300,12 @@ server <- function(input, output, session) {
     plot_dat <- annual_loss_gap_data()
 
     extreme_prob <-
-      plot_dat |>
-        dplyr::filter(.data$variable == "Extreme") |>
-        dplyr::mutate(value = .data$value / scale_size) |>
-        dplyr::select("value") |>
-        dplyr::slice(1) |>
-        unname() |>
+      plot_dat %>%
+        dplyr::filter(.data$variable == "Extreme") %>%
+        dplyr::mutate(value = .data$value / scale_size) %>%
+        dplyr::select("value") %>%
+        dplyr::slice(1) %>%
+        unname() %>%
         round(digits = 2)
 
     valueBox(extreme_prob,

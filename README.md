@@ -12,4 +12,4 @@ The Financial Risk Pooling Tool comprises:
 -----------------------------------------------
 1. **Step-by-step user guide** (branch 'gh-pages'): https://idf-rmsg.github.io/FinancialRiskPooling/. This guide should be read before using any of the tools.
 2. **Loss Curve Generator**: An R-Shiny interface which enables users to pull data from online historical disaster loss catalogues, trend them according to population change for example, and then export modelled loss curves for use in the risk pooling spreadsheet in the next step. See folder 'shiny_app' for the code. This app is deployed at: https://idf-rmsg.shinyapps.io/FinancialRiskPooling
-3. **Disaster Risk Pool Structuring**: An Excel spreadsheet which ingests losses from Loss Curve Generator and can be used to test the effect of different risk pool structures. See folder 'DisasterRiskPoolStructuring'.
+3. **Risk Pool Structuring**: An Excel spreadsheet which ingests losses from Loss Curve Generator and can be used to test the effect of different risk pool structures. See folder 'RiskPoolStructuring'.

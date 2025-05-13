@@ -11,5 +11,5 @@ The tool builds on code originally developed by World Bank DRFIP for supporting 
 Contents
 ---------------------------------------------------------------
 1. A step-by-step user guide (branch 'gh-pages'): https://idf-rmsg.github.io/FinancialRiskPooling/. This guide should be read before using any of the tools.
-2. [R-Shiny interface](https://github.com/IDF-RMSG/FinancialRiskPooling/tree/master/shiny_app) for the Financial Risk Pooling tool. (loss trending, visualisation and combination of losses). This interface enables users to pull data from online historical disaster loss catalogues, trend them according to population change for example, and then export modelled loss curves for use in the risk pooling spreadsheet in the next step. 
-3. [Spreadsheet](https://github.com/IDF-RMSG/FinancialRiskPooling/tree/master/Tool) for inputting losses and demonstrate / test the effect of risk pooling structures.
+2. An R-Shiny interface which interface enables users to pull data from online historical disaster loss catalogues, trend them according to population change for example, and then export modelled loss curves for use in the risk pooling spreadsheet in the next step. See folder 'shiny_app' for the code. This app is deployed at: https://idf-rmsg.shinyapps.io/FinancialRiskPooling
+3. Spreadsheet for inputting losses and demonstrate / test the effect of risk pooling structures. See folder 'DisasterRiskPoolingTool'.

@@ -14,9 +14,9 @@ By illustrating how risk pooling and funding can be set up with well-defined pay
 
 Contents
 ---------------------------------------------------------------
-* the **Excel-format spreadsheet tool** in which users can enter modelled and non-modelled loss data for multiple hazards (perils) and countries, then investigate how the risk can be accumulate and diversify within different structures of a risk pool. [idf_tool_20250306.xlsb](https://github.com/IDF-RMSG/FinancialRiskPooling/blob/master/Tool/idf_tool_20250306.xlsb)
-* A template for creating modelled losses: [tool1_model_data_upload.xlsx](https://github.com/IDF-RMSG/FinancialRiskPooling/blob/master/Tool/tool1_model_data_upload.xlsx)
-* An example of loss data to enter into the tool (in step 1 below): [tool1_model_data_one_peril_ex3_historic.xlsx](https://github.com/IDF-RMSG/FinancialRiskPooling/blob/master/Tool/tool1_model_data_one_peril_ex3_historic.xlsx)
+* the **Excel-format spreadsheet tool** in which users can enter modelled and non-modelled loss data for multiple hazards (perils) and countries, then investigate how the risk can be accumulate and diversify within different structures of a risk pool. See file: 'RiskPoolingTool_main_V*.xlsb'
+* A template for creating modelled losses: 'PoolingTool_UploadTemplate.xlsx'
+* An example of loss data to enter into the tool (in step 1 below): 'PoolingTool_UploadExample.xlsx'
 * Step-by-step guidance on using the tool at: https://idf-rmsg.github.io/FinancialRiskPooling/index.html
 
 

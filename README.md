@@ -8,9 +8,8 @@ The central purpose of this tool is educational, serving as an introduction to t
 The tool builds on code originally developed by World Bank DRFIP for supporting World Bank client countries to better understand the risk of losses occurring from disasters, by visualising and historical losses creating exceedance probability curves from historical loss data. The original tool: Financial Risk Assessment Tool (http://149.28.228.221/apps/Tool1/)
 
 
-This repository contains:
-1. A thorough user guide (branch 'gh-pages'). Available at: https://idf-rmsg.github.io/FinancialRiskPooling/
-2. R-Shiny interface for the Financial Risk Pooling tool (loss trending, visualisation and combination of losses)
-3. Spreadsheet for inputting losses and demonstrate / test the effect of risk pooling structures.
-
- 
+Contents
+---------------------------------------------------------------
+1. A step-by-step user guide (branch 'gh-pages'): https://idf-rmsg.github.io/FinancialRiskPooling/. This guide should be read before using any of the tools.
+2. [R-Shiny interface](https://github.com/IDF-RMSG/FinancialRiskPooling/tree/master/shiny_app) for the Financial Risk Pooling tool. (loss trending, visualisation and combination of losses). This interface enables users to pull data from online historical disaster loss catalogues, trend them according to population change for example, and then export modelled loss curves for use in the risk pooling spreadsheet in the next step. 
+3. [Spreadsheet](https://github.com/IDF-RMSG/FinancialRiskPooling/tree/master/Tool) for inputting losses and demonstrate / test the effect of risk pooling structures.

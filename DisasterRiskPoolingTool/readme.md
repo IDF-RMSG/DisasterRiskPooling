@@ -12,7 +12,7 @@ Contents
 * the Excel workbook Risk Pool Structuring Tool in which users can enter modelled and non-modelled loss data for multiple hazards (perils) and countries, then investigate how the risk can be accumulate and diversify within different structures of a risk pool. See file: 'RiskPoolingTool_main_v*.xlsb'
 * A template for creating modelled losses: 'PoolingTool_UploadTemplate.xlsx'
 * An example of loss data to enter into the tool (in step 1 below): 'PoolingTool_UploadExample.xlsx'
-* Step-by-step guidance on using the tool at: https://idf-rmsg.github.io/FinancialRiskPooling/index.html
+* Step-by-step guidance on using the tool at: https://idf-rmsg.github.io/DisasterRiskPooling/index.html
 
 
 Instructions

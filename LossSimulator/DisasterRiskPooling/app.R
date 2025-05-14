@@ -3,7 +3,6 @@
 # Added this to get wbtool1 functions
 file_sources <-
   list.files(
-    #"/../../../R/",
     "./R/",
     pattern = "*.R",
     full.names = TRUE

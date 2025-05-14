@@ -11,5 +11,5 @@ The tool builds on code originally developed by World Bank DRFIP for supporting 
 The Disaster Risk Pooling Tool comprises:
 -----------------------------------------------
 1. **Step-by-step user guide** (branch 'gh-pages'): https://idf-rmsg.github.io/DisasterRiskPooling/. This guide should be read before using any of the tools.
-2. **Loss Simulator**: An R-Shiny interface which enables users to pull data from online historical disaster loss catalogues, trend them according to population change for example, and then export modelled loss curves for use in the risk pooling spreadsheet in the next step. See folder 'LossSimulator' for the code. This app is deployed at: https://idf-rmsg.shinyapps.io/FinancialRiskPooling
+2. **Loss Simulator**: An R-Shiny interface which enables users to pull data from online historical disaster loss catalogues, trend them according to population change for example, and then export modelled loss curves for use in the risk pooling spreadsheet in the next step. See folder 'LossSimulator' for the code. This app is deployed at: https://idf-rmsg.shinyapps.io/DisasterRiskPooling
 3. **Risk Pool Structuring**: An Excel spreadsheet which ingests losses from the Loss Simulator and can be used to test the effect of different risk pool structures. See folder 'RiskPoolStructuring'.

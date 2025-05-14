@@ -197,7 +197,7 @@ about_page <-
       p(
         "
          This Tool has been developed to support users to better understand the
-         risk of losses occurring from natural disasters. It is an educational
+         risk of losses occurring from disasters. It is an educational
          tool which aims to increase the user's understanding of the risk
          associated with disaster and loss distributions and ways to financially
          mitigate that risk (via the associated spreadsheet).
@@ -206,7 +206,7 @@ about_page <-
          catastrophe risk model output data, both of which may be uploaded into
          the tool. This Tool depends on the quality of the data which is input.
          Therefore, the output from this Tool remains only an indication of the
-         losses associated with a natural disaster, actual losses may differ
+         losses associated with a disaster, actual losses may differ
          significantly from the Tool's output.
          The Tool is designed to work on a laptop or desktop PC with the web
          browser maximised, you may not be able to use the Tool on smaller
@@ -230,7 +230,7 @@ about_page <-
       p(
         "
           This Tool has been developed to support users better understand the risk
-          of losses caused by natural disasters. Information in the Tool is provided
+          of losses caused by disasters. Information in the Tool is provided
           for educational purposes only and does not constitute legal or scientific
           advice or service. Neither the IDF or World Bank makes warranties or
           representations, express or implied as to the accuracy or reliability of

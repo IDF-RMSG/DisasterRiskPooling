@@ -8,6 +8,21 @@ Phase 1: Understanding the nature of the risks
   :alt: Phase 1 steps
 
 
+Key Decision-Making Considerations
+""""""""""""""""""""""""""""""""""""""""
+Before we begin to add risks to our pool and add funding coverage against them, there are a number of decisions or areas of understanding and prioritisation that would have to be established outside of the tool and the calculation. 
+
+**What risks do we want to cover financially and include in our pool?**
+What risks you will want to cover will likely be different for all organisations and funds and will be dependent on several factors. This may be looking at the risks and impacts that the country has prioritised. It may include looking at the operational systems that are ready to utilise the money effectively in emergencies. How those country risks are identified will require decision-making criteria on those being prioritised for coverage. 
+
+**Who has requested coverage and how much?** Firstly, you are likely to have some sort of mechanism where those who would be utilising the pre - positioned disaster funding could request coverage support. Certain conditions may be in place for prepositioned funding coverage. These may be how effective and well-planned the delivery of support with the released funding is or potentially what existing financial coverage and support is already in place. How you consider those requests will depend on your own governance and requirements. But clarity on that for transparency should be established.
+
+**What type of coverage have they requested?** How much has been requested for different levels of risk would also need to be considered in the financial structure. There may be preferences for more funding for different severity events, depending on the financial needs and gaps.
+
+**What other funding coverage is in place for those risks?** Providing funding coverage from your pool for the entirety of the possible funding risk is unlikely. Often, a mixture of funding lines come in for different emergencies and at different severities. So, understanding the landscape in which your prepositioned funding in the pool sits will be important before constructing the financial structuring. This will ensure the most efficient arrangement of funding for future crises is used. Having the financing for a crisis well strategically structured and arranged also means that the corresponding emergency planning and operations will be incentivised to do the same. Chaotic financing systems often intersect in creating chaotic operational systems in disasters.
+
+
+
 
 Step 1: Gather Historical Event Data
 ---------------------------------------
@@ -38,6 +53,7 @@ Guidance
   * Currency, inflation or misreporting
   * Missing data for smaller events
 
+
 **4. Compile for each country and hazard risk, a separate input Excel file:**
 
   A template is provided on `here on the Disaster Risk Pooling Tool GitHub <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_).
@@ -45,13 +61,8 @@ Guidance
   An example of data is provided on `here on the Disaster Risk Pooling Tool GitHub <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_).
 
 
-
-
 Key Decision-Making Considerations
 """"""""""""""""""""""""""""""""""""""""
-
-**What risks do we want to cover financially and include in our pool?**
-What risks you will want to cover will likely be different for all organisations and funds and will be dependent on several factors. This may be looking at the risks and impacts that the country has prioritised. It may include looking at the operational systems that are ready to utilise the money effectively in emergencies. How those country risks are identified will require decision-making criteria on those being prioritised for coverage. 
 
 **What data is good enough to include in our catalogue?**
 “Good enough” is a relatively subjective term, so it will be important to have some criteria in which past disaster data is deemed of sufficient quality to be included in your catalogue. In some cases, larger events and hazards, such as earthquakes and cyclones, which have clearer infrastructural-based impacts, may be easier to cross-reference and verify and therefore have more confidence in the loss data. Events like droughts and food security impacts can be more difficult to understand and definitively quantify. There should be clear rationale on why different types and sources of data have been included or excluded from the catalogue. It is important that the depiction of risk is kept as true as possible, without augmentation to a preferred view of risk for financial considerations. This should be done later on within the financial structuring. 
@@ -98,7 +109,6 @@ This step uses the Loss Simulator, an online interface available at https://idf-
 
 Guidance for using the Loss Simulator
 """""""""""""""""""""""""""""""""""""""""""""
-
 
 1. Data Selection Tab
 

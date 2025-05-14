@@ -33,7 +33,7 @@ header <- dashboardHeader(
             #                 style = "height: 100px;"),
              #       style = "padding: 5px;")
   ),
-  title = span(h2(id = "tool_title", "Financial Risk Pooling Tool")),
+  title = span(h2(id = "tool_title", "Disaster Risk Pooling Tool")),
   titleWidth = 280
 )
 
@@ -204,7 +204,7 @@ body <- dashboardBody(
 #####
 # UI
 #####
-ui <- dashboardPage(header, sidebar, body, skin="blue", title="Financial Risk Pooling Tool")
+ui <- dashboardPage(header, sidebar, body, skin="blue", title="Disaster Risk Pooling Tool")
 
 #########
 # Server
@@ -312,7 +312,7 @@ server <- function(input, output, session) {
                            width = '200px'
             ),
             title = '',
-            content = 'Click to download underlying simulations for import into the Financial Response Design Tool.',
+            content = 'Click to download loss simulation data, for input to the Risk Pool Structuring Tool',
             placement = 'auto top',
             trigger = 'hover',
             options = NULL

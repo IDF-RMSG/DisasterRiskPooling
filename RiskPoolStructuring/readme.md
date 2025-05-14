@@ -1,6 +1,8 @@
 The Risk Pool Structuring Tool
 ====================================
 
+Part of the Disaster Risk Pooling Tool: https://github.com/IDF-RMSG/DisasterRiskPooling/
+
 The Risk Pool Structuring Tool demonstrates how the processes of risk pooling and funding can be structured efficiently and responsibly even with events being highly uncertain year to year. By illustrating how risk pooling and funding can be set up with well-defined payouts, the tool demonstrates how to
 * Put in place pre arranged financing for multiple disaster risks.
 * Increase efficiency in the use of funding.

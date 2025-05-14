@@ -3,9 +3,6 @@
 Phase 1: Understanding the nature of the risks
 ==========================================================
 
-**This phase uses the Loss Curve Generator**, an R-Shiny app located at https://idf-rmsg.shinyapps.io/FinancialRiskPooling to demonstrate how to create disaster loss curves from public historical disaster loss data catalogue, EM-DAT.
-
-
 .. figure:: ../src_img/guidanceimg/phase1.jpg
   :scale: 25%
   :alt: Phase 1 steps
@@ -18,39 +15,34 @@ Step 1: Gather Historical Event Data
 The very first step is gathering data on past events for the risks you want to include. This includes the perils and which countries were affected, in addition to impact metrics such as people affected or financial costs.
 
 
-**1.1 Identify which risks (hazard + country) to include:**
+Guidance
+""""""""""""""""""
 
-  These risks will receive guaranteed coverage if they occur in the future up to a pre agreed level. Example: Zimbabwe – Drought.
+**1. Identify which risks (hazard + country) to include in the risk pool:**
+
+  Example: Zimbabwe – Drought. The risks included in the risk pool would receive guaranteed coverage if they occur in the future up to a pre agreed level of loss. 
 
 
-**1.2 Build or locate a historical event catalog containing:**
+**2. Build or locate a historical event catalog containing:**
 
   1. Year
   2. Country
   3. Peril (Hazard)
   4. Losses in US$ (any financial losses need to be converted to USD)
 
-  Data sources could include public loss databases (e.g., EM-DAT), records from local stakeholders, and in-house or external models. Working with local agencies and stakeholders to identify and validate past data on events is key. 
+  Data sources could include public loss databases (e.g., `EM-DAT <https://public.emdat.be/>`_), records from local stakeholders, and in-house or external models. Working with local agencies and stakeholders to identify and validate past data on events is key. 
 
-
-
-**1.3 Identify possible sources of error:**
+**3. Identify possible sources of error:**
 
   * Gaps in historical records
   * Currency, inflation or misreporting
   * Missing data for smaller events
 
+**4. Compile for each country and hazard risk, a separate input Excel file:**
 
-
-
-Guidance
-""""""""""""""""""
-
-1. For each country and peril, compile a separate sheet.
-
-2. Compile your event data in an Excel file. A template is provided on `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_).
+  A template is provided on `here on the Disaster Risk Pooling Tool GitHub <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_).
    
-3. Use an example dataset if you lack your own data. An example of data is provided on `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_).
+  An example of data is provided on `here on the Disaster Risk Pooling Tool GitHub <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_).
 
 
 
@@ -94,23 +86,23 @@ This is because, often, we will only have a small snapshot of those relationship
 
 
 
-Step 2: Creating a Synthetic (Stochastic) Catalogue
-------------------------------------------------------
+Step 2: Creating a Synthetic (Simulated) Loss Catalogue 
+---------------------------------------------------------------
 
-This step is about how we take all that information and try to project and understand more deeply the statistical patterns and likely probabilities of different events overall – this uses the tool to support creating a set of synthetic (or stochastic) events. This will generate from a relatively smaller number of event entries into tens of thousands of variations and extremes.
+This step is about how we take all that information and try to project and understand more deeply the statistical patterns and likely probabilities of different events overall – this uses the tool to support creating a set of synthetic (or simulated) events. This will generate from a relatively small number of event entries (e.g., historical loss records) into tens of thousands of events losses, representing wider variability and extreme losses that do not appear in the historical record.
 
-Because we want to understand the long-term pattern of impacts and losses from the hazards, it is often difficult to do this when we only have a short timeline in which we have data on past events; in some cases, we might only have two or three events with good data on impacts and losses. However, to address this, we create a stochastic or synthesised catalogue. This essentially uses the pattern of the data on events available to simulate the loss of other statistically possible events from that data, creating tens of thousands of synthetic events.This makes understanding the long-term pattern of those events more statistically robust. 
+It is often difficult to understand long-term pattern of disaster impacts and losses because we typically  have a short duration of past event data. In some cases, we might only have two or three events with reliable data on impacts and losses. To address this, we can create a stochastic set of events to model their impacts, or we can statistically simulate a catalogue of losses. This essentially uses the patterns of available data to simulate the impacts of other statistically possible events, creating tens of thousands of simulated events. This makes understanding the long-term pattern of those events more statistically robust. 
 
-This step uses the Loss Curve Generator, an online interface available at https://idf-rmsg.shinyapps.io/FinancialRiskPooling.
+This step uses the Loss Simulator, an online interface available at https://idf-rmsg.shinyapps.io/DisasterRiskPooling.
 
 
-Guidance 
-""""""""""""""""""""""
+Guidance for using the Loss Simulator
+"""""""""""""""""""""""""""""""""""""""""""""
 
 
 1. Data Selection Tab
 
- In the Loss Curve Generator tool, choose Advanced or Basic Input.
+ Choose Advanced or Basic Input.
  Choose country from the drop-down list
 
  .. figure:: ../src_img/screenshots/step2_1_input.png
@@ -120,12 +112,11 @@ Guidance
    Data selection tab
 
 
- In advanced mode, upload your CSV of historical events (completed in step 1).
- A graph of uploaded data appears at the bottom for validation.
+ In advanced mode, upload your Excel/CSV file of historical events (completed in step 1). A graph of uploaded data appears at the bottom for validation.
 
  Set the cost per person you wish to set (this can be identified using losses divided by the number of people affected  and averaged - or there may be an established cost per person you may be using or already established for the country  and risk).
- Select the data type and the metrics which you would like displayed on the graphs.
- A graph of data appears at the bottom for validation.
+
+ Select the data type and the metrics which you would like displayed on the graphs. A graph of data appears at the bottom for validation.
 
  .. figure:: ../src_img/screenshots/step2_2_manual_input.png
    :scale: 25%
@@ -138,13 +129,11 @@ Guidance
 
  Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling.
 
-
  .. figure:: ../src_img/screenshots/step2_3_scaling.png
    :scale: 25%
    :alt: Scaling options
 
    Scaling options
-
 
  The graph now shows the de-trended results.
 
@@ -159,9 +148,7 @@ Guidance
 
    Run tool - click button
 
-
- The tool tries multiple distributions, each with 15,000 simulated events and selects the best possible fit to the data.These include, Log Normal, Poisson, Pareto (curve shapes).
- You can change the distribution selection - but it is advised to only do this with technical expert support. 
+ The tool tries multiple distributions, each with 15,000 simulated events and selects the distribution with the best possible fit to the data. The  distributions tested by default include Log Normal, Poisson, Pareto. You can change the distribution selection - but it is advised to only do this with technical expert support. 
 
  The graph can display for each risk a display of the fitted distribution based on the observed data that was inputted, the simulated events through the model and both combined.
 
@@ -178,7 +165,7 @@ Guidance
  Select each risk to see the simulated losses.
  Toggle 95% confidence intervals to see the range of uncertainty at each return period.
  The tool also provides graphs and other exhibits (e.g., estimated annual losses, loss exceedance curves, tables of return periods, comparisons of distributions).
- You can input a budget value to generate the graph 4 exhibit to identify the annual funding gap. 
+ You can input a budget value to generate 'graph 4' exhibit to identify the annual funding gap. 
 
  .. figure:: ../src_img/screenshots/step2_7_outputs.png
    :scale: 25%
@@ -187,7 +174,7 @@ Guidance
    Simulation outputs
 
 
- Download Simulations to save your new synthetic event catalog (it will download in the format needed for input into the Risk Pool Structuring spreadsheet tool).
+ Download Simulations to save your new synthetic event catalog in the format needed for input into the Risk Pool Structuring tool (an Excel workbook).
 
  .. figure:: ../src_img/screenshots/step2_8_downloadsims.png
    :scale: 25%
@@ -196,7 +183,7 @@ Guidance
    Download simulation outputs using the buttons
 
 
- Now you have a robust database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood. This gives a much stronger view of the statistical relationships.
+Now you have a robust database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood. This gives a much stronger view of the statistical relationships.
 
 
 
@@ -230,12 +217,7 @@ You also cannot add both a modelled simulated catalog and an historic simulated 
 
 .. admonition:: Fundamental Principal
 
-   The more event data you have from historical catalogs, the stronger the stochastic modelling will be to create a robust view of the risk and the shape of the magnitude and frequency relationship.
-
-   If only a small number of historical event information data points are available, it will create significant uncertainty in your financial risk modelling. This uncertainty increases if events close to your later attachment/trigger points are not represented. Caution must be exercised in these cases as it may not be sensible to allow such low data risks to be included in the pool, as they may not capture funding liabilities that could be included. 
-
-
-
+   The more event data you have from historical catalogs, the more robust the simulations will be to give the view of risk and the magnitude/frequency relationship. If only a small number of historical event information data points are available, there will be significant uncertainty in your financial risk modelling. This uncertainty increases if events close to your later attachment/trigger points are not well represented. Exercise caution in these cases as it may not be sensible to include risks based on such small amounts of data in the pool because they may not capture the potential funding liabilities. 
 
 
 
@@ -244,19 +226,14 @@ You also cannot add both a modelled simulated catalog and an historic simulated 
 Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool
 -----------------------------------------------------------------------
 
-Once the data set has been generated, it can be added to the Risk Pool Structuring tool to begin to examine the different financial options in the global risk pool and what predictable funding this could provide for the different risks. 
+Once the loss data has been compiled for each 'risk' (hazard and country combination of loss data), it can be added to the Risk Pool Structuring workbook, to examine the different risk pool options and what predictable funding this could provide for the different risks. 
 
-
-The Risk Pool Structuring tool can be accessed on the `Financial Risk Pooling Github <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb>`_, or `downloaded directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb>`_.
-
-
-Example data can be used to try the tool: `here on the Financial Pooling Tool GitHub <https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_).
+The Risk Pool Structuring tool is available on the `Disaster Risk Pooling Github <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/>`_: _RiskPoolingTool_main_v*.xlsb_. The folder also contains an `example of data to upload <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_. 
 
 
 
-
-Tool Guidance 
-""""""""""""""""""""""
+Guidance for using the Risk Pool Structuring tool
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 1. Open the Risk Pool Structuring tool and select “Country 1 Data Input.”
 

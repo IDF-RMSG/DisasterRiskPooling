@@ -3,8 +3,8 @@
 # Added this to get wbtool1 functions
 file_sources <-
   list.files(
-    #"../../../../R/"
-    "C:/Users/stufraser/github/FinancialRiskPooling/shiny_app/inst/shiny-app/Tool1",
+    #"/../../../R/",
+    "./R/",
     pattern = "*.R",
     full.names = TRUE
   )
@@ -26,12 +26,13 @@ header <- dashboardHeader(
   tags$li(class = "dropdown",
           tags$style(".main-header {max-height: 100px}"),
           tags$style(".main-header .logo {height: 100px}"),
-          tags$link(href = "https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap", rel = "stylesheet"),
-          tags$span(tags$img(id = 'top-logo',
-                             src = 'Horizontal logos.png',
-                             alt = 'World Bank Group',
-                             style = "height: 100px;"),
-                    style = "padding: 5px;")
+          tags$link(href = "https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap", rel = "stylesheet")
+          #,
+          #tags$span(tags$img(id = 'top-logo',
+          #                   src = 'Horizontal logos.png',
+           #                  alt = 'Contributors',
+            #                 style = "height: 100px;"),
+             #       style = "padding: 5px;")
   ),
   title = span(h2(id = "tool_title", "Financial Risk Pooling Tool")),
   titleWidth = 280
@@ -57,7 +58,7 @@ sidebar <- dashboardSidebar(
       icon = icon("book-open")),
     div(
       id = 'logo-div',
-      tags$img(id = 'DRFIP-wt', src = 'Vertical logos.png', alt = 'DRFIP white trans', width = '280px')
+      tags$img(id = 'DRFIP-wt', src = 'Vertical logos.png', alt = 'Contributors', width = '280px')
     )
   )
 )

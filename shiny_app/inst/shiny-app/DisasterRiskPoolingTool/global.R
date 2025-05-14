@@ -10,18 +10,18 @@ library(scales)
 library(shinycssloaders)
 library(plotly)
 library(reshape2)
-library(WBTool1)
+#library(WBTool1)
 library(readxl)
-library(qpcR)
+#library(qpcR)
 library(DT)
 library(ggplot2)
 library(ggthemes)
 library(shinyWidgets)
 library(shinythemes)
-ibrary(dplyr)
+library(dplyr)
 library(htmltools)
 library(MASS)
-library(optimx)
+#library(optimx)
 library(reshape2)
 library(fitdistrplus)
 library(actuar)
@@ -32,7 +32,7 @@ library(data.table)
 library(tictoc)
 
 # Remove scientific notation in plots
-options(scipen = '999')
+options(scipen = 999)
 
 #################################################################################
 # Create objects to store floating constants in for indexing and custom equations
@@ -193,7 +193,7 @@ about_page <-
   fluidPage(
     fluidRow(column(10, offset = 1,
       h1('About'),
-      h2("Overview"),
+      #h2("Overview"),
       p(
         "
          This Tool has been developed to support users to better understand the
@@ -213,6 +213,10 @@ about_page <-
          screens. Please read the user guides before use.
         "
       ),
+      fluidRow(column(width = 12, align = "center",
+                      br(),
+                      actionButton("start_btn", "Use the Tool", icon("crosshairs"))
+      )),
       h2("Authorship"),
       p(
         "
@@ -240,10 +244,6 @@ about_page <-
           any other associated materials.
         "
       )
-    )),
-    fluidRow(column(width = 12, align = "center",
-      br(),
-      actionButton("start_btn", "Use the Tool", icon("crosshairs"))
     ))
   )
 

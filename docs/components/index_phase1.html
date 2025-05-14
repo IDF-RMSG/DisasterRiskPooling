@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Phase 1: Understanding the nature of the risks &mdash; Financial Risk Pooling Tool</title>
+  <title>Phase 1: Understanding the nature of the risks &mdash; Disaster Risk Pooling Tool</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/c" />
@@ -33,7 +33,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Phase 2: Setting your financial structure" href="index_phase2.html" />
-    <link rel="prev" title="Financial Risk Pooling tool" href="../index.html" /> 
+    <link rel="prev" title="Disaster Risk Pooling tool" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,7 +45,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Financial Risk Pooling Tool
+            Disaster Risk Pooling Tool
               <img src="../_static/IDF_Original.jpg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -59,20 +59,21 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Phase 1: Understanding the nature of the risks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#step-1-gather-historical-event-data">Step 1: Gather Historical Event Data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#guidance">Guidance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#key-decision-making-considerations">Key Decision-Making Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-decision-making-considerations">Key Decision-Making Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-gather-historical-event-data">Step 1: Gather Historical Event Data</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#step-2-creating-a-synthetic-stochastic-catalogue">Step 2: Creating a Synthetic (Stochastic) Catalogue</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Guidance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Key Decision-Making Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guidance">Guidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Key Decision-Making Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-creating-a-synthetic-simulated-loss-catalogue">Step 2: Creating a Synthetic (Simulated) Loss Catalogue</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#step-3-add-your-synthetic-data-to-the-risk-pool-structuring-tool">Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#tool-guidance">Tool Guidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guidance-for-using-the-loss-simulator">Guidance for using the Loss Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Key Decision-Making Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-add-your-synthetic-data-to-the-risk-pool-structuring-tool">Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#guidance-for-using-the-risk-pool-structuring-tool">Guidance for using the Risk Pool Structuring tool</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index_phase2.html">Phase 2: Setting your financial structure</a></li>
@@ -88,7 +89,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Financial Risk Pooling Tool</a>
+          <a href="../index.html">Disaster Risk Pooling Tool</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -108,18 +109,29 @@
              
   <section id="phase-1-understanding-the-nature-of-the-risks">
 <span id="phase1-reference-label"></span><h1>Phase 1: Understanding the nature of the risks<a class="headerlink" href="#phase-1-understanding-the-nature-of-the-risks" title="Permalink to this heading"></a></h1>
-<p><strong>This phase uses the Loss Curve Generator</strong>, an R-Shiny app located at <a class="reference external" href="https://idf-rmsg.shinyapps.io/FinancialRiskPooling">https://idf-rmsg.shinyapps.io/FinancialRiskPooling</a> to demonstrate how to create disaster loss curves from public historical disaster loss data catalogue, EM-DAT.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/phase1.jpg"><img alt="Phase 1 steps" src="../_images/phase1.jpg" style="width: 606.25px; height: 289.5px;" /></a>
 </figure>
+<section id="key-decision-making-considerations">
+<h2>Key Decision-Making Considerations<a class="headerlink" href="#key-decision-making-considerations" title="Permalink to this heading"></a></h2>
+<p>Before we begin to add risks to our pool and add funding coverage against them, there are a number of decisions or areas of understanding and prioritisation that would have to be established outside of the tool and the calculation.</p>
+<p><strong>What risks do we want to cover financially and include in our pool?</strong>
+What risks you will want to cover will likely be different for all organisations and funds and will be dependent on several factors. This may be looking at the risks and impacts that the country has prioritised. It may include looking at the operational systems that are ready to utilise the money effectively in emergencies. How those country risks are identified will require decision-making criteria on those being prioritised for coverage.</p>
+<p><strong>Who has requested coverage and how much?</strong> Firstly, you are likely to have some sort of mechanism where those who would be utilising the pre - positioned disaster funding could request coverage support. Certain conditions may be in place for prepositioned funding coverage. These may be how effective and well-planned the delivery of support with the released funding is or potentially what existing financial coverage and support is already in place. How you consider those requests will depend on your own governance and requirements. But clarity on that for transparency should be established.</p>
+<p><strong>What type of coverage have they requested?</strong> How much has been requested for different levels of risk would also need to be considered in the financial structure. There may be preferences for more funding for different severity events, depending on the financial needs and gaps.</p>
+<p><strong>What other funding coverage is in place for those risks?</strong> Providing funding coverage from your pool for the entirety of the possible funding risk is unlikely. Often, a mixture of funding lines come in for different emergencies and at different severities. So, understanding the landscape in which your prepositioned funding in the pool sits will be important before constructing the financial structuring. This will ensure the most efficient arrangement of funding for future crises is used. Having the financing for a crisis well strategically structured and arranged also means that the corresponding emergency planning and operations will be incentivised to do the same. Chaotic financing systems often intersect in creating chaotic operational systems in disasters.</p>
 <section id="step-1-gather-historical-event-data">
-<h2>Step 1: Gather Historical Event Data<a class="headerlink" href="#step-1-gather-historical-event-data" title="Permalink to this heading"></a></h2>
+<h3>Step 1: Gather Historical Event Data<a class="headerlink" href="#step-1-gather-historical-event-data" title="Permalink to this heading"></a></h3>
 <p>The very first step is gathering data on past events for the risks you want to include. This includes the perils and which countries were affected, in addition to impact metrics such as people affected or financial costs.</p>
-<p><strong>1.1 Identify which risks (hazard + country) to include:</strong></p>
+</section>
+</section>
+<section id="guidance">
+<h2>Guidance<a class="headerlink" href="#guidance" title="Permalink to this heading"></a></h2>
+<p><strong>1. Identify which risks (hazard + country) to include in the risk pool:</strong></p>
 <blockquote>
-<div><p>These risks will receive guaranteed coverage if they occur in the future up to a pre agreed level. Example: Zimbabwe – Drought.</p>
+<div><p>Example: Zimbabwe – Drought. The risks included in the risk pool would receive guaranteed coverage if they occur in the future up to a pre agreed level of loss.</p>
 </div></blockquote>
-<p><strong>1.2 Build or locate a historical event catalog containing:</strong></p>
+<p><strong>2. Build or locate a historical event catalog containing:</strong></p>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>Year</p></li>
@@ -127,9 +139,9 @@
 <li><p>Peril (Hazard)</p></li>
 <li><p>Losses in US$ (any financial losses need to be converted to USD)</p></li>
 </ol>
-<p>Data sources could include public loss databases (e.g., EM-DAT), records from local stakeholders, and in-house or external models. Working with local agencies and stakeholders to identify and validate past data on events is key.</p>
+<p>Data sources could include public loss databases (e.g., <a class="reference external" href="https://public.emdat.be/">EM-DAT</a>), records from local stakeholders, and in-house or external models. Working with local agencies and stakeholders to identify and validate past data on events is key.</p>
 </div></blockquote>
-<p><strong>1.3 Identify possible sources of error:</strong></p>
+<p><strong>3. Identify possible sources of error:</strong></p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Gaps in historical records</p></li>
@@ -137,18 +149,14 @@
 <li><p>Missing data for smaller events</p></li>
 </ul>
 </div></blockquote>
-<section id="guidance">
-<h3>Guidance<a class="headerlink" href="#guidance" title="Permalink to this heading"></a></h3>
-<ol class="arabic simple">
-<li><p>For each country and peril, compile a separate sheet.</p></li>
-<li><p>Compile your event data in an Excel file. A template is provided on <a class="reference external" href="https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx">here on the Financial Pooling Tool GitHub</a> (or <a class="reference external" href="https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx">download directly</a>).</p></li>
-<li><p>Use an example dataset if you lack your own data. An example of data is provided on <a class="reference external" href="https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx">here on the Financial Pooling Tool GitHub</a> (or <a class="reference external" href="https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx">download directly</a>).</p></li>
-</ol>
+<p><strong>4. Compile for each country and hazard risk, a separate input Excel file:</strong></p>
+<blockquote>
+<div><p>A template is provided on <a class="reference external" href="https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx">here on the Disaster Risk Pooling Tool GitHub</a> (or <a class="reference external" href="https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx">download directly</a>).</p>
+<p>An example of data is provided on <a class="reference external" href="https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx">here on the Disaster Risk Pooling Tool GitHub</a> (or <a class="reference external" href="https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx">download directly</a>).</p>
+</div></blockquote>
 </section>
-<section id="key-decision-making-considerations">
-<h3>Key Decision-Making Considerations<a class="headerlink" href="#key-decision-making-considerations" title="Permalink to this heading"></a></h3>
-<p><strong>What risks do we want to cover financially and include in our pool?</strong>
-What risks you will want to cover will likely be different for all organisations and funds and will be dependent on several factors. This may be looking at the risks and impacts that the country has prioritised. It may include looking at the operational systems that are ready to utilise the money effectively in emergencies. How those country risks are identified will require decision-making criteria on those being prioritised for coverage.</p>
+<section id="id3">
+<h2>Key Decision-Making Considerations<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <p><strong>What data is good enough to include in our catalogue?</strong>
 “Good enough” is a relatively subjective term, so it will be important to have some criteria in which past disaster data is deemed of sufficient quality to be included in your catalogue. In some cases, larger events and hazards, such as earthquakes and cyclones, which have clearer infrastructural-based impacts, may be easier to cross-reference and verify and therefore have more confidence in the loss data. Events like droughts and food security impacts can be more difficult to understand and definitively quantify. There should be clear rationale on why different types and sources of data have been included or excluded from the catalogue. It is important that the depiction of risk is kept as true as possible, without augmentation to a preferred view of risk for financial considerations. This should be done later on within the financial structuring.</p>
 <p><strong>What are the key instances and likely sources of error and uncertainty in the event data?</strong>
@@ -161,42 +169,40 @@ Knowing what gaps and limitations exist within your base event catalogue will gi
 </div>
 <p>Now you have a database of past event information on the risks that you want your risk pool to cover. It will tell you some good information about the magnitude and frequency of those events and the overall likely financial need in total those types of crises may require. However, it will likely need some improvements using statistical techniques.</p>
 <p>This is because, often, we will only have a small snapshot of those relationships and patterns, so we need ways to try to understand the broader relationship beyond the data we have for recorded events. The original dataset likely won’t cover all potential events of interest (i.e. even rare ones that may occur once every 200 years) and therefore statistical techniques are used instead to re[resent what we can’t see with our limited view.</p>
-<figure class="align-default" id="id7">
+<figure class="align-default" id="id5">
 <a class="reference internal image-reference" href="../_images/stochasticCat.png"><img alt="Schematic of our limited set of observations of events." src="../_images/stochasticCat.png" style="width: 506.0px; height: 286.0px;" /></a>
 <figcaption>
-<p><span class="caption-text">Limited duration of event observation (boxed), and extension of that via stochastic simulation.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Limited duration of event observation (boxed), and extension of that via stochastic simulation.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
+<section id="step-2-creating-a-synthetic-simulated-loss-catalogue">
+<h3>Step 2: Creating a Synthetic (Simulated) Loss Catalogue<a class="headerlink" href="#step-2-creating-a-synthetic-simulated-loss-catalogue" title="Permalink to this heading"></a></h3>
+<p>This step is about how we take all that information and try to project and understand more deeply the statistical patterns and likely probabilities of different events overall – this uses the tool to support creating a set of synthetic (or simulated) events. This will generate from a relatively small number of event entries (e.g., historical loss records) into tens of thousands of events losses, representing wider variability and extreme losses that do not appear in the historical record.</p>
+<p>It is often difficult to understand long-term pattern of disaster impacts and losses because we typically  have a short duration of past event data. In some cases, we might only have two or three events with reliable data on impacts and losses. To address this, we can create a stochastic set of events to model their impacts, or we can statistically simulate a catalogue of losses. This essentially uses the patterns of available data to simulate the impacts of other statistically possible events, creating tens of thousands of simulated events. This makes understanding the long-term pattern of those events more statistically robust.</p>
+<p>This step uses the Loss Simulator, an online interface available at <a class="reference external" href="https://idf-rmsg.shinyapps.io/DisasterRiskPooling">https://idf-rmsg.shinyapps.io/DisasterRiskPooling</a>.</p>
 </section>
 </section>
-<section id="step-2-creating-a-synthetic-stochastic-catalogue">
-<h2>Step 2: Creating a Synthetic (Stochastic) Catalogue<a class="headerlink" href="#step-2-creating-a-synthetic-stochastic-catalogue" title="Permalink to this heading"></a></h2>
-<p>This step is about how we take all that information and try to project and understand more deeply the statistical patterns and likely probabilities of different events overall – this uses the tool to support creating a set of synthetic (or stochastic) events. This will generate from a relatively smaller number of event entries into tens of thousands of variations and extremes.</p>
-<p>Because we want to understand the long-term pattern of impacts and losses from the hazards, it is often difficult to do this when we only have a short timeline in which we have data on past events; in some cases, we might only have two or three events with good data on impacts and losses. However, to address this, we create a stochastic or synthesised catalogue. This essentially uses the pattern of the data on events available to simulate the loss of other statistically possible events from that data, creating tens of thousands of synthetic events.This makes understanding the long-term pattern of those events more statistically robust.</p>
-<p>This step uses the Loss Curve Generator, an online interface available at <a class="reference external" href="https://idf-rmsg.shinyapps.io/FinancialRiskPooling">https://idf-rmsg.shinyapps.io/FinancialRiskPooling</a>.</p>
-<section id="id3">
-<h3>Guidance<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<section id="guidance-for-using-the-loss-simulator">
+<h2>Guidance for using the Loss Simulator<a class="headerlink" href="#guidance-for-using-the-loss-simulator" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Data Selection Tab</p></li>
 </ol>
 <blockquote>
-<div><p>In the Loss Curve Generator tool, choose Advanced or Basic Input.
+<div><p>Choose Advanced or Basic Input.
 Choose country from the drop-down list</p>
-<figure class="align-default" id="id8">
+<figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="../_images/step2_1_input.png"><img alt="Data selection tab" src="../_images/step2_1_input.png" style="width: 673.75px; height: 250.75px;" /></a>
 <figcaption>
-<p><span class="caption-text">Data selection tab</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Data selection tab</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>In advanced mode, upload your CSV of historical events (completed in step 1).
-A graph of uploaded data appears at the bottom for validation.</p>
-<p>Set the cost per person you wish to set (this can be identified using losses divided by the number of people affected  and averaged - or there may be an established cost per person you may be using or already established for the country  and risk).
-Select the data type and the metrics which you would like displayed on the graphs.
-A graph of data appears at the bottom for validation.</p>
-<figure class="align-default" id="id9">
+<p>In advanced mode, upload your Excel/CSV file of historical events (completed in step 1). A graph of uploaded data appears at the bottom for validation.</p>
+<p>Set the cost per person you wish to set (this can be identified using losses divided by the number of people affected  and averaged - or there may be an established cost per person you may be using or already established for the country  and risk).</p>
+<p>Select the data type and the metrics which you would like displayed on the graphs. A graph of data appears at the bottom for validation.</p>
+<figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="../_images/step2_2_manual_input.png"><img alt="Advanced .csv file upload" src="../_images/step2_2_manual_input.png" style="width: 469.75px; height: 384.75px;" /></a>
 <figcaption>
-<p><span class="caption-text">Advanced .csv file upload</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Advanced .csv file upload</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>
@@ -205,10 +211,10 @@ A graph of data appears at the bottom for validation.</p>
 </ol>
 <blockquote>
 <div><p>Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling.</p>
-<figure class="align-default" id="id10">
+<figure class="align-default" id="id8">
 <a class="reference internal image-reference" href="../_images/step2_3_scaling.png"><img alt="Scaling options" src="../_images/step2_3_scaling.png" style="width: 449.5px; height: 359.25px;" /></a>
 <figcaption>
-<p><span class="caption-text">Scaling options</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Scaling options</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The graph now shows the de-trended results.</p>
@@ -218,19 +224,18 @@ A graph of data appears at the bottom for validation.</p>
 </ol>
 <blockquote>
 <div><p>Click Run Tool (This could take up to 5 minutes).</p>
-<figure class="align-default" id="id11">
+<figure class="align-default" id="id9">
 <a class="reference internal image-reference" href="../_images/step2_4_run.png"><img alt="Run tool - click button" src="../_images/step2_4_run.png" style="width: 543.25px; height: 205.0px;" /></a>
 <figcaption>
-<p><span class="caption-text">Run tool - click button</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Run tool - click button</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>The tool tries multiple distributions, each with 15,000 simulated events and selects the best possible fit to the data.These include, Log Normal, Poisson, Pareto (curve shapes).
-You can change the distribution selection - but it is advised to only do this with technical expert support.</p>
+<p>The tool tries multiple distributions, each with 15,000 simulated events and selects the distribution with the best possible fit to the data. The  distributions tested by default include Log Normal, Poisson, Pareto. You can change the distribution selection - but it is advised to only do this with technical expert support.</p>
 <p>The graph can display for each risk a display of the fitted distribution based on the observed data that was inputted, the simulated events through the model and both combined.</p>
-<figure class="align-default" id="id12">
+<figure class="align-default" id="id10">
 <a class="reference internal image-reference" href="../_images/step2_5_simulations.png"><img alt="Simulation options" src="../_images/step2_5_simulations.png" style="width: 451.75px; height: 203.0px;" /></a>
 <figcaption>
-<p><span class="caption-text">Simulation options</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Simulation options</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>
@@ -241,25 +246,25 @@ You can change the distribution selection - but it is advised to only do this wi
 <div><p>Select each risk to see the simulated losses.
 Toggle 95% confidence intervals to see the range of uncertainty at each return period.
 The tool also provides graphs and other exhibits (e.g., estimated annual losses, loss exceedance curves, tables of return periods, comparisons of distributions).
-You can input a budget value to generate the graph 4 exhibit to identify the annual funding gap.</p>
-<figure class="align-default" id="id13">
+You can input a budget value to generate ‘graph 4’ exhibit to identify the annual funding gap.</p>
+<figure class="align-default" id="id11">
 <a class="reference internal image-reference" href="../_images/step2_7_outputs.png"><img alt="Simulation outputs" src="../_images/step2_7_outputs.png" style="width: 439.75px; height: 352.25px;" /></a>
 <figcaption>
-<p><span class="caption-text">Simulation outputs</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Simulation outputs</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>Download Simulations to save your new synthetic event catalog (it will download in the format needed for input into the Risk Pool Structuring spreadsheet tool).</p>
-<figure class="align-default" id="id14">
+<p>Download Simulations to save your new synthetic event catalog in the format needed for input into the Risk Pool Structuring tool (an Excel workbook).</p>
+<figure class="align-default" id="id12">
 <a class="reference internal image-reference" href="../_images/step2_8_downloadsims.png"><img alt="Download simulation outputs using the buttons" src="../_images/step2_8_downloadsims.png" style="width: 426.5px; height: 195.75px;" /></a>
 <figcaption>
-<p><span class="caption-text">Download simulation outputs using the buttons</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Download simulation outputs using the buttons</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>Now you have a robust database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood. This gives a much stronger view of the statistical relationships.</p>
 </div></blockquote>
+<p>Now you have a robust database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood. This gives a much stronger view of the statistical relationships.</p>
 </section>
 <section id="id4">
-<h3>Key Decision-Making Considerations<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<h2>Key Decision-Making Considerations<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
 <p><strong>How many simulated events are enough?</strong>
 How many simulations you include will depend on the computing power you have and also the number of events you are basing that simulation on. If like in the example, you only have 3 events with data. Running 20,000 events is likely going to be highly uncertain, so perhaps less is more in that case. A statistician or actuary would help you make a sensible choice.</p>
 <p><strong>What data trending do we include?</strong>
@@ -276,26 +281,24 @@ Reviewing the quality of the event data available and the robustness of the dist
 You also cannot add both a modelled simulated catalog and an historic simulated catalog for the same country peril in the Risk Pool Structuring tool. Currently it is either or for each country’s risk. However, if different risks and countries you can use a mixture in the Risk Pool Structuring Tool (i.e modelled simulation for drought in Mali and simulation based on historical data for flood in Colombia).</p>
 <div class="admonition-fundamental-principal admonition">
 <p class="admonition-title">Fundamental Principal</p>
-<p>The more event data you have from historical catalogs, the stronger the stochastic modelling will be to create a robust view of the risk and the shape of the magnitude and frequency relationship.</p>
-<p>If only a small number of historical event information data points are available, it will create significant uncertainty in your financial risk modelling. This uncertainty increases if events close to your later attachment/trigger points are not represented. Caution must be exercised in these cases as it may not be sensible to allow such low data risks to be included in the pool, as they may not capture funding liabilities that could be included.</p>
+<p>The more event data you have from historical catalogs, the more robust the simulations will be to give the view of risk and the magnitude/frequency relationship. If only a small number of historical event information data points are available, there will be significant uncertainty in your financial risk modelling. This uncertainty increases if events close to your later attachment/trigger points are not well represented. Exercise caution in these cases as it may not be sensible to include risks based on such small amounts of data in the pool because they may not capture the potential funding liabilities.</p>
 </div>
-</section>
-</section>
 <section id="step-3-add-your-synthetic-data-to-the-risk-pool-structuring-tool">
-<h2>Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool<a class="headerlink" href="#step-3-add-your-synthetic-data-to-the-risk-pool-structuring-tool" title="Permalink to this heading"></a></h2>
-<p>Once the data set has been generated, it can be added to the Risk Pool Structuring tool to begin to examine the different financial options in the global risk pool and what predictable funding this could provide for the different risks.</p>
-<p>The Risk Pool Structuring tool can be accessed on the <a class="reference external" href="https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb">Financial Risk Pooling Github</a>, or <a class="reference external" href="https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/RiskPoolingTool_main_v20250306.xlsb">downloaded directly</a>.</p>
-<p>Example data can be used to try the tool: <a class="reference external" href="https://github.com/IDF-RMSG/FinancialRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx">here on the Financial Pooling Tool GitHub</a> (or <a class="reference external" href="https://github.com/IDF-RMSG/FinancialRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx">download directly</a>).</p>
-<section id="tool-guidance">
-<h3>Tool Guidance<a class="headerlink" href="#tool-guidance" title="Permalink to this heading"></a></h3>
+<h3>Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool<a class="headerlink" href="#step-3-add-your-synthetic-data-to-the-risk-pool-structuring-tool" title="Permalink to this heading"></a></h3>
+<p>Once the loss data has been compiled for each ‘risk’ (hazard and country combination of loss data), it can be added to the Risk Pool Structuring workbook, to examine the different risk pool options and what predictable funding this could provide for the different risks.</p>
+<p>The Risk Pool Structuring tool is available on the <a class="reference external" href="https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/">Disaster Risk Pooling Github</a>: _RiskPoolingTool_main_v*.xlsb_. The folder also contains an <a class="reference external" href="https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx">example of data to upload</a>.</p>
+</section>
+</section>
+<section id="guidance-for-using-the-risk-pool-structuring-tool">
+<h2>Guidance for using the Risk Pool Structuring tool<a class="headerlink" href="#guidance-for-using-the-risk-pool-structuring-tool" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Open the Risk Pool Structuring tool and select “Country 1 Data Input.”</p></li>
 </ol>
 <blockquote>
-<div><figure class="align-default" id="id15">
+<div><figure class="align-default" id="id13">
 <a class="reference internal image-reference" href="../_images/step3_dataInput.png"><img alt="Country data input - repeat for all countries you are including in the pool" src="../_images/step3_dataInput.png" style="width: 688.25px; height: 214.75px;" /></a>
 <figcaption>
-<p><span class="caption-text">Country data input - repeat for all countries you are including in the pool</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Country data input - repeat for all countries you are including in the pool</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>
@@ -308,13 +311,12 @@ You also cannot add both a modelled simulated catalog and an historic simulated 
 <p>The tool has now been primed with the knowledge of the shape and nature of the risks that will be within our risk pool. You’re now ready to move on to Phase 2: Setting up financing triggers and thresholds against these risk estimates.</p>
 </section>
 </section>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Financial Risk Pooling tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Disaster Risk Pooling tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="index_phase2.html" class="btn btn-neutral float-right" title="Phase 2: Setting your financial structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

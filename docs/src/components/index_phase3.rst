@@ -31,10 +31,11 @@ Guidance
 3. The total volume of the box area is the total country peril risk for the selected return periods: 
  * Layer 1 coverage is in light orange. 
  * Layer 2 coverage in darker orange. 
- * The blue area is the financing, risk and number of people _not covered_ by a pre-agreed financial structure (i.e., a layer). This may be where other actors financing comes in, in risk financing coordination. It may also be where there is no pre-positioned financing resulting in _uncovered risk (a protection gap)_, this uncovered risk is usually borne by governments, or individuals and households.  
+ * The blue area is the financing, risk and number of people not covered by a pre-agreed financial structure (i.e., a layer). This may be where other actors financing comes in, in risk financing coordination. It may also be where there is no pre-positioned financing resulting in uncovered risk (a protection gap), this uncovered risk is usually borne by governments, or individuals and households.  
 
 Note: 
  If you can't see the layers it may be that you need to adjust the scale to the right position of where you set the coverage (Cells DF8 and DG8). 
+
 On the left of the sheet you can expand columns A to D. This gives you all the detail of the risk profiles for each layer, so you can see where your current structure sits and if you might want to adjust when you later optimise in step 5
 
 
@@ -72,9 +73,10 @@ Guidance
 
 9. Attachment and exhaustion points for the layers is shown in cells I16 to M17 ('Layer Summary' table). 
 
-10. The 'Return Period Summary' table (cells I21 to N28) shows total country loss and loss per layer for selected key event return periods or frequencies. The term 'loss' is used as these are losses from the country and from the layers of funding, but you can also think about it as the _total financial requirement for those size events_. You can also think of the 'layer losses' as the payouts from the layers needed to cover your part of the risk. 
+10. The 'Return Period Summary' table (cells I21 to N28) shows total country loss and loss per layer for selected key event return periods or frequencies. The term 'loss' is used as these are losses from the country and from the layers of funding, but you can also think about it as the total financial requirement for those size events. You can also think of the 'layer losses' as the payouts from the layers needed to cover your part of the risk. 
 
 11. The table (not shown in image above) at the bottom provides the more detailed granulation of the data provided in the graph and previous tables. 
+
 
 
 Step 8: Check Coverage vs. Operational Needs

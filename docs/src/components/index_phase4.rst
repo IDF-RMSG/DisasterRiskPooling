@@ -48,13 +48,13 @@ The risk pool layer 2 allows us to share the risks and probabilities of loss (pa
 The images below illustrate these concepts.
 
  .. figure:: ../src_img/guidanceimg/GlobalInsPool.png
-   :scale: 15%
+   :scale: 20%
    :alt: Schematic of a risk pool with insurance
   
    Schematic of a risk pool with insurance
 
  .. figure:: ../src_img/guidanceimg/retentionToTransfer.jpg
-   :scale: 15%
+   :scale: 25%
    :alt: Retention and Risk transfer layers
   
    Retention and Risk transfer layers
@@ -70,6 +70,7 @@ Guidance
 1. Cell I6 allows you to vary the standard deviation, which represents the insurance premium cost in the tool.
 
 .. admonition:: Fundamental Principal
+
    The standard deviation gives a 'rule of thumb' method for loading a premium amount. However, how each individual insurance company arrives at a premium will be   different - there is no consistent approach to price risk. Risk Premium will depend on a huge number of factors at the time, including what else is going on in the global market and a companies' own risk appetite and cost of capital. This is why it is important to get different quotes for coverage. 
 
 
@@ -94,13 +95,14 @@ Guidance
 
 
 .. admonition:: Fundamental Principal
+
     Solvency: you can now see from the graph how solvent your financial structure is. The percentile where all three layers have been exhausted is the % of risk you have decided to retain that you won't have enough funding to cover all of the potential losses (payouts). For commercial insurance their structures have to be solvent 1 in 200 year loss events as part of financial regulations for insurance companies. However this does not apply to other non commercial funding mechanisms.
 
-.. admonition:: Fundamental Principal
     Balancing priorities: When using risk financing and structuring for emergency support, it can run counter intuitively to insurance and commercial structuring. In emergency management we want to payout as much as possible when needed, insurance companies don't want that as a business model. So if you want to be very solvent, this will reduce the amount of risk you are taking but also reduce the amount of coverage you can offer to countries' - basically you hold together the money. If you allow for high levels of risk of insolvency, you may be able to offer higher levels of funding coverage and bigger payouts, but the risk of not having the money to meet that is much higher. A governance decision is required to decide this balance and to agree and hold the remaining risk. 
 
 
- Note: Any country provided coverage under the riks pool should be clearly informed of the solvency of any prepositioned financing that they rely upon in the different layers.  
+
+ Note: Any country provided coverage under the risk pool should be clearly informed of the solvency of any prepositioned financing that they rely upon in the different layers.  
 
    
 7. The Pool Recoveries table from cell H48 displays all of the granular data from the graph. This may be helpful when it comes to optimising in the final step.

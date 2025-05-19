@@ -88,7 +88,7 @@ make_bootsrap <- function(dis_name, dat, n_sim){
 #' @examples
 #' make_simulation(dis_name = sub_peril$distribution, dat = sub_peril)
 make_simulation <- function(dis_name, dat, n_sim){
-browser()
+
   dat <- dat |>  filter(distribution == dis_name)
 
   if(dis_name == 'Freq' & !is.na(dat$mle2)) {
@@ -414,7 +414,7 @@ run_simulations <- function(prepared_simulation_data = NULL, prepared_frequency_
     out_list <- list()
 
     for(i in 1:length(perils)){
-browser()
+
       this_peril <- perils[i]
       sub_peril <- prepared_simulation_data |>  dplyr::filter(peril == this_peril)
       sub_peril_severity <- dplyr::filter(sub_peril, .data$distribution != "Freq")

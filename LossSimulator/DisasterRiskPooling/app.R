@@ -2406,7 +2406,11 @@ server <- function(input, output, session) {
     else if (ioc == 'Simulated data') {
       fill_colours <- fill_colours[2]
     }
-    observed_data <- rd[[1]] %>% dplyr::filter(peril == ips) %>% dplyr::select(value) %>% mutate(data_type = 'Observed data')
+    observed_data <-
+      rd[[1]] %>%
+        dplyr::filter(peril == ips) %>%
+        dplyr::select(value) %>%
+        dplyr::mutate(data_type = 'Observed data')
     # Limiting x axis to 125% of largest observed value
     plot_title <- paste0('<b>Comparison of Historical to Simulated Data for the Selected Fit for ', ips)
     y_title <- 'Density'
@@ -2429,6 +2433,7 @@ server <- function(input, output, session) {
   # This table shows the AIC scores and MLEs for the all the distributions that converged for
   # each peril. In advanced mode, you can chose any of these.
   output$simulation_table <- DT::renderDataTable({
+    
     fd <- fitted_distribution()[[1]]
     ok <- FALSE
     if(!is.null(fd)){

@@ -45,14 +45,14 @@ end_year <- 2024
 # Read in country data
 #######################
 # EM-DAT
-
 emdat_data_occ <-
-  read.csv('data/Countries/emdat_country_occ.csv', stringsAsFactors = FALSE) %>%
+  read.csv('data/Countries/emdat_country_occ.csv', stringsAsFactors = FALSE) |>
   dplyr::filter(
     dplyr::between(
       .data$Year, start_year, end_year
       )
-    )
+    ) |>
+  dplyr::mutate(Sum.of.Total.Damage = .data$`Sum.of.Total.Damage` * 1000)
 
 emdat_data_yearly <-
   emdat_data_occ %>%

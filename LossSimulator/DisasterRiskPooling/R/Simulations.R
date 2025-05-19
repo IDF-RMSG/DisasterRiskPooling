@@ -12,7 +12,7 @@ make_bootsrap <- function(dis_name, dat, n_sim){
   dat <- dat |>  filter(distribution == dis_name)
 
   if(dis_name == 'Freq') {
-    sim <- stats::rnbinom(n = n_sim, mu = dat$`mle1`, size = dat$`mle2`)
+    sim <- stats::rnbinom(n = n_sim, size = dat$`mle1`, mu = dat$`mle2`)
   } else if(dis_name == 'Log normal'){
     if(any(is.na(dat$aic))){
       sim <- NA
@@ -88,11 +88,11 @@ make_bootsrap <- function(dis_name, dat, n_sim){
 #' @examples
 #' make_simulation(dis_name = sub_peril$distribution, dat = sub_peril)
 make_simulation <- function(dis_name, dat, n_sim){
-
+browser()
   dat <- dat |>  filter(distribution == dis_name)
 
   if(dis_name == 'Freq' & !is.na(dat$mle2)) {
-      sim <- stats::rnbinom(n = n_sim, mu = dat$`mle1`, size = dat$`mle2`)
+      sim <- stats::rnbinom(n = n_sim, mu = dat$`mle2`, size = dat$`mle1`)
   } else if(dis_name == 'Freq' & is.na(dat$mle2)){
       sim <- stats::rpois(n = n_sim, lambda = dat$`mle1`)
   } else if(dis_name == 'Log normal'){
@@ -414,7 +414,7 @@ run_simulations <- function(prepared_simulation_data = NULL, prepared_frequency_
     out_list <- list()
 
     for(i in 1:length(perils)){
-
+browser()
       this_peril <- perils[i]
       sub_peril <- prepared_simulation_data |>  dplyr::filter(peril == this_peril)
       sub_peril_severity <- dplyr::filter(sub_peril, .data$distribution != "Freq")

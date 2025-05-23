@@ -2433,7 +2433,7 @@ server <- function(input, output, session) {
   # This table shows the AIC scores and MLEs for the all the distributions that converged for
   # each peril. In advanced mode, you can chose any of these.
   output$simulation_table <- DT::renderDataTable({
-    
+
     fd <- fitted_distribution()[[1]]
     ok <- FALSE
     if(!is.null(fd)){

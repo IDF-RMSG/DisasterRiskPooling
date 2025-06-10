@@ -2717,17 +2717,18 @@ server <- function(input, output, session) {
     else {
       cpp_text <- NULL
     }
-    if (scale_fail && detrend_fail) {
-      trend_text <- paste0('The historical values have not been scaled or detrended.')
+    #if (scale_fail && detrend_fail) {
+    if (scale_fail) {
+      trend_text <- paste0('The historical values have not been scaled.')
     }
-    else if (!scale_fail && detrend_fail) {
-      trend_text <- paste0('The historical values have been scaled by ', scale_type, ', but have not been detrended.')
-    }
-    else if (scale_fail && !detrend_fail) {
-      trend_text <- paste0('The historical values have not been scaled, but have been detrended.')
-    }
+    #else if (!scale_fail && detrend_fail) {
+    #  trend_text <- paste0('The historical values have been scaled by ', scale_type, '.')
+    #}
+    #else if (scale_fail && !detrend_fail) {
+    #  trend_text <- paste0('The historical values have not been scaled.')
+    #}
     else {
-      trend_text <- paste0('The historical values have been scaled by ', scale_type, ', and have also been detrended (if detrending selected in advanced mode).')
+      trend_text <- paste0('The historical values have been scaled by ', scale_type, '.')
     }
     out <- paste(cpp_text, trend_text)
     return(out)
@@ -2959,7 +2960,6 @@ server <- function(input, output, session) {
       p('This exhibit shows the estimated annual loss across all filtered perils individually and also the sum of the perils (overall figure). As such the sum of the estimated losses of the individual perils at different return periods may differ to the associated overall figure.'),
       p('A return period of 1 in 5 years is the estimated annual loss expected to happen once every 5 years, i.e. a 20% probability. Similarly, a return period of 1 in 10 years is the estimated annual loss expected to happen once every 10 years, i.e. a 10% probability.'),
       p('When confidence intervals are turned on, the error bars show the 95% confidence interval for each return period.'),
-      p('The figures represented by the purple bars are generated from simulated data.'),
       get_dynamic_text()
     )
   })
@@ -3139,7 +3139,6 @@ server <- function(input, output, session) {
     ex2_desc_text <- fluidPage(
       p('This exhibit shows the probability of a year taking place that exceeds the aggregate annual loss amount on the y-axis. The probability of exceeding the available budget is represented by the probability where the available budget line and the loss exceedance curve cross.'),
       p('When confidence intervals are turned on, the two dotted lines either side of the loss exceedance curve show the upper and lower bound of the 95% confidence interval.'),
-      p('The figures represented by the purple line are generated from simulated data.'),
       get_dynamic_text()
     )
   })
@@ -3476,7 +3475,6 @@ server <- function(input, output, session) {
       p('This exhibit shows the probability of experiencing different sized funding gaps (the difference between the estimated aggregate annual cost and the available budget). When the line is above 0 it indicates a funding surplus. When the line is below 0 it indicates a funding deficit. The point at which the curve crosses 0 is the probability that the available funds will be fully used.'),
       p('Hover over the line to find the probability of a particular funding gap occurring.'),
       p('When confidence intervals are turned on, the two dotted lines either side of the loss exceedance curve show the upper and lower bound of the 95% confidence interval.'),
-      p('The figures represented by the purple line are generated from simulated data.'),
       get_dynamic_text()
     )
   })

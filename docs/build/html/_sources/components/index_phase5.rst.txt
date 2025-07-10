@@ -13,10 +13,7 @@ Phase 5: Optimising the pool
 Step 11: Adjust the Financial Structure
 -------------------------------------------
 
-It's likely you may not have all the funding you need to cover everything you would like to, and so your first pool arrangement may have blown your funding pool budget. 
-
-This is where you will need to go back and reduce or increase the amount of coverage for different risks to optimise your pool to your funding availability within the risk pool structuring.  
-
+It is likely the user will have to run the tool multiple times to get the best structure for a given budget. 
 
 Guidance
 """"""""""""""""""
@@ -30,14 +27,12 @@ Guidance
  * Reinstatements
  * Aggregate limit
    
-3. Re-run the structure by pressing Run Model - every time you make adjustments you will need to run the model - and return to the country and pool analysis tabs to consider the new results. Until:
+3. Re-run the structure by pressing Run Model - every time the user makes adjustments they will need to run the model - and return to the country and pool analysis tabs to consider the new results, until:
 
- * The pool funding requirement is within your budget
- * You maximise the coverage while staying within your risk appetite on solvency
- * You can balance the coverage needs requested from countries with affordability within your funds capacity
+ * The pool funding requirement is within budget
+ * The coverage is maximised while staying within the risk appetite on solvency
+ * The coverage needs requested from countries are balanced with affordability within the available funding
 
-
-You are essentially moving different levers in the system until you have things balanced and arranged in a way that fits within your overall funding availability and aggregate limit, maximises the amount you can guarantee for each country-risk and is within your risk appetite for solvency. 
 
 These decisions will need to be within the frame of the overall governance of the systems and should be fully transparent and accountable. 
 
@@ -46,7 +41,7 @@ These decisions will need to be within the frame of the overall governance of th
 Step 12: Finalise and Communicate
 --------------------------------------
 
-Once you have a workable design for the risk pool, ensure that you document and clearly explain off-tool decisions, including: 
+Once the user has a workable design for the risk pool, they should document and clearly explain off-tool decisions, including: 
 
   1. Data sources, distribution fitting, and limitations
 

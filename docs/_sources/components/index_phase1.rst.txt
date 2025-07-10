@@ -8,18 +8,20 @@ Phase 1: Understanding the nature of the risks
   :alt: Phase 1 steps
 
 
-Key Decision-Making Considerations
-""""""""""""""""""""""""""""""""""""""""
-Before we begin to add risks to our pool and add funding coverage against them, there are a number of decisions or areas of understanding and prioritisation that would have to be established outside of the tool and the calculation. 
 
-**What risks do we want to cover financially and include in our pool?**
-What risks you will want to cover will likely be different for all organisations and funds and will be dependent on several factors. This may be looking at the risks and impacts that the country has prioritised. It may include looking at the operational systems that are ready to utilise the money effectively in emergencies. How those country risks are identified will require decision-making criteria on those being prioritised for coverage. 
+Before adding risks to the pool and add funding coverage against them, there are a number of decisions or areas of understanding and prioritisation that have to be established outside of the tool and the calculation. 
 
-**Who has requested coverage and how much?** Firstly, you are likely to have some sort of mechanism where those who would be utilising the pre - positioned disaster funding could request coverage support. Certain conditions may be in place for prepositioned funding coverage. These may be how effective and well-planned the delivery of support with the released funding is or potentially what existing financial coverage and support is already in place. How you consider those requests will depend on your own governance and requirements. But clarity on that for transparency should be established.
+**What risks should be covered financially and include in the pool?**
+The risks to cover will likely be different for all organisations and will be dependent on several factors. This may be depend on the risks and impacts that a country has prioritised. It may include looking at the operational systems that are ready to utilise the money effectively in emergencies. How those country risks are identified will require decision-making criteria on those being prioritised for coverage. 
 
-**What type of coverage have they requested?** How much has been requested for different levels of risk would also need to be considered in the financial structure. There may be preferences for more funding for different severity events, depending on the financial needs and gaps.
+**Who has requested coverage and how much?** 
+Firstly, there is likely to be a mechanism where those who would be utilising the pre-positioned disaster funding could request coverage support. Certain conditions may be in place for prepositioned funding coverage. These may be how effective and well-planned the delivery of support with the released funding is or potentially what existing financial coverage and support is already in place. How to consider those requests will depend on existing governance and requirements, which should be clarified for transparency.
 
-**What other funding coverage is in place for those risks?** Providing funding coverage from your pool for the entirety of the possible funding risk is unlikely. Often, a mixture of funding lines come in for different emergencies and at different severities. So, understanding the landscape in which your prepositioned funding in the pool sits will be important before constructing the financial structuring. This will ensure the most efficient arrangement of funding for future crises is used. Having the financing for a crisis well strategically structured and arranged also means that the corresponding emergency planning and operations will be incentivised to do the same. Chaotic financing systems often intersect in creating chaotic operational systems in disasters.
+**What type of coverage has been requested?** 
+How much funding has been requested for different levels of risk needs to be considered in the financial structure. There may be preferences for more funding for different severity events, depending on the financial needs and gaps.
+
+**What other funding coverage is in place for those risks?** 
+Providing funding coverage from the pool for the entirety of the possible funding risk is unlikely. Often, a mixture of funding lines come in for different emergencies and at different severities. So, understanding the landscape in which the pool sits will be important before constructing the financial structuring. This will ensure the most efficient arrangement of funding for future crises is used. Having pre-arranged financing for a crisis also means that the corresponding emergency planning and operations will be incentivised to do the same. Chaotic financing systems often intersect in creating chaotic operational systems in disasters.
 
 
 
@@ -27,7 +29,7 @@ What risks you will want to cover will likely be different for all organisations
 Step 1: Gather Historical Event Data
 ---------------------------------------
 
-The very first step is gathering data on past events for the risks you want to include. This includes the perils and which countries were affected, in addition to impact metrics such as people affected or financial costs.
+The first step is gathering data on past events for the risks to be included in the pool. This includes the perils and which countries were affected, in addition to impact metrics such as people affected or financial costs.
 
 
 Guidance
@@ -65,7 +67,7 @@ Key Decision-Making Considerations
 """"""""""""""""""""""""""""""""""""""""
 
 **What data is good enough to include in our catalogue?**
-“Good enough” is a relatively subjective term, so it will be important to have some criteria in which past disaster data is deemed of sufficient quality to be included in your catalogue. In some cases, larger events and hazards, such as earthquakes and cyclones, which have clearer infrastructural-based impacts, may be easier to cross-reference and verify and therefore have more confidence in the loss data. Events like droughts and food security impacts can be more difficult to understand and definitively quantify. There should be clear rationale on why different types and sources of data have been included or excluded from the catalogue. It is important that the depiction of risk is kept as true as possible, without augmentation to a preferred view of risk for financial considerations. This should be done later on within the financial structuring. 
+“Good enough” is a relatively subjective term, so it will be important to have criteria in which past disaster data is deemed of sufficient quality to be included in your catalogue. In some cases, larger events and hazards, such as earthquakes and cyclones, which have clearer infrastructural-based impacts, may be easier to cross-reference and verify and therefore have more confidence in the loss data. Events like droughts and food security impacts can be more difficult to understand and definitively quantify. There should be clear rationale on why different types and sources of data have been included or excluded from the catalogue. It is important that the depiction of risk is kept as true as possible, without augmentation to a preferred view of risk for financial considerations. This should be done later on within the financial structuring. 
 
 **What are the key instances and likely sources of error and uncertainty in the event data?** 
 Knowing what gaps and limitations exist within your base event catalogue will give you indications for each risk when the risk relationship depicted may be over or underestimating the risk due to those limitations. The likely reasons for this are essential to note and identify to help with the later management of uncertainties and basis risk operationally. 
@@ -81,7 +83,7 @@ Knowing what gaps and limitations exist within your base event catalogue will gi
    *Climate Change* doesn't impact the day to day occurrences of events, but it does alter this magnitude frequency relationship over the long term. 
 
 
-Now you have a database of past event information on the risks that you want your risk pool to cover. It will tell you some good information about the magnitude and frequency of those events and the overall likely financial need in total those types of crises may require. However, it will likely need some improvements using statistical techniques. 
+Now you have a database of past event information on the risks that the pool will cover. This will provide information about the magnitude and frequency of those events and the overall likely financial need in total those types of crises may require. However, it will likely need some improvements using statistical techniques. 
 
 This is because, often, we will only have a small snapshot of those relationships and patterns, so we need ways to try to understand the broader relationship beyond the data we have for recorded events. The original dataset likely won't cover all potential events of interest (i.e. even rare ones that may occur once every 200 years) and therefore statistical techniques are used instead to re[resent what we can't see with our limited view. 
 
@@ -100,11 +102,11 @@ This is because, often, we will only have a small snapshot of those relationship
 Step 2: Creating a Synthetic (Simulated) Loss Catalogue 
 ---------------------------------------------------------------
 
-This step is about how we take all that information and try to project and understand more deeply the statistical patterns and likely probabilities of different events overall – this uses the tool to support creating a set of synthetic (or simulated) events. This will generate from a relatively small number of event entries (e.g., historical loss records) into tens of thousands of events losses, representing wider variability and extreme losses that do not appear in the historical record.
+This step is about how to use that information and try to project and understand more deeply the statistical patterns and likely probabilities of different events overall – this uses the tool to support creating a set of synthetic (or simulated) events. This will generate from a relatively small number of event entries (e.g., historical loss records) into tens of thousands of events losses, representing wider variability and extreme losses that do not appear in the historical record.
 
-It is often difficult to understand long-term pattern of disaster impacts and losses because we typically  have a short duration of past event data. In some cases, we might only have two or three events with reliable data on impacts and losses. To address this, we can create a stochastic set of events to model their impacts, or we can statistically simulate a catalogue of losses. This essentially uses the patterns of available data to simulate the impacts of other statistically possible events, creating tens of thousands of simulated events. This makes understanding the long-term pattern of those events more statistically robust. 
+It is often difficult to understand long-term pattern of disaster impacts and losses because we typically  have a short duration of past event data. In some cases, there might only have two or three events with reliable data on impacts and losses. To address this, it is typical to create a stochastic set of events to model their impacts, or to statistically simulate a catalogue of losses. This essentially uses the patterns of available data to simulate the impacts of other statistically possible events, creating tens of thousands of simulated events. This makes understanding the long-term pattern of those events more statistically robust. 
 
-This step uses the Loss Simulator, an online interface available at https://idf-rmsg.shinyapps.io/DisasterRiskPooling.
+This step uses the online `Loss Simulator <https://idf-rmsg.shinyapps.io/DisasterRiskPooling>`_.
 
 
 Guidance for using the Loss Simulator
@@ -128,6 +130,12 @@ Guidance for using the Loss Simulator
 
  Select the data type and the metrics which you would like displayed on the graphs. A graph of data appears at the bottom for validation.
 
+
+.. admonition:: Fundamental Principal
+
+   The more historical event data you have from historical catalogs, the more robust the simulations will be to give the view of risk and the magnitude/frequency relationship. If only a small number of historical event information data points are available, there will be significant uncertainty in your financial risk modelling. This uncertainty increases if events close to your later attachment/trigger points are not well represented. Exercise caution in these cases as it may not be sensible to include risks based on such small amounts of data in the pool because they may not capture the potential funding liabilities. 
+
+
  .. figure:: ../src_img/screenshots/step2_2_manual_input.png
    :scale: 25%
    :alt: Advanced .csv file upload
@@ -150,15 +158,14 @@ Guidance for using the Loss Simulator
 
 3. Simulation
 
- Click Run Tool (This could take up to 5 minutes).
+ Click Run Tool (this could take up to 5 minutes).
 
  .. figure:: ../src_img/screenshots/step2_4_run.png
    :scale: 25%
    :alt: Run tool - click button
 
-   Run tool - click button
 
- The tool tries multiple distributions, each with 15,000 simulated events and selects the distribution with the best possible fit to the data. The  distributions tested by default include Log Normal, Poisson, Pareto. You can change the distribution selection - but it is advised to only do this with technical expert support. 
+ The tool fits multiple statistical distributions, each with 15,000 simulated events and selects the distribution with the best possible fit to the data. The  distributions tested by default include Log Normal, Poisson, Pareto. You can change the distribution selection - but it is advised to only do this with technical expert support. 
 
  The graph can display for each risk a display of the fitted distribution based on the observed data that was inputted, the simulated events through the model and both combined.
 
@@ -193,7 +200,7 @@ Guidance for using the Loss Simulator
    Download simulation outputs using the buttons
 
 
-Now you have a robust database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood. This gives a much stronger view of the statistical relationships.
+Now you have a robust database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood.
 
 
 
@@ -203,7 +210,7 @@ Key Decision-Making Considerations
 **How many simulated events are enough?**
 How many simulations you include will depend on the computing power you have and also the number of events you are basing that simulation on. If like in the example, you only have 3 events with data. Running 20,000 events is likely going to be highly uncertain, so perhaps less is more in that case. A statistician or actuary would help you make a sensible choice.
 
-**What data trending do we include?**
+**What scaling to apply?**
 Here, it will consider what other changes happened alongside this data, which might influence the data and the objectivity of that pattern you are trying to understand. This can include population changes, price and cost changes with inflation. Once those trends are identified, the data related to them can be included to have those associated patterns in the data removed. 
 
 **What statistical distributions will be used to generate the synthetic catalogue?**
@@ -215,19 +222,12 @@ How well the selected distribution fits the data will generate uncertainty, wher
 **How reliable is our understanding of the magnitude frequency patterns?**
 Reviewing the quality of the event data available and the robustness of the distribution fitting will give decision-makers a clear idea of how reliable our knowledge of the magnitude frequency relationship is. This is important as the weight of the risk in the pool may be under or overestimated due to this. When it comes later on to assigning financial coverage to those risks, this would need to be a consideration alongside the nature of the risk depicted in the distribution. 
 
-You can use the Financial to statistically simulate additional events, improving your understanding of how frequently certain severity levels might occur.
-
 
 There are two kinds of catalogs that can be inputted. These include historical catalogs, where the base data you are inputting has come from recorded historical events. The second are catalogs which have already been generated by a model. In this case you may be using the tool to align to the 15 thousand years of events that this tool provides, to check the curve fitting or to convert the output into the format needed for the Risk Pool Structuring tool.
 
-The Loss Curve Generator allows you to only run one type of input at a time. For example you can not combine historical events _and_ modelled events for Earthquake in Chile. 
+The Loss Simulator allows you to only run one type of input at a time. For example you cannot combine historical events _and_ modelled events for earthquake in Chile. 
 You also cannot add both a modelled simulated catalog and an historic simulated catalog for the same country peril in the Risk Pool Structuring tool. Currently it is either or for each country's risk. However, if different risks and countries you can use a mixture in the Risk Pool Structuring Tool (i.e modelled simulation for drought in Mali and simulation based on historical data for flood in Colombia).
 
-
-
-.. admonition:: Fundamental Principal
-
-   The more event data you have from historical catalogs, the more robust the simulations will be to give the view of risk and the magnitude/frequency relationship. If only a small number of historical event information data points are available, there will be significant uncertainty in your financial risk modelling. This uncertainty increases if events close to your later attachment/trigger points are not well represented. Exercise caution in these cases as it may not be sensible to include risks based on such small amounts of data in the pool because they may not capture the potential funding liabilities. 
 
 
 
@@ -236,9 +236,9 @@ You also cannot add both a modelled simulated catalog and an historic simulated 
 Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool
 -----------------------------------------------------------------------
 
-Once the loss data has been compiled for each 'risk' (hazard and country combination of loss data), it can be added to the Risk Pool Structuring workbook, to examine the different risk pool options and what predictable funding this could provide for the different risks. 
+Once the loss data has been compiled for each 'risk' (hazard and country combination of loss data), it can be added to the Risk Pool Structuring Tool, to examine the different risk pool options and what predictable funding this could provide for the different risks. 
 
-The Risk Pool Structuring tool is available on the `Disaster Risk Pooling Github <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/>`_: _RiskPoolingTool_main_v*.xlsb_. The folder also contains an `example of data to upload <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_. 
+The Risk Pool Structuring Tool is available on the `Disaster Risk Pooling Github <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/>`_: _RiskPoolingTool_main_v*.xlsb_. The folder also contains an `example of data to upload <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_. 
 
 
 
@@ -261,7 +261,7 @@ Guidance for using the Risk Pool Structuring tool
 4. After successful upload, the Risk Pool Structuring tool automatically generates various loss scenarios using the new data.
    
 
-Repeat this step for all of your country data sheets to upload them to the subsequent Country data input tabs. Remember you can only add in one catalog per country risk. You cannot add in both a modelled and historic based catalogue for the same country risk.  
+Repeat this step for all of your country data sheets to upload them to the subsequent Country data input tabs. Remember you can only add in one catalog per country risk.  
 
 
 The tool has now been primed with the knowledge of the shape and nature of the risks that will be within our risk pool. You’re now ready to move on to Phase 2: Setting up financing triggers and thresholds against these risk estimates.

@@ -4,7 +4,7 @@ Disaster Risk Pooling tool
 Introduction 
 --------------------
 
-The Disaster Risk Pooling tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Maximum Information <https://www.maxinfo.io/>`_ and the World Bank Group's Finance, Competitiveness & Investment team.  
+The Disaster Risk Pooling tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Maximum Information <https://www.maxinfo.io/>`_ and the `World Bank Group's Finance, Competitiveness & Investment team <https://www.worldbank.org/en/about/unit/fci>`_.  
 
 This is a free and open-source tool with code available on the `GitHub repository <https://github.com/idf-rmsg/DisasterRiskPooling>`_. 
 
@@ -31,7 +31,7 @@ By illustrating how risk pooling and funding can be set up with well-defined pay
 
    Anticipation Hub resources on Disaster risk financing for humanitarian action: `Disaster Risk Financing and Anticipatory Action - Anticipation Hub <https://www.anticipation-hub.org/learn/emerging-topics/disaster-risk-financing/>`_
 
-   World Bank case studies and resources: `Disaster Risk Finance | Global Facility for Disaster Reduction and Recovery <https://www.gfdrr.org/en/disaster-risk-finance>`_ and `Financial Protection Forum <https://www.financialprotection.org/>`_
+   World Bank case studies and resources: `Disaster Risk Finance | Global Facility for Disaster Reduction and Recovery <https://www.gfdrr.org/en/disaster-risk-finance>`_ and `Financial Protection Forum <https://www.financialprotectionforum.org/>`_
 
 
 The tool guides those responsible for emergency fund allocations to take them through the steps of constructing structured disaster financing, exploring what the tool and technical calculations can support in terms of understanding and the additional decision-making required.

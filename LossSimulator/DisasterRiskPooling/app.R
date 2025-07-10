@@ -57,7 +57,7 @@ sidebar <- dashboardSidebar(
       icon = icon("book-open")),
     div(
       id = 'logo-div',
-      tags$img(id = 'DRFIP-wt', src = 'Vertical_logos_newIDFinclWB.png', alt = 'Contributors', width = '280px')
+      tags$img(id = 'allLogo', src = 'Vertical_logos_newIDFinclWB.png', alt = 'Contributors', width = '280px')
     )
   )
 )

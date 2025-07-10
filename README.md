@@ -1,12 +1,13 @@
 # The Disaster Risk Pooling Tool
 
-The Disaster Risk Pooling Tool is an educational resource developed by the Insurance Development Forum in partnership with Maximum Information and the World Bank Disaster Risk Financing and Insurance Program (DRFIP).
-
+         
 It introduces how to model and structure a crisis and disaster risk pool for a fund covering multiple hazards (e.g., floods, droughts, earthquakes).
 
-The central purpose of the Disaster Risk Pooling Tool is educational, serving as an introduction to the different considerations that go into modelling financial risk within funds. The tool demonstrates how the processes of risk pooling and funding can be structured efficiently and responsibly even with events being highly uncertain year to year.
+The central purpose of the Disaster Risk Pooling Tool is educational, serving as an introduction to simulating loss curves from historical loss data (in the Loss Simulator tool) and the considerations that go into developing risk pools (Risk Pool Structuring tool).
 
-The tool builds on code originally developed by World Bank DRFIP for supporting World Bank client countries to better understand the risk of losses occurring from disasters, by visualising and historical losses creating exceedance probability curves from historical loss data. The original tool: Financial Risk Assessment Tool (http://149.28.228.221/apps/Tool1/)
+The tools have been developed by Maximum Information on behalf of the Insurance Development Forum (IDF) Risk Modelling Steering Group (RMSG) and the World Bank Group's Finance, Competitiveness and Investment team. It is based on the existing 'Financial Risk Assessment Tool' developed by the World Bank for capacity building of their clients. IDF RMSG are responsible for the update of the Loss Simulator.
+
+
 
 The Disaster Risk Pooling Tool comprises:
 -----------------------------------------------

@@ -37,10 +37,10 @@ tab_maker <- function(n = 1,
   tab_number <- td %>% filter(name == tab_name) %>% .$number
   the_text <- '&#10004;'
   if(tab_number >=n){
-    the_color <- '#F05023'
+    the_color <- '#ff0000'
     the_circle <- 'circle'
   } else {
-    the_color <- '#707372'
+    the_color <- '#ff0000'
     the_circle <- 'greycircle'
   }
   if(tab_number <= n){

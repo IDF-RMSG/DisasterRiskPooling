@@ -23,55 +23,60 @@ h4  {
 
 /* logo */
 .skin-blue .main-header .logo {
-                      background-color: #D3D3D3;
-                      color: #000
+                      background-color: #ffffff;
+                      color: #00053A
                       }
 
 /* logo when hovered */
 .skin-blue .main-header .logo:hover {
-                      background-color: #D3D3D3;
-                      color: #000
+                      background-color: #ffffff;
+                      color: #00053A
                       }
 
 /* navbar (rest of the header) */
 .skin-blue .main-header .navbar {
-                      background-color: #D3D3D3;
-                      color: #000
+                      background-color: #ffffff;
+                      color: #00053A
                       }
 
 /* main sidebar */
 .skin-blue .main-sidebar {
-                      background-color: #D3D3D3;
-                      color: #000
+                      background-color: #ffffff;
+                      color: #00053A
                       }
 
 /* active selected tab in the sidebarmenu */
 .skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
-                      background-color: #F05023;
-                      color: #000;
+                      background-color: #ff0000;
+                      color: #00053A;
                       }
 
 /* other links in the sidebarmenu */
 .skin-blue .main-sidebar .sidebar .sidebar-menu a{
-                      background-color: #D3D3D3;
-                      color: #000;
+                      background-color: #ffffff;
+                      color: #00053A;
                       }
 
 /* other links in the sidebarmenu when hovered */
  .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
-                      background-color: #009FDA;
+                      background-color: #ff0000;
                       }
 /* toggle button when hovered  */
  .skin-blue .main-header .navbar .sidebar-toggle:hover{
-                      background-color: #98252B;
+                      background-color: #ff0000;
                       }
 
-/* */                      
+/* */
 .main-header .sidebar-toggle {
     float: left;
-    background-color: transparent;
+    background-color: #00053A;
     background-image: none;
     padding: 39px 5px;
+}
+
+.radio {
+  border-color: #00053A;
+  background-color: #00053A;
 }
 
 /* background */
@@ -84,10 +89,10 @@ background-color: #FFFFFF;
   margin: 0 auto;
   width: 28px;
   height: 28px;
-  border: 1.5px solid #F05023;
+  border: 1.5px solid #ff0000;
   border-radius: 50%;
   font-size: 14px;
-  color: #F05023;
+  color: #ff0000;
   line-height: 25px;
   text-align: center;
   background: #FFFFFF;
@@ -119,12 +124,12 @@ background-color: #FFFFFF;
   pointer-events: none;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-  color: #FFFFFF;
+  color: #00053A;
 	border-style: none;
   border: 0;
 }
 .nav-tabs>li>a, .nav-tabs>li>a:focus, .nav-tabs>li>a:hover {
-	color: #FFFFFF;
+	color: #00053A;
 	border-style: none;
 }
 
@@ -142,19 +147,27 @@ background-color: #FFFFFF;
 
 /* Active tab colour when selected */
 .nav-tabs-custom .nav-tabs li.active {
-     border-top-color: #00ADE4;
-     background-color: rgba(0, 173, 228, 0.5);
+     border-top-color: #00053A;
+     background-color: #ffffff;
 }
 
 /* Non active tab colour on hover */
 .nav-tabs-custom .nav-tabs >li>a:hover {
-    background-color: rgba(0, 173, 228, 0.3);
+    background-color: #ffffff;
     color: #000;
 }
 
+/* radio button formatting */
+.radio input[type:'radio']:checked{
+  background-color: #00053A;
+  border-color: #00053A;
+}
+
+
+
 /* Remove shadow/line under tabbox */
 .box {
-    -webkit-box-shadow: none; 
+    -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
 }

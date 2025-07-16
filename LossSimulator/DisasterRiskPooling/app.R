@@ -33,18 +33,18 @@ header <- dashboardHeader(
             #                 style = "height: 100px;"),
              #       style = "padding: 5px;")
   ),
-  title = span(h2(id = "tool_title", "Disaster Risk Pooling Tool")),
-  titleWidth = 280
+  title = span(h2(id = "tool_title", "Loss Simulator")),
+  titleWidth = 260
 )
 
 # Set sidebar names
 sidebar <- dashboardSidebar(
   tags$style(".left-side, .main-sidebar {padding-top: 100px}"),
-  width = 280,
+  width = 260,
   sidebarMenu(
     id = 'side_tab',
     menuItem(
-      text = 'About the Tool',
+      text = 'About',
       tabName = 'about',
       icon = icon("info-circle")),
     menuItem(
@@ -55,9 +55,11 @@ sidebar <- dashboardSidebar(
       text = 'User Guides',
       tabName = 'guides',
       icon = icon("book-open")),
+    p("The Loss Simulator is one component of the Disaster Risk Pooling Tool.
+      "),
     div(
       id = 'logo-div',
-      tags$img(id = 'allLogo', src = 'Vertical_logos_newIDFinclWB.png', alt = 'Contributors', width = '280px')
+      tags$img(id = 'allLogo', src = 'Vertical_logos_newIDFinclWB.png', alt = 'Contributors', width = '250px')
     )
   )
 )
@@ -69,8 +71,8 @@ body <- dashboardBody(
   ),
   tags$script(HTML("$('body').addClass('fixed');")),
   tags$head(tags$style(shiny::HTML('.nav-tabs a {cursor: default}'))),
-  tags$head(tags$style(shiny::HTML("#upload-error-modal .modal-content {background-color: #d9534f; color: #f7f7f7}"))),
-  tags$head(tags$style(shiny::HTML("#upload-error-modal .modal-title {background-color: #d9534f; color: #f7f7f7}"))),
+  tags$head(tags$style(shiny::HTML("#upload-error-modal .modal-content {background-color: #00053A; color: #ff0000}"))),
+  tags$head(tags$style(shiny::HTML("#upload-error-modal .modal-title {background-color: #00053A; color: #ff0000}"))),
   tags$head(tags$style(shiny::HTML(".shiny-notification {height: 100px; width: 800px; position: fixed; top: calc(50% - 50px); left: calc(50% - 400px); font-size: 150%; text-align: center;}"))),
   tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")),
   useShinyjs(),
@@ -117,7 +119,7 @@ body <- dashboardBody(
               uiOutput('damage_type_ui'),
               br(),
               # User input for cost per person assumption
-              conditionalPanel("input.damage_type == 'People Affected'", uiOutput('cost_per_person_ui')),
+              conditionalPanel("input.damage_type == 'People Affected Reponse Cost'", uiOutput('cost_per_person_ui')),
               # Create tabs to house data table and plot
               uiOutput('freq_loss_switch_ui'),
               uiOutput("display_data_tab1_ui"),
@@ -204,7 +206,7 @@ body <- dashboardBody(
 #####
 # UI
 #####
-ui <- dashboardPage(header, sidebar, body, skin="blue", title="Disaster Risk Pooling Tool")
+ui <- dashboardPage(header, sidebar, body, skin="blue", title="Disaster Risk Pooling Tool: Loss Simulator")
 
 #########
 # Server
@@ -219,7 +221,7 @@ server <- function(input, output, session) {
   # Download handler for peril data upload template
   output$peril_template_download <- downloadHandler(
     filename = "manual_input_template.xlsx",
-    content = function(file) {file.copy("data/templates/tool1_model_data_upload.xlsx", file)}
+    content = function(file) {file.copy("data/templates/manual_input_template.xlsx", file)}
   )
 
   # Download handler for peril data upload template
@@ -229,23 +231,24 @@ server <- function(input, output, session) {
     contentType = "text/csv"
   )
 
-  # Download handler for quick start guide
-  output$quickstart_download <- downloadHandler(
-    filename = "technical_overview.pdf",
-    content = function(file) {file.copy("guides/technical_overview.pdf", file)},
-    contentType = "application/pdf"
-  )
+  # Download handler for quick start guide. - removed as his refers to WB user guide.
+  #output$quickstart_download <- downloadHandler(
+  #  filename = "technical_overview.pdf",
+  #  content = function(file) {file.copy("guides/technical_overview.pdf", file)},
+  #  contentType = "application/pdf"
+  #)
 
-  # Download handler for user guide
-  output$user_guide_download <- downloadHandler(
-    filename = "DRFIP_FinancialRiskAssessmentTool_UserGuide.pdf",
-    content = function(file) {file.copy("guides/DRFIP_FinancialRiskAssessmentTool_UserGuide.pdf", file)},
-    contentType = "application/pdf"
-  )
+  # Download handler for user guide - removed as his refers to WB user guide. Replaced with URL in text, to online guide
+  #  output$user_guide_download <- downloadHandler(
+  #  filename = "DRFIP_FinancialRiskAssessmentTool_UserGuide.pdf",
+  #  content = function(file) {file.copy("guides/DRFIP_FinancialRiskAssessmentTool_UserGuide.pdf", file)},
+  #  contentType = "application/pdf"
+  #)
 
   # Download all underlying data for tool handler
+  # TODO: Dynamic file name so it downloads with country / date reference.
   output$allDataBtn <- downloadHandler(
-    filename = "Tool1_Output.csv",
+    filename = "LossSimulator_Output.csv",
     content = function(file) {write.csv(get_sims_export(), file, row.names = FALSE)},
     contentType = "text/csv"
   )
@@ -291,7 +294,7 @@ server <- function(input, output, session) {
                        "Previous",
                        icon = icon("arrow-left"),
                        style = "color: white;
-                                    background-color: #D41F29;
+                                    background-color: #ff0000;
                                     font-weight: bold;
                                     position: relative;
                                     text-align:center;",
@@ -302,7 +305,7 @@ server <- function(input, output, session) {
             downloadButton("allDataBtn",
                            "Download Simulations",
                            style = "color: white;
-                                    background-color: #D41F29;
+                                    background-color: #ff0000;
                                     font-weight: bold;
                                     position: relative;
                                     text-align:center;
@@ -321,7 +324,7 @@ server <- function(input, output, session) {
             actionButton("rtnBtn",
                          "Restart",
                          style = "color: white;
-                                  background-color: #D41F29;
+                                  background-color: #ff0000;
                                   font-weight: bold;
                                   position: relative;
                                   text-align:center;
@@ -339,7 +342,7 @@ server <- function(input, output, session) {
           actionButton("nextBtn",
                        btn_label,
                        style = "color: white;
-                                background-color: #D41F29 ;
+                                background-color: #ff0000;
                                 font-weight: bold;
                                 position: relative;
                                 text-align:center;
@@ -443,7 +446,7 @@ server <- function(input, output, session) {
                      selected = 'Basic',
                      inline = TRUE),
         title = "",
-        content = 'For more statistical options choose "Advanced".',
+        content = 'We recommend starting with "Basic" mode to run the tool with a default statistical distribution. For more statistical options choose "Advanced" mode.',
         placement = "auto left",
         trigger = "hover",
         option = NULL)
@@ -475,7 +478,7 @@ server <- function(input, output, session) {
                      selected = radio_selected,
                      inline = TRUE),
                 title = "",
-        content = 'Choose between preloaded country or archetype data or switch to advanced mode to upload your own data.',
+        content = 'Choose to upload preloaded historical loss data from EM-DAT for your chosen country, or switch to advanced mode to upload your own data.',
         placement = "auto left",
         trigger = "hover",
         option = NULL)
@@ -497,9 +500,10 @@ server <- function(input, output, session) {
       fluidRow(column(11, offset = 1,
         p(
           "
-          Manual data must be uploaded with one entry per event. Any cost per
-          person calculations must be done before the data is uploaded into the
-          tool. The tool can accept vendor or historical data.")
+          Manual data must be uploaded with one entry row per event. Any cost-per-
+          person calculations must be done before the data is uploaded into this
+          tool. The tool can accept simulated event loss data or historical data, for any country.
+          Perils are restructed to quake, drought, flood, cyclone.")
       )),
       fluidRow(column(11, offset = 1,
         downloadButton("peril_template_download", "Data Template")
@@ -507,7 +511,7 @@ server <- function(input, output, session) {
       br(),
       fluidRow(column(11, offset = 1,
         fileInput(inputId = 'ownFile',
-                  label = "Choose xlsx file",
+                  label = "Choose .xlsx file",
                   multiple = FALSE,
                   accept = c(".xlsx"),
                   buttonLabel = "Browse"),
@@ -537,10 +541,10 @@ server <- function(input, output, session) {
               11,
               offset = 1,
                 tagList(
-                  "You have uploaded Historical loss data for ",
+                  "You have uploaded historical loss data for ",
                   strong(upload_name())
                 ),
-                style = "color: blue"
+                style = "color: red"
               ),
               br()
             )
@@ -561,8 +565,8 @@ server <- function(input, output, session) {
         btn_choice <- countries
         btn_select <- 'Bangladesh'
         btn_width <- '250px'
-        pop_content <- 'Select a country to examine real disaster data from that country.'
-      } else if(input$data_type == 'Archetype') {
+        pop_content <- 'Select a country to examine historical disaster data from that country (limited to those in EM-DAT with losses from quake, drought, flood or cyclone.'
+      } else if(input$data_type == 'Archetype') { # ARCHETYPE HAS BEEN REMOVED FROM UI - NOT AN OPTION.
         btn_id <- "archetype"
         btn_text <- "Select Archetype"
         btn_choice <- archetypes
@@ -596,16 +600,16 @@ server <- function(input, output, session) {
   # An output that depends on which type of damage is selected.
   output$damage_type_ui <- renderUI({
     req(input$data_type)
-    if(input$data_type == 'Archetype'){
-      btn_choice <- c('People Affected')
-      btn_selected <- 'People Affected'
+    if(input$data_type == 'Archetype'){# ARCHETYPE HAS BEEN REMOVED FROM UI - NOT AN OPTION.
+      btn_choice <- c('People Affected Reponse Cost')
+      btn_selected <- 'People Affected Reponse Cost'
     }
     else if(input$data_type == 'Manual Input'){
       return(NULL)
     }
     else {
-      btn_choice <- c('Total damage', 'People Affected')
-      btn_selected <- 'Total damage'
+      btn_choice <- c('Total Economic Damage', 'People Affected Reponse Cost')
+      btn_selected <- 'People Affected Reponse Cost'
     }
     fluidRow(column(11, offset = 1,
       popify(
@@ -615,7 +619,9 @@ server <- function(input, output, session) {
                      selected = btn_selected,
                      inline = TRUE),
         title = '',
-        content = "Select whether you would like to view the loss as People Affected or as Total Damage. If Archetype is chosen, you can only do the former.",
+        #content = "Select whether you would like to view the loss as People Affected or as Total Economic Damage. If Archetype is chosen, you can only do the former.", # ARCHETYPE HAS BEEN REMOVED FROM UI - NOT AN OPTION.
+        content = "Select whether you would like to view the loss as People Affected (plot/table will show the number of people affected multiplied by the response cost per person) or as Total Economic Damage (as reported by EM-DAT).
+        Only records with a data entry FOR THE SELECTED PARAMETER IN EM-DAT will show in the plot/table - typically there are fewer events with Total Economic Damage reported in the loss catalogue",
         placement = 'auto left',
         trigger = "hover",
         options = NULL
@@ -639,7 +645,7 @@ server <- function(input, output, session) {
                        value = 50,
                        width = '250px'),
           title = '',
-          content = "This is the cost per person in US Dollars.",
+          content = "This is the cost of disaster response per person in US Dollars, to be used in estimating the overall response cost.",
           placement = "auto left",
           trigger = "hover",
           options = NULL),
@@ -657,7 +663,7 @@ server <- function(input, output, session) {
                      choices = c("Historical Losses", 'Frequency'),
                      inline = TRUE),
         title = '',
-        content = 'Choose to view the data in terms of historical losses (if using people affected data the table will show the data multiplied by the cost per person) or the frequency of the loss-related events.',
+        content = 'Choose to view the data in terms of historical losses or the frequency of the loss-related events.',
         placement = 'auto left',
         trigger = "hover",
         options = NULL
@@ -802,7 +808,7 @@ server <- function(input, output, session) {
                         y = ~ Cost,
                         type = "bar",
                         color = ~ Disaster,
-                        colors = c("#D41F29", "grey", '#FF851B', "cornsilk1"),
+                        colors = c("#ff0000", "#ff00e9", "#00053A", "#000000"),
                         marker = list(
                           line = list(
                             color = "gray40",
@@ -810,10 +816,10 @@ server <- function(input, output, session) {
                           )
                         )
                       )%>%
-        plotly::layout(title = paste0("<b>Average Annual Loss by Year Caused by Perils in ", country_name),
-                       font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
-                       yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
-                       xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
+        plotly::layout(title = paste0("<b>Average Annual Loss by Year: ", country_name),
+                       font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
+                       yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
+                       xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
                        barmode = "stack",
                        legend = list(orientation = "h", xanchor = "center", x = 0.5))
 
@@ -826,11 +832,11 @@ server <- function(input, output, session) {
           labels = ~Disaster,
           values = ~Cost,
           type = "pie",
-          marker = list(colors = c("#D41F29", "grey", '#FF851B', "#FFF8DC"))
+          marker = list(colors = c("#ff0000", "#ff00e9", "#00053A", "#000000"))
         ) %>%
         plotly::layout(
-          title = paste0("<b>Losses Caused by Perils in ", country_name),
-          font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
+          title = paste0("<b>Losses: ", country_name),
+          font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
           legend = list(orientation = "h", xanchor = "center", x = 0.5)
         )
     }
@@ -885,7 +891,7 @@ server <- function(input, output, session) {
   # Create a reactive object to retrieve the best source
   best_data_source <- "EM_DAT"
 
-  # Prepare loss (total damage) data if total damage was selected. Subset by best data source
+  # Prepare loss (Total Economic Damage) data if Total Economic Damage was selected. Subset by best data source
   prepare_loss_data <-
     shiny::reactive(
       {
@@ -900,7 +906,7 @@ server <- function(input, output, session) {
         data_temp <- list()
 
         chosen_dmg_type <-
-          if(input$damage_type == 'Total damage'){'damage'} else {'affected'}
+          if(input$damage_type == 'Total Economic Damage'){'damage'} else {'affected'}
 
         data_temp[[3]] <-
           tibble::tibble(
@@ -1172,7 +1178,7 @@ server <- function(input, output, session) {
         data <- list()
 
         chosen_dmg_type <-
-          if(input$damage_type == 'Total damage'){'damage'} else {'affected'}
+          if(input$damage_type == 'Total Economic Damage'){'damage'} else {'affected'}
 
         data[[3]] <-
           dplyr::tibble(
@@ -1258,7 +1264,7 @@ server <- function(input, output, session) {
       )
     } else {
       fluidRow(
-        column(11, offset = 1, strong("You are using raw data.", style = "color: blue"))
+        column(11, offset = 1, strong("You are viewing and using historical loss data. The data selection (Total economic damage or response cost) shown on this chart will be used in the next steps of simulation.", style = "color: red"))
       )
     }
   })
@@ -1341,7 +1347,7 @@ server <- function(input, output, session) {
       else {
         fluidPage(
           br(),
-          fluidRow(column(11, offset = 1, strong(paste0("Scaling data for ", upload_name(), " uploaded correctly."), style = "color: blue"))),
+          fluidRow(column(11, offset = 1, strong(paste0("Scaling data for ", upload_name(), " uploaded correctly."), style = "color: red"))),
           br()
         )
       }
@@ -1426,7 +1432,7 @@ server <- function(input, output, session) {
         )
       } else {
         fluidRow(
-          column(11, offset = 1, strong("You are using raw scaling data.", style = "color: blue"))
+          column(11, offset = 1, strong("You are using raw scaling data.", style = "color: red"))
         )
       }
     }
@@ -1441,7 +1447,7 @@ server <- function(input, output, session) {
           column(
             11,
             offset = 1,
-            strong("No trending available with model data", style = "color: blue"))
+            strong("No trending available with model data", style = "color: red"))
         )
       }
     })
@@ -1527,10 +1533,10 @@ server <- function(input, output, session) {
           scaled_choices <- c('No Scaling')
         }
       }
-      if (input$data_type == 'Archetype') {
+      if (input$data_type == 'Archetype') {# Disabled option of archetype data
         scaled_choices <- c('No Scaling')
       }
-      if (input$advanced == "Advanced" && input$data_type != 'Archetype') {
+      if (input$advanced == "Advanced" && input$data_type != 'Archetype') {# Disabled option of archetype data
         scaled_choices <- scaled_choices
       }
     }
@@ -1552,7 +1558,7 @@ server <- function(input, output, session) {
 
   #
   output$scale_table_ui <- renderUI({
-    if(req(input$select_scale) == 'No Scaling' || req(input$data_type) == 'Archetype' ||
+    if(req(input$select_scale) == 'No Scaling' || req(input$data_type) == 'Archetype' ||# Disabled option of archetype data
       (scaling_upload_error() & input$select_scale == "Manual Input") | (is.null(input$ownFileScaling) & input$select_scale == "Manual Input")) {
       return(NULL)
     }
@@ -1590,13 +1596,13 @@ server <- function(input, output, session) {
             core_data_edited$data
           } else if ((input$data_type == "Country" |
                       input$data_type == "Manual Input")  &
-                      input$damage_type == "People Affected") {
+                      input$damage_type == "People Affected Reponse Cost") {
 
             prepare_cost_data()
 
           } else if ((input$data_type == "Country" |
                       input$data_type == "Manual Input")  &
-                     input$damage_type == "Total damage") {
+                     input$damage_type == "Total Economic Damage") {
 
             prepare_loss_data()
 
@@ -1717,18 +1723,18 @@ server <- function(input, output, session) {
                     y = ~Cost,
                     type = "bar",
                     color = ~Disaster,
-                    colors = c("#D41F29", "grey", '#FF851B', "#FFF8DC"),
+                    colors = c("#ff0000", "#ff00e9", "#00053A", "#000000"),
                     marker = list(
                       line = list(
-                        color = "gray40",
+                        color = "#000000",
                         width = 0.5
                       )
                     )
                   ) %>%
-      plotly::layout(title = paste0("<b>Processed Losses Caused by Perils in ", country_name),
-                     font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
-                     yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
-                     xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
+      plotly::layout(title = paste0("<b>Processed Losses in ", country_name),
+                     font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
+                     yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
+                     xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
                      barmode = "stack",
                      legend = list(orientation = "h", xanchor = "center", x = 0.5))
     } else {
@@ -1740,11 +1746,11 @@ server <- function(input, output, session) {
           labels = ~ Disaster,
           values = ~ Cost,
           type = "pie",
-          marker = list(colors = c("#D41F29", "grey", '#FF851B', "#FFF8DC"))
+          marker = list(colors = c("#ff0000", "#ff00e9", "#00053A", "#000000"))
         ) %>%
         plotly::layout(
-          title = paste0("<b>Processed Losses Caused by Perils in ", country_name),
-          font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
+          title = paste0("<b>Processed Losses in ", country_name),
+          font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
           legend = list(orientation = "h", xanchor = "center", x = 0.5)
         )
     }
@@ -2396,7 +2402,7 @@ server <- function(input, output, session) {
     rd <- get_right_data()
     ips <- input$peril_simulation
     ioc <- input$overlap_choices
-    fill_colours <- c('#D41F29', 'grey')
+    fill_colours <- c("#ff0000", "#00053A")
     if (ioc == 'Observed and Simulated data') {
       ioc <- c('Observed data', 'Simulated data')
     }
@@ -2423,9 +2429,9 @@ server <- function(input, output, session) {
       scale_fill_manual(values = fill_colours) +
       theme_classic()
     fig <- plotly::ggplotly(g, tooltip = "all")
-    fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
-                          yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
-                          xaxis = list(title = x_title, autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
+    fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
+                          yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
+                          xaxis = list(title = x_title, autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
                           legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.3))
     return(fig)
   })
@@ -2711,7 +2717,7 @@ server <- function(input, output, session) {
     detrending <- input$trend_test
     scale_fail <- is.null(prepare_scale_data)
     detrend_fail <- is.null(correct_trend)
-    if (dmg_type == 'People Affected') {
+    if (dmg_type == 'People Affected Reponse Cost') {
       cpp_text <- paste0('This data was generated with a cost per person assumption of ', cost_pp, currency_code, '.')
     }
     else {
@@ -2904,8 +2910,8 @@ server <- function(input, output, session) {
       g_ci <- NULL
     }
     if(budget != 0){
-      g_budget1 <- geom_hline(aes(yintercept = budget, linetype = "Budget"), colour='#00ab51')
-      g_budget2 <- scale_linetype_manual(name = "", values = 1, guide = guide_legend(override.aes = list(color = '#00ab51')))
+      g_budget1 <- geom_hline(aes(yintercept = budget, linetype = "Budget"), colour='#ff00e9')
+      g_budget2 <- scale_linetype_manual(name = "", values = 1, guide = guide_legend(override.aes = list(color = '#ff00e9')))
     }
     else {
       g_budget1 <- NULL
@@ -2917,17 +2923,17 @@ server <- function(input, output, session) {
                               y = value/scale_size,
                               fill = legend,
                               text = paste0("Loss: ", paste(format(round(value / scale_size, 1), trim = TRUE), "m")))) +
-      geom_bar(stat = 'identity', color = "black") +
-      scale_fill_manual(values = c('#f78d28', "#D41F29")) +
+      geom_bar(stat = 'identity', color ="#000000") +
+      scale_fill_manual(values = c("#ff0000", "#00053A")) +
       labs(fill = "") +
       scale_x_discrete(labels = function(x) str_wrap(x, width = 15)) +
       theme_classic()
     g <- g + g_ci + g_budget1 + g_budget2
     # Convert to plotly
     fig <- plotly::ggplotly(g, tooltip = "text")
-    fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
-                          yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
-                          xaxis = list(title = "Return Period", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
+    fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
+                          yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
+                          xaxis = list(title = "Return Period", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
                           legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.3))
     # Fix to edit legend. For some reason ggplotly adds a 1 after legend name - so foo becomes foo, 1. This removes the , 1
     for (i in 1:length(fig$x$data)){
@@ -3043,9 +3049,9 @@ server <- function(input, output, session) {
       clr_breaks <- c('Probability',
                       'Highest Historical Annual Loss',
                       'Prob. of Exceeding Budget')
-      clr_values <- c('Probability' = "#D41F29",
-                      'Highest Historical Annual Loss' = '#f78d28',
-                      'Prob. of Exceeding Budget' = "#D41F29")
+      clr_values <- c('Probability' = "#ff0000",
+                      'Highest Historical Annual Loss' = "#ff00e9",
+                      'Prob. of Exceeding Budget' = "#ff0000")
       if (input$ci == 'On'){
         g_ci_low <- geom_line(aes(Probability, `Total Loss lower`/scale_size, color = 'CI Lower'), linetype = 'dotted')
         g_ci_upp <- geom_line(aes(Probability, `Total Loss upper`/scale_size, color = 'CI Upper'), linetype = 'dotted')
@@ -3059,7 +3065,7 @@ server <- function(input, output, session) {
       if(budget != 0){
         g_budget1 <- geom_hline(aes(yintercept = budget, color = "Budget"))
         clr_breaks <- c(clr_breaks, 'Budget')
-        clr_values <- c(clr_values, 'Budget' = '#00ab51')
+        clr_values <- c(clr_values, 'Budget' = '#ff00e9')
       }
       else {
         g_budget1 <- NULL
@@ -3081,9 +3087,9 @@ server <- function(input, output, session) {
       g <- g + g_ci_low + g_ci_upp + g_budget1
       # Convert to Plotly
       fig <- plotly::ggplotly(g, tooltip = "text")
-      fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
-                            yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
-                            xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
+      fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
+                            yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
+                            xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
                             legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.1))
     }
     return(fig)
@@ -3122,7 +3128,7 @@ server <- function(input, output, session) {
              "Probability of Exceeding Budget",
              icon = NULL,
              width = NULL,
-             color = "red"
+             color = "#ff0000"
     )
   })
 
@@ -3234,17 +3240,17 @@ server <- function(input, output, session) {
                               y = value/scale_size,
                               text = paste0("Loss: ", paste(format(round(value / 1e6, 1), trim = TRUE), "m")))) +
       geom_bar(stat = 'identity',
-               fill = c('cornsilk1', '#FF851B', "#DD4B39"),
-               col = c('black', 'black', "black"),
+               fill = c('#ff0000', '#ff00e9', "#00053A"),
+               col = c('#000000', '#000000',"#000000"),
                alpha = 1) +
       scale_x_discrete(labels = function(x) str_wrap(x, width = 15)) +
       theme_classic()
     # Convert to Plotly
     g <- g + g_ci
     fig <- plotly::ggplotly(g, tooltip = "text")
-    fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
-                          yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
-                          xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color = "black")))
+    fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
+                          yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
+                          xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")))
     return(fig)
   })
 
@@ -3295,7 +3301,7 @@ server <- function(input, output, session) {
              "Associated Loss - Severe (Million USD)",
              icon = NULL,
              width = NULL,
-             color = "orange"
+             color = "#ff00e9"
     )
   })
 
@@ -3316,7 +3322,7 @@ server <- function(input, output, session) {
              "Associated Loss - Extreme (Million USD)",
              icon = NULL,
              width = NULL,
-             color = "red"
+             color = "#ff0000"
     )
   })
 
@@ -3429,7 +3435,7 @@ server <- function(input, output, session) {
         curve$value_upper <- NA
       }
       clr_breaks <- c('Probability')
-      clr_values <- c('Probability' = "#D41F29")
+      clr_values <- c('Probability' = "#ff0000")
       if (input$ci == 'On'){
         g_ci_low <- geom_line(aes(`Probability of exceeding loss`, value_lower/scale_size, color = 'CI Lower'), linetype = 'dotted')
         g_ci_upp <- geom_line(aes(`Probability of exceeding loss`, value_upper/scale_size, color = 'CI Upper'), linetype = 'dotted')
@@ -3454,9 +3460,9 @@ server <- function(input, output, session) {
         theme_classic()
       g <- g + g_ci_low + g_ci_upp
       fig <- plotly::ggplotly(g, tooltip = "text")
-      fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color = "black"),
-                            yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
-                            xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color = "black")),
+      fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
+                            yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
+                            xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
                             legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.1))
       return(fig)
     }

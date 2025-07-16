@@ -194,19 +194,24 @@ about_page <-
     fluidRow(column(10, offset = 1,
       h1('About'),
       #h2("Overview"),
-      p(
-        "
-         This Loss Simulator tool has been developed to support users to better understand the
-         risk of losses occurring from disasters. It is an educational
-         tool which aims to increase the user's understanding of the risk
-         associated with disaster and loss distributions.
-
-         Using the accompanying Risk Pool Structuring tool users can take the
+      p("
+         The Loss Simulator enables loss exceedance curves to be created from
+         historical event loss catalogues. It is one component of the Disaster Risk Pooling Tool.
+        "),
+        p("
+         The Disaster Risk Pooling Tool has been developed to support users to better understand the
+         risk of climate and disaster losses, and use of risk pools. It responds
+         to requests in the development and humanitarian sectors for better understanding of
+         disaster risk analytics and the implementation of risk layering and risk pooling.
+        "),
+       p("
+         Using the accompanying Risk Pool Structuring tool, users can take the
          output of the Loss Simulator, place those loss curves into a risk pool
          and explore how a pool of risks can be used to increase financial resilience.
          The Risk Pool Structuring tool is an Excel workbook, see
          https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskpoolStructuring.
-
+         "),
+      p("
          The Loss Simulator takes historical disaster event data from the EM-DAT
          catalogue (www.emdat.be), or via manual input (input template provided
          on GitHub), applies scaling factors for inflation and population growth,
@@ -217,19 +222,18 @@ about_page <-
          Therefore, the output from this tool providesonly an indication of the
          losses associated with a disaster and actual losses may differ
          significantly from the tool output.
-
+         "),
+      p("
          The Tool is designed to work on a laptop or desktop PC with the web
          browser maximised, you may not be able to use the tool on smaller
          screens. Please read the user guides before use.
-        "
-      ),
+        "),
       fluidRow(column(width = 12, align = "center",
                       br(),
                       actionButton("start_btn", "Use the Tool", icon("crosshairs"))
       )),
       h2("Authorship"),
-      p(
-        "
+      p("
           The Loss Simulator was developed by Maximum Information on behalf of
           the Insurance Development Forum (IDF) Risk Modelling Steering Group
           (RMSG) and the World Bank Group's Finance, Competitiveness and Investment
@@ -238,8 +242,7 @@ about_page <-
           IDF RMSG are responsible for the update of the Loss Simulator.
         "),
       h2("Disclaimer"),
-      p(
-        "
+      p("
           The Loss Simulator has been developed to support users better understand
           disaster loss profiles, where historical event data catalogues are the
           main or only source of loss information (e.g., in the absence of catastrophe models).
@@ -247,7 +250,10 @@ about_page <-
           does not constitute legal or scientific advice or service.
           Neither the IDF, RMSG, Maximum Information  or the World Bank makes warranties or
           representations, express or implied as to the accuracy or reliability of
-          the Tool or the data contained therein. Users of the Loss Simulator should seek
+          the Tool or the data contained therein.
+          "),
+      p("
+          Users of the Loss Simulator should seek
           qualified expert advice for specific diagnostic and analysis of a
           particular project. Any use thereof or reliance thereon is at the sole
           and independent discretion and responsibility of the user. No conclusions
@@ -276,7 +282,8 @@ tab1_heading <-
   fluidRow(column(10, offset = 1,
     h2('Data Selection'),
     p("Please make selections to specify the data you wish to analyse. The data selected can be viewed using the graphic at the bottom of the page."),
-    p("If you wish to have extra flexibility in specifying the data source and/or statistics produced, please select Advanced mode, which enables upload of a new dataset, using templates provided on GitHub"),
+    p("For extra flexibility in specifying the data source and/or statistics produced, please select Advanced mode, which enables upload of a new dataset,
+      using templates provided on GitHub"),
     br()
   ))
 
@@ -288,19 +295,19 @@ scale_heading <-
       Basic mode always scales by population but advanced mode allows for more options."),
     p("For each given year, a scaling factor is calculated by dividing the scaling data for the most recent year
       by the given year. Each peril year is then multiplied by the scaling factor for that year to give a corrected loss in terms of the most recent scaling year."),
-    p("You can edit the scaling data by double clicking and entering new population data in the relevant cell or by adjusting the data and using the advanced manual
+    p("Edit the scaling data by double clicking and entering new population data in the relevant cell or by adjusting the data and using the advanced manual
       input approach."),
     br()
   ))
 
-# Define text for detrending heading
-detrend_heading <-
-  fluidRow(column(10, offset = 1,
-    h2('Detrending'),
-    p("Detrending also aims to remove trends from the data, but does so automatically, without extra data, by performing a linear regression."),
-    p("For each peril, the Tool looks for any linear trends and, if successful, the user can choose to modify the loss data in order to remove the trend."),
-    br()
-  ))
+# Define text for detrending heading (REMOVED FUNCTIONALITY SO REMOVING SECTION)
+#detrend_heading <-
+#  fluidRow(column(10, offset = 1,
+#    h2('Detrending'),
+#    p("Detrending also aims to remove trends from the data, but does so automatically, without extra data, by performing a linear regression."),
+#    p("For each peril, the Tool looks for any linear trends and, if successful, the user can choose to modify the loss data in order to remove the trend."),
+#    br()
+#  ))
 
 # Define text for final data heading
 final_data_heading <-
@@ -317,7 +324,7 @@ sim_heading <-
     h2('Simulations'),
     p("The Tool runs 15,000 simulations for each parametric distribution that has been successfully fitted to a given peril.
       If multiple severity distributions are fit for a peril, the one with the highest AIC (Aikaike Information Criterion) weight is selected."),
-    p("In advanced mode the user can change the selected distribution for a given peril."),
+    p("In advanced mode the user can change the selected severity distribution for a given peril."),
     br()
   ))
 
@@ -335,7 +342,10 @@ qof_heading <-
 outputs_heading <-
   fluidRow(column(10, offset = 1,
     h2('Outputs'),
-    p("In this tab, the user can view the simulated losses across the selected perils calculated from the distributions selected on the previous page. Selecting combinations of perils will combine each peril's simulations to produce a new set of 15,000 simulations. Therefore the risk profile of two perils is not the sum of the losses at each return period. When perils are combined the tools assumes no correlation between each peril."),
+    p("In this tab, the user can view the simulated losses across the selected perils calculated from the distributions selected on the previous page.
+      Selecting combinations of perils will combine each peril's simulations to produce a new set of 15,000 simulations.
+      Therefore the risk profile of two perils is not the sum of the losses at each return period. When perils are combined the tools assumes no
+      correlation between each peril."),
     p("95% confidence intervals can be toggled. These show the range of possible values for each return period that 95% of losses will fall within."),
     br()
   ))

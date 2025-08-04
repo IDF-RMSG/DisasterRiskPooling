@@ -1456,7 +1456,7 @@ server <- function(input, output, session) {
   output$scaling_error_ui <- renderUI({
     if (scaling_error() && input$data_type != 'Archetype') {
       fluidRow(column(11, offset = 1,
-        strong("Scaling data missing for selected years. Scaling has not been applied.", style = "color: red")
+        strong("Scaling has not been applied: Scaling data does not identify data by year or is missing for selected years. ", style = "color: red")
       ))
     }
   })

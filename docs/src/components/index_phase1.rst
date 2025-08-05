@@ -215,8 +215,8 @@ Events are shown on the chart only if the impact metric is non-zero in the histo
    Download simulation outputs using the buttons
 
 
-Now you have a robust database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood.
-
+Now you have a database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood.
+**Limitation: There is no consideraation or estimation of correlation of losses between countries or perils in the Disaster Risk Pooling tool.**
 
 
 Key Decision-Making Considerations
@@ -276,5 +276,6 @@ The tool has now been primed with the knowledge of the shape and nature of the r
 
  
   
+
 
 

@@ -208,8 +208,7 @@ about_page <-
          Using the accompanying Risk Pool Structuring tool, users can take the
          output of the Loss Simulator, place those loss curves into a risk pool
          and explore how a pool of risks can be used to increase financial resilience.
-         The Risk Pool Structuring tool is an Excel workbook, see
-         https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskpoolStructuring.
+         The Risk Pool Structuring tool is an Excel workbook, see [RiskpoolStructuring on GitHub](https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskpoolStructuring).
          "),
       p("
          The Loss Simulator takes historical disaster event data from the EM-DAT
@@ -272,7 +271,7 @@ user_guide <-
   fluidPage(
     fluidRow(column(10, offset = 1,
       h1('User Guide Links'),
-      HTML('Please access the Disaster Risk Pooling tool model documentation <a href="https://idf-rmsg.github.io/DisasterRiskPooling" target="_blank"> ,
+      HTML('Please access the Disaster Risk Pooling tool [model documentation](https://idf-rmsg.github.io/DisasterRiskPooling),
            comprising guidance on the method and workflow of both the Loss Simulator and Risk Pool Structuring Tool')
     ))
   )

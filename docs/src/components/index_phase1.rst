@@ -126,10 +126,12 @@ Guidance for using the Loss Simulator
 
  In advanced mode, upload your Excel/CSV file of historical events (completed in step 1). A graph of uploaded data appears at the bottom for validation.
 
- Set the cost per person you wish to set (this can be identified using losses divided by the number of people affected  and averaged - or there may be an established cost per person you may be using or already established for the country  and risk).
+ Set the cost per person you wish to set (this can be identified using the average loss per person in the historical loss (where both are available), or there may be an established cost per person you may be using or already established for the country and risk).
 
- Select the data type and the metrics which you would like displayed on the graphs. A graph of data appears at the bottom for validation.
+ Select the data type and the metrics which you would like to displayed on the chart. 
+Events are shown on the chart only if the impact metric is non-zero in the historical loss catalogue. It is common for events to have a zero loss for Economic Damage and non-zero loss for people affected - therefore the number of events displayed will differ by impact metric selected.
 
+**The metric type shown on this chart when you navigate to the next step (click 'Next'), will be the metric used in the rest of the analysis.**
 
 .. admonition:: Fundamental Principal
 
@@ -268,3 +270,4 @@ The tool has now been primed with the knowledge of the shape and nature of the r
 
  
   
+

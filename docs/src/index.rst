@@ -11,8 +11,7 @@ This is a free and open-source tool with code available on the `GitHub repositor
 
 The Disaster Risk Pooling tool introduces how to model and structure financial risk for a disaster pool covering multiple hazards (e.g., floods, droughts, earthquakes) and multiple geographies.
 
-The central purpose of this tool is educational, serving as an introduction to the different considerations that go into modelling financial risk within funds. The tool demonstrates how the processes of risk pooling and funding can be structured efficiently and responsibly even with events being highly uncertain year to year.
-
+The central purpose of this tool is educational, serving as an introduction to the different considerations that go into modelling financial risk within funds. The tool demonstrates how the processes of risk pooling and funding can be structured efficiently and responsibly even with events being highly uncertain year to year. It has been developed to support users to better understand the risk of climate and disaster losses and use of risk pools in response to requests in the development and humanitarian sectors for better understanding of these aspects.
 
 By illustrating how risk pooling and funding can be set up with well-defined payouts, the tool demonstrates how to:
 
@@ -93,4 +92,5 @@ After constructing the risk pool, the user may find the needs have exceeded the 
    ../components/index_phase4.rst
    ../components/index_phase5.rst
    ../components/index_Conclusion.rst
+
 

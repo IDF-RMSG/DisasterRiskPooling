@@ -462,9 +462,9 @@ server <- function(input, output, session) {
       radio_selected <- input$data_type
     }
     else {
-      radio_choices = c('Country')
+      radio_choices = c('Historical loss catalogue data')
       if(is.null(input$data_type) || input$data_type == 'Manual Input'){
-        radio_selected <- 'Country'
+        radio_selected <- 'Historical loss catalogue data'
       }
       else {
         radio_selected <- input$data_type
@@ -614,14 +614,14 @@ server <- function(input, output, session) {
     fluidRow(column(11, offset = 1,
       popify(
         radioButtons('damage_type',
-                     'Select Data Type',
+                     'Select impact metric',
                      choices = btn_choice,
                      selected = btn_selected,
                      inline = TRUE),
-        title = '',
+        title = 'Select impact metric',
         #content = "Select whether you would like to view the loss as People Affected or as Total Economic Damage. If Archetype is chosen, you can only do the former.", # ARCHETYPE HAS BEEN REMOVED FROM UI - NOT AN OPTION.
-        content = "Select whether you would like to view the loss as People Affected (plot/table will show the number of people affected multiplied by the response cost per person) or as Total Economic Damage (as reported by EM-DAT).
-        Only records with a data entry FOR THE SELECTED PARAMETER IN EM-DAT will show in the plot/table - typically there are fewer events with Total Economic Damage reported in the loss catalogue",
+        content = "Select the impact metric to use in the analysis.",
+        #content = People Affected (plot/table will show the number of people affected multiplied by the response cost per person) or as Total Economic Damage (as reported by EM-DAT). Only records with a data entry FOR THE SELECTED PARAMETER IN EM-DAT will show in the plot/table - typically there are fewer events with Total Economic Damage reported in the loss catalogue"
         placement = 'auto left',
         trigger = "hover",
         options = NULL
@@ -1264,7 +1264,10 @@ server <- function(input, output, session) {
       )
     } else {
       fluidRow(
-        column(11, offset = 1, strong("You are viewing and using historical loss data. The data selection (Total economic damage or response cost) shown on this chart will be used in the next steps of simulation.", style = "color: red"))
+        column(11, offset = 1, "You are viewing and using historical loss data.", style = "color: red"))
+        column(11, offset = 1, "Events are shown only if the impact metric is non-zero in the historical loss catalogue. It is common for eevnts to have a zero loss for Economic Damage and non-zero loss 
+               for people affected - therefore the number of events displayed will differ by impact metric selected.", style = "color: red"))  
+        column(11, offset = 1, "The data selection (Total economic damage or response cost) shown on this chart will be used in the next steps of simulation.", style = "color: red"))
       )
     }
   })

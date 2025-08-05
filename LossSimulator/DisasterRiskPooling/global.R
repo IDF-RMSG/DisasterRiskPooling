@@ -270,9 +270,12 @@ about_page <-
 user_guide <-
   fluidPage(
     fluidRow(column(10, offset = 1,
-      h1('User Guide Links'),
-      HTML('Please access the Disaster Risk Pooling tool [model documentation](https://idf-rmsg.github.io/DisasterRiskPooling),
-           comprising guidance on the method and workflow of both the Loss Simulator and Risk Pool Structuring Tool')
+      h1('User Guide'),
+      p('As well as tool-tips in the tool user interface, please refer to the Disaster Risk Pooling tool [user guide](https://idf-rmsg.github.io/DisasterRiskPooling 
+            for guidance on This includes general information, key decision-making questions and fundamental principles of risk pooling, as well as
+            the specific workflow of the Loss Simulator (used in Phase 1) and the Risk Pool Structuring Tool (Used in Phase 2 onwards).')
+      p('Current limitations of this tool include: (1) no accounting for correlation of losses between perils and countries, 
+        (2) Users cannot enter a hypothetical premium into pricing calculations.')
     ))
   )
 

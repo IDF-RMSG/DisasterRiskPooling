@@ -54,7 +54,7 @@ html_show_copyright = False
 # so a file named "default.css" will overwrite the builtin "default.css".
 #html_static_path = ["_static"]
 html_favicon = "idf_square.ico"
-html_logo = "Vertical_logos_newIDFinclWB_whBack.png"
+html_logo = "Vertical_logos_newIDFexclWB_whBack.png"
 html_css_files = "custom.css"
 
 

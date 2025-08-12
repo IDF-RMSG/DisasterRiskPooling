@@ -39,6 +39,8 @@ The graphs highlight how to structure the pool to be efficient with the funding 
 
 It can be difficult to justify holding large amounts of money in case a rare event (with a small probability of occurring) happens, when there are needs in so many other places. However, there is still a need to ensure that if those events do occur, there is access to enough funding for response and recovery. To ensure this, some risk can be transferred each year by paying a "premium" upfront to transfer the risk, which means someone else will hold enough funding to cover those events for an agreed period of time through insurance. Insurance is cost effective if covering rare events with low probabilities and managing its financial risk across much larger diverse global pools of risks.
 
+**Note: The Disaster Risk Pooling tool does not enable premium amounts to be entered, so does not support full pricing estimation.**
+
 Premiums increase when there is a higher likelihood that an insurance company will have to pay a claim. So it becomes less cost effective to transfer risk with lower return periods (or higher probability of loss). The most uninsurable risk would be a high payout that happens frequently, but these losses can be covered with layer 1 and 2 -  these layers and instruments should be financially and operationally efficient to ensure impact and predictability, but don't need to be profitable for insurance markets.
 
 This is at the heart of why financial layering is so useful for disaster management: it allows money for crises to flow efficiently and be operationally impactful. It can create predictability in funding which is very important for good disaster management and preparedness systems. 
@@ -66,11 +68,11 @@ The images below illustrate these concepts.
 Guidance
 """"""""""""""""""
 
-1. Cell I6 allows you to vary the standard deviation, which represents the insurance premium cost in the tool.
+1. Cell I6 allows you to vary the standard deviation, which represents the insurance premium cost in the tool. 
 
 .. admonition:: Fundamental Principal
 
-   The standard deviation gives a 'rule of thumb' method for loading a premium amount. However, how each individual insurance company arrives at a premium will be   different - there is no consistent approach to price risk. Risk Premium will depend on a huge number of factors at the time, including what else is going on in the global market and a companies' own risk appetite and cost of capital. This is why it is important to get different quotes for coverage. 
+   The standard deviation gives a 'rule of thumb' method for loading a premium amount. However, how each individual insurance company arrives at a premium will be   different - there is no consistent approach to price risk. Risk Premium will depend on a huge number of factors at the time, including what else is going on in the global market and a companies' own risk appetite and cost of capital. This is why it is important to get different quotes for coverage. **Note: THe Disaster Risk Pooling tool does not enable premium amounts to be entered, so does not support full pricing estimation.**
 
 
 2. All of your parameters for the pool will have been automatically generated in the table in cells I9 to P9.
@@ -120,3 +122,4 @@ In some cases, you may have other funds or parts of funds that you can use as yo
 
 **What are the consequences if we cannot pay the total amounts we have guaranteed to countries?** 
 This will differ with different funds. The predictability that risk financing and risk pooling bring is one of the biggest impacts and advantages in emergencies and funding mechanisms. So, it will be important to understand what level of guaranteed funding recipients are comfortable with and the level of risk they can accept. In some cases, you may have a legal contractual obligation, so understanding what level of guarantee and solvency you have agreed to is essential, along with clauses. Retaining funds for rarer events might be inefficient. Reinsurance (Layer 3) can transfer these “tail risks” for a premium.
+

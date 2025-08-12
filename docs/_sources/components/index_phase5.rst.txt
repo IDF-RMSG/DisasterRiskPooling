@@ -35,7 +35,7 @@ Guidance
 
 
 These decisions will need to be within the frame of the overall governance of the systems and should be fully transparent and accountable. 
-
+**Limitation: There is no consideration or estimation of correlation of losses between countries or perils in the Disaster Risk Pooling tool.**
 
 
 Step 12: Finalise and Communicate
@@ -52,3 +52,4 @@ Once the user has a workable design for the risk pool, they should document and 
   4. Utilise the graphs and tables in a structuring report
 
 Transparency, fairness, and accountability are crucial. Communicate in accessible, culturally sensitive ways—especially around numerical probabilities and value judgments. Remember what the numbers are actually relating to in crisis and be mindful and respectful in how you communicate that in difficult decisions that often have to be made. 
+

@@ -59,7 +59,7 @@ sidebar <- dashboardSidebar(
       "),
     div(
       id = 'logo-div',
-      tags$img(id = 'allLogo', src = 'Vertical_logos_newIDFinclWB.png', alt = 'Contributors', width = '250px')
+      tags$img(id = 'allLogo', src = 'Vertical_logos_newIDFexclWB.png', alt = 'Contributors', width = '250px')
     )
   )
 )
@@ -1265,8 +1265,8 @@ server <- function(input, output, session) {
     } else {
       fluidRow(
         column(11, offset = 1, "You are viewing and using historical loss data.", style = "color: red"))
-        column(11, offset = 1, "Events are shown only if the impact metric is non-zero in the historical loss catalogue. It is common for eevnts to have a zero loss for Economic Damage and non-zero loss 
-               for people affected - therefore the number of events displayed will differ by impact metric selected.", style = "color: red"))  
+        column(11, offset = 1, "Events are shown only if the impact metric is non-zero in the historical loss catalogue. It is common for eevnts to have a zero loss for Economic Damage and non-zero loss
+               for people affected - therefore the number of events displayed will differ by impact metric selected.", style = "color: red"))
         column(11, offset = 1, "The data selection (Total economic damage or response cost) shown on this chart will be used in the next steps of simulation.", style = "color: red"))
       )
     }

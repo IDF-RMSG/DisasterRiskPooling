@@ -5,8 +5,9 @@ account: idf-rmsg
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 14752133
-bundleId: 10762253
+bundleId: 10765697
 url: https://idf-rmsg.shinyapps.io/DisasterRiskPooling/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: guides/DRFIP_FinancialRiskAssessmentTool_UserGuide.pdf|Rpackages/qpcR_1.0-6.tar.gz|Rpackages/README.md

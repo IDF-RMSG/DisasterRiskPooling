@@ -324,9 +324,10 @@ final_data_heading <-
 sim_heading <-
   fluidRow(column(10, offset = 1,
     h2('Simulations'),
-    p("The Tool runs 15,000 simulations for each parametric distribution that has been successfully fitted to a given peril.
+    p("The Tool runs 15,000 simulations each parametric distribution that has been successfully fitted to a given peril. In both Basic and Advanced modes Lognormal, Gamma and Weibull distributions are tested.
       If multiple severity distributions are fit for a peril, the one with the highest AIC (Aikaike Information Criterion) weight is selected."),
     p("In advanced mode the user can change the selected severity distribution for a given peril."),
+    p("For frequency distribution, if the sample variance equals the mean, Poisson distribution is used, otherwise Negative Binomial distribution is used."),
     br()
   ))
 

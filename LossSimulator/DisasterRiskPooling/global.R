@@ -294,7 +294,7 @@ scale_heading <-
   fluidRow(column(10, offset = 1,
     h2('Scaling'),
     p("Scaling can remove trends caused by known indexes such as population, to help make losses more comparable between years.
-      Basic mode always scales by population but advanced mode allows for more options."),
+      Basic mode always scales by population but advanced mode allows for more options. Where a manual input file does not attribute loss to a year (year might be labelled 1, 2, 3, etc., scaling can not been applied."),
     p("For each given year, a scaling factor is calculated by dividing the scaling data for the most recent year
       by the given year. Each peril year is then multiplied by the scaling factor for that year to give a corrected loss in terms of the most recent scaling year."),
     p("Edit the scaling data by double clicking and entering new population data in the relevant cell or by adjusting the data and using the advanced manual

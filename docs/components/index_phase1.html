@@ -243,7 +243,9 @@ Choose country from the drop-down list</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/step2_4_run.png"><img alt="Run tool - click button" src="../_images/step2_4_run.png" style="width: 543.25px; height: 205.0px;" /></a>
 </figure>
-<p>The tool fits multiple statistical distributions, each with 15,000 simulated events and selects the distribution with the best possible fit to the data. The  distributions tested by default include Log Normal, Poisson, Pareto. You can change the distribution selection - but it is advised to only do this with technical expert support.</p>
+<p>In both Basic mode and Advanced mode the tool fits multiple statistical distributions for loss amount (severity) and selects the distribution with the best possible fit to the data. 
+The severity distributions tested by default are Lognormal, Gamma and Weibull. In Advanced mode you can change the distribution selection - but it is advised to only do this with expert support.
+For frequency of losses the tool tests the Poisson distribution assumption that sample variance equals the mean. If this is true in the data, Poisson frequency is used but where variance is less than the mean then the Negative Binomial frequency distribution is used.</p>
 <p>The graph can display for each risk a display of the fitted distribution based on the observed data that was inputted, the simulated events through the model and both combined.</p>
 <figure class="align-default" id="id8">
 <a class="reference internal image-reference" href="../_images/step2_5_simulations.png"><img alt="Simulation options" src="../_images/step2_5_simulations.png" style="width: 451.75px; height: 203.0px;" /></a>

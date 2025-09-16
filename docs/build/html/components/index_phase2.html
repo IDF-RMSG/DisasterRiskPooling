@@ -60,6 +60,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index_phase1.html">Phase 1: Understanding the nature of the risks</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Phase 2: Setting your financial structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-add-your-synthetic-data-to-the-risk-pool-structuring-tool">Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#guidance-for-using-the-risk-pool-structuring-tool">Guidance for using the Risk Pool Structuring tool</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#step-4-select-the-countries-and-risks-to-include">Step 4: Select the Countries and Risks to Include</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#guidance">Guidance</a></li>
 </ul>
@@ -105,6 +109,32 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/phase2.jpg"><img alt="Phase 2 steps" src="../_images/phase2.jpg" style="width: 521.25px; height: 281.75px;" /></a>
 </figure>
+<section id="step-3-add-your-synthetic-data-to-the-risk-pool-structuring-tool">
+<h2>Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool<a class="headerlink" href="#step-3-add-your-synthetic-data-to-the-risk-pool-structuring-tool" title="Permalink to this heading"></a></h2>
+<p>Once the loss data has been compiled for each ‘risk’ (hazard and country combination of loss data), it can be added to the Risk Pool Structuring Tool, to examine the different risk pool options and what predictable funding this could provide for the different risks.</p>
+<p>The Risk Pool Structuring Tool is available on the <a class="reference external" href="https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/">Disaster Risk Pooling Github</a>: _RiskPoolingTool_main_v*.xlsb_. The folder also contains an <a class="reference external" href="https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx">example of data to upload</a>.</p>
+<section id="guidance-for-using-the-risk-pool-structuring-tool">
+<h3>Guidance for using the Risk Pool Structuring tool<a class="headerlink" href="#guidance-for-using-the-risk-pool-structuring-tool" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Open the Risk Pool Structuring tool and select “Country 1 Data Input.” Any cell highlighted in yellow is to be edited. If using a previously used version of the tool, the user should carefully check all entries to make sure the parameters are relevant to the current analysis.</p></li>
+</ol>
+<blockquote>
+<div><figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/step3_dataInput.png"><img alt="Country data input - repeat for all countries you are including in the pool" src="../_images/step3_dataInput.png" style="width: 688.25px; height: 214.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">Country data input - repeat for all countries you are including in the pool</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Paste in the columns from your downloaded synthetic CSV for your first country event and simulated data set with the headers: Simulation, Type, Event ID, Region, Peril, and Financial Loss (USD)</p></li>
+<li><p>Check for Errors: Column G indicates True/False if any mismatch or missing data is found. Table A5 to D9 checks True/False errors on the peril information and type. Correct any issues, then re-upload if necessary.</p></li>
+<li><p>After successful upload, the Risk Pool Structuring tool automatically generates various loss scenarios using the new data.</p></li>
+</ol>
+<p>Repeat this step for all of your country data sheets to upload them to the subsequent Country data input tabs. Remember you can only add in one catalog per country risk.</p>
+<p>The tool has now been primed with the knowledge of the shape and nature of the risks that will be within our risk pool. You’re now ready to move on to Phase 2: Setting up financing triggers and thresholds against these risk estimates.</p>
+</section>
+</section>
 <section id="step-4-select-the-countries-and-risks-to-include">
 <h2>Step 4: Select the Countries and Risks to Include<a class="headerlink" href="#step-4-select-the-countries-and-risks-to-include" title="Permalink to this heading"></a></h2>
 <section id="guidance">
@@ -115,10 +145,10 @@
 <li><p>Now select the hazards (perils) from your catalogue that you want to cover in that country. These will show up in the structuring table in cells in A23 and B23.</p></li>
 </ol>
 <blockquote>
-<div><figure class="align-default" id="id2">
+<div><figure class="align-default" id="id3">
 <a class="reference internal image-reference" href="../_images/step4_structure.png"><img alt="Financial Structure Input" src="../_images/step4_structure.png" style="width: 532.0px; height: 171.75px;" /></a>
 <figcaption>
-<p><span class="caption-text">Financial Structure Input</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Financial Structure Input</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>
@@ -135,15 +165,15 @@
 <div><p>The Risk Pool Structuring tool offers the opportunity to consider layering funding for the risk. This means identifying two financing lines for different severity events or types of actions:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Layer 1 is funding that is perhaps covered by national or local budgets or ‘reserve funding’. It could also be called a deductible or excess in some cases, and accounts for any funding to cover the risk not coming from your pool.  Layer 1: Local/national coverage or a “deductible.” Input values into Cells E24 to L33.</p></li>
+<li><p>Layer 1 is funding that is perhaps covered by national or local budgets or ‘reserve funding’. This may be where you might assume that more sub-national, localised, and individual resources would come into play, and so wouldn’t need emergency coverage. Having knowledge of what this level might look like is important to think carefully about those attachment points and when the need for emergency financing may come into play. You may also want to consider in the very worst crisis what your gap in funding might be. It could also be called a deductible or excess in some cases, and accounts for any funding to cover the risk not coming from your pool.  Layer 1: Local/national coverage or a “deductible.” Input values into Cells E24 to L33.</p></li>
 <li><p>Layer 2 describes the coverage you want to include in your risk pool. Input values into Cells M24 to T33.</p></li>
 </ul>
 </div></blockquote>
 <p>The remaining parameters apply to both layer 1 and Layer 2.</p>
-<figure class="align-default" id="id3">
+<figure class="align-default" id="id4">
 <a class="reference internal image-reference" href="../_images/step5_coverageLayers.png"><img alt="Setting coverage layers" src="../_images/step5_coverageLayers.png" style="width: 684.0px; height: 187.0px;" /></a>
 <figcaption>
-<p><span class="caption-text">Setting coverage layers</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Setting coverage layers</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>
@@ -151,7 +181,8 @@
 <li><p>Define Average cost of payout per person</p></li>
 </ol>
 <blockquote>
-<div><p>Define the average cost per person you are considering in your payouts in cells D24 to D33. This may be specific to each country and risk. There are a few ways you might arrive at this value:</p>
+<div><p>The value for ‘Average cost of payout per person’ is used to determine a trigger based on number of people affected. This value should match the value of response cost per person applied in the input data, e.g., in the Loss Simulator tool.</p>
+<p>Define the average cost per person you are considering in your payouts in cells D24 to D33. This may be specific to each country and risk. There are a few ways you might arrive at this value:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Use historical loss data and the numbers of people impacted, taking a simple average cost per person. This approach is often used by the insurance industry and development banks (note this may also be a limitation of the input data). The drawback with this is that the cost of a crisis is likely to be only what was available to be spent, not necessarily what was needed.</p></li>
@@ -182,10 +213,10 @@
 <li><p>Repeat this parameterisation for Layer 2</p></li>
 </ol>
 <blockquote>
-<div><figure class="align-default" id="id4">
+<div><figure class="align-default" id="id5">
 <a class="reference internal image-reference" href="../_images/step5_coverageLayers2.png"><img alt="Setting coverage layers - layer 2" src="../_images/step5_coverageLayers2.png" style="width: 706.25px; height: 121.25px;" /></a>
 <figcaption>
-<p><span class="caption-text">Setting coverage layers - layer 2</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Setting coverage layers - layer 2</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <div class="admonition-fundamental-principal admonition">
@@ -199,10 +230,10 @@
 <p>When you combine and multiply probabilities, the overall probability goes down - this is what risk pooling takes advantage of - sharing risk.</p>
 <p>This means we can be much more efficient and not allow money to sit around waiting for a trigger, or one that very rarely happens but still allows funding guarantees to be met, when the event occurs and hits attachment point. This kind of mechanism is also sometimes called a co-operative model. We will get to this more on the pool analysis tab.</p>
 </div>
-<figure class="align-default" id="id5">
+<figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="../_images/globalRiskPool.png"><img alt="Schematic of a risk pool" src="../_images/globalRiskPool.png" style="width: 599.75px; height: 316.25px;" /></a>
 <figcaption>
-<p><span class="caption-text">Schematic of a risk pool</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Schematic of a risk pool</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>
@@ -210,10 +241,10 @@
 <li><p>When all steps are complete, make sure all of the data checks are green and click the ‘Run Modelling’ button to generate coverage results.</p></li>
 </ol>
 <blockquote>
-<div><figure class="align-default" id="id6">
+<div><figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="../_images/step5_Run.png"><img alt="Run model" src="../_images/step5_Run.png" style="width: 670.5px; height: 188.75px;" /></a>
 <figcaption>
-<p><span class="caption-text">Run model</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Run model</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>

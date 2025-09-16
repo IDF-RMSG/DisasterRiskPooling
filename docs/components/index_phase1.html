@@ -69,10 +69,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#id3">Key Decision-Making Considerations</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#step-3-add-your-synthetic-data-to-the-risk-pool-structuring-tool">Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#guidance-for-using-the-risk-pool-structuring-tool">Guidance for using the Risk Pool Structuring tool</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index_phase2.html">Phase 2: Setting your financial structure</a></li>
@@ -226,7 +222,7 @@ Choose country from the drop-down list</p>
 <li><p>Scaling</p></li>
 </ol>
 <blockquote>
-<div><p>Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling.</p>
+<div><p>Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling. If manual input data is used, and does not attribute loss data to a specific year, it will not be possible to scale the losses. Manual input data can be scaled prior to input to the Loss Simulator.</p>
 <figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="../_images/step2_3_scaling.png"><img alt="Scaling options" src="../_images/step2_3_scaling.png" style="width: 449.5px; height: 359.25px;" /></a>
 <figcaption>
@@ -243,9 +239,7 @@ Choose country from the drop-down list</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/step2_4_run.png"><img alt="Run tool - click button" src="../_images/step2_4_run.png" style="width: 543.25px; height: 205.0px;" /></a>
 </figure>
-<p>In both Basic mode and Advanced mode the tool fits multiple statistical distributions for loss amount (severity) and selects the distribution with the best possible fit to the data. 
-The severity distributions tested by default are Lognormal, Gamma and Weibull. In Advanced mode you can change the distribution selection - but it is advised to only do this with expert support.
-For frequency of losses the tool tests the Poisson distribution assumption that sample variance equals the mean. If this is true in the data, Poisson frequency is used but where variance is less than the mean then the Negative Binomial frequency distribution is used.</p>
+<p>In both Basic mode and Advanced mode the tool fits multiple statistical distributions for loss amount (severity) and selects the distribution with the best possible fit to the data. The severity distributions tested by default are Lognormal, Gamma and Weibull. In Advanced mode you can change the distribution selection - but it is advised to only do this with expert support. For frequency of losses the tool tests the Poisson distribution assumption that sample variance equals the mean. If this is true in the data, Poisson frequency is used but where variance is less than the mean then the Negative Binomial frequency distribution is used.</p>
 <p>The graph can display for each risk a display of the fitted distribution based on the observed data that was inputted, the simulated events through the model and both combined.</p>
 <figure class="align-default" id="id8">
 <a class="reference internal image-reference" href="../_images/step2_5_simulations.png"><img alt="Simulation options" src="../_images/step2_5_simulations.png" style="width: 451.75px; height: 203.0px;" /></a>
@@ -277,7 +271,8 @@ You can input a budget value to generate ‘graph 4’ exhibit to identify the a
 </figure>
 </div></blockquote>
 <p>Now you have a database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood.
-<strong>Limitation: There is no consideraation or estimation of correlation of losses between countries or perils in the Disaster Risk Pooling tool.</strong></p>
+<strong>Limitation: There is no consideration or estimation of correlation of losses between countries or perils in the Disaster Risk Pooling tool.</strong></p>
+<p>In the next phase, you will add this data to the Risk Pool Structuring tool to explore the principles of structuring a risk pool.</p>
 </section>
 <section id="id3">
 <h3>Key Decision-Making Considerations<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
@@ -289,32 +284,6 @@ Here, it will consider what other changes happened alongside this data, which mi
 There are many different shapes of curves that can be plotted through the graph of the catalogue to try and discern most accurately the related pattern of magnitude and frequency of that risk. A statistician will look at different options to fit a curve. Usually, there will be no one perfect obvious pattern, so there will be trade-offs on which distribution is selected. Understanding the implications of those trade-offs in that decision would need to be understood by decision-makers where there may be over or under-estimates at different parts of the risk relationship.</p>
 <p><strong>What level of statistical uncertainty do we have?</strong>
 How well the selected distribution fits the data will generate uncertainty, where the best fit is made. Statisticians will look to minimise the uncertainty as much as possible, but as with all things, this can only be minimised. Decision-makers will need to know, understand, and accept this.</p>
-</section>
-</section>
-<section id="step-3-add-your-synthetic-data-to-the-risk-pool-structuring-tool">
-<h2>Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool<a class="headerlink" href="#step-3-add-your-synthetic-data-to-the-risk-pool-structuring-tool" title="Permalink to this heading"></a></h2>
-<p>Once the loss data has been compiled for each ‘risk’ (hazard and country combination of loss data), it can be added to the Risk Pool Structuring Tool, to examine the different risk pool options and what predictable funding this could provide for the different risks.</p>
-<p>The Risk Pool Structuring Tool is available on the <a class="reference external" href="https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/">Disaster Risk Pooling Github</a>: _RiskPoolingTool_main_v*.xlsb_. The folder also contains an <a class="reference external" href="https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx">example of data to upload</a>.</p>
-<section id="guidance-for-using-the-risk-pool-structuring-tool">
-<h3>Guidance for using the Risk Pool Structuring tool<a class="headerlink" href="#guidance-for-using-the-risk-pool-structuring-tool" title="Permalink to this heading"></a></h3>
-<ol class="arabic simple">
-<li><p>Open the Risk Pool Structuring tool and select “Country 1 Data Input.”</p></li>
-</ol>
-<blockquote>
-<div><figure class="align-default" id="id11">
-<a class="reference internal image-reference" href="../_images/step3_dataInput.png"><img alt="Country data input - repeat for all countries you are including in the pool" src="../_images/step3_dataInput.png" style="width: 688.25px; height: 214.75px;" /></a>
-<figcaption>
-<p><span class="caption-text">Country data input - repeat for all countries you are including in the pool</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</div></blockquote>
-<ol class="arabic simple" start="2">
-<li><p>Paste in the columns from your downloaded synthetic CSV for your first country event and simulated data set with the headers: Simulation, Type, Event ID, Region, Peril, and Financial Loss (USD)</p></li>
-<li><p>Check for Errors: Column G indicates True/False if any mismatch or missing data is found. Table A5 to D9 checks True/False errors on the peril information and type. Correct any issues, then re-upload if necessary.</p></li>
-<li><p>After successful upload, the Risk Pool Structuring tool automatically generates various loss scenarios using the new data.</p></li>
-</ol>
-<p>Repeat this step for all of your country data sheets to upload them to the subsequent Country data input tabs. Remember you can only add in one catalog per country risk.</p>
-<p>The tool has now been primed with the knowledge of the shape and nature of the risks that will be within our risk pool. You’re now ready to move on to Phase 2: Setting up financing triggers and thresholds against these risk estimates.</p>
 </section>
 </section>
 </section>

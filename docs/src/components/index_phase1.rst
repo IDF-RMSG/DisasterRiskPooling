@@ -14,7 +14,7 @@ Before adding risks to the pool and add funding coverage against them, there are
 **What risks should be covered financially and include in the pool?**
 The risks to cover will likely be different for all organisations and will be dependent on several factors. This may be depend on the risks and impacts that a country has prioritised. It may include looking at the operational systems that are ready to utilise the money effectively in emergencies. How those country risks are identified will require decision-making criteria on those being prioritised for coverage. 
 
-**Who has requested coverage and how much?** 
+**Who has requested coverage and how much?**
 Firstly, there is likely to be a mechanism where those who would be utilising the pre-positioned disaster funding could request coverage support. Certain conditions may be in place for prepositioned funding coverage. These may be how effective and well-planned the delivery of support with the released funding is or potentially what existing financial coverage and support is already in place. How to consider those requests will depend on existing governance and requirements, which should be clarified for transparency.
 
 **What type of coverage has been requested?** 
@@ -61,6 +61,7 @@ Guidance
   A template is provided on `here on the Disaster Risk Pooling Tool GitHub <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_).
    
   An example of data is provided on `here on the Disaster Risk Pooling Tool GitHub <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_).
+
 
 
 Key Decision-Making Considerations
@@ -160,7 +161,7 @@ Events are shown on the chart only if the impact metric is non-zero in the histo
 
 2. Scaling
 
- Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling. If manual input data is used, and does not attribute loss data to a specific year, it will not be possible to scale the losses.
+ Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling. If manual input data is used, and does not attribute loss data to a specific year, it will not be possible to scale the losses. Manual input data can be scaled prior to input to the Loss Simulator.
 
  .. figure:: ../src_img/screenshots/step2_3_scaling.png
    :scale: 25%
@@ -213,6 +214,7 @@ Events are shown on the chart only if the impact metric is non-zero in the histo
    :alt: Download simulation outputs using the buttons
      
    Download simulation outputs using the buttons
+
 
 
 Now you have a database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood.

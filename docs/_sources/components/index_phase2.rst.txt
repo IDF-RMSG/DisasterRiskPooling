@@ -8,6 +8,43 @@ Phase 2: Setting your financial structure
   :alt: Phase 2 steps 
 
 
+
+
+Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool
+-----------------------------------------------------------------------
+
+Once the loss data has been compiled for each 'risk' (hazard and country combination of loss data), it can be added to the Risk Pool Structuring Tool, to examine the different risk pool options and what predictable funding this could provide for the different risks. 
+
+The Risk Pool Structuring Tool is available on the `Disaster Risk Pooling Github <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/>`_: _RiskPoolingTool_main_v*.xlsb_. The folder also contains an `example of data to upload <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_. 
+
+
+
+Guidance for using the Risk Pool Structuring tool
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+1. Open the Risk Pool Structuring tool and select “Country 1 Data Input.” Any cell highlighted in yellow is to be edited. If using a previously used version of the tool, the user should carefully check all entries to make sure the parameters are relevant to the current analysis. 
+
+ .. figure:: ../src_img/screenshots/step3_dataInput.png
+   :scale: 25%
+   :alt: Country data input - repeat for all countries you are including in the pool
+
+   Country data input - repeat for all countries you are including in the pool
+
+   
+2. Paste in the columns from your downloaded synthetic CSV for your first country event and simulated data set with the headers: Simulation, Type, Event ID, Region, Peril, and Financial Loss (USD)
+
+3. Check for Errors: Column G indicates True/False if any mismatch or missing data is found. Table A5 to D9 checks True/False errors on the peril information and type. Correct any issues, then re-upload if necessary.
+
+4. After successful upload, the Risk Pool Structuring tool automatically generates various loss scenarios using the new data.
+   
+
+Repeat this step for all of your country data sheets to upload them to the subsequent Country data input tabs. Remember you can only add in one catalog per country risk.  
+
+
+The tool has now been primed with the knowledge of the shape and nature of the risks that will be within our risk pool. You’re now ready to move on to Phase 2: Setting up financing triggers and thresholds against these risk estimates.
+
+
+
 Step 4: Select the Countries and Risks to Include
 ----------------------------------------------------
 
@@ -38,7 +75,7 @@ Guidance
 
  The Risk Pool Structuring tool offers the opportunity to consider layering funding for the risk. This means identifying two financing lines for different severity events or types of actions:
 
-  * Layer 1 is funding that is perhaps covered by national or local budgets or 'reserve funding'. It could also be called a deductible or excess in some cases, and accounts for any funding to cover the risk not coming from your pool.  Layer 1: Local/national coverage or a “deductible.” Input values into Cells E24 to L33.
+  * Layer 1 is funding that is perhaps covered by national or local budgets or 'reserve funding'. This may be where you might assume that more sub-national, localised, and individual resources would come into play, and so wouldn’t need emergency coverage. Having knowledge of what this level might look like is important to think carefully about those attachment points and when the need for emergency financing may come into play. You may also want to consider in the very worst crisis what your gap in funding might be. It could also be called a deductible or excess in some cases, and accounts for any funding to cover the risk not coming from your pool.  Layer 1: Local/national coverage or a “deductible.” Input values into Cells E24 to L33.
 
   * Layer 2 describes the coverage you want to include in your risk pool. Input values into Cells M24 to T33.
 
@@ -53,6 +90,8 @@ Guidance
 
 2. Define Average cost of payout per person
 
+ The value for 'Average cost of payout per person' is used to determine a trigger based on number of people affected. This value should match the value of response cost per person applied in the input data, e.g., in the Loss Simulator tool. 
+ 
  Define the average cost per person you are considering in your payouts in cells D24 to D33. This may be specific to each country and risk. There are a few ways you might arrive at this value:
 
   * Use historical loss data and the numbers of people impacted, taking a simple average cost per person. This approach is often used by the insurance industry and development banks (note this may also be a limitation of the input data). The drawback with this is that the cost of a crisis is likely to be only what was available to be spent, not necessarily what was needed. 

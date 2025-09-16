@@ -24,9 +24,9 @@ On the Financial Structure visualisation tab you can view how the coverage layer
 
 Guidance
 """"""""""""""""
-1. Select the country and risk in cell DF5.
+1. Select the country and risk in cell DI5.
 
-2. Scale the visualisation in cells DF8 and DG8 to visualise different return periods.
+2. Scale the visualisation by selecting minimum and maximum return periods to show.
 
 3. The total volume of the box area is the total country peril risk for the selected return periods: 
  * Layer 1 coverage is in light orange. 
@@ -59,23 +59,21 @@ Guidance
 
 2. Select a country in cell A6.
 
-3. Define Event Type in cell E6: select “Event” if you want the analysis to look at the data event by event or select “Yearly” to group together all events that happen in a year. 
+3. Define Event Type in cell D6: select “Event” if you want the analysis to look at the data event by event or select “Yearly” to group together all events that happen in a year. 
 
-4. The sheet displays a graph of the losses by percentile and return period (you can toggle between the two in cell L39).
+4. The sheet displays a graph of the losses by percentile and the accompanying.
 
 5. Adjust the graph scale in in cells A11, B11, D11 and E11. 
 
-6. Review the total country risk for all of the risks for that country (red line). 
+6. Review the total country loss for all of the risks for that country (red line) and loss to layer 1 (yellow solid line) and layer 2 (blue solid line).
 
-7. Review loss by return period or percentile for layer 1 (yellow solid line) and layer 2 (blue solid line).
+7. The dashed lines display the excess and limit of each of the layers.
 
-8. The dashed lines display the excess and limit of each of the layers.
+8. Attachment and exhaustion points for the layers is shown in cells I16 to M17 ('Layer Summary' table). 
 
-9. Attachment and exhaustion points for the layers is shown in cells I16 to M17 ('Layer Summary' table). 
+9. The 'Return Period Summary' table (cells I21 to N28) shows total country loss and loss per layer for selected key event return periods or frequencies. The term 'loss' is used as these are losses from the country and from the layers of funding, but you can also think about it as the total financial requirement for those size events. You can also think of the 'layer losses' as the payouts from the layers needed to cover your part of the risk. 
 
-10. The 'Return Period Summary' table (cells I21 to N28) shows total country loss and loss per layer for selected key event return periods or frequencies. The term 'loss' is used as these are losses from the country and from the layers of funding, but you can also think about it as the total financial requirement for those size events. You can also think of the 'layer losses' as the payouts from the layers needed to cover your part of the risk. 
-
-11. The table (not shown in image above) at the bottom provides the more detailed granulation of the data provided in the graph and previous tables. 
+10. The table (not shown in image above) at the bottom provides the more detailed granulation of the data provided in the graph and previous tables. 
 
 
 

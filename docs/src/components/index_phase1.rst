@@ -160,7 +160,7 @@ Events are shown on the chart only if the impact metric is non-zero in the histo
 
 2. Scaling
 
- Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling.
+ Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling. If manual input data is used, and does not attribute loss data to a specific year, it will not be possible to scale the losses.
 
  .. figure:: ../src_img/screenshots/step2_3_scaling.png
    :scale: 25%

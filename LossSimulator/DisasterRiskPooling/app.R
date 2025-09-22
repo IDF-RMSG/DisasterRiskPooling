@@ -462,9 +462,9 @@ server <- function(input, output, session) {
       radio_selected <- input$data_type
     }
     else {
-      radio_choices = c('Historical loss catalogue data')
+      radio_choices = c('Country', 'Historical loss catalogue data')
       if(is.null(input$data_type) || input$data_type == 'Manual Input'){
-        radio_selected <- 'Historical loss catalogue data'
+        radio_selected <- 'Country'
       }
       else {
         radio_selected <- input$data_type

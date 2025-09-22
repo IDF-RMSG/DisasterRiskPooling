@@ -1265,7 +1265,7 @@ server <- function(input, output, session) {
     } else {
       fluidRow(
         column(11, offset = 1, "You are viewing and using historical loss data.", style = "color: red"),
-        column(11, offset = 1, "Events are shown only if the impact metric is non-zero in the historical loss catalogue. It is common for eevnts to have a zero loss for Economic Damage and non-zero loss for people affected - therefore the number of events displayed will differ by impact metric selected.", style = "color: red"),
+        column(11, offset = 1, "Events are shown only if the impact metric is non-zero in the historical loss catalogue. It is common for events to have a zero loss for Economic Damage and non-zero loss for people affected - therefore the number of events displayed will differ by impact metric selected.", style = "color: red"),
         column(11, offset = 1, "The data selection (Total economic damage or response cost) shown on this chart will be used in the next steps of simulation.", style = "color: red")
       )
     }
@@ -1516,7 +1516,7 @@ server <- function(input, output, session) {
     } else {
       country_name <- input$country
       scaling_data <- scale_data[scale_data$country == country_name,]
-      scaling_data$inflation_ok <- length(which(is.na(scaling_data$inflation))) <= 1
+      scaling_data$inflation_ok <- length(which(is.na(scaling_data$inflation))) <= 1 # but inflation is commented out in global.app
       scaling_data$gdp_ok <- length(which(is.na(scaling_data$gdp))) <= 1
       use_inflation <- isTRUE(unique(scaling_data$inflation_ok))
       use_gdp <- isTRUE(unique(scaling_data$gdp_ok))

@@ -519,11 +519,12 @@ server <- function(input, output, session) {
     )
   })
 
-  # Create dynamic text to describe whether user data has been imported of or not
+  # Create dynamic text to describe whether user data has been imported or not
   output$manual_data_chosen_ui <-
     shiny::renderUI(
       {
-        if (is.null(input$ownFile) || !is.null(validate_upload())) {
+        #if (is.null(input$ownFile) || !is.null(validate_upload())) {
+        if (!is.null(validate_upload())) {
           fluidRow(
             column(
               11,

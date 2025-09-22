@@ -519,38 +519,38 @@ server <- function(input, output, session) {
     )
   })
 
-  # Create dynamic text to describe whether user data has been imported of or not
-  output$manual_data_chosen_ui <-
-    shiny::renderUI(
-      {
-        if (is.null(input$ownFile) || !is.null(validate_upload())) {
-          fluidRow(
-            column(
-              11,
-              offset = 1,
-              strong(
-                "You have not imported any data or have imported invalid data.",
-                style = "color: red"
-              )
-            ),
-            br()
-          )
-        } else {
-          fluidRow(
-            column(
-              11,
-              offset = 1,
-                tagList(
-                  "You have uploaded historical loss data for ",
-                  strong(upload_name())
-                ),
-                style = "color: red"
-              ),
-              br()
-            )
-        }
-    }
-  )
+  # Create dynamic text to describe whether user data has been imported of or not - commented out until we can be sure the error message doesn't contradic the 'data uploaded' message - i.e. is acting reactively.
+  #output$manual_data_chosen_ui <-
+  #  shiny::renderUI(
+  #    {
+  #      if (is.null(input$ownFile) || !is.null(validate_upload())) {
+  #        fluidRow(
+  #          column(
+  #            11,
+  #            offset = 1,
+  #            strong(
+  #              "You have not imported any data or have imported invalid data.",
+  #              style = "color: red"
+  #            )
+  #          ),
+  #          br()
+  #        )
+  #      } else {
+  #        fluidRow(
+  #          column(
+  #            11,
+  #            offset = 1,
+  #              tagList(
+  #                "You have uploaded historical loss data for ",
+  #                strong(upload_name())
+  #              ),
+  #              style = "color: red"
+  #            ),
+  #            br()
+  #          )
+  #      }
+  #  }
+  #)
 
   #  Output that renders UI based on an input. If data type is country, then countries are shown, else, archetypes. Manual input will show the upload dialogue.
   output$country_ui <-

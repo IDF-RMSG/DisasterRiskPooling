@@ -2980,7 +2980,7 @@ server <- function(input, output, session) {
       g_ci <- NULL
     }
     if(budget != 0){
-      g_budget1 <- geom_hline(aes(yintercept = budget, linetype = "Budget"), colour='#ff00e9')
+      g_budget1 <- geom_hline(aes(yintercept = budget, linetype = "Budget"), colour='#00053A')
       g_budget2 <- scale_linetype_manual(name = "", values = 1, guide = guide_legend(override.aes = list(color = '#ff00e9')))
     }
     else {
@@ -2994,7 +2994,7 @@ server <- function(input, output, session) {
                               fill = legend,
                               text = paste0("Loss: ", paste(format(round(value / scale_size, 1), trim = TRUE), "m")))) +
       geom_bar(stat = 'identity', color ="#000000") +
-      scale_fill_manual(values = c("#ff0000", "#00053A")) +
+      scale_fill_manual(values = c("#ff0000", "#ff00e9")) +
       labs(fill = "") +
       scale_x_discrete(labels = function(x) str_wrap(x, width = 15)) +
       theme_classic()
@@ -3135,7 +3135,7 @@ server <- function(input, output, session) {
       if(budget != 0){
         g_budget1 <- geom_hline(aes(yintercept = budget, color = "Budget"))
         clr_breaks <- c(clr_breaks, 'Budget')
-        clr_values <- c(clr_values, 'Budget' = '#ff00e9')
+        clr_values <- c(clr_values, 'Budget' = '#00053A')
       }
       else {
         g_budget1 <- NULL
@@ -3298,9 +3298,9 @@ server <- function(input, output, session) {
       sub_plot_dat$value_lower <- c(annual_avg_lower, output_lower[1], output_lower[2])
       sub_plot_dat$value_upper <- c(annual_avg_upper, output_upper[1], output_upper[2])
       return(sub_plot_dat)
-      df_sbd -> data.frame(unclass(table(sub_plot_data)))
     }
   })
+  #write.csv(sub_plot_dat, file = "/Users/stufraser/subplotdat.csv", row.names = FALSE)
 
   # Generate Exhibit 3 plot
   output_3_plot <- reactive({

@@ -208,7 +208,7 @@ about_page <-
          Using the accompanying Risk Pool Structuring tool, users can take the
          output of the Loss Simulator, place those loss curves into a risk pool
          and explore how a pool of risks can be used to increase financial resilience.
-         The Risk Pool Structuring tool is an Excel workbook, see [RiskpoolStructuring on GitHub](https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskpoolStructuring).
+         The Risk Pool Structuring tool is an Excel workbook, see <a href="https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskpoolStructuring">RiskpoolStructuring on GitHub</a>.
          "),
       p("
          The Loss Simulator takes historical disaster event data from the EM-DAT
@@ -234,11 +234,11 @@ about_page <-
       h2("Authorship"),
       p("
           The Loss Simulator was developed by Maximum Information on behalf of
-          the Insurance Development Forum (IDF) Risk Modelling Steering Group
+          the Insurance Development Forum Risk Modelling Steering Group
           (RMSG) and the World Bank Group's Finance, Competitiveness and Investment
           team. It is based on the existing 'Financial Risk Assessment Tool'
           developed by the World Bank for capacity building of their clients.
-          IDF RMSG are responsible for the update of the Loss Simulator.
+          Insurance Development Forum RMSG are responsible for the update of the Loss Simulator.
         "),
       h2("Disclaimer"),
       p("
@@ -247,7 +247,7 @@ about_page <-
           main or only source of loss information (e.g., in the absence of catastrophe models).
           Information in the Tool is provided for educational purposes only and
           does not constitute legal or scientific advice or service.
-          Neither the IDF, RMSG, Maximum Information  or the World Bank makes warranties or
+          Neither the Insurance Development Forum, RMSG, Maximum Information  or the World Bank makes warranties or
           representations, express or implied as to the accuracy or reliability of
           the Tool or the data contained therein.
           "),
@@ -258,7 +258,7 @@ about_page <-
           and independent discretion and responsibility of the user. No conclusions
           or inferences drawn from the Loss Simulator should be attributed to the
           developers of the tool.
-          In no event will the IDF, RMSG, Maximum Information or the World Bank
+          In no event will the Insurance Development Forum, RMSG, Maximum Information or the World Bank
           be liable for any form of damage arising from the application or
           misapplication of the tool, or any other associated materials.
         "
@@ -271,7 +271,7 @@ user_guide <-
   fluidPage(
     fluidRow(column(10, offset = 1,
       h1('User Guide'),
-      p('As well as tool-tips in the tool user interface, please refer to the Disaster Risk Pooling tool [user guide](https://idf-rmsg.github.io/DisasterRiskPooling
+      p('As well as tool-tips in the tool user interface, please refer to the Disaster Risk Pooling tool <a href="https://idf-rmsg.github.io/DisasterRiskPooling">User Guide</a>
             for guidance on This includes general information, key decision-making questions and fundamental principles of risk pooling, as well as
             the specific workflow of the Loss Simulator (used in Phase 1) and the Risk Pool Structuring Tool (Used in Phase 2 onwards).'),
       p('Current limitations of this tool include: (1) no accounting for correlation of losses between perils and countries,

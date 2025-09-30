@@ -1778,7 +1778,16 @@ server <- function(input, output, session) {
         dplyr::rename("Disaster" = "peril", "Cost"= "value", "Year" = "year")
 
     if(!too_much_data) {
-    y_title <-  paste0('Annual Loss (', currency_code, ')')
+      if (input$damage_type == 'People Affected Response Cost')
+        {
+          y_title <- paste0('Annual Response Cost (', currency_code, ')')
+        }
+        else 
+        {
+          y_title <- paste0('Annual Economic Loss (', currency_code, ')')
+        }
+      
+    #y_title <-  paste0('Annual Loss (', currency_code, ')')
 
     plotly::plot_ly(out,
                     x = ~Year,
@@ -1793,7 +1802,7 @@ server <- function(input, output, session) {
                       )
                     )
                   ) %>%
-      plotly::layout(title = paste0("<b>Processed Losses in ", country_name),
+      plotly::layout(title = paste0("<b>Scaled ", y_title, ": ", country_name),
                      font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
                      yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
                      xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),

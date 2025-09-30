@@ -213,7 +213,7 @@ about_page <-
       p("
          The Loss Simulator takes historical disaster event data from the EM-DAT
          catalogue (www.emdat.be), or via manual input (input template provided
-         on GitHub), applies scaling factors for population growth and GDP,
+         on GitHub), applies scaling factors for population growth,
          and fits parametric distributions to the data to simulate a loss curve.
          This is one approach to assess disaster loss profiles with incomplete
          historical loss data, which may exclude key historical events so the

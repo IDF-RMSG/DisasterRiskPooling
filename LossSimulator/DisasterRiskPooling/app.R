@@ -1788,7 +1788,6 @@ server <- function(input, output, session) {
         }
       
     #y_title <-  paste0('Annual Loss (', currency_code, ')')
-
     plotly::plot_ly(out,
                     x = ~Year,
                     y = ~Cost,
@@ -3120,9 +3119,9 @@ server <- function(input, output, session) {
       clr_breaks <- c('Probability',
                       'Highest Historical Annual Loss',
                       'Prob. of Exceeding Budget')
-      clr_values <- c('Probability' = "#ff0000",
+      clr_values <- c('Probability' = "red",
                       'Highest Historical Annual Loss' = "#ff00e9",
-                      'Prob. of Exceeding Budget' = "#ff0000")
+                      'Prob. of Exceeding Budget' = "red")
       if (input$ci == 'On'){
         g_ci_low <- geom_line(aes(Probability, `Total Loss lower`/scale_size, color = 'CI Lower'), linetype = 'dotted')
         g_ci_upp <- geom_line(aes(Probability, `Total Loss upper`/scale_size, color = 'CI Upper'), linetype = 'dotted')
@@ -3234,6 +3233,10 @@ server <- function(input, output, session) {
   })
 
   # Creates data for Exhibit 3, based on the inputs for the definitions of 'extreme' and 'severe'
+  
+  ####
+  # ERROR received 30 Sept 2025: The melt generic in data.table has been passed a tbl_df and will attempt to redirect to the relevant reshape2 method; please note that reshape2 is superseded and is no longer actively developed, and this redirection is now deprecated. To continue using melt methods from reshape2 while both packages are attached, e.g. melt.list, you can prepend the namespace, i.e. reshape2::melt(sub_plot_dat). In the next version, this warning will become an error.
+  ####
   annual_loss_gap_data <- reactive({
     budget <- ex_budget()
     perils_ci <- freq_sev_ci()

@@ -786,8 +786,14 @@ server <- function(input, output, session) {
       perils_out <- peril_names_global
       y_title <- "Frequency"
     } else {
-      perils_out <- paste(peril_names_global, currency_code, sep=", ")
-      y_title <- paste0('Annual Loss (', currency_code, ')')
+      if (input$damage_type_UI== 'People Affected') {
+        perils_out <- paste(peril_names_global, currency_code, sep=", ")
+        y_title <- paste0('Annual Response Cost (', currency_code, ')')
+        }
+      else
+        perils_out <- paste(peril_names_global, currency_code, sep=", ")
+        y_title <- paste0('Annual Loss (', currency_code, ')')
+      }
     }
 
     too_much_data <-
@@ -803,6 +809,15 @@ server <- function(input, output, session) {
 
     if(!too_much_data) {
 
+      
+    # Set the title based on the input
+      plot_title <- if (input$damage_type_UI == 'People Affected') {
+        paste0("<b>Average Annual Response Cost: ", country_name)
+      } else {
+        paste0("<b>Average Annual Loss: ", country_name)
+      }
+
+
       out %>%
         plotly::plot_ly(x = ~ Year,
                         y = ~ Cost,
@@ -816,7 +831,7 @@ server <- function(input, output, session) {
                           )
                         )
                       )%>%
-        plotly::layout(title = paste0("<b>Average Annual Loss by Year: ", country_name),
+        plotly::layout(title = plot_title,
                        font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
                        yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
                        xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
@@ -835,7 +850,7 @@ server <- function(input, output, session) {
           marker = list(colors = c("#ff0000", "#ff00e9", "#00053A", "#000000"))
         ) %>%
         plotly::layout(
-          title = paste0("<b>Losses: ", country_name),
+          title = paste0("<b>plot_title: ", country_name),
           font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
           legend = list(orientation = "h", xanchor = "center", x = 0.5)
         )

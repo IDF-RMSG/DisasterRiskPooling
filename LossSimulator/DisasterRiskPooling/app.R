@@ -3198,7 +3198,7 @@ server <- function(input, output, session) {
              "Probability of Exceeding Budget",
              icon = NULL,
              width = NULL,
-             color = "#ff0000"
+             color = "red"
     )
   })
 
@@ -3234,9 +3234,7 @@ server <- function(input, output, session) {
 
   # Creates data for Exhibit 3, based on the inputs for the definitions of 'extreme' and 'severe'
   
-  ####
-  # ERROR received 30 Sept 2025: The melt generic in data.table has been passed a tbl_df and will attempt to redirect to the relevant reshape2 method; please note that reshape2 is superseded and is no longer actively developed, and this redirection is now deprecated. To continue using melt methods from reshape2 while both packages are attached, e.g. melt.list, you can prepend the namespace, i.e. reshape2::melt(sub_plot_dat). In the next version, this warning will become an error.
-  ####
+ 
   annual_loss_gap_data <- reactive({
     budget <- ex_budget()
     perils_ci <- freq_sev_ci()
@@ -3278,10 +3276,29 @@ server <- function(input, output, session) {
                              `Severe` = output[1],
                              `Extreme` = output[2])
       # melt the data frame to get value and variable, to long format
-      sub_plot_dat <- melt(sub_plot_dat)
+      ####
+      # ERROR TO RESOLVE received 30 Sept 2025: The **melt** generic in data.table has been passed 
+      # a tbl_df and will attempt to redirect to the relevant reshape2 method; 
+      # please note that reshape2 is superseded and is no longer actively developed, and this 
+      # redirection is now deprecated. To continue using melt methods from reshape2 while both 
+      # packages are attached, e.g. melt.list, you can prepend the namespace, i.e. 
+      # reshape2::melt(sub_plot_dat). In the next version, this warning will become an error.
+      
+      # The melt() function from data.table makes it easy to melt data. The basic syntax is:
+      # melt(data, id.vars, measure.vars)
+      #      Where:
+      #      data: the data.table to melt
+      #      id.vars: the column(s) to use as identifier variables
+      #      measure.vars: the column(s) to unpivot into the value column
+      # e.g. sub_plot_dat <- melt(sub_plot_dat, id.vars = "", measure.vars = c("", ""))
+      ####
+      
+      # sub_plot_dat <- melt(sub_plot_dat) REPLACED WITH LINE BELOW TO RESOLVE ERROR
+      sub_plot_dat <- melt(sub_plot_dat, id.vars = "Average", measure.vars = c("Severe", "Extreme"))
       sub_plot_dat$value_lower <- c(annual_avg_lower, output_lower[1], output_lower[2])
       sub_plot_dat$value_upper <- c(annual_avg_upper, output_upper[1], output_upper[2])
       return(sub_plot_dat)
+      df_sbd -> data.frame(unclass(table(sub_plot_data)))
     }
   })
 

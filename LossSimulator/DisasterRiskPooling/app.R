@@ -209,10 +209,17 @@ body <- dashboardBody(
   )
 )
 
+
+
+
+
 #####
 # UI
 #####
 ui <- dashboardPage(header, sidebar, body, skin="blue", title="Disaster Risk Pooling Tool: Loss Simulator")
+
+
+
 
 #########
 # Server
@@ -259,6 +266,9 @@ server <- function(input, output, session) {
     contentType = "text/csv"
   )
 
+  
+  
+  
   ###############
   # Landing Page
   ###############
@@ -504,9 +514,7 @@ server <- function(input, output, session) {
     req(input$data_type)
     fluidPage(
       fluidRow(column(11, offset = 1,
-        p(
-          "
-          Manual data must be uploaded with one entry row per event. Any cost-per-
+        p("Manual data must be uploaded with one entry row per event. Any cost-per-
           person calculations must be done before the data is uploaded into this
           tool. The tool can accept simulated event loss data or historical data, for any country.
           Perils are restructed to quake, drought, flood, cyclone.")
@@ -609,7 +617,7 @@ server <- function(input, output, session) {
   output$damage_type_ui <- renderUI({
     req(input$data_type)
     if(input$data_type == 'Archetype'){# ARCHETYPE HAS BEEN REMOVED FROM UI - NOT AN OPTION.
-      btn_choice <- c('People Affected Response Cost')
+      btn_choice <- c('Total Economic Damage', 'People Affected Response Cost')
       btn_selected <- 'People Affected Response Cost'
     }
     else if(input$data_type == 'Manual Input'){
@@ -769,7 +777,15 @@ server <- function(input, output, session) {
     shiny::req(input$view_data)
 
     cored <-
-      if(use_core_data_edited()) {core_data_edited$data} else {core_data()}
+      if(use_core_data_edited()) 
+      {
+        core_data_edited$data
+      } 
+    else 
+    {
+        core_data()
+    }
+    
 
     shiny::req(cored)
 
@@ -797,20 +813,25 @@ server <- function(input, output, session) {
         "Disaster" = "peril"
       )
 
-    if (input$view_data == 'Frequency') {
+    if (input$view_data == 'Frequency') 
+      {
       perils_out <- peril_names_global
       y_title <- "Frequency"
-    } else {
-      if (input$damage_type_UI== 'People Affected Response Cost')
+      } 
+    else 
+      {
+      if (input$damage_type == 'People Affected Response Cost')
         {
         perils_out <- paste(peril_names_global, currency_code, sep=", ")
         y_title <- paste0('Annual Response Cost (', currency_code, ')')
         }
-      else {
+      else 
+        {
         perils_out <- paste(peril_names_global, currency_code, sep=", ")
-        y_title <- paste0('Annual Loss (', currency_code, ')')
+        y_title <- paste0('Annual Economic Loss (', currency_code, ')')
+        }
       }
-    }
+    
 
     too_much_data <-
       if(length(cored) >= 3) 
@@ -832,7 +853,7 @@ server <- function(input, output, session) {
     if(!too_much_data) {
 
     # Set the title based on the input
-      plot_title <- if (input$damage_type_UI == 'People Affected Response Cost') 
+      plot_title <- if (input$damage_type == 'People Affected Response Cost') 
         {
         paste0("<b>Average Annual Response Cost: ", country_name)
         } 

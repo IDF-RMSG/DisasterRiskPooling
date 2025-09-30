@@ -208,7 +208,7 @@ about_page <-
          Using the accompanying Risk Pool Structuring tool, users can take the
          output of the Loss Simulator, place those loss curves into a risk pool
          and explore how a pool of risks can be used to increase financial resilience.
-         The Risk Pool Structuring tool is an Excel workbook, see <a href="https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskpoolStructuring">RiskpoolStructuring on GitHub</a>.
+         The Risk Pool Structuring tool is an Excel workbook. 
          "),
       p("
          The Loss Simulator takes historical disaster event data from the EM-DAT
@@ -229,7 +229,8 @@ about_page <-
         "),
       fluidRow(column(width = 12, align = "center",
                       br(),
-                      actionButton("start_btn", "Use the Tool", icon("crosshairs"))
+                      actionButton("start_btn", "Use the Loss Simulator", icon("crosshairs")),
+                      actionButton("Structuring_btn", label = "Go to Risk Pool Structuring", onclick = "window.open('https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskpoolStructuring)', '_blank')")
       )),
       h2("Authorship"),
       p("
@@ -271,11 +272,18 @@ user_guide <-
   fluidPage(
     fluidRow(column(10, offset = 1,
       h1('User Guide'),
-      p('As well as tool-tips in the tool user interface, please refer to the Disaster Risk Pooling tool <a href="https://idf-rmsg.github.io/DisasterRiskPooling">User Guide</a>
-            for guidance on This includes general information, key decision-making questions and fundamental principles of risk pooling, as well as
-            the specific workflow of the Loss Simulator (used in Phase 1) and the Risk Pool Structuring Tool (Used in Phase 2 onwards).'),
+      p('As well as tool-tips in the tool user interface, please refer to the Disaster Risk Pooling user guide. 
+        This includes general information, key decision-making questions and fundamental principles of risk pooling, as well as
+            the specific workflow of the Loss Simulator (used in Phase 1) and the Risk Pool Structuring Tool (Used in Phase 2 onwards).'
+        ),
+      fluidRow(column(width = 12, align = "center",
+                      br(),
+                      actionButton("UG_btn", label ="User Guide", icon("question"), onclick = "window.open('https://idf-rmsg.github.io/DisasterRiskPooling', '_blank')")
+      )),
+      p(""),
       p('Current limitations of this tool include: (1) no accounting for correlation of losses between perils and countries,
-        (2) Users cannot enter a hypothetical premium into pricing calculations.')
+        (2) Users cannot enter a hypothetical premium into pricing calculations.'
+        )
     ))
   )
 

@@ -106,20 +106,26 @@ body <- dashboardBody(
               # User input for input data type
               uiOutput('data_type_ui'),
               br(),
+              
               # User input for uploading data and accompanying text
               conditionalPanel("input.data_type == 'Manual Input'", uiOutput('upload_ui')),
               conditionalPanel("input.data_type == 'Manual Input'", uiOutput('manual_data_chosen_ui')),
+              
               # User input for picking country / archetype
               uiOutput('country_ui'),
               br(),
+              
               # User input for choosing database and accompanying text
               conditionalPanel("input.data_type == 'Country' & input.advanced == 'Advanced'", uiOutput('manual_database_ui')),
               conditionalPanel("input.data_type == 'Country'", uiOutput('data_source_ui')),
+              
               # User input for type of peril data
               uiOutput('damage_type_ui'),
               br(),
+              
               # User input for cost per person assumption
-              conditionalPanel("input.damage_type == 'People Affected Reponse Cost'", uiOutput('cost_per_person_ui')),
+              conditionalPanel("input.damage_type == 'People Affected Response Cost'", uiOutput('cost_per_person_ui')),
+              
               # Create tabs to house data table and plot
               uiOutput('freq_loss_switch_ui'),
               uiOutput("display_data_tab1_ui"),
@@ -462,7 +468,7 @@ server <- function(input, output, session) {
       radio_selected <- input$data_type
     }
     else {
-      radio_choices = c('Country', 'Historical loss catalogue data')
+      radio_choices = c('Country')
       if(is.null(input$data_type) || input$data_type == 'Manual Input'){
         radio_selected <- 'Country'
       }
@@ -519,7 +525,8 @@ server <- function(input, output, session) {
     )
   })
 
-  # Create dynamic text to describe whether user data has been imported of or not - commented out until we can be sure the error message doesn't contradic the 'data uploaded' message - i.e. is acting reactively.
+  # Create dynamic text to describe whether user data has been imported of or not - 
+  # commented out until we can be sure the error message doesn't contradict the 'data uploaded' message - i.e. is acting reactively.
   #output$manual_data_chosen_ui <-
   #  shiny::renderUI(
   #    {
@@ -552,7 +559,8 @@ server <- function(input, output, session) {
   #  }
   #)
 
-  #  Output that renders UI based on an input. If data type is country, then countries are shown, else, archetypes. Manual input will show the upload dialogue.
+  # Output that renders UI based on an input. If data type is country, then countries are shown, else, archetypes. 
+  # Manual input will show the upload dialogue.
   output$country_ui <-
     shiny::renderUI({
 
@@ -561,11 +569,11 @@ server <- function(input, output, session) {
 
       if(input$data_type == 'Country'){
         btn_id <- "country"
-        btn_text <- "Select Country"
+        btn_text <- "Select Country historical loss data from EM-DAT"
         btn_choice <- countries
         btn_select <- 'Bangladesh'
         btn_width <- '250px'
-        pop_content <- 'Select a country to examine historical disaster data from that country (limited to those in EM-DAT with losses from quake, drought, flood or cyclone.'
+        pop_content <- 'Select a country for which to examine historical disaster data (limited to those in EM-DAT with losses from earthquake, drought, flood or cyclone.'
       } else if(input$data_type == 'Archetype') { # ARCHETYPE HAS BEEN REMOVED FROM UI - NOT AN OPTION.
         btn_id <- "archetype"
         btn_text <- "Select Archetype"
@@ -601,15 +609,15 @@ server <- function(input, output, session) {
   output$damage_type_ui <- renderUI({
     req(input$data_type)
     if(input$data_type == 'Archetype'){# ARCHETYPE HAS BEEN REMOVED FROM UI - NOT AN OPTION.
-      btn_choice <- c('People Affected Reponse Cost')
-      btn_selected <- 'People Affected Reponse Cost'
+      btn_choice <- c('People Affected Response Cost')
+      btn_selected <- 'People Affected Response Cost'
     }
     else if(input$data_type == 'Manual Input'){
       return(NULL)
     }
     else {
-      btn_choice <- c('Total Economic Damage', 'People Affected Reponse Cost')
-      btn_selected <- 'People Affected Reponse Cost'
+      btn_choice <- c('Total Economic Damage', 'People Affected Response Cost')
+      btn_selected <- 'People Affected Response Cost'
     }
     fluidRow(column(11, offset = 1,
       popify(
@@ -619,7 +627,7 @@ server <- function(input, output, session) {
                      selected = btn_selected,
                      inline = TRUE),
         title = 'Select impact metric',
-        #content = "Select whether you would like to view the loss as People Affected or as Total Economic Damage. If Archetype is chosen, you can only do the former.", # ARCHETYPE HAS BEEN REMOVED FROM UI - NOT AN OPTION.
+        #content = "Select whether you would like to view the loss as People Affected (converted to a response cost, using the specified value) or as Total Economic Damage.", # ' If Archetype is chosen, you can only do the former' - text removed; ARCHETYPE HAS BEEN REMOVED FROM UI - NOT AN OPTION.
         content = "Select the impact metric to use in the analysis.",
         #content = People Affected (plot/table will show the number of people affected multiplied by the response cost per person) or as Total Economic Damage (as reported by EM-DAT). Only records with a data entry FOR THE SELECTED PARAMETER IN EM-DAT will show in the plot/table - typically there are fewer events with Total Economic Damage reported in the loss catalogue"
         placement = 'auto left',
@@ -692,7 +700,14 @@ server <- function(input, output, session) {
     shiny::req(input$view_data)
 
     cored <-
-      if(use_core_data_edited()) {core_data_edited$data} else {core_data()}
+      if(use_core_data_edited()) 
+      {
+        core_data_edited$data
+      } 
+    else 
+      {
+        core_data()
+      }
 
     shiny::req(cored)
 
@@ -786,36 +801,45 @@ server <- function(input, output, session) {
       perils_out <- peril_names_global
       y_title <- "Frequency"
     } else {
-      if (input$damage_type_UI== 'People Affected') {
+      if (input$damage_type_UI== 'People Affected Response Cost')
+        {
         perils_out <- paste(peril_names_global, currency_code, sep=", ")
         y_title <- paste0('Annual Response Cost (', currency_code, ')')
         }
-      else
+      else {
         perils_out <- paste(peril_names_global, currency_code, sep=", ")
         y_title <- paste0('Annual Loss (', currency_code, ')')
       }
     }
 
     too_much_data <-
-      if(length(cored) >= 3) {
-          if(cored[[3]]$`Number of Years` > 100) {
+      if(length(cored) >= 3) 
+        {
+          if(cored[[3]]$`Number of Years` > 100) 
+            {
             TRUE
-          } else {
-            FALSE
-          }
-      } else {
+            } 
+        else 
+            {
+              FALSE
+            }
+        } 
+    else 
+      {
         FALSE
       }
 
     if(!too_much_data) {
 
-      
     # Set the title based on the input
-      plot_title <- if (input$damage_type_UI == 'People Affected') {
+      plot_title <- if (input$damage_type_UI == 'People Affected Response Cost') 
+        {
         paste0("<b>Average Annual Response Cost: ", country_name)
-      } else {
-        paste0("<b>Average Annual Loss: ", country_name)
-      }
+        } 
+      else 
+        {
+          paste0("<b>Average Annual Loss: ", country_name)
+          }
 
 
       out %>%
@@ -1613,7 +1637,7 @@ server <- function(input, output, session) {
             core_data_edited$data
           } else if ((input$data_type == "Country" |
                       input$data_type == "Manual Input")  &
-                      input$damage_type == "People Affected Reponse Cost") {
+                      input$damage_type == "People Affected Response Cost") {
 
             prepare_cost_data()
 
@@ -2734,7 +2758,7 @@ server <- function(input, output, session) {
     detrending <- input$trend_test
     scale_fail <- is.null(prepare_scale_data)
     detrend_fail <- is.null(correct_trend)
-    if (dmg_type == 'People Affected Reponse Cost') {
+    if (dmg_type == 'People Affected Response Cost') {
       cpp_text <- paste0('This data was generated with a cost per person assumption of ', cost_pp, currency_code, '.')
     }
     else {

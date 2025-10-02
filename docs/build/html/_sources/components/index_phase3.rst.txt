@@ -16,7 +16,7 @@ Step 6: Review Funding Coverage across the risk pool
 
 On the Financial Structure visualisation tab you can view how the coverage layers look in the context of the overall country risk. 
 
- .. figure:: ../src_img/screenshots/phase3intro_countryDrivers.png
+ .. figure:: ../src_img/screenshots/step6_countryDrivers.png
    :scale: 25%
    :alt: Phase 3 steps 
 
@@ -45,7 +45,7 @@ Step 7: Review Funding Coverage for Each Country
 
 Review the coverage and risk profile of each country you have in your risk pool and the risk profiles that have been entered into the sheet. 
 
- .. figure:: ../src_img/screenshots/step6_countryLossAnalysis.png
+ .. figure:: ../src_img/screenshots/step7_countryLossAnalysis.png
    :scale: 25%
    :alt: Country Loss Analysis
 

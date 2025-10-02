@@ -176,10 +176,6 @@ Events are shown on the chart only if the impact metric is non-zero in the histo
 
  Click Run Tool (this could take up to 5 minutes).
 
- .. figure:: ../src_img/screenshots/step2_4_run.png
-   :scale: 25%
-   :alt: Run tool - click button
-
 
  In both Basic mode and Advanced mode the tool fits multiple statistical distributions for loss amount (severity) and selects the distribution with the best possible fit to the data. The severity distributions tested by default are Lognormal, Gamma and Weibull. In Advanced mode you can change the distribution selection - but it is advised to only do this with expert support. For frequency of losses the tool tests the Poisson distribution assumption that sample variance equals the mean. If this is true in the data, Poisson frequency is used but where variance is less than the mean then the Negative Binomial frequency distribution is used.
 
@@ -208,12 +204,6 @@ Events are shown on the chart only if the impact metric is non-zero in the histo
 
 
  Download Simulations to save your new synthetic event catalog in the format needed for input into the Risk Pool Structuring tool (an Excel workbook).
-
- .. figure:: ../src_img/screenshots/step2_8_downloadsims.png
-   :scale: 25%
-   :alt: Download simulation outputs using the buttons
-     
-   Download simulation outputs using the buttons
 
 
 

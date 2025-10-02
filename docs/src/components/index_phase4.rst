@@ -90,10 +90,6 @@ Guidance
 
 6. The graph can be scaled in cells H27 to L27.
 
- .. figure:: ../src_img/screenshots/step9.png
-   :scale: 25%
-   :alt: step9.png
-
 
 .. admonition:: Fundamental Principal
 

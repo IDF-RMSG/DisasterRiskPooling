@@ -164,9 +164,3 @@ Guidance
 
 5. When all steps are complete, make sure all of the data checks are green and click the 'Run Modelling' button to generate coverage results.
 
- .. figure:: ../src_img/screenshots/step5_Run.png
-   :scale: 25%
-   :alt: Run model
-
-   Run model
-

@@ -3257,14 +3257,10 @@ server <- function(input, output, session) {
       dat <- dat[dat$value > 0,]
       dat <- dat[order(dat$year, decreasing = FALSE),]
       #is_archetype <- input$data_type == 'Archetype' #not used in this function / plot
-      #severe <- 1 - (input$severe / 100)
-      #extreme <- 1 - (input$extreme / 100)
       severe <- input$severe
       severe <- 1 - (severe / 100)
-      #severe <- 1 - severe
       extreme <- input$extreme
       extreme <- 1 - (extreme / 100)
-      #extreme <- 1 - extreme
       
       # get quantiles for severe and extreme probability
       output <- quantile(dat_sim$value,c(severe, extreme))
@@ -3286,35 +3282,13 @@ server <- function(input, output, session) {
       sub_plot_dat <- tibble("Average" = annual_avg,
                              "Severe" = output[1],
                              "Extreme" = output[2])
-      # melt the data frame to get value and variable, to long format
-      ####
-      # ERROR TO RESOLVE received 30 Sept 2025: The **melt** generic in data.table has been passed 
-      # a tbl_df and will attempt to redirect to the relevant reshape2 method; 
-      # please note that reshape2 is superseded and is no longer actively developed, and this 
-      # redirection is now deprecated. To continue using melt methods from reshape2 while both 
-      # packages are attached, e.g. melt.list, you can prepend the namespace, i.e. 
-      # reshape2::melt(sub_plot_dat). In the next version, this warning will become an error.
       
-      # The melt() function from data.table makes it easy to melt data. The basic syntax is:
-      # melt(data, id.vars, measure.vars)
-      #      Where:
-      #      data: the data.table to melt
-      #      id.vars: the column(s) to use as identifier variables
-      #      measure.vars: the column(s) to unpivot into the value column
-      # e.g. sub_plot_dat <- melt(sub_plot_dat, id.vars = "", measure.vars = c("", ""))
-      ####
-      
-      # sub_plot_dat <- melt(sub_plot_dat) REPLACED WITH LINE BELOW TO RESOLVE ERROR
-      # sub_plot_dat <- melt(sub_plot_dat, id.vars = "Average", measure.vars = c("Severe", "Extreme"))
-      ##replacing rshape2:melt with tidyr: 
-      head(sub_plot_dat)
       sub_plot_dat <- pivot_longer(sub_plot_dat, cols = c("Average", "Severe", "Extreme"), 
                                    names_to = "variable", values_to = "value")
-      head(sub_plot_dat)
       
       sub_plot_dat$value_lower <- c(annual_avg_lower, output_lower[1], output_lower[2])
       sub_plot_dat$value_upper <- c(annual_avg_upper, output_upper[1], output_upper[2])
-      head(sub_plot_dat)
+      
       return(sub_plot_dat)
     }
   })

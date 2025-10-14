@@ -3248,13 +3248,16 @@ server <- function(input, output, session) {
       # remove observations with 0, if any
       dat <- dat[dat$value > 0,]
       dat <- dat[order(dat$year, decreasing = FALSE),]
-      is_archetype <- input$data_type == 'Archetype'
+      #is_archetype <- input$data_type == 'Archetype' #not used in this function / plot
+      #severe <- 1 - (input$severe / 100)
+      #extreme <- 1 - (input$extreme / 100)
       severe <- input$severe
+      severe <- 1 - (severe / 100)
+      #severe <- 1 - severe
       extreme <- input$extreme
-      severe <- severe / 100
-      severe <- 1 - severe
-      extreme <- extreme / 100
-      extreme <- 1 - extreme
+      extreme <- 1 - (extreme / 100)
+      #extreme <- 1 - extreme
+      
       # get quantiles for severe and extreme probability
       output <- quantile(dat_sim$value,c(severe, extreme))
       annual_avg <- mean(dat_sim$value)
@@ -3272,9 +3275,9 @@ server <- function(input, output, session) {
         output_upper <- NA
       }
       # create data frame to store output with chart labels
-      sub_plot_dat <- tibble(`Average` = annual_avg,
-                             `Severe` = output[1],
-                             `Extreme` = output[2])
+      sub_plot_dat <- tibble("Average" = annual_avg,
+                             "Severe" = output[1],
+                             "Extreme" = output[2])
       # melt the data frame to get value and variable, to long format
       ####
       # ERROR TO RESOLVE received 30 Sept 2025: The **melt** generic in data.table has been passed 
@@ -3294,9 +3297,15 @@ server <- function(input, output, session) {
       ####
       
       # sub_plot_dat <- melt(sub_plot_dat) REPLACED WITH LINE BELOW TO RESOLVE ERROR
-      sub_plot_dat <- melt(sub_plot_dat, id.vars = "Average", measure.vars = c("Severe", "Extreme"))
+      # sub_plot_dat <- melt(sub_plot_dat, id.vars = "Average", measure.vars = c("Severe", "Extreme"))
+      ##replacing rshape2:melt with tidyr: 
+      head(sub_plot_dat)
+      sub_plot_dat <- pivot_longer(sub_plot_dat, cols = c("Average", "Severe", "Extreme"), names_to = "variable", values_to = "value")
+      head(sub_plot_dat)
+      
       sub_plot_dat$value_lower <- c(annual_avg_lower, output_lower[1], output_lower[2])
       sub_plot_dat$value_upper <- c(annual_avg_upper, output_upper[1], output_upper[2])
+      head(sub_plot_dat)
       return(sub_plot_dat)
     }
   })
@@ -3331,7 +3340,7 @@ server <- function(input, output, session) {
                               y = value/scale_size,
                               text = paste0("Loss: ", paste(format(round(value / 1e6, 1), trim = TRUE), "m")))) +
       geom_bar(stat = 'identity',
-               fill = c('#ff0000', '#ff00e9', "#00053A"),
+               fill = c('#00053A', 'red', 'maroon1'),
                col = c('#000000', '#000000',"#000000"),
                alpha = 1) +
       scale_x_discrete(labels = function(x) str_wrap(x, width = 15)) +
@@ -3392,7 +3401,7 @@ server <- function(input, output, session) {
              "Associated Loss - Severe (Million USD)",
              icon = NULL,
              width = NULL,
-             color = "#ff00e9"
+             color = "red"
     )
   })
 
@@ -3413,7 +3422,7 @@ server <- function(input, output, session) {
              "Associated Loss - Extreme (Million USD)",
              icon = NULL,
              width = NULL,
-             color = "#ff0000"
+             color = "red"
     )
   })
 

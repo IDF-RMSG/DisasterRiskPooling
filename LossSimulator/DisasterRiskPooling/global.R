@@ -38,7 +38,7 @@ options(scipen = 999)
 # Create objects to store floating constants in for indexing and custom equations
 #################################################################################
 # For scaling outputs
-scale_size = 1000000
+scale_size = 1000000 # scale by millions
 start_year <- 2002
 end_year <- 2024
 

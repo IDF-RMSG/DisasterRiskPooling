@@ -2752,13 +2752,13 @@ server <- function(input, output, session) {
   output$budget_ui <- renderUI({
     fluidRow(column(11, offset = 1,
       numericInput('budget',
-                   paste0('Budget in Millions ', ccy_code),
+                   paste0('Budget ', ccy_code, 'millions'),
                    min = 0,
                    step = 5,
                    value = 0),
       bsPopover(id = "budget",
                 title = '',
-                content = 'The budget will be used for calculating the likelihood of exceeding funding, etc.',
+                content = 'The budget will be used for calculating the likelihood of exceeding funding.',
                 placement = 'auto left',
                 trigger = "hover",
                 options = NULL
@@ -2769,15 +2769,12 @@ server <- function(input, output, session) {
   # Set empty budget to 0
   ex_budget <- reactive({
     if (is.na(input$budget)) {
-      budget <- 0
-    }
-    else {
-      budget <- input$budget
-    }
+      budget <- 0}
+    else {budget <- input$budget}
     return(budget)
-  })
+    })
 
-  # Generate description text based on user inputs for the exhibits
+  # ----- Generate description text based on user inputs for the exhibits -----
   get_dynamic_text <- reactive({
     dmg_type <- input$damage_type
     cost_pp <- input$cost_per_person
@@ -2785,8 +2782,9 @@ server <- function(input, output, session) {
     detrending <- input$trend_test
     scale_fail <- is.null(prepare_scale_data)
     detrend_fail <- is.null(correct_trend)
+    
     if (dmg_type == 'People Affected Response Cost') {
-      cpp_text <- paste0('This data was generated with a cost per person assumption of ', cost_pp, ccy_code, '.')
+      cpp_text <- paste0('This data was generated with a cost per person assumption of ', cost_pp, ' ', ccy_code, '.')
     }
     else {
       cpp_text <- NULL
@@ -2795,12 +2793,8 @@ server <- function(input, output, session) {
     if (scale_fail) {
       trend_text <- paste0('The historical values have not been scaled.')
     }
-    #else if (!scale_fail && detrend_fail) {
-    #  trend_text <- paste0('The historical values have been scaled by ', scale_type, '.')
-    #}
-    #else if (scale_fail && !detrend_fail) {
-    #  trend_text <- paste0('The historical values have not been scaled.')
-    #}
+    #else if (!scale_fail && detrend_fail) {trend_text <- paste0('The historical values have been scaled by ', scale_type, '.')}
+    #else if (scale_fail && !detrend_fail) {trend_text <- paste0('The historical values have not been scaled.')}
     else {
       trend_text <- paste0('The historical values have been scaled by ', scale_type, '.')
     }
@@ -2841,7 +2835,7 @@ server <- function(input, output, session) {
                       input$dist_flood_input,
                       input$dist_storm_input), FUN = match_dist_names) %>%
           unlist() %>%
-          dplyr::bind_cols(c("Drought", "Earthquake", "Flood", "Cyclone"))
+          dplyr::bind_cols(str_perils) #this changed the order of perils - check impact (c("Drought", "Earthquake", "Flood", "Cyclone"))
 
         names(peril_dists) <- c("dist", "peril")
 
@@ -2893,19 +2887,18 @@ server <- function(input, output, session) {
     }
   )
 
-  ## This reactive data frame prepares the data for plotting.
+  # ----- Reactive dataframe: prepare data for plotting -----
   annual_loss_data <- reactive({
-
     budget <- ex_budget()
     gp <- gather_perils()
     gd <- gather_data()
-
     perils_ci <- freq_sev_ci()
-
     selected_perils <- input$select_peril
+    
     if(is.na(budget) | is.null(gp) | is.null(gd) | is.null(selected_perils)){
       return(NULL)
-    } else {
+      } 
+    else {
       dat_sim <- dplyr::filter(gp, !is.na(.data$value))
       dat <-
         gd %>%
@@ -2927,32 +2920,35 @@ server <- function(input, output, session) {
     }
   })
 
-  # Table for Exhibit 1
-  output$annual_loss_tably <- DT::renderDataTable({
-    x <- annual_loss_data()
-    if(!is.null(x)){
-      x$value <- round(x$value)
-      x$value_lower <- round(x$value_lower)
-      x$value_upper <- round(x$value_upper)
-      names_curr <- c(paste('Loss,',ccy_code), paste('Lower bound,', ccy_code), 
+  # ----- Exhibit 1 Table -----
+  output$annual_loss_tably <- 
+    DT::renderDataTable({
+      x <- annual_loss_data()
+      if(!is.null(x)){
+        x$value <- round(x$value)
+        x$value_lower <- round(x$value_lower)
+        x$value_upper <- round(x$value_upper)
+        names_curr <- c(paste('Loss,',ccy_code), paste('Lower bound,', ccy_code), 
                       paste('Upper bound,', ccy_code))
-      names(x) <- c('Variable', names_curr)
-      if (input$ci == 'Off') {
-        x <- x[,1:2]
-        names_curr <- names_curr[0:1]
+        names(x) <- c('Variable', names_curr)
+        if (input$ci == 'Off') {
+          x <- x[,1:2]
+          names_curr <- names_curr[0:1]
+          }
+        DT::datatable(x,
+                      rownames = FALSE, editable = FALSE,
+                      extensions = 'Buttons',
+                      options = list(lengthChange = FALSE,
+                                     buttons = c('copy', 'csv'),
+                                     dom = 'Brt')) %>%
+          formatRound(names_curr, digits = 0, interval = 3, mark = ",")
+        }
       }
-      DT::datatable(x,
-                    rownames = FALSE,
-                    editable = FALSE,
-                    extensions = 'Buttons',
-                    options = list(lengthChange = FALSE,
-                                   buttons = c('copy', 'csv'),
-                                   dom = 'Brt')) %>%
-        formatRound(names_curr, digits = 0, interval = 3, mark = ",")
-    }
-  })
+      )
 
-  # Exhibit 1 plot
+  # ----- Exhibit 1 Plot -----
+  output$annual_loss_plotly <- renderPlotly({output_1_plot()})
+  
   output_1_plot <- reactive({
     budget <- ex_budget()
     plot_dat <- annual_loss_data()
@@ -3013,12 +3009,8 @@ server <- function(input, output, session) {
     return(fig)
   })
 
-  # Exhibit 1 plot
-  output$annual_loss_plotly <- renderPlotly({
-    output_1_plot()
-  })
 
-  # Tab contents for Exhibit 1
+  # ----- Exhibit 1 Tab Contents -----
   output$ex1_ui <- renderUI({
     req(input$ex1_switch)
     if(input$ex1_switch == 'Plot'){
@@ -3029,7 +3021,6 @@ server <- function(input, output, session) {
     }
   })
 
-  # Description for Exhibit 1
   output$ex1_description <- renderUI({
     ex1_desc_text <- fluidPage(
       p('This exhibit shows the estimated annual loss across all filtered perils individually 
@@ -3043,9 +3034,11 @@ server <- function(input, output, session) {
     )
   })
 
+  
   # Exhibit 2
-  ###########
-  # Make reactive object to store probability of exceeding budget
+  ############
+
+  # Reactive object: store probability of exceeding budget
   probability_of_exceeding <- reactive({
     budget <- ex_budget()
     if(is.null(budget) | is.null(gather_perils())){
@@ -3071,7 +3064,9 @@ server <- function(input, output, session) {
     }
   })
 
-  # Exhibit 2
+  # ----- Exhibit 2 Plot -----
+  output$loss_exceedance_plotly <- renderPlotly({output_2_plot()})
+  
   output_2_plot <- reactive({
     budget <- ex_budget()
     sp <- paste0(input$select_peril, collapse = ', ')
@@ -3148,15 +3143,13 @@ server <- function(input, output, session) {
       g <- ggplot(plot_dat, aes(x = Probability,
                                 y = `Total Loss`/scale_size,
                                 text = c(paste0("Probability: ", round(Probability * 100, 0), 
-                                                "%\n", paste0("Loss: ", paste(round(`Total Loss`/scale_size, 1), "m")))),
+                                                "%\n", paste0("Loss: ", paste(round(`Total Loss`/scale_size, 1), "mn")))),
                                 group = 1)) +
         geom_line(aes(color = "Probability")) +
         scale_x_reverse(labels = scales::percent_format()) +
         geom_hline(aes(yintercept = largest_loss_num, color = "Highest Historical Annual Loss")) +
         geom_vline(aes(xintercept = prob_exceed, color = "Prob. of Exceeding Budget"), linetype = "dashed", alpha = 0.7) +
-        scale_color_manual(name = "",
-                           breaks = clr_breaks,
-                           values = clr_values) +
+        scale_color_manual(name = "", breaks = clr_breaks, values = clr_values) +
         theme_classic()
       g <- g + g_ci_low + g_ci_upp + g_budget1
       # Convert to Plotly
@@ -3170,12 +3163,8 @@ server <- function(input, output, session) {
     return(fig)
   })
 
-  # Exhibit 2 plot
-  output$loss_exceedance_plotly <- renderPlotly({
-    output_2_plot()
-  })
 
-  # Exhibit 2
+  # ----- Exhibit 2 Value Box -----
   output$ex2_exceeding_prob <- renderValueBox({
     budget <- ex_budget()
     sp <- paste0(input$select_peril, collapse = ', ')
@@ -3207,7 +3196,7 @@ server <- function(input, output, session) {
     )
   })
 
-  #
+  # ----- Exhibit 1 Tab Contents -----
   output$ex2_ui <- renderUI({
     fluidPage(
       withSpinner(plotlyOutput('loss_exceedance_plotly'), type = 7),
@@ -3215,7 +3204,6 @@ server <- function(input, output, session) {
     )
   })
 
-  # Description for Exhibit 2
   output$ex2_description <- renderUI({
     ex2_desc_text <- fluidPage(
       p('This exhibit shows the probability of a year taking place that exceeds the aggregate 
@@ -3229,7 +3217,8 @@ server <- function(input, output, session) {
 
   # Exhibit 3
   ############
-  # User toggle to switch between charts and tables
+  
+  # ----- Exhibit 3 User toggle -----
   output$ex3_switch_ui <- renderUI({
     fluidRow(column(11, offset = 1,
                     radioButtons('ex3_switch',
@@ -3241,8 +3230,6 @@ server <- function(input, output, session) {
   })
 
   # Creates data for Exhibit 3, based on the inputs for the definitions of 'extreme' and 'severe'
-  
- 
   annual_loss_gap_data <- reactive({
     budget <- ex_budget()
     perils_ci <- freq_sev_ci()
@@ -3294,7 +3281,12 @@ server <- function(input, output, session) {
   })
   #write.csv(sub_plot_dat, file = "/Users/stufraser/subplotdat.csv", row.names = FALSE)
 
-  # Generate Exhibit 3 plot
+  
+  # ----- Exhibit 3 Plot -----
+  output$annual_loss_gap_plotly <- renderPlotly({
+    output_3_plot()
+  })
+  
   output_3_plot <- reactive({
     # get data from reactive object, where severe, extreme probabilities are taken into account.
     plot_dat <- annual_loss_gap_data()
@@ -3339,12 +3331,8 @@ server <- function(input, output, session) {
     return(fig)
   })
 
-  # Plot for Exhibit 3
-  output$annual_loss_gap_plotly <- renderPlotly({
-    output_3_plot()
-  })
-
-  # Table for Exhibit 3
+  
+  # ----- Exhibit 3 Table -----
   output$annual_loss_gap_tably <- DT::renderDataTable({
     x <- annual_loss_gap_data()
     if(!is.null(x)){
@@ -3411,7 +3399,9 @@ server <- function(input, output, session) {
   #   )
   # }). REFACTORED BELOW::
   
-  ### Output boxes for Extreme and Severe probability
+  
+  # ----- Exhibit 3 Value Boxes -----
+  
   # Helper function to process and extract the probability value
   get_prob_value <- function(variable_name, scale_size, data) {
     data %>%
@@ -3433,19 +3423,18 @@ server <- function(input, output, session) {
     )
     }
   
-  # Output box for Severe probability
+  # Output boxes
   output$ex2_severe_prob <- renderValueBox({
     plot_dat <- annual_loss_gap_data()
     create_value_box("Severe", scale_size, plot_dat, "red")
     })
   
-  # Output box for Extreme probability
   output$ex2_extreme_prob <- renderValueBox({
     plot_dat <- annual_loss_gap_data()
     create_value_box("Extreme", scale_size, plot_dat, "red")
     })
 
-
+  # ----- Exhibit 3 UI -----
   output$ex3_ui <- renderUI({
     req(input$ex3_switch)
     fluidPage(
@@ -3489,7 +3478,6 @@ server <- function(input, output, session) {
     )
   })
 
-  # Description for Exhibit 3
   output$ex3_description <- renderUI({
     ex3_desc_text <- fluidPage(
       p('This exhibit shows the estimated annual loss across all filtered perils 
@@ -3503,14 +3491,15 @@ server <- function(input, output, session) {
     )
   })
 
-  # Exhibit 4
-  ############
-  # Exhibit 4 plot
+  #############
+  # Exhibit 4 #
+  #############
+  
+  # ----- Exhibit 4 Plot -----
   output$loss_exceedance_gap_plotly <- renderPlotly({
     output_4_plot()
   })
 
-  # Exhibit 4 plot
   output_4_plot <- reactive({
     # Get the probability of exceeding the budget and the budget
     budget <- ex_budget()
@@ -3599,14 +3588,13 @@ server <- function(input, output, session) {
     }
   })
 
-  #
+  # ----- Exhibit 4 UI -----
   output$ex4_ui <- renderUI({
     fluidPage(
       withSpinner(plotlyOutput('loss_exceedance_gap_plotly'), type = 7)
     )
   })
 
-  # Description for Exhibit 4
   output$ex4_description <- renderUI({
     ex4_desc_text <- fluidPage(
       p('This exhibit shows the probability of experiencing different sized funding gaps (the 
@@ -3623,6 +3611,7 @@ server <- function(input, output, session) {
 }
 
 
-
-
+###############
+### RUN APP ###
+###############
 shinyApp(ui, server)

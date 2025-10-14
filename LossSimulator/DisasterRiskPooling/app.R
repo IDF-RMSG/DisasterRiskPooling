@@ -1,4 +1,8 @@
-
+###################################
+### Insurance Development Forum ###
+### Disaster Risk Pooling Tool  ###
+### App.R                       ###
+###################################
 
 # Added this to get wbtool1 functions
 file_sources <-
@@ -12,15 +16,22 @@ sapply(file_sources, source)
 
 source('global.R')
 
-# Create a dictionary of tab names / numbers
-tab_dict <- tibble(number = 1:4,
-                   name = toupper(c('Data Selection',
-                                    'Data Manipulation',
-                                    'Simulations',
-                                    'Outputs')))
+
+### ----- Tab names and numbers -----
+tab_dict <- 
+  tibble(
+    number = 1:4,
+    name = toupper(c('Data Selection',
+                     'Data Manipulation',
+                     'Simulations',
+                     'Outputs'
+                     )
+                   )
+    )
+
 n_tabs <- nrow(tab_dict)
 
-# Define the header with pictures
+### ----- Define UI header -----
 header <- dashboardHeader(
   tags$li(class = "dropdown",
           tags$style(".main-header {max-height: 100px}"),
@@ -37,7 +48,7 @@ header <- dashboardHeader(
   titleWidth = 260
 )
 
-# Set sidebar names
+### ----- Define UI sidebar -----
 sidebar <- dashboardSidebar(
   tags$style(".left-side, .main-sidebar {padding-top: 100px}"),
   width = 260,
@@ -45,26 +56,28 @@ sidebar <- dashboardSidebar(
     id = 'side_tab',
     menuItem(
       text = 'About',
-      tabName = 'about',
-      icon = icon("info-circle")),
+      tabName = 'about'
+      ),
     menuItem(
-      text=paste("Use the Tool"),
-      tabName="main",
-      icon=icon("crosshairs")),
+      text= "Use the Loss Simulator",
+      tabName="main"
+      ),
     menuItem(
       text = 'User Guides',
-      tabName = 'guides',
-      icon = icon("book-open")),
+      tabName = 'guides'
+      ),
     p("The Loss Simulator is one component of the Disaster Risk Pooling Tool.
       "),
     div(
       id = 'logo-div',
-      tags$img(id = 'allLogo', src = 'Vertical_logos_newIDFexclWB.png', alt = 'Contributors', width = '250px')
+      tags$img(id = 'allLogo', src = 'Vertical_logos_newIDFexclWB.png', 
+               alt = 'Contributors', width = '250px'
+               )
+      )
     )
   )
-)
 
-# start the body
+### ----- Define UI Body -----
 body <- dashboardBody(
   tags$head(
     tags$link(href = "https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap", rel = "stylesheet")
@@ -209,17 +222,13 @@ body <- dashboardBody(
   )
 )
 
-
-
-
-
 #####
 # UI
 #####
-ui <- dashboardPage(header, sidebar, body, skin="blue", title="Disaster Risk Pooling Tool: Loss Simulator")
-
-
-
+ui <- dashboardPage(
+  header, sidebar, body, skin="blue", 
+  title="Disaster Risk Pooling Tool: Loss Simulator"
+  )
 
 #########
 # Server
@@ -232,17 +241,28 @@ server <- function(input, output, session) {
   tab_data <- reactiveValues(data = tab_dict)
 
   # Download handler for peril data upload template
-  output$peril_template_download <- downloadHandler(
-    filename = "manual_input_template.xlsx",
-    content = function(file) {file.copy("data/templates/manual_input_template.xlsx", file)}
-  )
+  output$peril_template_download <- 
+    downloadHandler(
+      filename = "manual_input_template.xlsx",
+      content = function(file) {file.copy("data/templates/manual_input_template.xlsx", file)}
+      )
 
   # Download handler for peril data upload template
-  output$scaling_template_download <- downloadHandler(
-    filename = "manual_scaling_template.csv",
-    content = function(file) {file.copy("data/templates/manual_scaling_template.csv", file)},
-    contentType = "text/csv"
-  )
+  output$scaling_template_download <- 
+    downloadHandler(
+      filename = "manual_scaling_template.csv",
+      content = function(file) {file.copy("data/templates/manual_scaling_template.csv", file)},
+      contentType = "text/csv"
+      )
+  
+  # Download all underlying data for tool handler
+  # TODO: Dynamic file name so it downloads with country / date reference.
+  output$allDataBtn <- 
+    downloadHandler(
+      filename = "LossSimulator_Output.csv",
+      content = function(file) {write.csv(get_sims_export(), file, row.names = FALSE)},
+      contentType = "text/csv"
+    )
 
   # Download handler for quick start guide. - removed as his refers to WB user guide.
   #output$quickstart_download <- downloadHandler(
@@ -258,17 +278,7 @@ server <- function(input, output, session) {
   #  contentType = "application/pdf"
   #)
 
-  # Download all underlying data for tool handler
-  # TODO: Dynamic file name so it downloads with country / date reference.
-  output$allDataBtn <- downloadHandler(
-    filename = "LossSimulator_Output.csv",
-    content = function(file) {write.csv(get_sims_export(), file, row.names = FALSE)},
-    contentType = "text/csv"
-  )
 
-  
-  
-  
   ###############
   # Landing Page
   ###############
@@ -291,18 +301,18 @@ server <- function(input, output, session) {
     shinyjs::runjs("window.scrollTo(0, 0)")
   })
 
+  
   ###############
   # Tab Controls
   ###############
-  # Shows the previous/next/run buttons to navigate the tool
+  
+  # Define navigation buttons (previous/next/run)
   output$progress_btn_ui <- renderUI({
-    # If we are on the second tab then say "Run Tool" rather than "Next"
-    btn_label <-  if (input$tabs == tab_label(2, tab_dict)) {
-      "Run Tool"
-    }
-    else {
-      "Next"
-    }
+    # Tab 2: "Run Tool" otherwise "Next"
+    btn_label <-
+      if (input$tabs == tab_label(2, tab_dict)) {"Run Tool"}
+    else {"Next"}
+    
     fluidRow(column(12, align = 'center',
       splitLayout(cellsWidths = 300,
         if (rv$page > 1)
@@ -331,7 +341,7 @@ server <- function(input, output, session) {
                            width = '200px'
             ),
             title = '',
-            content = 'Click to download loss simulation data, for input to the Risk Pool Structuring Tool',
+            content = 'Click to download loss simulation data, for input to Risk Pool Structuring Tool',
             placement = 'auto top',
             trigger = 'hover',
             options = NULL
@@ -366,10 +376,10 @@ server <- function(input, output, session) {
                                 border-width: 2px;",
                        icon = icon("arrow-right"),
                        width = '110px'
-          )
-      )
-    ))
-  })
+                       )
+        )
+      ))
+    })
 
   # Observe any click on the restart button
   observeEvent(input$rtnBtn, {

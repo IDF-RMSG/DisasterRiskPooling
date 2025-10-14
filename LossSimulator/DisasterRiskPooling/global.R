@@ -41,6 +41,8 @@ options(scipen = 999)
 scale_size = 1000000
 start_year <- 2002
 end_year <- 2024
+
+
 #######################
 # Read in country data
 #######################
@@ -229,8 +231,10 @@ about_page <-
         "),
       fluidRow(column(width = 12, align = "center",
                       br(),
-                      actionButton("start_btn", "Use the Loss Simulator", icon("crosshairs")),
-                      actionButton("Structuring_btn", label = "Go to Risk Pool Structuring", onclick = "window.open('https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskpoolStructuring', '_blank')")
+                      actionButton("start_btn", "Use the Loss Simulator"),
+                      actionButton("Structuring_btn", 
+                                   label = "Go to Risk Pool Structuring", 
+                                   onclick = "window.open('https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskpoolStructuring', '_blank')")
       )),
       h2("Authorship"),
       p("
@@ -273,16 +277,17 @@ user_guide <-
     fluidRow(column(10, offset = 1,
       h1('User Guide'),
       p('As well as tool-tips in the tool user interface, please refer to the Disaster Risk Pooling user guide. 
-        This includes general information, key decision-making questions and fundamental principles of risk pooling, as well as
-            the specific workflow of the Loss Simulator (used in Phase 1) and the Risk Pool Structuring Tool (Used in Phase 2 onwards).'
+        This includes general information, key decision-making questions and fundamental 
+        principles of risk pooling, as well as the specific workflow of the Loss Simulator 
+        (used in Phase 1) and the Risk Pool Structuring Tool (Used in Phase 2 onwards).'
         ),
       fluidRow(column(width = 12, align = "center",
                       br(),
-                      actionButton("UG_btn", label ="User Guide", icon("question"), onclick = "window.open('https://idf-rmsg.github.io/DisasterRiskPooling', '_blank')")
+                      actionButton("UG_btn", label ="User Guide", onclick = "window.open('https://idf-rmsg.github.io/DisasterRiskPooling', '_blank')")
       )),
       p(""),
-      p('Current limitations of this tool include: (1) no accounting for correlation of losses between perils and countries,
-        (2) Users cannot enter a hypothetical premium into pricing calculations.'
+      p('Current limitations of this tool include: (1) no accounting for correlation of 
+      losses between perils and countries, (2) Users cannot enter a hypothetical premium into pricing calculations.'
         )
     ))
   )
@@ -291,9 +296,10 @@ user_guide <-
 tab1_heading <-
   fluidRow(column(10, offset = 1,
     h2('Data Selection'),
-    p("Please make selections to specify the data you wish to analyse. The data selected can be viewed using the graphic at the bottom of the page."),
-    p("For extra flexibility in specifying the data source and/or statistics produced, please select Advanced mode, which enables upload of a new dataset,
-      using templates provided on GitHub"),
+    p("Please make selections to specify the data you wish to analyse. The data selected can be 
+      viewed using the graphic at the bottom of the page."),
+    p("For extra flexibility in specifying the data source and/or statistics produced, please 
+    select Advanced mode, which enables upload of a new dataset, using templates provided on GitHub"),
     br()
   ))
 
@@ -301,12 +307,15 @@ tab1_heading <-
 scale_heading <-
   fluidRow(column(10, offset = 1,
     h2('Scaling'),
-    p("Scaling can remove trends caused by known indexes such as population, to help make losses more comparable between years.
-      Basic mode always scales by population but advanced mode allows for more options. Where a manual input file does not attribute loss to a year (year might be labelled 1, 2, 3, etc., scaling can not been applied."),
-    p("For each given year, a scaling factor is calculated by dividing the scaling data for the most recent year
-      by the given year. Each peril year is then multiplied by the scaling factor for that year to give a corrected loss in terms of the most recent scaling year."),
-    p("Edit the scaling data by double clicking and entering new population data in the relevant cell or by adjusting the data and using the advanced manual
-      input approach."),
+    p("Scaling can remove trends caused by known indexes such as population, to help make 
+    losses more comparable between years. Basic mode always scales by population but advanced 
+      mode allows for more options. Where a manual input file does not attribute loss to a year 
+      (year might be labelled 1, 2, 3, etc., scaling can not been applied."),
+    p("For each given year, a scaling factor is calculated by dividing the scaling data for the 
+    most recent year by the given year. Each peril year is then multiplied by the scaling factor 
+    for that year to give a corrected loss in terms of the most recent scaling year."),
+    p("Edit the scaling data by double clicking and entering new population data in the relevant 
+    cell or by adjusting the data and using the advanced manual input approach."),
     br()
   ))
 
@@ -323,8 +332,10 @@ scale_heading <-
 final_data_heading <-
   fluidRow(column(10, offset = 1,
     h2('Final Data '),
-    p("The peril data displayed below has been multiplied by the chosen scaling factors and detrended (if detrending selected in advanced mode)."),
-    p("This data is what the tool will use to fit the parametric distributions to each peril and produce the outputs."),
+    p("The peril data displayed below has been multiplied by the chosen scaling factors and 
+      detrended (if detrending selected in advanced mode)."),
+    p("This data is what the tool will use to fit the parametric distributions to each peril 
+      and produce the outputs."),
     br(),
   ))
 
@@ -332,10 +343,13 @@ final_data_heading <-
 sim_heading <-
   fluidRow(column(10, offset = 1,
     h2('Simulations'),
-    p("The Tool runs 15,000 simulations each parametric distribution that has been successfully fitted to a given peril. In both Basic and Advanced modes Lognormal, Gamma and Weibull distributions are tested.
-      If multiple severity distributions are fit for a peril, the one with the highest AIC (Akaike Information Criterion) weight is selected."),
+    p("The tool runs 15,000 simulations each parametric distribution that has been successfully fitted 
+    to a given peril. In both Basic and Advanced modes Lognormal, Gamma and Weibull distributions are tested. 
+      If multiple severity distributions are fit for a peril, the one with the highest AIC (Akaike Information 
+      Criterion) weight is selected."),
     p("In advanced mode the user can change the selected severity distribution for a given peril."),
-    p("For frequency distribution, if the sample variance equals the mean, Poisson distribution is used, otherwise Negative Binomial distribution is used."),
+    p("For frequency distribution, if the sample variance equals the mean, Poisson distribution is 
+      used, otherwise Negative Binomial distribution is used."),
     br()
   ))
 
@@ -344,8 +358,11 @@ qof_heading <-
   fluidRow(column(10, offset = 1,
     h2('Quality of Severity Fit and Maximum Likelihood Estimates'),
     p("The table below displays the results from each successful distribution fitting for the selected peril."),
-    p("The Tool tries to find the best (most likely) parameters for each fitted distribution to estimate the distribution of the observed data. The maximum likelihood estimates (MLEs) are the parameters of the estimated distributions."),
-    p("The AIC weight measures the quality of fit of the estimated distributions - the higher the AIC weight, the better the fit."),
+    p("The Tool tries to find the best (most likely) parameters for each fitted distribution to estimate the 
+      distribution of the observed data. The maximum likelihood estimates (MLEs) are the parameters of the 
+      estimated distributions."),
+    p("The AIC weight measures the quality of fit of the estimated distributions - the higher the AIC 
+      weight, the better the fit."),
     br()
   ))
 
@@ -353,11 +370,13 @@ qof_heading <-
 outputs_heading <-
   fluidRow(column(10, offset = 1,
     h2('Outputs'),
-    p("In this tab, the user can view the simulated losses across the selected perils calculated from the distributions selected on the previous page.
-      Selecting combinations of perils will combine each peril's simulations to produce a new set of 15,000 simulations.
-      Therefore the risk profile of two perils is not the sum of the losses at each return period. When perils are combined the tools assumes no
-      correlation between each peril."),
-    p("95% confidence intervals can be toggled. These show the range of possible values for each return period that 95% of losses will fall within."),
+    p("In this tab, the user can view the simulated losses across the selected perils calculated 
+    from the distributions selected on the previous page.Selecting combinations of perils will combine 
+    each peril's simulations to produce a new set of 15,000 simulations. Therefore the risk profile of 
+    two perils is not the sum of the losses at each return period. When perils are combined the tools 
+      assumes no correlation between each peril."),
+    p("95% confidence intervals can be toggled. These show the range of possible values for each 
+      return period that 95% of losses will fall within."),
     br()
   ))
 

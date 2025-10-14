@@ -96,7 +96,7 @@ peril_names_global <- unique(country_data$peril)
 peril_names_global <- peril_names_global[order(peril_names_global)]
 
 # Set currency code
-currency_code <- "USD"
+ccy_code <- "USD"
 
 # Create a place-holder for distribution types
 basic_parametric <- c('Gamma', 'Log normal', 'Weibull', 'Pareto')

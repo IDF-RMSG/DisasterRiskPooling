@@ -648,7 +648,7 @@ server <- function(input, output, session) {
       fluidRow(column(11, offset = 1,
         popify(
           numericInput('cost_per_person',
-                       paste0('Input Cost Per Person (', currency_code, ')'),
+                       paste0('Input Cost Per Person (', ccy_code, ')'),
                        min = NA, max = NA,
                        step = 10, value = 50,
                        width = '250px'),
@@ -815,13 +815,13 @@ server <- function(input, output, session) {
       {
       if (input$damage_type == 'People Affected Response Cost')
         {
-        perils_out <- paste(peril_names_global, currency_code, sep=", ")
-        y_title <- paste0('Annual Response Cost (', currency_code, ')')
+        perils_out <- paste(peril_names_global, ccy_code, sep=", ")
+        y_title <- paste0('Annual Response Cost (', ccy_code, ')')
         }
       else 
         {
-        perils_out <- paste(peril_names_global, currency_code, sep=", ")
-        y_title <- paste0('Annual Economic Loss (', currency_code, ')')
+        perils_out <- paste(peril_names_global, ccy_code, sep=", ")
+        y_title <- paste0('Annual Economic Loss (', ccy_code, ')')
         }
       }
     
@@ -1761,7 +1761,7 @@ server <- function(input, output, session) {
 
     out <-  dplyr::select(out, -"country")
     perils <- peril_names_global
-    perils_out <- paste(perils, currency_code, sep=", ")
+    perils_out <- paste(perils, ccy_code, sep=", ")
 
     out <-
       out %>%
@@ -1777,14 +1777,14 @@ server <- function(input, output, session) {
     if(!too_much_data) {
       if (input$damage_type == 'People Affected Response Cost')
         {
-          y_title <- paste0('Annual Response Cost (', currency_code, ')')
+          y_title <- paste0('Annual Response Cost (', ccy_code, ')')
         }
         else 
         {
-          y_title <- paste0('Annual Economic Loss (', currency_code, ')')
+          y_title <- paste0('Annual Economic Loss (', ccy_code, ')')
         }
       
-    #y_title <-  paste0('Annual Loss (', currency_code, ')')
+    #y_title <-  paste0('Annual Loss (', ccy_code, ')')
     plotly::plot_ly(out,
                     x = ~Year,
                     y = ~Cost,
@@ -1833,7 +1833,7 @@ server <- function(input, output, session) {
     else {
       chosen_factor <- paste(chosen_scale, 'Scaling Factor')
       if(chosen_scale == 'GDP'){
-        chosen_scale <- paste(chosen_scale, currency_code)
+        chosen_scale <- paste(chosen_scale, ccy_code)
       }
       names(out) <- c('Year', chosen_scale, chosen_factor)
       DT::datatable(out,
@@ -2487,7 +2487,7 @@ server <- function(input, output, session) {
     # Limiting x axis to 125% of largest observed value
     plot_title <- paste0('<b>Comparison of Historical to Simulated Data for the Selected Fit for ', ips)
     y_title <- 'Density'
-    x_title <- paste0('Value (', currency_code, ')')
+    x_title <- paste0('Value (', ccy_code, ')')
     g <- plot_simulations(rs = rs,
                           right_data = rd,
                           chosen_peril = ips,
@@ -2752,7 +2752,7 @@ server <- function(input, output, session) {
   output$budget_ui <- renderUI({
     fluidRow(column(11, offset = 1,
       numericInput('budget',
-                   paste0('Budget in Millions ', currency_code),
+                   paste0('Budget in Millions ', ccy_code),
                    min = 0,
                    step = 5,
                    value = 0),
@@ -2786,7 +2786,7 @@ server <- function(input, output, session) {
     scale_fail <- is.null(prepare_scale_data)
     detrend_fail <- is.null(correct_trend)
     if (dmg_type == 'People Affected Response Cost') {
-      cpp_text <- paste0('This data was generated with a cost per person assumption of ', cost_pp, currency_code, '.')
+      cpp_text <- paste0('This data was generated with a cost per person assumption of ', cost_pp, ccy_code, '.')
     }
     else {
       cpp_text <- NULL
@@ -2934,8 +2934,8 @@ server <- function(input, output, session) {
       x$value <- round(x$value)
       x$value_lower <- round(x$value_lower)
       x$value_upper <- round(x$value_upper)
-      names_curr <- c(paste('Loss,',currency_code), paste('Lower bound,', currency_code), 
-                      paste('Upper bound,', currency_code))
+      names_curr <- c(paste('Loss,',ccy_code), paste('Lower bound,', ccy_code), 
+                      paste('Upper bound,', ccy_code))
       names(x) <- c('Variable', names_curr)
       if (input$ci == 'Off') {
         x <- x[,1:2]
@@ -2986,7 +2986,7 @@ server <- function(input, output, session) {
       g_budget2 <- NULL
     }
     # Plot
-    y_title <- paste0('Annual Loss (Million ', currency_code, ')')
+    y_title <- paste0('Annual Loss (Million ', ccy_code, ')')
     g <- ggplot(plot_dat, aes(x = variable,
                               y = value/scale_size,
                               fill = legend,
@@ -3144,7 +3144,7 @@ server <- function(input, output, session) {
         g_budget1 <- NULL
       }
       # Plot
-      y_title <- paste0('Annual Loss (Million ', currency_code, ')')
+      y_title <- paste0('Annual Loss (Million ', ccy_code, ')')
       g <- ggplot(plot_dat, aes(x = Probability,
                                 y = `Total Loss`/scale_size,
                                 text = c(paste0("Probability: ", round(Probability * 100, 0), 
@@ -3318,7 +3318,7 @@ server <- function(input, output, session) {
       g_ci <- NULL
     }
     # Plot
-    y_title <- paste0('Annual Loss (Million ', currency_code, ')')
+    y_title <- paste0('Annual Loss (Million ', ccy_code, ')')
     g <- ggplot(plot_dat, aes(x = variable,
                               y = value/scale_size,
                               text = paste0("Loss: ", paste(format(round(value / 1e6, 1), trim = TRUE), "m")))) +
@@ -3351,8 +3351,8 @@ server <- function(input, output, session) {
       x$value <- round(x$value)
       x$value_lower <- round(x$value_lower)
       x$value_upper <- round(x$value_upper)
-      names_curr <- c(paste('Loss,',currency_code), paste('Lower bound,', currency_code), 
-                      paste('Upper bound,', currency_code))
+      names_curr <- c(paste('Loss,',ccy_code), paste('Lower bound,', ccy_code), 
+                      paste('Upper bound,', ccy_code))
       names(x) <- c('Variable', names_curr)
       if (input$ci == 'Off') {
         x <- x[,1:2]
@@ -3369,50 +3369,83 @@ server <- function(input, output, session) {
     }
   })
 
-  # Output box for Severe probability
-  output$ex2_severe_prob <- renderValueBox({
-
-    plot_dat <- annual_loss_gap_data()
-
-    severe_prob <-
-      plot_dat %>%
-        dplyr::filter(.data$variable == "Severe") %>%
-        dplyr::mutate(value = .data$value / scale_size) %>%
-        dplyr::select("value") %>%
-        dplyr::slice(1) %>%
-        unname() %>%
-        round(digits = 2)
-
-    valueBox(severe_prob,
+  # # Output box for Severe probability
+  # output$ex2_severe_prob <- renderValueBox({
+  #   plot_dat <- annual_loss_gap_data()
+  # 
+  #   severe_prob <-
+  #     plot_dat %>%
+  #       dplyr::filter(.data$variable == "Severe") %>%
+  #       dplyr::mutate(value = .data$value / scale_size) %>%
+  #       dplyr::select("value") %>%
+  #       dplyr::slice(1) %>%
+  #       unname() %>%
+  #       round(digits = 2)
+  # 
+  #   valueBox(severe_prob,
+  #            "Associated Loss (Million USD)",
+  #            icon = NULL,
+  #            width = NULL,
+  #            color = "red"
+  #   )
+  # })
+  # 
+  # # Output box for Extreme probability
+  # output$ex2_extreme_prob <- renderValueBox({
+  #   plot_dat <- annual_loss_gap_data()
+  # 
+  #   extreme_prob <-
+  #     plot_dat %>%
+  #       dplyr::filter(.data$variable == "Extreme") %>%
+  #       dplyr::mutate(value = .data$value / scale_size) %>%
+  #       dplyr::select("value") %>%
+  #       dplyr::slice(1) %>%
+  #       unname() %>%
+  #       round(digits = 2)
+  # 
+  #   valueBox(extreme_prob,
+  #            "Associated Loss (Million USD)",
+  #            icon = NULL,
+  #            width = NULL,
+  #            color = "red"
+  #   )
+  # }). REFACTORED BELOW::
+  
+  ### Output boxes for Extreme and Severe probability
+  # Helper function to process and extract the probability value
+  get_prob_value <- function(variable_name, scale_size, data) {
+    data %>%
+      dplyr::filter(.data$variable == variable_name) %>%
+      dplyr::mutate(value = .data$value / scale_size) %>%
+      dplyr::slice(1) %>%
+      unname() %>%
+      round(digits = 2)
+    }
+  
+  # General function to create a value box
+  create_value_box <- function(variable_name, scale_size, data, color) {
+    prob_value <- get_prob_value(variable_name, scale_size, data)
+    valueBox(prob_value,
              "Associated Loss (Million USD)",
              icon = NULL,
              width = NULL,
-             color = "red"
+             color = color
     )
-  })
-
+    }
+  
+  # Output box for Severe probability
+  output$ex2_severe_prob <- renderValueBox({
+    plot_dat <- annual_loss_gap_data()
+    create_value_box("Severe", scale_size, plot_dat, "red")
+    })
+  
   # Output box for Extreme probability
   output$ex2_extreme_prob <- renderValueBox({
     plot_dat <- annual_loss_gap_data()
+    create_value_box("Extreme", scale_size, plot_dat, "red")
+    })
 
-    extreme_prob <-
-      plot_dat %>%
-        dplyr::filter(.data$variable == "Extreme") %>%
-        dplyr::mutate(value = .data$value / scale_size) %>%
-        dplyr::select("value") %>%
-        dplyr::slice(1) %>%
-        unname() %>%
-        round(digits = 2)
 
-    valueBox(extreme_prob,
-             "Associated Loss (Million USD)",
-             icon = NULL,
-             width = NULL,
-             color = "red"
-    )
-  })
-
-  #
   output$ex3_ui <- renderUI({
     req(input$ex3_switch)
     fluidPage(
@@ -3539,7 +3572,7 @@ server <- function(input, output, session) {
         g_ci_upp <- NULL
       }
       # Plot
-      y_title <- paste0('Annual Funding Gap (Million ', currency_code, ')')
+      y_title <- paste0('Annual Funding Gap (Million ', ccy_code, ')')
       g <-  ggplot(curve, 
                    aes(x = `Probability of exceeding loss`,
                        y = `Funding gap`/scale_size,

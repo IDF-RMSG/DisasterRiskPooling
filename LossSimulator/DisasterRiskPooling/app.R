@@ -4,6 +4,13 @@
 ### App.R                       ###
 ###################################
 
+#TODO: refactor and split this very long file of code into:
+#file: define UI and tabs
+#file: define navigation button options
+#file: one file to define Tab 1-4
+#variable: repeated plot features, e.g. axis / title font
+
+
 # Added this to get wbtool1 functions
 file_sources <-
   list.files(
@@ -15,6 +22,20 @@ file_sources <-
 sapply(file_sources, source)
 
 source('global.R')
+
+
+### ----- Plotting Variables -----
+fontsize_title <- 12
+fontsize_axis <- 10
+font_colour <- "#000000"
+font_family <- "Raleway, sans-serif"
+font_title <- list(family = font_family, size = fontsize_title, color = font_colour)
+font_axis <- list(family = font_family, size = fontsize_axis, color = font_colour)
+
+button_style <- "color: white; background-color: #ff0000; font-weight: bold; 
+position: relative; text-align:center; border-radius: 6px; border-width: 2px"
+
+str_perils <- c("Cyclone", "Flood" , "Drought", "Earthquake")
 
 
 ### ----- Tab names and numbers -----
@@ -319,24 +340,14 @@ server <- function(input, output, session) {
           actionButton("prevBtn",
                        "Previous",
                        icon = icon("arrow-left"),
-                       style = "color: white;
-                                    background-color: #ff0000;
-                                    font-weight: bold;
-                                    position: relative;
-                                    text-align:center;",
+                       style = button_style,
                        width = '110px'
           ),
         if (rv$page == n_tabs)
           popify(
             downloadButton("allDataBtn",
                            "Download Simulations",
-                           style = "color: white;
-                                    background-color: #ff0000;
-                                    font-weight: bold;
-                                    position: relative;
-                                    text-align:center;
-                                    border-radius: 6px;
-                                    border-width: 2px",
+                           style = button_style,
                            icon = icon("download"),
                            width = '200px'
             ),
@@ -349,13 +360,7 @@ server <- function(input, output, session) {
           popify(
             actionButton("rtnBtn",
                          "Restart",
-                         style = "color: white;
-                                  background-color: #ff0000;
-                                  font-weight: bold;
-                                  position: relative;
-                                  text-align:center;
-                                  border-radius: 6px;
-                                  border-width: 2px",
+                         style = button_style,
                          icon = icon("undo"),
                          width = '110px'),
             title = '',
@@ -367,13 +372,7 @@ server <- function(input, output, session) {
         if (rv$page < n_tabs)
           actionButton("nextBtn",
                        btn_label,
-                       style = "color: white;
-                                background-color: #ff0000;
-                                font-weight: bold;
-                                position: relative;
-                                text-align:center;
-                                border-radius: 6px;
-                                border-width: 2px;",
+                       style = button_style,
                        icon = icon("arrow-right"),
                        width = '110px'
                        )
@@ -504,7 +503,8 @@ server <- function(input, output, session) {
                      selected = radio_selected,
                      inline = TRUE),
                 title = "",
-        content = 'Choose to upload preloaded historical loss data from EM-DAT for your chosen country, or switch to advanced mode to upload your own data.',
+        content = 'Choose to upload preloaded historical loss data from EM-DAT for your 
+        chosen country, or switch to advanced mode to upload your own data.',
         placement = "auto left",
         trigger = "hover",
         option = NULL)
@@ -591,7 +591,8 @@ server <- function(input, output, session) {
         btn_choice <- countries
         btn_select <- 'Bangladesh'
         btn_width <- '250px'
-        pop_content <- 'Select a country for which to examine historical disaster data (limited to those in EM-DAT with losses from earthquake, drought, flood or cyclone.'
+        pop_content <- 'Select a country for which to examine historical disaster data 
+        (limited to those in EM-DAT with losses from earthquake, drought, flood or cyclone.'
       } else if(input$data_type == 'Archetype') { # ARCHETYPE HAS BEEN REMOVED FROM UI - NOT AN OPTION.
         btn_id <- "archetype"
         btn_text <- "Select Archetype"
@@ -665,10 +666,8 @@ server <- function(input, output, session) {
         popify(
           numericInput('cost_per_person',
                        paste0('Input Cost Per Person (', currency_code, ')'),
-                       min = NA,
-                       max = NA,
-                       step = 10,
-                       value = 50,
+                       min = NA, max = NA,
+                       step = 10, value = 50,
                        width = '250px'),
           title = '',
           content = "This is the cost of disaster response per person in US Dollars, to be used in estimating the overall response cost.",
@@ -706,7 +705,8 @@ server <- function(input, output, session) {
           withSpinner(plotlyOutput("peril_data_bars_plot"), type = 7)
         ),
         tabPanel("Table",
-          withSpinner(DT::dataTableOutput('raw_data_table'), type = 7), style = "height: 350px; overflow-y: scroll")
+          withSpinner(DT::dataTableOutput('raw_data_table'), type = 7), 
+          style = "height: 350px; overflow-y: scroll")
         )
     ))
   })
@@ -887,9 +887,9 @@ server <- function(input, output, session) {
                         )
                       )%>%
         plotly::layout(title = plot_title,
-                       font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
-                       yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
-                       xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
+                       font = font_title,
+                       yaxis = list(title = y_title, font = font_axis),
+                       xaxis = list(title = "", autotick = F, dtick = 1, font = font_axis),
                        barmode = "stack",
                        legend = list(orientation = "h", xanchor = "center", x = 0.5))
 
@@ -906,7 +906,7 @@ server <- function(input, output, session) {
         ) %>%
         plotly::layout(
           title = paste0("<b>plot_title: ", country_name),
-          font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
+          font = font_title,
           legend = list(orientation = "h", xanchor = "center", x = 0.5)
         )
     }
@@ -997,7 +997,7 @@ server <- function(input, output, session) {
                   peril =
                     factor(
                       .data$peril,
-                      levels = c("Cyclone", "Flood" , "Drought", "Earthquake")
+                      levels = str_peril
                     )
                 )
 
@@ -1016,7 +1016,7 @@ server <- function(input, output, session) {
               peril =
                 factor(
                   .data$peril,
-                  levels = c("Cyclone", "Flood" , "Drought", "Earthquake")
+                  levels = str_perils
                 )
             )
 
@@ -1196,7 +1196,7 @@ server <- function(input, output, session) {
                 peril =
                   factor(
                     .data$peril,
-                    levels = c("Cyclone", "Flood" , "Drought", "Earthquake")
+                    levels = str_perils
                   )
               )
 
@@ -1214,7 +1214,7 @@ server <- function(input, output, session) {
             peril =
               factor(
                 .data$peril,
-                levels = c("Cyclone", "Flood" , "Drought", "Earthquake")
+                levels = str_perils
               )
           )
 
@@ -1270,7 +1270,7 @@ server <- function(input, output, session) {
             peril =
               factor(
                 .data$peril,
-                levels = c("Cyclone", "Flood" , "Drought", "Earthquake")
+                levels = str_perils
               )
             )
 
@@ -1290,7 +1290,7 @@ server <- function(input, output, session) {
             peril =
               factor(
                 .data$peril,
-                levels = c("Cyclone", "Flood" , "Drought", "Earthquake")
+                levels = str_perils
               )
           )
 
@@ -1335,8 +1335,12 @@ server <- function(input, output, session) {
     } else {
       fluidRow(
         column(11, offset = 1, "You are viewing and using historical loss data.", style = "color: red"),
-        column(11, offset = 1, "Events are shown only if the impact metric is non-zero in the historical loss catalogue. It is common for events to have a zero loss for Economic Damage and non-zero loss for people affected - therefore the number of events displayed will differ by impact metric selected.", style = "color: red"),
-        column(11, offset = 1, "The data selection (Total economic damage or response cost) shown on this chart will be used in the next steps of simulation.", style = "color: red")
+        column(11, offset = 1, "Events are shown only if the impact metric is non-zero in the historical 
+               loss catalogue. It is common for events to have a zero loss for Economic Damage and non-zero 
+               loss for people affected - therefore the number of events displayed will differ by impact 
+               metric selected.", style = "color: red"),
+        column(11, offset = 1, "The data selection (Total economic damage or response cost) shown on this 
+               chart will be used in the next steps of simulation.", style = "color: red")
       )
     }
   })
@@ -1812,9 +1816,9 @@ server <- function(input, output, session) {
                     )
                   ) %>%
       plotly::layout(title = paste0("<b>Scaled ", y_title, ": ", country_name),
-                     font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
-                     yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
-                     xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
+                     font = font_title,
+                     yaxis = list(title = y_title, font = font_axis),
+                     xaxis = list(title = "", autotick = F, dtick = 1, font = font_axis),
                      barmode = "stack",
                      legend = list(orientation = "h", xanchor = "center", x = 0.5))
     } else {
@@ -2509,10 +2513,11 @@ server <- function(input, output, session) {
       scale_fill_manual(values = fill_colours) +
       theme_classic()
     fig <- plotly::ggplotly(g, tooltip = "all")
-    fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
-                          yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
-                          xaxis = list(title = x_title, autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
-                          legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.3))
+    fig <- fig %>% layout(
+      title = plot_title, font = font_title,
+      yaxis = list(title = y_title, font = font_axis),
+      xaxis = list(title = x_title, autotick = F, dtick = 1, font = font_axis),
+      legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.3))
     return(fig)
   })
 
@@ -2927,14 +2932,13 @@ server <- function(input, output, session) {
       sub_dat <-
         quant_that(dat_sim = dat_sim, dat = dat, combined_ci = perils_ci)
 
-      sub_dat$variable <- factor(sub_dat$variable, levels = c('1 in 5 Years',
-                                                              '1 in 10 Years',
-                                                              '1 in 25 Years',
-                                                              '1 in 50 Years',
-                                                              '1 in 100 Years',
-                                                              'Long-term average',
-                                                              'Highest historical annual loss',
-                                                              'Most recent annual loss'))
+      sub_dat$variable <- 
+        factor(sub_dat$variable, 
+               levels = c('1 in 5 Years', '1 in 10 Years', '1 in 25 Years',
+                          '1 in 50 Years', '1 in 100 Years', 'Long-term average',
+                          'Highest historical annual loss', 'Most recent annual loss'
+                          )
+               )
       sub_dat$value <- round(sub_dat$value, 2)
       return(sub_dat)
     }
@@ -2947,7 +2951,8 @@ server <- function(input, output, session) {
       x$value <- round(x$value)
       x$value_lower <- round(x$value_lower)
       x$value_upper <- round(x$value_upper)
-      names_curr <- c(paste('Loss,',currency_code), paste('Lower bound,', currency_code), paste('Upper bound,', currency_code))
+      names_curr <- c(paste('Loss,',currency_code), paste('Lower bound,', currency_code), 
+                      paste('Upper bound,', currency_code))
       names(x) <- c('Variable', names_curr)
       if (input$ci == 'Off') {
         x <- x[,1:2]
@@ -3011,10 +3016,11 @@ server <- function(input, output, session) {
     g <- g + g_ci + g_budget1 + g_budget2
     # Convert to plotly
     fig <- plotly::ggplotly(g, tooltip = "text")
-    fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
-                          yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
-                          xaxis = list(title = "Return Period", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
-                          legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.3))
+    fig <- fig %>% layout(
+      title = plot_title, font = font_title,
+      yaxis = list(title = y_title, font = font_axis),
+      xaxis = list(title = "Return Period", autotick = F, dtick = 1, font = font_axis),
+      legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.3))
     # Fix to edit legend. For some reason ggplotly adds a 1 after legend name - so foo becomes foo, 1. This removes the , 1
     for (i in 1:length(fig$x$data)){
       if (!is.null(fig$x$data[[i]]$name)){
@@ -3043,8 +3049,12 @@ server <- function(input, output, session) {
   # Description for Exhibit 1
   output$ex1_description <- renderUI({
     ex1_desc_text <- fluidPage(
-      p('This exhibit shows the estimated annual loss across all filtered perils individually and also the sum of the perils (overall figure). As such the sum of the estimated losses of the individual perils at different return periods may differ to the associated overall figure.'),
-      p('A return period of 1 in 5 years is the estimated annual loss expected to happen once every 5 years, i.e. a 20% probability. Similarly, a return period of 1 in 10 years is the estimated annual loss expected to happen once every 10 years, i.e. a 10% probability.'),
+      p('This exhibit shows the estimated annual loss across all filtered perils individually 
+        and also the sum of the perils (overall figure). As such the sum of the estimated 
+        losses of the individual perils at different return periods may differ to the associated overall figure.'),
+      p('A return period of 1 in 5 years is the estimated annual loss expected to happen 
+        once every 5 years, i.e. a 20% probability. Similarly, a return period of 1 in 10 
+        years is the estimated annual loss expected to happen once every 10 years, i.e. a 10% probability.'),
       p('When confidence intervals are turned on, the error bars show the 95% confidence interval for each return period.'),
       get_dynamic_text()
     )
@@ -3154,7 +3164,8 @@ server <- function(input, output, session) {
       y_title <- paste0('Annual Loss (Million ', currency_code, ')')
       g <- ggplot(plot_dat, aes(x = Probability,
                                 y = `Total Loss`/scale_size,
-                                text = c(paste0("Probability: ", round(Probability * 100, 0), "%\n", paste0("Loss: ", paste(round(`Total Loss`/scale_size, 1), "m")))),
+                                text = c(paste0("Probability: ", round(Probability * 100, 0), 
+                                                "%\n", paste0("Loss: ", paste(round(`Total Loss`/scale_size, 1), "m")))),
                                 group = 1)) +
         geom_line(aes(color = "Probability")) +
         scale_x_reverse(labels = scales::percent_format()) +
@@ -3167,10 +3178,11 @@ server <- function(input, output, session) {
       g <- g + g_ci_low + g_ci_upp + g_budget1
       # Convert to Plotly
       fig <- plotly::ggplotly(g, tooltip = "text")
-      fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
-                            yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
-                            xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
-                            legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.1))
+      fig <- fig %>% layout(
+        title = plot_title, font = font_title,
+        yaxis = list(title = y_title, font = font_axis),
+        xaxis = list(title = "", autotick = F, dtick = 1, font = font_axis),
+        legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.1))
     }
     return(fig)
   })
@@ -3223,8 +3235,11 @@ server <- function(input, output, session) {
   # Description for Exhibit 2
   output$ex2_description <- renderUI({
     ex2_desc_text <- fluidPage(
-      p('This exhibit shows the probability of a year taking place that exceeds the aggregate annual loss amount on the y-axis. The probability of exceeding the available budget is represented by the probability where the available budget line and the loss exceedance curve cross.'),
-      p('When confidence intervals are turned on, the two dotted lines either side of the loss exceedance curve show the upper and lower bound of the 95% confidence interval.'),
+      p('This exhibit shows the probability of a year taking place that exceeds the aggregate 
+        annual loss amount on the y-axis. The probability of exceeding the available budget 
+        is represented by the probability where the available budget line and the loss exceedance curve cross.'),
+      p('When confidence intervals are turned on, the two dotted lines either side of the 
+        loss exceedance curve show the upper and lower bound of the 95% confidence interval.'),
       get_dynamic_text()
     )
   })
@@ -3310,7 +3325,8 @@ server <- function(input, output, session) {
       # sub_plot_dat <- melt(sub_plot_dat, id.vars = "Average", measure.vars = c("Severe", "Extreme"))
       ##replacing rshape2:melt with tidyr: 
       head(sub_plot_dat)
-      sub_plot_dat <- pivot_longer(sub_plot_dat, cols = c("Average", "Severe", "Extreme"), names_to = "variable", values_to = "value")
+      sub_plot_dat <- pivot_longer(sub_plot_dat, cols = c("Average", "Severe", "Extreme"), 
+                                   names_to = "variable", values_to = "value")
       head(sub_plot_dat)
       
       sub_plot_dat$value_lower <- c(annual_avg_lower, output_lower[1], output_lower[2])
@@ -3358,9 +3374,11 @@ server <- function(input, output, session) {
     # Convert to Plotly
     g <- g + g_ci
     fig <- plotly::ggplotly(g, tooltip = "text")
-    fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
-                          yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
-                          xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")))
+    fig <- fig %>% layout(
+      title = plot_title, font = font_title,
+      yaxis = list(title = y_title, font = font_axis),
+      xaxis = list(title = "", autotick = F, dtick = 1, font = font_axis)
+      )
     return(fig)
   })
 
@@ -3376,7 +3394,8 @@ server <- function(input, output, session) {
       x$value <- round(x$value)
       x$value_lower <- round(x$value_lower)
       x$value_upper <- round(x$value_upper)
-      names_curr <- c(paste('Loss,',currency_code), paste('Lower bound,', currency_code), paste('Upper bound,', currency_code))
+      names_curr <- c(paste('Loss,',currency_code), paste('Lower bound,', currency_code), 
+                      paste('Upper bound,', currency_code))
       names(x) <- c('Variable', names_curr)
       if (input$ci == 'Off') {
         x <- x[,1:2]
@@ -3408,7 +3427,7 @@ server <- function(input, output, session) {
         round(digits = 2)
 
     valueBox(severe_prob,
-             "Associated Loss - Severe (Million USD)",
+             "Associated Loss (Million USD)",
              icon = NULL,
              width = NULL,
              color = "red"
@@ -3429,7 +3448,7 @@ server <- function(input, output, session) {
         round(digits = 2)
 
     valueBox(extreme_prob,
-             "Associated Loss - Extreme (Million USD)",
+             "Associated Loss (Million USD)",
              icon = NULL,
              width = NULL,
              color = "red"
@@ -3483,8 +3502,12 @@ server <- function(input, output, session) {
   # Description for Exhibit 3
   output$ex3_description <- renderUI({
     ex3_desc_text <- fluidPage(
-      p('This exhibit shows the estimated annual loss across all filtered perils individually and also the sum of the perils (overall figure). As such the sum of the estimated losses of the individual perils at different event severities may differ to the associated overall figure.'),
-      p('When confidence intervals are turned on, the error bars show the 95% confidence interval for each severity.'),
+      p('This exhibit shows the estimated annual loss across all filtered perils 
+        individually and also the sum of the perils (overall figure). As such the sum 
+        of the estimated losses of the individual perils at different event severities 
+        may differ to the associated overall figure.'),
+      p('When confidence intervals are turned on, the error bars show the 95% confidence 
+        interval for each severity.'),
       p('The figures represented by the bars are generated from simulated data.'),
       get_dynamic_text()
     )
@@ -3547,8 +3570,10 @@ server <- function(input, output, session) {
       clr_breaks <- c('Probability')
       clr_values <- c('Probability' = "#ff0000")
       if (input$ci == 'On'){
-        g_ci_low <- geom_line(aes(`Probability of exceeding loss`, value_lower/scale_size, color = 'CI Lower'), linetype = 'dotted')
-        g_ci_upp <- geom_line(aes(`Probability of exceeding loss`, value_upper/scale_size, color = 'CI Upper'), linetype = 'dotted')
+        g_ci_low <- geom_line(aes(`Probability of exceeding loss`, value_lower/scale_size, color = 'CI Lower'), 
+                              linetype = 'dotted')
+        g_ci_upp <- geom_line(aes(`Probability of exceeding loss`, value_upper/scale_size, color = 'CI Upper'), 
+                              linetype = 'dotted')
         clr_breaks <- c(clr_breaks, 'CI Lower', 'CI Upper')
         clr_values <- c(clr_values, 'CI Lower' = '#000000', 'CI Upper' = '#000000')
       }
@@ -3558,22 +3583,28 @@ server <- function(input, output, session) {
       }
       # Plot
       y_title <- paste0('Annual Funding Gap (Million ', currency_code, ')')
-      g <-  ggplot(curve, aes(x = `Probability of exceeding loss`,
-                              y = `Funding gap`/scale_size,
-                              text = c(paste0("Probability: ", round(`Probability of exceeding loss` * 100, 0), "%\n", paste0("Funding Gap: ", paste(round(`Funding gap` / scale_size, 1), "m")))),
-                              group = 1)) +
+      g <-  ggplot(curve, 
+                   aes(x = `Probability of exceeding loss`,
+                       y = `Funding gap`/scale_size,
+                       text = c(paste0("Probability: ", round(`Probability of exceeding loss` * 100, 0), 
+                                       "%\n", paste0("Funding Gap: ", paste(round(`Funding gap` / scale_size, 1), "m")))),
+                       group = 1)) +
         geom_line(aes(color = "Probability")) +
         scale_color_manual(name = "",
                            breaks = clr_breaks,
                            values = clr_values) +
         scale_x_reverse(labels = scales::percent_format(), position = 'top') +
         theme_classic()
+      
       g <- g + g_ci_low + g_ci_upp
+      
       fig <- plotly::ggplotly(g, tooltip = "text")
-      fig <- fig %>% layout(title = plot_title, font = list(family = "Raleway, sans-serif", size = 12, color ="#000000"),
-                            yaxis = list(title = y_title, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
-                            xaxis = list(title = "", autotick = F, dtick = 1, font = list(family = "Raleway, sans-serif", size = 10, color ="#000000")),
-                            legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.1))
+      
+      fig <- fig %>% layout(
+        title = plot_title, font = font_title,
+        yaxis = list(title = y_title, font = font_axis),
+        xaxis = list(title = "", autotick = F, dtick = 1, font = font_axis),
+        legend = list(orientation = "h", xanchor = "center", x = 0.5, y = -0.1))
       return(fig)
     }
   })
@@ -3588,12 +3619,20 @@ server <- function(input, output, session) {
   # Description for Exhibit 4
   output$ex4_description <- renderUI({
     ex4_desc_text <- fluidPage(
-      p('This exhibit shows the probability of experiencing different sized funding gaps (the difference between the estimated aggregate annual cost and the available budget). When the line is above 0 it indicates a funding surplus. When the line is below 0 it indicates a funding deficit. The point at which the curve crosses 0 is the probability that the available funds will be fully used.'),
+      p('This exhibit shows the probability of experiencing different sized funding gaps (the 
+        difference between the estimated aggregate annual cost and the available budget). When the 
+        line is above 0 it indicates a funding surplus. When the line is below 0 it indicates a 
+        funding deficit. The point at which the curve crosses 0 is the probability that the available 
+        funds will be fully used.'),
       p('Hover over the line to find the probability of a particular funding gap occurring.'),
-      p('When confidence intervals are turned on, the two dotted lines either side of the loss exceedance curve show the upper and lower bound of the 95% confidence interval.'),
+      p('When confidence intervals are turned on, the two dotted lines either side of the loss 
+        exceedance curve show the upper and lower bound of the 95% confidence interval.'),
       get_dynamic_text()
     )
   })
 }
+
+
+
 
 shinyApp(ui, server)

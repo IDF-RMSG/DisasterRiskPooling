@@ -3340,7 +3340,7 @@ server <- function(input, output, session) {
                               y = value/scale_size,
                               text = paste0("Loss: ", paste(format(round(value / 1e6, 1), trim = TRUE), "m")))) +
       geom_bar(stat = 'identity',
-               fill = c('#00053A', 'red', 'maroon1'),
+               fill = c('#00053A', 'red', 'red'),
                col = c('#000000', '#000000',"#000000"),
                alpha = 1) +
       scale_x_discrete(labels = function(x) str_wrap(x, width = 15)) +

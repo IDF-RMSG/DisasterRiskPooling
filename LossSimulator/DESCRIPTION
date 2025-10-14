@@ -26,6 +26,7 @@ Imports:
 	dplyr,
 	htmltools,
 	MASS,
+	qpcR,
 	reshape2,
 	optimx,
 	fitdistrplus,

@@ -1,35 +1,35 @@
 # Load additional libraries
-library(shiny)
-library(shinydashboard)
-library(tidyverse)
-library(shinyjs)
-library(shinyBS)
-library(shinyjqui)
+library(actuar)
+library(boot)
 library(bsplus)
-library(scales)
-library(shinycssloaders)
-library(plotly)
-library(reshape2)
-#library(WBTool1)
-library(readxl)
-library(qpcR)
+library(data.table)
+library(dplyr)
 library(DT)
+library(fitdistrplus)
 library(ggplot2)
 library(ggthemes)
-library(shinyWidgets)
-library(shinythemes)
-library(dplyr)
+library(Hmisc)
 library(htmltools)
 library(MASS)
-#library(optimx)
-library(reshape2)
-library(fitdistrplus)
-library(actuar)
-library(Hmisc)
-library(boot)
-library(tidyr)
-library(data.table)
+library(plotly)
+library(qpcR)
+library(readxl)
+library(scales)
+library(shiny)
+library(shinyBS)
+library(shinycssloaders)
+library(shinydashboard)
+library(shinyjqui)
+library(shinyjs)
+library(shinythemes)
+library(shinyWidgets)
 library(tictoc)
+library(tidyr)
+library(tidyverse)
+#library(reshape2) - deprecated
+#library(optimx)
+#library(WBTool1)
+
 
 # Remove scientific notation in plots
 options(scipen = 999)
@@ -230,7 +230,7 @@ about_page <-
       fluidRow(column(width = 12, align = "center",
                       br(),
                       actionButton("start_btn", "Use the Loss Simulator", icon("crosshairs")),
-                      actionButton("Structuring_btn", label = "Go to Risk Pool Structuring", onclick = "window.open('https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskpoolStructuring)', '_blank')")
+                      actionButton("Structuring_btn", label = "Go to Risk Pool Structuring", onclick = "window.open('https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskpoolStructuring', '_blank')")
       )),
       h2("Authorship"),
       p("
@@ -333,7 +333,7 @@ sim_heading <-
   fluidRow(column(10, offset = 1,
     h2('Simulations'),
     p("The Tool runs 15,000 simulations each parametric distribution that has been successfully fitted to a given peril. In both Basic and Advanced modes Lognormal, Gamma and Weibull distributions are tested.
-      If multiple severity distributions are fit for a peril, the one with the highest AIC (Aikaike Information Criterion) weight is selected."),
+      If multiple severity distributions are fit for a peril, the one with the highest AIC (Akaike Information Criterion) weight is selected."),
     p("In advanced mode the user can change the selected severity distribution for a given peril."),
     p("For frequency distribution, if the sample variance equals the mean, Poisson distribution is used, otherwise Negative Binomial distribution is used."),
     br()

@@ -37,17 +37,14 @@ position: relative; text-align:center; border-radius: 6px; border-width: 2px"
 
 str_perils <- c("Cyclone", "Flood" , "Drought", "Earthquake")
 
+str_tabs <- c('Data Selection', 'Data Manipulation', 'Simulations', 'Outputs')
+
 
 ### ----- Tab names and numbers -----
 tab_dict <- 
   tibble(
     number = 1:4,
-    name = toupper(c('Data Selection',
-                     'Data Manipulation',
-                     'Simulations',
-                     'Outputs'
-                     )
-                   )
+    name = toupper(str_tabs)
     )
 
 n_tabs <- nrow(tab_dict)
@@ -127,7 +124,7 @@ body <- dashboardBody(
           #######
           #Tab 1
           #######
-          tabPanel(title = uiOutput('tool_settings_ui'), value = 'DATA SELECTION',
+          tabPanel(title = uiOutput('tool_settings_ui'), value = str_tabs[1],
             fluidPage(
               bsPopover(id = "tabs",
                         title = '',
@@ -171,7 +168,7 @@ body <- dashboardBody(
           #######
           #Tab 2
           #######
-          tabPanel(title = uiOutput('data_ui'), value = 'DATA MANIPULATION',
+          tabPanel(title = uiOutput('data_ui'), value = str_tabs[2],
             fluidPage(
               # Scaling section
               scale_heading,
@@ -197,7 +194,7 @@ body <- dashboardBody(
           #######
           #Tab 3
           #######
-          tabPanel(title = uiOutput('input_ui'), value = 'SIMULATIONS',
+          tabPanel(title = uiOutput('input_ui'), value = str_tabs[3],
             fluidPage(
               sim_heading,
               uiOutput('peril_ui'),
@@ -208,7 +205,7 @@ body <- dashboardBody(
           #######
           #Tab 4
           #######
-          tabPanel(title = uiOutput('output_ui'), value = 'OUTPUTS',
+          tabPanel(title = uiOutput('output_ui'), value = str_tabs[4],
             fluidPage(
               # Header section
               outputs_heading,
@@ -285,20 +282,6 @@ server <- function(input, output, session) {
       contentType = "text/csv"
     )
 
-  # Download handler for quick start guide. - removed as his refers to WB user guide.
-  #output$quickstart_download <- downloadHandler(
-  #  filename = "technical_overview.pdf",
-  #  content = function(file) {file.copy("guides/technical_overview.pdf", file)},
-  #  contentType = "application/pdf"
-  #)
-
-  # Download handler for user guide - removed as his refers to WB user guide. Replaced with URL in text, to online guide
-  #  output$user_guide_download <- downloadHandler(
-  #  filename = "DRFIP_FinancialRiskAssessmentTool_UserGuide.pdf",
-  #  content = function(file) {file.copy("guides/DRFIP_FinancialRiskAssessmentTool_UserGuide.pdf", file)},
-  #  contentType = "application/pdf"
-  #)
-
 
   ###############
   # Landing Page
@@ -364,7 +347,7 @@ server <- function(input, output, session) {
                          icon = icon("undo"),
                          width = '110px'),
             title = '',
-            content = 'Click to return to the Data Selection page',
+            content = paste('Click to return to the ', str_tabs[1], ' page'),
             placement = 'auto top',
             trigger = 'hover',
             options = NULL
@@ -385,7 +368,7 @@ server <- function(input, output, session) {
     current_upload <<- FALSE
     current_upload_scaling <<- FALSE
     rv$page <- 0
-    updateTabsetPanel(session, inputId = "tabs", selected = 'DATA SELECTION')
+    updateTabsetPanel(session, inputId = "tabs", selected = str_tabs[1])
     shinyjs::runjs("window.scrollTo(0, 0)")
   })
 
@@ -438,22 +421,22 @@ server <- function(input, output, session) {
 
   # UIs for panel headers
   output$tool_settings_ui <- renderUI({
-    tab_maker(n = 1, label = 'DATA SELECTION',
+    tab_maker(n = 1, label = str_tabs[1],
               input = input,
               tab_data = tab_data)
   })
   output$data_ui <- renderUI({
-    tab_maker(n = 2, label = 'DATA MANIPULATION',
+    tab_maker(n = 2, label = str_tabs[2],
               input = input,
               tab_data = tab_data)
   })
   output$input_ui <- renderUI({
-    tab_maker(n = 3, label = 'SIMULATIONS',
+    tab_maker(n = 3, label = str_tabs[3],
               input = input,
               tab_data = tab_data)
   })
   output$output_ui <- renderUI({
-    tab_maker(n = 4, label = 'OUTPUTS',
+    tab_maker(n = 4, label = str_tabs[4],
               input = input,
               tab_data = tab_data)
   })

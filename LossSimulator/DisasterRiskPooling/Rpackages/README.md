@@ -7,3 +7,6 @@ qpcR is required for displaying tables in the Loss Simulator when in advanced mo
 
 The version of the tar.gz here has been downloaded from the above archive, and is the latest version available.
 It requires package 'drc' to be installed first. (available on CRAN).
+
+
+UPDATE: October 2025, qpcR can be installed from CRAN.

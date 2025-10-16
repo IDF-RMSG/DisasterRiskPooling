@@ -1,15 +1,14 @@
-###################################
-### Insurance Development Forum ###
-### Disaster Risk Pooling Tool  ###
-### App.R                       ###
-###################################
+#######################################################
+### Insurance Development Forum                     ###
+### Disaster Risk Pooling Tool                      ###
+### App.R                                           ###
+### https://github.com/IDF-RMSG/DisasterRiskPooling ###
+#######################################################
 
 #TODO: refactor and split this very long file of code into:
 #file: define UI and tabs
 #file: define navigation button options
 #file: one file to define Tab 1-4
-#variable: repeated plot features, e.g. axis / title font
-
 
 # Added this to get wbtool1 functions
 file_sources <-
@@ -22,31 +21,14 @@ file_sources <-
 sapply(file_sources, source)
 
 source('global.R')
+source('appText.R')
+source('data_archetype.R')
+source('data_historical.R')
+source('data_scaling.R')
 
-
-### ----- Plotting Variables -----
-fontsize_title <- 12
-fontsize_axis <- 10
-font_colour <- "#000000"
-font_family <- "Raleway, sans-serif"
-font_title <- list(family = font_family, size = fontsize_title, color = font_colour)
-font_axis <- list(family = font_family, size = fontsize_axis, color = font_colour)
-
-button_style <- "color: white; background-color: #ff0000; font-weight: bold; 
-position: relative; text-align:center; border-radius: 6px; border-width: 2px"
-
-str_perils <- c("Cyclone", "Flood" , "Drought", "Earthquake")
-
+### ----- Tab dictionary -----
 str_tabs <- c('Data Selection', 'Data Manipulation', 'Simulations', 'Outputs')
-
-
-### ----- Tab names and numbers -----
-tab_dict <- 
-  tibble(
-    number = 1:4,
-    name = toupper(str_tabs)
-    )
-
+tab_dict <- tibble(number = 1:4, name = toupper(str_tabs))
 n_tabs <- nrow(tab_dict)
 
 ### ----- Define UI header -----
@@ -130,7 +112,7 @@ body <- dashboardBody(
                         title = '',
                         content = 'Use the buttons at the bottom of the page to navigate.',
                         placement = "bottom", trigger = "hover", options = list(container ='body')),
-              tab1_heading,
+              header_dataselect,
               # User input for advanced / basic mode
               uiOutput("advanced_ui"),
               br(),
@@ -142,23 +124,21 @@ body <- dashboardBody(
               conditionalPanel("input.data_type == 'Manual Input'", uiOutput('upload_ui')),
               conditionalPanel("input.data_type == 'Manual Input'", uiOutput('manual_data_chosen_ui')),
               
-              # User input for picking country / archetype
-              uiOutput('country_ui'),
+              uiOutput('country_ui'), # User input for picking country / archetype
               br(),
               
               # User input for choosing database and accompanying text
-              conditionalPanel("input.data_type == 'Country' & input.advanced == 'Advanced'", uiOutput('manual_database_ui')),
+              conditionalPanel("input.data_type == 'Country' & input.advanced == 'Advanced'", 
+                               uiOutput('manual_database_ui')),
               conditionalPanel("input.data_type == 'Country'", uiOutput('data_source_ui')),
               
-              # User input for type of peril data
-              uiOutput('damage_type_ui'),
+              uiOutput('damage_type_ui'), # User input for type of peril data
               br(),
               
-              # User input for cost per person assumption
-              conditionalPanel("input.damage_type == 'People Affected Response Cost'", uiOutput('cost_per_person_ui')),
+              conditionalPanel("input.damage_type == 'People Affected Response Cost'", 
+                               uiOutput('cost_per_person_ui')), # User input for cost per person assumption
               
-              # Create tabs to house data table and plot
-              uiOutput('freq_loss_switch_ui'),
+              uiOutput('freq_loss_switch_ui'), # Create tabs to house data table and plot
               uiOutput("display_data_tab1_ui"),
               br(),
               uiOutput('edited_data_ui')
@@ -170,24 +150,21 @@ body <- dashboardBody(
           #######
           tabPanel(title = uiOutput('data_ui'), value = str_tabs[2],
             fluidPage(
-              # Scaling section
-              scale_heading,
+              header_scaling, # Scaling section
               uiOutput('select_scale_ui'),
               uiOutput('upload_scale_ui'),
               uiOutput('scale_table_ui'),
               conditionalPanel("input.select_scale == 'Manual Input'", uiOutput('manual_scaling_data_chosen_ui')),
-              # Final data section
-              uiOutput('edited_scale_data_ui'),
+              uiOutput('edited_scale_data_ui'), # Final data section
               uiOutput('model_message_ui'),
               br(),
+              
               uiOutput('scaling_error_ui'),
-              # De-trending section only appears when in advanced mode
-              conditionalPanel("input.advanced == 'Advanced'", uiOutput("detrend_heading_ui")),
+              conditionalPanel("input.advanced == 'Advanced'", uiOutput("detrend_heading_ui")), # De-trending appears only in advanced mode
               conditionalPanel("input.advanced == 'Advanced'", uiOutput('trend_test_ui')),
-              # Final data section
-              final_data_heading,
-              # Create tabs to house data table and plot
-              uiOutput("display_data_tab2_ui")
+              
+              header_final, # Final data section
+              uiOutput("display_data_tab2_ui") # Create tabs to house data table and plot
             )
           ),
 
@@ -196,7 +173,7 @@ body <- dashboardBody(
           #######
           tabPanel(title = uiOutput('input_ui'), value = str_tabs[3],
             fluidPage(
-              sim_heading,
+              header_sims,
               uiOutput('peril_ui'),
               uiOutput('simulations_ui'),
             )
@@ -207,25 +184,19 @@ body <- dashboardBody(
           #######
           tabPanel(title = uiOutput('output_ui'), value = str_tabs[4],
             fluidPage(
-              # Header section
-              outputs_heading,
-              # Peril selection box
-              uiOutput('select_peril_ui'),
+              header_outputs, # Header section
+              uiOutput('select_peril_ui'), # Peril selection box
               br(),
-              # Confidence interval toggle
-              uiOutput('confidence_interval_ui'),
+              uiOutput('confidence_interval_ui'), # Confidence interval toggle
               br(),
-              # Budget input
-              uiOutput('budget_ui'),
+              uiOutput('budget_ui'), # Budget input
               br(),
-              uiOutput('tab4_plot_tabs')
+              uiOutput('tab4_plot_tabs') # Plots
             )
           )
         ),
-        # Navigation buttons (Prev / Next / etc.)
         br(),
-        br(),
-        uiOutput("progress_btn_ui")
+        uiOutput("progress_btn_ui") # Navigation buttons (Prev / Next / etc.)
       )
     ),
     # Admin Sidebar items
@@ -1920,7 +1891,7 @@ server <- function(input, output, session) {
 
   # Generate detrending heading
   # output$detrend_heading_ui <- renderUI({
-  #   detrend_heading
+  #   header_detrend
   # })
 
   # Tests if trend exists, if it does, a ui input is created to give user the option to correct for trend.
@@ -2592,7 +2563,7 @@ server <- function(input, output, session) {
   output$qof_head_ui <- renderUI({
     req(input$advanced)
     if (input$advanced == "Advanced") {
-      qof_heading
+      header_qofmle
     }
     else {
       NULL
@@ -2873,7 +2844,7 @@ server <- function(input, output, session) {
                 "Weibull" = "weibull",
                 # "Pareto" = "pareto",
                 "Gamma" = "gamma"
-              )
+              ) # TODO: swap to use basic_parametric variable in global.R
 
           selected_bootstraps[[i]] <-
             fitted_distribution()[[2]][[peril_name]][[dist_name]]

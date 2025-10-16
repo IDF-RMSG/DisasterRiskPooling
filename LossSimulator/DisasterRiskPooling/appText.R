@@ -1,0 +1,281 @@
+#######################################################
+### Insurance Development Forum                     ###
+### Disaster Risk Pooling Tool                      ###
+### appText.R                                       ###
+### https://github.com/IDF-RMSG/DisasterRiskPooling ###
+#######################################################
+### This file defines description text for the main App
+### This file is referenced as a source in app.R
+
+
+#################################################################################
+# TEXT: ABOUT PAGE
+#################################################################################
+about_page <-
+  fluidPage(fluidRow(
+    column(
+      10,
+      offset = 1,
+      h1('About'),
+      p(
+        "
+         The Loss Simulator enables loss exceedance curves to be created from
+         historical event loss catalogues. It is one component of the Disaster Risk Pooling Tool.
+        "
+      ),
+      p(
+        "
+         The Disaster Risk Pooling Tool has been developed to support users to better understand the
+         risk of climate and disaster losses, and use of risk pools. It responds
+         to requests in the development and humanitarian sectors for better understanding of
+         disaster risk analytics and the implementation of risk layering and risk pooling.
+        "
+      ),
+      p(
+        "
+         Using the accompanying Risk Pool Structuring tool, users can take the
+         output of the Loss Simulator, place those loss curves into a risk pool
+         and explore how a pool of risks can be used to increase financial resilience.
+         The Risk Pool Structuring tool is an Excel workbook.
+         "
+      ),
+      p(
+        "
+         The Loss Simulator takes historical disaster event data from the EM-DAT
+         catalogue (www.emdat.be), or via manual input (input template provided
+         on GitHub), applies scaling factors for population growth,
+         and fits parametric distributions to the data to simulate a loss curve.
+         This is one approach to assess disaster loss profiles with incomplete
+         historical loss data, which may exclude key historical events so the
+         quality of the loss curves generated depends on the quality of the input data.
+         Therefore, the output from this tool providesonly an indication of the
+         losses associated with a disaster and actual losses may differ
+         significantly from the tool output.
+         "
+      ),
+      p(
+        "
+         The Tool is designed to work on a laptop or desktop PC with the web
+         browser maximised, you may not be able to use the tool on smaller
+         screens. Please read the user guides before use.
+        "
+      ),
+      
+      fluidRow(
+        column(
+          width = 12,
+          align = "center",
+          br(),
+          actionButton("start_btn", "Use the Loss Simulator"),
+          actionButton("Structuring_btn", label = "Go to Risk Pool Structuring", onclick = "window.open('https://github.com/IDF-RMSG/DisasterRiskpooling/tree/develop/RiskPoolStructuring', '_blank')")
+        )
+      ),
+      
+      h2("Authorship"),
+      p(
+        "
+          The Loss Simulator was developed by Maximum Information on behalf of
+          the Insurance Development Forum Risk Modelling Steering Group
+          (RMSG) and the World Bank Group's Finance, Competitiveness and Investment
+          team. It is based on the existing 'Financial Risk Assessment Tool'
+          developed by the World Bank for capacity building of their clients.
+          Insurance Development Forum RMSG are responsible for the update of the Loss Simulator.
+        "
+      ),
+      
+      h2("Disclaimer"),
+      p(
+        "
+          The Loss Simulator has been developed to support users better understand
+          disaster loss profiles, where historical event data catalogues are the
+          main or only source of loss information (e.g., in the absence of catastrophe models).
+          Information in the Tool is provided for educational purposes only and
+          does not constitute legal or scientific advice or service.
+          Neither the Insurance Development Forum, RMSG, Maximum Information  or the World Bank makes warranties or
+          representations, express or implied as to the accuracy or reliability of
+          the Tool or the data contained therein.
+          "
+      ),
+      p(
+        "
+          Users of the Loss Simulator should seek
+          qualified expert advice for specific diagnostic and analysis of a
+          particular project. Any use thereof or reliance thereon is at the sole
+          and independent discretion and responsibility of the user. No conclusions
+          or inferences drawn from the Loss Simulator should be attributed to the
+          developers of the tool.
+          In no event will the Insurance Development Forum, RMSG, Maximum Information or the World Bank
+          be liable for any form of damage arising from the application or
+          misapplication of the tool, or any other associated materials.
+        "
+      )
+    )
+  ))
+
+#################################################################################
+# TEXT: USER GUIDE PAGE
+#################################################################################
+user_guide <-
+  fluidPage(fluidRow(column(
+    10,
+    offset = 1,
+    h1('User Guide'),
+    br(),
+    p(
+      'As well as tool-tips in the tool user interface, please refer to the Disaster Risk Pooling user guide.
+        This includes general information, key decision-making questions and fundamental
+        principles of risk pooling, as well as the specific workflow of the Loss Simulator
+        (used in Phase 1) and the Risk Pool Structuring Tool (Used in Phase 2 onwards).'
+    ),
+    br(),
+    fluidRow(column(
+      width = 12,
+      align = "center",
+      br(),
+      actionButton("UG_btn", label = "User Guide", onclick = "window.open('https://idf-rmsg.github.io/DisasterRiskPooling', '_blank')")
+    )),
+    
+    br(),
+    p(
+      'Current limitations of this tool include: (1) no accounting for correlation of
+      losses between perils and countries, (2) Users cannot enter a hypothetical premium into pricing calculations.'
+    )
+  )))
+
+
+
+#################################################################################
+# TEXT: TAB HEADERS
+#################################################################################
+header_dataselect <-
+  fluidRow(column(
+    10,
+    offset = 1,
+    h2('Data Selection'),
+    br(),
+    p(
+      "Please make selections to specify the data you wish to analyse. The data selected can be
+      viewed using the graphic at the bottom of the page."
+    ),
+    br(),
+    p(
+      "For extra flexibility in specifying the data source and/or statistics produced, please
+    select Advanced mode, which enables upload of a new dataset, using templates provided on GitHub"
+    ),
+    br()
+  ))
+
+header_scaling <-
+  fluidRow(column(
+    10,
+    offset = 1,
+    h2('Scaling'),
+    br(),
+    p(
+      "Scaling can remove trends caused by known indexes such as population, to help make
+    losses more comparable between years. Basic mode always scales by population but advanced
+      mode allows for more options. Where a manual input file does not attribute loss to a year
+      (year might be labelled 1, 2, 3, etc., scaling can not been applied."
+    ),
+    br(),
+    p(
+      "For each given year, a scaling factor is calculated by dividing the scaling data for the
+    most recent year by the given year. Each peril year is then multiplied by the scaling factor
+    for that year to give a corrected loss in terms of the most recent scaling year."
+    ),
+    p(
+      "Edit the scaling data by double clicking and entering new population data in the relevant
+    cell or by adjusting the data and using the advanced manual input approach."
+    ),
+    br()
+  ))
+
+header_detrend <-
+  fluidRow(column(
+    10,
+    offset = 1,
+    h2('Detrending'),
+    p(
+      "Detrending also aims to remove trends from the data, but does so automatically, without extra data, by performing a linear regression."
+    ),
+    p(
+      "For each peril, the Tool looks for any linear trends and, if successful, the user can choose to modify the loss data in order to remove the trend."
+    ),
+    br()
+  ))
+
+header_final <-
+  fluidRow(column(
+    10,
+    offset = 1,
+    h2('Final Data '),
+    p(
+      "The peril data displayed below has been multiplied by the chosen scaling factors and
+      detrended (if detrending selected in advanced mode)."
+    ),
+    p(
+      "This data is what the tool will use to fit the parametric distributions to each peril
+      and produce the outputs."
+    ),
+    br(),
+  ))
+
+header_sims <-
+  fluidRow(column(
+    10,
+    offset = 1,
+    h2('Simulations'),
+    p(
+      "The tool runs 15,000 simulations each parametric distribution that has been successfully fitted
+    to a given peril. In both Basic and Advanced modes Lognormal, Gamma and Weibull distributions are tested.
+      If multiple severity distributions are fit for a peril, the one with the highest AIC (Akaike Information
+      Criterion) weight is selected."
+    ),
+    p(
+      "In advanced mode the user can change the selected severity distribution for a given peril."
+    ),
+    p(
+      "For frequency distribution, if the sample variance equals the mean, Poisson distribution is
+      used, otherwise Negative Binomial distribution is used."
+    ),
+    br()
+  ))
+
+header_qofmle <-
+  fluidRow(column(
+    10,
+    offset = 1,
+    h2('Quality of Severity Fit and Maximum Likelihood Estimates'),
+    p(
+      "The table below displays the results from each successful distribution fitting for the selected peril."
+    ),
+    p(
+      "The Tool tries to find the best (most likely) parameters for each fitted distribution to estimate the
+      distribution of the observed data. The maximum likelihood estimates (MLEs) are the parameters of the
+      estimated distributions."
+    ),
+    p(
+      "The AIC weight measures the quality of fit of the estimated distributions - the higher the AIC
+      weight, the better the fit."
+    ),
+    br()
+  ))
+
+header_outputs <-
+  fluidRow(column(
+    10,
+    offset = 1,
+    h2('Outputs'),
+    p(
+      "In this tab, the user can view the simulated losses across the selected perils calculated
+    from the distributions selected on the previous page.Selecting combinations of perils will combine
+    each peril's simulations to produce a new set of 15,000 simulations. Therefore the risk profile of
+    two perils is not the sum of the losses at each return period. When perils are combined the tools
+      assumes no correlation between each peril."
+    ),
+    p(
+      "95% confidence intervals can be toggled. These show the range of possible values for each
+      return period that 95% of losses will fall within."
+    ),
+    br()
+  ))

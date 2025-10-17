@@ -399,20 +399,26 @@ server <- function(input, output, session) {
   })
 
   # Observe any changes to rv$page, and update the selected tab accordingly
-  observeEvent(rv$page, {
-    tab_number <- rv$page
-    td <- tab_data$data
-    tab_name <- td %>% dplyr::filter(number == tab_number) %>% .$name
-    updateTabsetPanel(session, inputId = "tabs", selected = tab_name)
-  })
+  shiny::observeEvent(
+    rv$page,
+    {
+      tab_number <- rv$page
+      td <- tab_data$data
+      tab_name <- td %>% dplyr::filter(number == tab_number) %>% .$name
+      updateTabsetPanel(session, inputId = "tabs", selected = tab_name)
+    }
+  )
 
   # Observe any click on the tab menu, and update accordingly the rv$page object
-  observeEvent(input$tabs, {
-    tab_name <- input$tabs
-    td <- tab_data$data
-    tab_number <- td %>% dplyr::filter(name == tab_name) %>% .$number
-    rv$page <- tab_number
-  })
+  shiny::observeEvent(
+    input$tabs,
+    {
+      tab_name <- input$tabs
+      td <- tab_data$data
+      tab_number <- td %>% dplyr::filter(name == tab_name) %>% .$number
+      rv$page <- tab_number
+    }
+  )
 
   ## Look up function for tab label
   tab_label <- function(n, tab_dict) {

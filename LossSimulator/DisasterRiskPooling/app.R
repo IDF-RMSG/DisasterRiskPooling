@@ -3410,16 +3410,19 @@ server <- function(input, output, session) {
 
   # Helper function to process and extract the probability value
   get_prob_value <- function(variable_name, scale_size, data) {
-    data %>%
-      dplyr::filter(.data$variable == variable_name) %>%
-      dplyr::mutate(value = .data$value / scale_size) %>%
-      dplyr::slice(1) %>%
-      unname() %>%
+    
+    data |>
+      dplyr::filter(.data$variable == variable_name) |>
+      dplyr::mutate(value = .data$value / scale_size) |>
+      dplyr::select("value") |>
+      unlist() |>
+      unname() |>
       round(digits = 2)
     }
 
   # General function to create a value box
   create_value_box <- function(variable_name, scale_size, data, color) {
+    
     prob_value <- get_prob_value(variable_name, scale_size, data)
     valueBox(prob_value,
              "Associated Loss (Million USD)",

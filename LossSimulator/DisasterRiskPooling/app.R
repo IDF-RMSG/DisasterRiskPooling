@@ -41,11 +41,11 @@ str_tabs <- c('Data Selection', 'Data Manipulation', 'Simulations', 'Outputs')
 
 
 ### ----- Tab names and numbers -----
-tab_dict <- 
-  tibble(
+tab_dict <-
+  tibble::tibble(
     number = 1:4,
-    name = toupper(str_tabs)
-    )
+    name = str_tabs
+  )
 
 n_tabs <- nrow(tab_dict)
 

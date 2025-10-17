@@ -35,7 +35,7 @@ font_axis <- list(family = font_family, size = fontsize_axis, color = font_colou
 button_style <- "color: white; background-color: #ff0000; font-weight: bold; 
 position: relative; text-align:center; border-radius: 6px; border-width: 2px"
 
-str_perils <- c("Cyclone", "Flood" , "Drought", "Earthquake")
+str_perils <- c("Drought", "Earthquake", "Flood", "Cyclone")
 
 str_tabs <- c('Data Selection', 'Data Manipulation', 'Simulations', 'Outputs')
 

@@ -16,7 +16,7 @@ test_linear_trend <- function(dat){
   result_list <- list()
   for(i in 1:length(peril_names)){
     this_peril <- peril_names[i]
-    sub_dat <- dat %>% filter(peril == this_peril)
+    sub_dat <- dat %>% dplyr::filter(peril == this_peril)
     sub_dat$fit_x <- sub_dat$year - min_year
 
     sub_dat <- left_join(data.frame(fit_x = 0:(max_year-min_year)),sub_dat,by="fit_x")

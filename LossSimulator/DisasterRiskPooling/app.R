@@ -402,7 +402,7 @@ server <- function(input, output, session) {
   observeEvent(rv$page, {
     tab_number <- rv$page
     td <- tab_data$data
-    tab_name <- td %>% filter(number == tab_number) %>% .$name
+    tab_name <- td %>% dplyr::filter(number == tab_number) %>% .$name
     updateTabsetPanel(session, inputId = "tabs", selected = tab_name)
   })
 
@@ -410,7 +410,7 @@ server <- function(input, output, session) {
   observeEvent(input$tabs, {
     tab_name <- input$tabs
     td <- tab_data$data
-    tab_number <- td %>% filter(name == tab_name) %>% .$number
+    tab_number <- td %>% dplyr::filter(name == tab_name) %>% .$number
     rv$page <- tab_number
   })
 
@@ -2134,7 +2134,7 @@ server <- function(input, output, session) {
     fdx_ok <- FALSE
     if(!is.null(fdx) & nrow(fdx) > 0){
       fdx_ok <- TRUE
-      fdx <- fdx %>% filter(!is.na(aic))
+      fdx <- fdx %>% dplyr::filter(!is.na(aic))
     }
     if(is.null(fd)){
       return(NULL)
@@ -2178,10 +2178,10 @@ server <- function(input, output, session) {
                 )
             )
 
-      freq_flood_choices <- chosen_freq %>% filter(peril == 'Flood') %>% .$distribution
-      freq_earthquake_choices <- chosen_freq %>% filter(peril == 'Earthquake') %>% .$distribution
-      freq_drought_choices <- chosen_freq %>% filter(peril == 'Drought') %>% .$distribution
-      freq_storm_choices <- chosen_freq %>% filter(peril == 'Cyclone') %>% .$distribution
+      freq_flood_choices <- chosen_freq %>% dplyr::filter(peril == 'Flood') %>% .$distribution
+      freq_earthquake_choices <- chosen_freq %>% dplyr::filter(peril == 'Earthquake') %>% .$distribution
+      freq_drought_choices <- chosen_freq %>% dplyr::filter(peril == 'Drought') %>% .$distribution
+      freq_storm_choices <- chosen_freq %>% dplyr::filter(peril == 'Cyclone') %>% .$distribution
 
       if(!is_advanced){
         flood_choices <- chosen_flood
@@ -2192,10 +2192,10 @@ server <- function(input, output, session) {
       else {
         if(fdx_ok){
 
-          flood_choices <- fdx %>% filter(peril == 'Flood') %>% .$distribution
-          earthquake_choices <- fdx %>% filter(peril == 'Earthquake') %>% .$distribution
-          drought_choices <- fdx %>% filter(peril == 'Drought') %>% .$distribution
-          storm_choices <- fdx %>% filter(peril == 'Cyclone') %>% .$distribution
+          flood_choices <- fdx %>% dplyr::filter(peril == 'Flood') %>% .$distribution
+          earthquake_choices <- fdx %>% dplyr::filter(peril == 'Earthquake') %>% .$distribution
+          drought_choices <- fdx %>% dplyr::filter(peril == 'Drought') %>% .$distribution
+          storm_choices <- fdx %>% dplyr::filter(peril == 'Cyclone') %>% .$distribution
 
         } else {
           flood_choices <- earthquake_choices <- drought_choices <- storm_choices <- advanced_parametric
@@ -2518,7 +2518,7 @@ server <- function(input, output, session) {
     if(ok){
 
       selected_peril <- input$peril_simulation
-      fd <- fd %>% filter(peril == selected_peril) %>% dplyr::select(-peril)
+      fd <- fd %>% dplyr::filter(peril == selected_peril) %>% dplyr::select(-peril)
       fd <- fd[, c('distribution', 'aic', 'mle1', 'mle2')]
       fd <- fd[!(fd$aic == "" | is.na(fd$aic)),]
       fd$mle1 <- round(fd$mle1, 3)

@@ -9,7 +9,7 @@ return_bootstrap <- function(data, dis_name, niter) {
 
 make_bootsrap <- function(dis_name, dat, n_sim){
 
-  dat <- dat |>  filter(distribution == dis_name)
+  dat <- dat |>  dplyr::filter(distribution == dis_name)
 
   if(dis_name == 'Freq') {
     sim <- stats::rnbinom(n = n_sim, size = dat$`mle1`, mu = dat$`mle2`)
@@ -89,7 +89,7 @@ make_bootsrap <- function(dis_name, dat, n_sim){
 #' make_simulation(dis_name = sub_peril$distribution, dat = sub_peril)
 make_simulation <- function(dis_name, dat, n_sim){
 
-  dat <- dat |>  filter(distribution == dis_name)
+  dat <- dat |>  dplyr::filter(distribution == dis_name)
 
   if(dis_name == 'Freq' & !is.na(dat$mle2)) {
       sim <- stats::rnbinom(n = n_sim, mu = dat$`mle2`, size = dat$`mle1`)
@@ -289,7 +289,7 @@ sim_bern <- function(the_right_data = NULL){
     all_perils <- unique(freq_data$peril)
     for(i in 1:length(all_perils)){
       peril_name <- all_perils[i]
-      sub_dat <- freq_data %>% filter(peril == peril_name)
+      sub_dat <- freq_data %>% dplyr::filter(peril == peril_name)
       if(sum(sub_dat$value) > 0){
         mle_bern <- nrow(sub_dat[sub_dat$value == 1,])/num_trials
         uniform_dis <- runif(15000,0 ,1)

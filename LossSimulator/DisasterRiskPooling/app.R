@@ -35,17 +35,17 @@ font_axis <- list(family = font_family, size = fontsize_axis, color = font_colou
 button_style <- "color: white; background-color: #ff0000; font-weight: bold; 
 position: relative; text-align:center; border-radius: 6px; border-width: 2px"
 
-str_perils <- c("Cyclone", "Flood" , "Drought", "Earthquake")
+str_perils <- c("Drought", "Earthquake", "Flood", "Cyclone")
 
 str_tabs <- c('Data Selection', 'Data Manipulation', 'Simulations', 'Outputs')
 
 
 ### ----- Tab names and numbers -----
-tab_dict <- 
-  tibble(
+tab_dict <-
+  tibble::tibble(
     number = 1:4,
-    name = toupper(str_tabs)
-    )
+    name = str_tabs
+  )
 
 n_tabs <- nrow(tab_dict)
 
@@ -88,7 +88,7 @@ sidebar <- dashboardSidebar(
       "),
     div(
       id = 'logo-div',
-      tags$img(id = 'allLogo', src = 'Vertical_logos_newIDFexclWB.png', 
+      tags$img(id = 'allLogo', src = 'Vertical_logos_newIDFexclWB.png',
                alt = 'Contributors', width = '250px'
                )
       )
@@ -137,26 +137,26 @@ body <- dashboardBody(
               # User input for input data type
               uiOutput('data_type_ui'),
               br(),
-              
+
               # User input for uploading data and accompanying text
               conditionalPanel("input.data_type == 'Manual Input'", uiOutput('upload_ui')),
               conditionalPanel("input.data_type == 'Manual Input'", uiOutput('manual_data_chosen_ui')),
-              
+
               # User input for picking country / archetype
               uiOutput('country_ui'),
               br(),
-              
+
               # User input for choosing database and accompanying text
               conditionalPanel("input.data_type == 'Country' & input.advanced == 'Advanced'", uiOutput('manual_database_ui')),
               conditionalPanel("input.data_type == 'Country'", uiOutput('data_source_ui')),
-              
+
               # User input for type of peril data
               uiOutput('damage_type_ui'),
               br(),
-              
+
               # User input for cost per person assumption
               conditionalPanel("input.damage_type == 'People Affected Response Cost'", uiOutput('cost_per_person_ui')),
-              
+
               # Create tabs to house data table and plot
               uiOutput('freq_loss_switch_ui'),
               uiOutput("display_data_tab1_ui"),
@@ -244,7 +244,7 @@ body <- dashboardBody(
 # UI
 #####
 ui <- dashboardPage(
-  header, sidebar, body, skin="blue", 
+  header, sidebar, body, skin="blue",
   title="Disaster Risk Pooling Tool: Loss Simulator"
   )
 
@@ -259,23 +259,23 @@ server <- function(input, output, session) {
   tab_data <- reactiveValues(data = tab_dict)
 
   # Download handler for peril data upload template
-  output$peril_template_download <- 
+  output$peril_template_download <-
     downloadHandler(
       filename = "manual_input_template.xlsx",
       content = function(file) {file.copy("data/templates/manual_input_template.xlsx", file)}
       )
 
   # Download handler for peril data upload template
-  output$scaling_template_download <- 
+  output$scaling_template_download <-
     downloadHandler(
       filename = "manual_scaling_template.csv",
       content = function(file) {file.copy("data/templates/manual_scaling_template.csv", file)},
       contentType = "text/csv"
       )
-  
+
   # Download all underlying data for tool handler
   # TODO: Dynamic file name so it downloads with country / date reference.
-  output$allDataBtn <- 
+  output$allDataBtn <-
     downloadHandler(
       filename = "LossSimulator_Output.csv",
       content = function(file) {write.csv(get_sims_export(), file, row.names = FALSE)},
@@ -305,18 +305,18 @@ server <- function(input, output, session) {
     shinyjs::runjs("window.scrollTo(0, 0)")
   })
 
-  
+
   ###############
   # Tab Controls
   ###############
-  
+
   # Define navigation buttons (previous/next/run)
   output$progress_btn_ui <- renderUI({
     # Tab 2: "Run Tool" otherwise "Next"
     btn_label <-
       if (input$tabs == tab_label(2, tab_dict)) {"Run Tool"}
     else {"Next"}
-    
+
     fluidRow(column(12, align = 'center',
       splitLayout(cellsWidths = 300,
         if (rv$page > 1)
@@ -399,20 +399,26 @@ server <- function(input, output, session) {
   })
 
   # Observe any changes to rv$page, and update the selected tab accordingly
-  observeEvent(rv$page, {
-    tab_number <- rv$page
-    td <- tab_data$data
-    tab_name <- td %>% filter(number == tab_number) %>% .$name
-    updateTabsetPanel(session, inputId = "tabs", selected = tab_name)
-  })
+  shiny::observeEvent(
+    rv$page,
+    {
+      tab_number <- rv$page
+      td <- tab_data$data
+      tab_name <- td %>% dplyr::filter(number == tab_number) %>% .$name
+      updateTabsetPanel(session, inputId = "tabs", selected = tab_name)
+    }
+  )
 
   # Observe any click on the tab menu, and update accordingly the rv$page object
-  observeEvent(input$tabs, {
-    tab_name <- input$tabs
-    td <- tab_data$data
-    tab_number <- td %>% filter(name == tab_name) %>% .$number
-    rv$page <- tab_number
-  })
+  shiny::observeEvent(
+    input$tabs,
+    {
+      tab_name <- input$tabs
+      td <- tab_data$data
+      tab_number <- td %>% dplyr::filter(name == tab_name) %>% .$number
+      rv$page <- tab_number
+    }
+  )
 
   ## Look up function for tab label
   tab_label <- function(n, tab_dict) {
@@ -486,7 +492,7 @@ server <- function(input, output, session) {
                      selected = radio_selected,
                      inline = TRUE),
                 title = "",
-        content = 'Choose to upload preloaded historical loss data from EM-DAT for your 
+        content = 'Choose to upload preloaded historical loss data from EM-DAT for your
         chosen country, or switch to advanced mode to upload your own data.',
         placement = "auto left",
         trigger = "hover",
@@ -526,7 +532,7 @@ server <- function(input, output, session) {
     )
   })
 
-  # Create dynamic text to describe whether user data has been imported of or not - 
+  # Create dynamic text to describe whether user data has been imported of or not -
   # commented out until we can be sure the error message doesn't contradict the 'data uploaded' message - i.e. is acting reactively.
   #output$manual_data_chosen_ui <-
   #  shiny::renderUI(
@@ -560,7 +566,7 @@ server <- function(input, output, session) {
   #  }
   #)
 
-  # Output that renders UI based on an input. If data type is country, then countries are shown, else, archetypes. 
+  # Output that renders UI based on an input. If data type is country, then countries are shown, else, archetypes.
   # Manual input will show the upload dialogue.
   output$country_ui <-
     shiny::renderUI({
@@ -574,7 +580,7 @@ server <- function(input, output, session) {
         btn_choice <- countries
         btn_select <- 'Bangladesh'
         btn_width <- '250px'
-        pop_content <- 'Select a country for which to examine historical disaster data 
+        pop_content <- 'Select a country for which to examine historical disaster data
         (limited to those in EM-DAT with losses from earthquake, drought, flood or cyclone.'
       } else if(input$data_type == 'Archetype') { # ARCHETYPE HAS BEEN REMOVED FROM UI - NOT AN OPTION.
         btn_id <- "archetype"
@@ -688,7 +694,7 @@ server <- function(input, output, session) {
           withSpinner(plotlyOutput("peril_data_bars_plot"), type = 7)
         ),
         tabPanel("Table",
-          withSpinner(DT::dataTableOutput('raw_data_table'), type = 7), 
+          withSpinner(DT::dataTableOutput('raw_data_table'), type = 7),
           style = "height: 350px; overflow-y: scroll")
         )
     ))
@@ -701,11 +707,11 @@ server <- function(input, output, session) {
     shiny::req(input$view_data)
 
     cored <-
-      if(use_core_data_edited()) 
+      if(use_core_data_edited())
       {
         core_data_edited$data
-      } 
-    else 
+      }
+    else
       {
         core_data()
       }
@@ -770,15 +776,15 @@ server <- function(input, output, session) {
     shiny::req(input$view_data)
 
     cored <-
-      if(use_core_data_edited()) 
+      if(use_core_data_edited())
       {
         core_data_edited$data
-      } 
-    else 
+      }
+    else
     {
         core_data()
     }
-    
+
 
     shiny::req(cored)
 
@@ -806,39 +812,39 @@ server <- function(input, output, session) {
         "Disaster" = "peril"
       )
 
-    if (input$view_data == 'Frequency') 
+    if (input$view_data == 'Frequency')
       {
       perils_out <- peril_names_global
       y_title <- "Frequency"
-      } 
-    else 
+      }
+    else
       {
       if (input$damage_type == 'People Affected Response Cost')
         {
         perils_out <- paste(peril_names_global, ccy_code, sep=", ")
         y_title <- paste0('Annual Response Cost (', ccy_code, ')')
         }
-      else 
+      else
         {
         perils_out <- paste(peril_names_global, ccy_code, sep=", ")
         y_title <- paste0('Annual Economic Loss (', ccy_code, ')')
         }
       }
-    
+
 
     too_much_data <-
-      if(length(cored) >= 3) 
+      if(length(cored) >= 3)
         {
-          if(cored[[3]]$`Number of Years` > 100) 
+          if(cored[[3]]$`Number of Years` > 100)
             {
             TRUE
-            } 
-        else 
+            }
+        else
             {
               FALSE
             }
-        } 
-    else 
+        }
+    else
       {
         FALSE
       }
@@ -846,11 +852,11 @@ server <- function(input, output, session) {
     if(!too_much_data) {
 
     # Set the title based on the input
-      plot_title <- if (input$damage_type == 'People Affected Response Cost') 
+      plot_title <- if (input$damage_type == 'People Affected Response Cost')
         {
         paste0("<b>Average Annual Response Cost: ", country_name)
-        } 
-      else 
+        }
+      else
         {
           paste0("<b>Average Annual Loss: ", country_name)
           }
@@ -1318,11 +1324,11 @@ server <- function(input, output, session) {
     } else {
       fluidRow(
         column(11, offset = 1, "You are viewing and using historical loss data.", style = "color: red"),
-        column(11, offset = 1, "Events are shown only if the impact metric is non-zero in the historical 
-               loss catalogue. It is common for events to have a zero loss for Economic Damage and non-zero 
-               loss for people affected - therefore the number of events displayed will differ by impact 
+        column(11, offset = 1, "Events are shown only if the impact metric is non-zero in the historical
+               loss catalogue. It is common for events to have a zero loss for Economic Damage and non-zero
+               loss for people affected - therefore the number of events displayed will differ by impact
                metric selected.", style = "color: red"),
-        column(11, offset = 1, "The data selection (Total economic damage or response cost) shown on this 
+        column(11, offset = 1, "The data selection (Total economic damage or response cost) shown on this
                chart will be used in the next steps of simulation.", style = "color: red")
       )
     }
@@ -1779,11 +1785,11 @@ server <- function(input, output, session) {
         {
           y_title <- paste0('Annual Response Cost (', ccy_code, ')')
         }
-        else 
+        else
         {
           y_title <- paste0('Annual Economic Loss (', ccy_code, ')')
         }
-      
+
     #y_title <-  paste0('Annual Loss (', ccy_code, ')')
     plotly::plot_ly(out,
                     x = ~Year,
@@ -2134,7 +2140,7 @@ server <- function(input, output, session) {
     fdx_ok <- FALSE
     if(!is.null(fdx) & nrow(fdx) > 0){
       fdx_ok <- TRUE
-      fdx <- fdx %>% filter(!is.na(aic))
+      fdx <- fdx %>% dplyr::filter(!is.na(aic))
     }
     if(is.null(fd)){
       return(NULL)
@@ -2178,10 +2184,10 @@ server <- function(input, output, session) {
                 )
             )
 
-      freq_flood_choices <- chosen_freq %>% filter(peril == 'Flood') %>% .$distribution
-      freq_earthquake_choices <- chosen_freq %>% filter(peril == 'Earthquake') %>% .$distribution
-      freq_drought_choices <- chosen_freq %>% filter(peril == 'Drought') %>% .$distribution
-      freq_storm_choices <- chosen_freq %>% filter(peril == 'Cyclone') %>% .$distribution
+      freq_flood_choices <- chosen_freq %>% dplyr::filter(peril == 'Flood') %>% .$distribution
+      freq_earthquake_choices <- chosen_freq %>% dplyr::filter(peril == 'Earthquake') %>% .$distribution
+      freq_drought_choices <- chosen_freq %>% dplyr::filter(peril == 'Drought') %>% .$distribution
+      freq_storm_choices <- chosen_freq %>% dplyr::filter(peril == 'Cyclone') %>% .$distribution
 
       if(!is_advanced){
         flood_choices <- chosen_flood
@@ -2192,10 +2198,10 @@ server <- function(input, output, session) {
       else {
         if(fdx_ok){
 
-          flood_choices <- fdx %>% filter(peril == 'Flood') %>% .$distribution
-          earthquake_choices <- fdx %>% filter(peril == 'Earthquake') %>% .$distribution
-          drought_choices <- fdx %>% filter(peril == 'Drought') %>% .$distribution
-          storm_choices <- fdx %>% filter(peril == 'Cyclone') %>% .$distribution
+          flood_choices <- fdx %>% dplyr::filter(peril == 'Flood') %>% .$distribution
+          earthquake_choices <- fdx %>% dplyr::filter(peril == 'Earthquake') %>% .$distribution
+          drought_choices <- fdx %>% dplyr::filter(peril == 'Drought') %>% .$distribution
+          storm_choices <- fdx %>% dplyr::filter(peril == 'Cyclone') %>% .$distribution
 
         } else {
           flood_choices <- earthquake_choices <- drought_choices <- storm_choices <- advanced_parametric
@@ -2518,7 +2524,7 @@ server <- function(input, output, session) {
     if(ok){
 
       selected_peril <- input$peril_simulation
-      fd <- fd %>% filter(peril == selected_peril) %>% dplyr::select(-peril)
+      fd <- fd %>% dplyr::filter(peril == selected_peril) %>% dplyr::select(-peril)
       fd <- fd[, c('distribution', 'aic', 'mle1', 'mle2')]
       fd <- fd[!(fd$aic == "" | is.na(fd$aic)),]
       fd$mle1 <- round(fd$mle1, 3)
@@ -2782,7 +2788,7 @@ server <- function(input, output, session) {
     detrending <- input$trend_test
     scale_fail <- is.null(prepare_scale_data)
     detrend_fail <- is.null(correct_trend)
-    
+
     if (dmg_type == 'People Affected Response Cost') {
       cpp_text <- paste0('This data was generated with a cost per person assumption of ', cost_pp, ' ', ccy_code, '.')
     }
@@ -2894,10 +2900,10 @@ server <- function(input, output, session) {
     gd <- gather_data()
     perils_ci <- freq_sev_ci()
     selected_perils <- input$select_peril
-    
+
     if(is.na(budget) | is.null(gp) | is.null(gd) | is.null(selected_perils)){
       return(NULL)
-      } 
+      }
     else {
       dat_sim <- dplyr::filter(gp, !is.na(.data$value))
       dat <-
@@ -2908,8 +2914,8 @@ server <- function(input, output, session) {
       sub_dat <-
         quant_that(dat_sim = dat_sim, dat = dat, combined_ci = perils_ci)
 
-      sub_dat$variable <- 
-        factor(sub_dat$variable, 
+      sub_dat$variable <-
+        factor(sub_dat$variable,
                levels = c('1 in 5 Years', '1 in 10 Years', '1 in 25 Years',
                           '1 in 50 Years', '1 in 100 Years', 'Long-term average',
                           'Highest historical annual loss', 'Most recent annual loss'
@@ -2921,14 +2927,14 @@ server <- function(input, output, session) {
   })
 
   # ----- Exhibit 1 Table -----
-  output$annual_loss_tably <- 
+  output$annual_loss_tably <-
     DT::renderDataTable({
       x <- annual_loss_data()
       if(!is.null(x)){
         x$value <- round(x$value)
         x$value_lower <- round(x$value_lower)
         x$value_upper <- round(x$value_upper)
-        names_curr <- c(paste('Loss,',ccy_code), paste('Lower bound,', ccy_code), 
+        names_curr <- c(paste('Loss,',ccy_code), paste('Lower bound,', ccy_code),
                       paste('Upper bound,', ccy_code))
         names(x) <- c('Variable', names_curr)
         if (input$ci == 'Off') {
@@ -2948,7 +2954,7 @@ server <- function(input, output, session) {
 
   # ----- Exhibit 1 Plot -----
   output$annual_loss_plotly <- renderPlotly({output_1_plot()})
-  
+
   output_1_plot <- reactive({
     budget <- ex_budget()
     plot_dat <- annual_loss_data()
@@ -3023,18 +3029,18 @@ server <- function(input, output, session) {
 
   output$ex1_description <- renderUI({
     ex1_desc_text <- fluidPage(
-      p('This exhibit shows the estimated annual loss across all filtered perils individually 
-        and also the sum of the perils (overall figure). As such the sum of the estimated 
+      p('This exhibit shows the estimated annual loss across all filtered perils individually
+        and also the sum of the perils (overall figure). As such the sum of the estimated
         losses of the individual perils at different return periods may differ to the associated overall figure.'),
-      p('A return period of 1 in 5 years is the estimated annual loss expected to happen 
-        once every 5 years, i.e. a 20% probability. Similarly, a return period of 1 in 10 
+      p('A return period of 1 in 5 years is the estimated annual loss expected to happen
+        once every 5 years, i.e. a 20% probability. Similarly, a return period of 1 in 10
         years is the estimated annual loss expected to happen once every 10 years, i.e. a 10% probability.'),
       p('When confidence intervals are turned on, the error bars show the 95% confidence interval for each return period.'),
       get_dynamic_text()
     )
   })
 
-  
+
   # Exhibit 2
   ############
 
@@ -3066,7 +3072,7 @@ server <- function(input, output, session) {
 
   # ----- Exhibit 2 Plot -----
   output$loss_exceedance_plotly <- renderPlotly({output_2_plot()})
-  
+
   output_2_plot <- reactive({
     budget <- ex_budget()
     sp <- paste0(input$select_peril, collapse = ', ')
@@ -3142,7 +3148,7 @@ server <- function(input, output, session) {
       y_title <- paste0('Annual Loss (Million ', ccy_code, ')')
       g <- ggplot(plot_dat, aes(x = Probability,
                                 y = `Total Loss`/scale_size,
-                                text = c(paste0("Probability: ", round(Probability * 100, 0), 
+                                text = c(paste0("Probability: ", round(Probability * 100, 0),
                                                 "%\n", paste0("Loss: ", paste(round(`Total Loss`/scale_size, 1), "mn")))),
                                 group = 1)) +
         geom_line(aes(color = "Probability")) +
@@ -3206,10 +3212,10 @@ server <- function(input, output, session) {
 
   output$ex2_description <- renderUI({
     ex2_desc_text <- fluidPage(
-      p('This exhibit shows the probability of a year taking place that exceeds the aggregate 
-        annual loss amount on the y-axis. The probability of exceeding the available budget 
+      p('This exhibit shows the probability of a year taking place that exceeds the aggregate
+        annual loss amount on the y-axis. The probability of exceeding the available budget
         is represented by the probability where the available budget line and the loss exceedance curve cross.'),
-      p('When confidence intervals are turned on, the two dotted lines either side of the 
+      p('When confidence intervals are turned on, the two dotted lines either side of the
         loss exceedance curve show the upper and lower bound of the 95% confidence interval.'),
       get_dynamic_text()
     )
@@ -3217,7 +3223,7 @@ server <- function(input, output, session) {
 
   # Exhibit 3
   ############
-  
+
   # ----- Exhibit 3 User toggle -----
   output$ex3_switch_ui <- renderUI({
     fluidRow(column(11, offset = 1,
@@ -3248,7 +3254,7 @@ server <- function(input, output, session) {
       severe <- 1 - (severe / 100)
       extreme <- input$extreme
       extreme <- 1 - (extreme / 100)
-      
+
       # get quantiles for severe and extreme probability
       output <- quantile(dat_sim$value,c(severe, extreme))
       annual_avg <- mean(dat_sim$value)
@@ -3269,24 +3275,24 @@ server <- function(input, output, session) {
       sub_plot_dat <- tibble("Average" = annual_avg,
                              "Severe" = output[1],
                              "Extreme" = output[2])
-      
-      sub_plot_dat <- pivot_longer(sub_plot_dat, cols = c("Average", "Severe", "Extreme"), 
+
+      sub_plot_dat <- pivot_longer(sub_plot_dat, cols = c("Average", "Severe", "Extreme"),
                                    names_to = "variable", values_to = "value")
-      
+
       sub_plot_dat$value_lower <- c(annual_avg_lower, output_lower[1], output_lower[2])
       sub_plot_dat$value_upper <- c(annual_avg_upper, output_upper[1], output_upper[2])
-      
+
       return(sub_plot_dat)
     }
   })
   #write.csv(sub_plot_dat, file = "/Users/stufraser/subplotdat.csv", row.names = FALSE)
 
-  
+
   # ----- Exhibit 3 Plot -----
   output$annual_loss_gap_plotly <- renderPlotly({
     output_3_plot()
   })
-  
+
   output_3_plot <- reactive({
     # get data from reactive object, where severe, extreme probabilities are taken into account.
     plot_dat <- annual_loss_gap_data()
@@ -3331,7 +3337,7 @@ server <- function(input, output, session) {
     return(fig)
   })
 
-  
+
   # ----- Exhibit 3 Table -----
   output$annual_loss_gap_tably <- DT::renderDataTable({
     x <- annual_loss_gap_data()
@@ -3339,7 +3345,7 @@ server <- function(input, output, session) {
       x$value <- round(x$value)
       x$value_lower <- round(x$value_lower)
       x$value_upper <- round(x$value_upper)
-      names_curr <- c(paste('Loss,',ccy_code), paste('Lower bound,', ccy_code), 
+      names_curr <- c(paste('Loss,',ccy_code), paste('Lower bound,', ccy_code),
                       paste('Upper bound,', ccy_code))
       names(x) <- c('Variable', names_curr)
       if (input$ci == 'Off') {
@@ -3360,7 +3366,7 @@ server <- function(input, output, session) {
   # # Output box for Severe probability
   # output$ex2_severe_prob <- renderValueBox({
   #   plot_dat <- annual_loss_gap_data()
-  # 
+  #
   #   severe_prob <-
   #     plot_dat %>%
   #       dplyr::filter(.data$variable == "Severe") %>%
@@ -3369,7 +3375,7 @@ server <- function(input, output, session) {
   #       dplyr::slice(1) %>%
   #       unname() %>%
   #       round(digits = 2)
-  # 
+  #
   #   valueBox(severe_prob,
   #            "Associated Loss (Million USD)",
   #            icon = NULL,
@@ -3377,11 +3383,11 @@ server <- function(input, output, session) {
   #            color = "red"
   #   )
   # })
-  # 
+  #
   # # Output box for Extreme probability
   # output$ex2_extreme_prob <- renderValueBox({
   #   plot_dat <- annual_loss_gap_data()
-  # 
+  #
   #   extreme_prob <-
   #     plot_dat %>%
   #       dplyr::filter(.data$variable == "Extreme") %>%
@@ -3390,7 +3396,7 @@ server <- function(input, output, session) {
   #       dplyr::slice(1) %>%
   #       unname() %>%
   #       round(digits = 2)
-  # 
+  #
   #   valueBox(extreme_prob,
   #            "Associated Loss (Million USD)",
   #            icon = NULL,
@@ -3398,22 +3404,25 @@ server <- function(input, output, session) {
   #            color = "red"
   #   )
   # }). REFACTORED BELOW::
-  
-  
+
+
   # ----- Exhibit 3 Value Boxes -----
-  
+
   # Helper function to process and extract the probability value
   get_prob_value <- function(variable_name, scale_size, data) {
-    data %>%
-      dplyr::filter(.data$variable == variable_name) %>%
-      dplyr::mutate(value = .data$value / scale_size) %>%
-      dplyr::slice(1) %>%
-      unname() %>%
+    
+    data |>
+      dplyr::filter(.data$variable == variable_name) |>
+      dplyr::mutate(value = .data$value / scale_size) |>
+      dplyr::select("value") |>
+      unlist() |>
+      unname() |>
       round(digits = 2)
     }
-  
+
   # General function to create a value box
   create_value_box <- function(variable_name, scale_size, data, color) {
+    
     prob_value <- get_prob_value(variable_name, scale_size, data)
     valueBox(prob_value,
              "Associated Loss (Million USD)",
@@ -3422,13 +3431,13 @@ server <- function(input, output, session) {
              color = color
     )
     }
-  
+
   # Output boxes
   output$ex2_severe_prob <- renderValueBox({
     plot_dat <- annual_loss_gap_data()
     create_value_box("Severe", scale_size, plot_dat, "red")
     })
-  
+
   output$ex2_extreme_prob <- renderValueBox({
     plot_dat <- annual_loss_gap_data()
     create_value_box("Extreme", scale_size, plot_dat, "red")
@@ -3480,11 +3489,11 @@ server <- function(input, output, session) {
 
   output$ex3_description <- renderUI({
     ex3_desc_text <- fluidPage(
-      p('This exhibit shows the estimated annual loss across all filtered perils 
-        individually and also the sum of the perils (overall figure). As such the sum 
-        of the estimated losses of the individual perils at different event severities 
+      p('This exhibit shows the estimated annual loss across all filtered perils
+        individually and also the sum of the perils (overall figure). As such the sum
+        of the estimated losses of the individual perils at different event severities
         may differ to the associated overall figure.'),
-      p('When confidence intervals are turned on, the error bars show the 95% confidence 
+      p('When confidence intervals are turned on, the error bars show the 95% confidence
         interval for each severity.'),
       p('The figures represented by the bars are generated from simulated data.'),
       get_dynamic_text()
@@ -3494,7 +3503,7 @@ server <- function(input, output, session) {
   #############
   # Exhibit 4 #
   #############
-  
+
   # ----- Exhibit 4 Plot -----
   output$loss_exceedance_gap_plotly <- renderPlotly({
     output_4_plot()
@@ -3549,9 +3558,9 @@ server <- function(input, output, session) {
       clr_breaks <- c('Probability')
       clr_values <- c('Probability' = "#ff0000")
       if (input$ci == 'On'){
-        g_ci_low <- geom_line(aes(`Probability of exceeding loss`, value_lower/scale_size, color = 'CI Lower'), 
+        g_ci_low <- geom_line(aes(`Probability of exceeding loss`, value_lower/scale_size, color = 'CI Lower'),
                               linetype = 'dotted')
-        g_ci_upp <- geom_line(aes(`Probability of exceeding loss`, value_upper/scale_size, color = 'CI Upper'), 
+        g_ci_upp <- geom_line(aes(`Probability of exceeding loss`, value_upper/scale_size, color = 'CI Upper'),
                               linetype = 'dotted')
         clr_breaks <- c(clr_breaks, 'CI Lower', 'CI Upper')
         clr_values <- c(clr_values, 'CI Lower' = '#000000', 'CI Upper' = '#000000')
@@ -3562,10 +3571,10 @@ server <- function(input, output, session) {
       }
       # Plot
       y_title <- paste0('Annual Funding Gap (Million ', ccy_code, ')')
-      g <-  ggplot(curve, 
+      g <-  ggplot(curve,
                    aes(x = `Probability of exceeding loss`,
                        y = `Funding gap`/scale_size,
-                       text = c(paste0("Probability: ", round(`Probability of exceeding loss` * 100, 0), 
+                       text = c(paste0("Probability: ", round(`Probability of exceeding loss` * 100, 0),
                                        "%\n", paste0("Funding Gap: ", paste(round(`Funding gap` / scale_size, 1), "m")))),
                        group = 1)) +
         geom_line(aes(color = "Probability")) +
@@ -3574,11 +3583,11 @@ server <- function(input, output, session) {
                            values = clr_values) +
         scale_x_reverse(labels = scales::percent_format(), position = 'top') +
         theme_classic()
-      
+
       g <- g + g_ci_low + g_ci_upp
-      
+
       fig <- plotly::ggplotly(g, tooltip = "text")
-      
+
       fig <- fig %>% layout(
         title = plot_title, font = font_title,
         yaxis = list(title = y_title, font = font_axis),
@@ -3597,13 +3606,13 @@ server <- function(input, output, session) {
 
   output$ex4_description <- renderUI({
     ex4_desc_text <- fluidPage(
-      p('This exhibit shows the probability of experiencing different sized funding gaps (the 
-        difference between the estimated aggregate annual cost and the available budget). When the 
-        line is above 0 it indicates a funding surplus. When the line is below 0 it indicates a 
-        funding deficit. The point at which the curve crosses 0 is the probability that the available 
+      p('This exhibit shows the probability of experiencing different sized funding gaps (the
+        difference between the estimated aggregate annual cost and the available budget). When the
+        line is above 0 it indicates a funding surplus. When the line is below 0 it indicates a
+        funding deficit. The point at which the curve crosses 0 is the probability that the available
         funds will be fully used.'),
       p('Hover over the line to find the probability of a particular funding gap occurring.'),
-      p('When confidence intervals are turned on, the two dotted lines either side of the loss 
+      p('When confidence intervals are turned on, the two dotted lines either side of the loss
         exceedance curve show the upper and lower bound of the 95% confidence interval.'),
       get_dynamic_text()
     )

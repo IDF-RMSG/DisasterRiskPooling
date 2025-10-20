@@ -135,12 +135,18 @@ get_aic_mle <- function(dat, updateProgress = NULL, data_type = "Historical", ye
     }
 
     if(bootstrap & too_short_indic == 0) {
+
       freq_boot <-
         fitdistrplus::bootdist(freq_dist, niter = 1000, bootmethod = "nonparam")
       # get bootstrap values
-      mle_param_list[["freq"]][[peril_name]] <- freq_boot$estim
-
       if(freq_dist$distname == "nbinom") {
+        freq_boot$estim <-
+          freq_boot$estim |>
+            dplyr::mutate(
+              mu = tidyr::replace_na(size, 0),
+              size = tidyr::replace_na(size, 1)
+            )
+
          mle_1_lower <- freq_boot$CI[1, "2.5%"]
          mle_1_upper <- freq_boot$CI[1, "97.5%"]
          mle_2_lower <- freq_boot$CI[2, "2.5%"]
@@ -154,6 +160,12 @@ get_aic_mle <- function(dat, updateProgress = NULL, data_type = "Historical", ye
 
        } else {
 
+         freq_boot$estim <-
+           dplyr::mutate(
+             freq_boot$estim ,
+             lambda = tidyr::replace_na(lambda, 0)
+           )
+
          freq_resample <-
            purrr::pmap(
              list(freq_boot$estim$lambda),
@@ -165,6 +177,9 @@ get_aic_mle <- function(dat, updateProgress = NULL, data_type = "Historical", ye
          mle_2_lower <- NA
          mle_2_upper <- NA
        }
+
+      mle_param_list[["freq"]][[peril_name]] <- freq_boot$estim
+
     } else {
       mle1_select <- NA
       mle2_select <- NA

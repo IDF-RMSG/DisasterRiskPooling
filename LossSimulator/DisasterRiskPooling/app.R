@@ -32,10 +32,12 @@ font_family <- "Raleway, sans-serif"
 font_title <- list(family = font_family, size = fontsize_title, color = font_colour)
 font_axis <- list(family = font_family, size = fontsize_axis, color = font_colour)
 
-button_style <- "color: white; background-color: #ff0000; font-weight: bold; 
+button_style <- "color: white; background-color: #ff0000; font-weight: bold;
 position: relative; text-align:center; border-radius: 6px; border-width: 2px"
 
 str_perils <- c("Drought", "Earthquake", "Flood", "Cyclone")
+
+colourList <- c("#ff0074", "#ff00e9", "#00053A", "#ff0000")
 
 str_tabs <- c('Data Selection', 'Data Manipulation', 'Simulations', 'Outputs')
 
@@ -73,13 +75,13 @@ sidebar <- dashboardSidebar(
   sidebarMenu(
     id = 'side_tab',
     menuItem(
-      text = 'About',
-      tabName = 'about'
-      ),
-    menuItem(
       text= "Use the Loss Simulator",
       tabName="main"
       ),
+    menuItem(
+      text = 'About',
+      tabName = 'about'
+    ),
     menuItem(
       text = 'User Guides',
       tabName = 'guides'
@@ -867,7 +869,7 @@ server <- function(input, output, session) {
                         y = ~ Cost,
                         type = "bar",
                         color = ~ Disaster,
-                        colors = c("#ff0000", "#ff00e9", "#00053A", "#000000"),
+                        colors = colourList,
                         marker = list(
                           line = list(
                             color = "gray40",
@@ -891,7 +893,7 @@ server <- function(input, output, session) {
           labels = ~Disaster,
           values = ~Cost,
           type = "pie",
-          marker = list(colors = c("#ff0000", "#ff00e9", "#00053A", "#000000"))
+          marker = list(colors = colourList)
         ) %>%
         plotly::layout(
           title = paste0("<b>plot_title: ", country_name),
@@ -1796,7 +1798,7 @@ server <- function(input, output, session) {
                     y = ~Cost,
                     type = "bar",
                     color = ~Disaster,
-                    colors = c("#ff0000", "#ff00e9", "#00053A", "#000000"),
+                    colors = colourList,
                     marker = list(
                       line = list(
                         color = "#000000",
@@ -1819,7 +1821,7 @@ server <- function(input, output, session) {
           labels = ~ Disaster,
           values = ~ Cost,
           type = "pie",
-          marker = list(colors = c("#ff0000", "#ff00e9", "#00053A", "#000000"))
+          marker = list(colors = colourList)
         ) %>%
         plotly::layout(
           title = paste0("<b>Processed Losses in ", country_name),
@@ -2480,10 +2482,10 @@ server <- function(input, output, session) {
       ioc <- c('Observed data', 'Simulated data')
     }
     else if (ioc == 'Observed data') {
-      fill_colours <- fill_colours[1]
+      fill_colours <- colourList[1]
     }
     else if (ioc == 'Simulated data') {
-      fill_colours <- fill_colours[2]
+      fill_colours <- colourList[2]
     }
     observed_data <-
       rd[[1]] %>%
@@ -3321,7 +3323,7 @@ server <- function(input, output, session) {
                               y = value/scale_size,
                               text = paste0("Loss: ", paste(format(round(value / 1e6, 1), trim = TRUE), "m")))) +
       geom_bar(stat = 'identity',
-               fill = c('#00053A', 'red', 'red'),
+               fill = c('#00053A', 'red', '#ff00e9'),
                col = c('#000000', '#000000',"#000000"),
                alpha = 1) +
       scale_x_discrete(labels = function(x) str_wrap(x, width = 15)) +
@@ -3410,7 +3412,7 @@ server <- function(input, output, session) {
 
   # Helper function to process and extract the probability value
   get_prob_value <- function(variable_name, scale_size, data) {
-    
+
     data |>
       dplyr::filter(.data$variable == variable_name) |>
       dplyr::mutate(value = .data$value / scale_size) |>
@@ -3422,7 +3424,7 @@ server <- function(input, output, session) {
 
   # General function to create a value box
   create_value_box <- function(variable_name, scale_size, data, color) {
-    
+
     prob_value <- get_prob_value(variable_name, scale_size, data)
     valueBox(prob_value,
              "Associated Loss (Million USD)",

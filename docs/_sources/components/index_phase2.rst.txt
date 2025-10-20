@@ -58,7 +58,6 @@ Guidance
 3. Now select the hazards (perils) from your catalogue that you want to cover in that country. These will show up in the structuring table in cells in A23 and B23.
 
  .. figure:: ../src_img/screenshots/step4_structure.png
-   :scale: 25%
    :alt: Financial Structure Input
 
    Financial Structure Input
@@ -82,7 +81,6 @@ Guidance
  The remaining parameters apply to both layer 1 and Layer 2.
 
  .. figure:: ../src_img/screenshots/step5_coverageLayers.png
-   :scale: 25%
    :alt: Setting coverage layers
 
    Setting coverage layers
@@ -130,7 +128,6 @@ Guidance
 4. Repeat this parameterisation for Layer 2
 
  .. figure:: ../src_img/screenshots/step5_coverageLayers2.png
-   :scale: 25%
    :alt: Setting coverage layers - layer 2
 
    Setting coverage layers - layer 2
@@ -156,17 +153,10 @@ Guidance
 
 
  .. figure:: ../src_img/guidanceimg/globalRiskPool.png
-   :scale: 25%
    :alt: Schematic of a risk pool
   
    Schematic of a risk pool
 
 
 5. When all steps are complete, make sure all of the data checks are green and click the 'Run Modelling' button to generate coverage results.
-
- .. figure:: ../src_img/screenshots/step5_Run.png
-   :scale: 25%
-   :alt: Run model
-
-   Run model
 

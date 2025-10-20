@@ -132,7 +132,6 @@ Guidance for using the Loss Simulator
  Choose country from the drop-down list
 
  .. figure:: ../src_img/screenshots/step2_1_input.png
-   :scale: 25%
    :alt: Data selection tab
 
    Data selection tab
@@ -153,7 +152,6 @@ Events are shown on the chart only if the impact metric is non-zero in the histo
 
 
  .. figure:: ../src_img/screenshots/step2_2_manual_input.png
-   :scale: 25%
    :alt: Advanced .csv file upload
 
    Advanced .csv file upload
@@ -164,7 +162,6 @@ Events are shown on the chart only if the impact metric is non-zero in the histo
  Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling. If manual input data is used, and does not attribute loss data to a specific year, it will not be possible to scale the losses. Manual input data can be scaled prior to input to the Loss Simulator.
 
  .. figure:: ../src_img/screenshots/step2_3_scaling.png
-   :scale: 25%
    :alt: Scaling options
 
    Scaling options
@@ -183,7 +180,6 @@ Events are shown on the chart only if the impact metric is non-zero in the histo
 
 
  .. figure:: ../src_img/screenshots/step2_5_simulations.png
-   :scale: 25%
    :alt: Simulation options
 
    Simulation options
@@ -197,7 +193,6 @@ Events are shown on the chart only if the impact metric is non-zero in the histo
  You can input a budget value to generate 'graph 4' exhibit to identify the annual funding gap. 
 
  .. figure:: ../src_img/screenshots/step2_7_outputs.png
-   :scale: 25%
    :alt: Simulation outputs
 
    Simulation outputs

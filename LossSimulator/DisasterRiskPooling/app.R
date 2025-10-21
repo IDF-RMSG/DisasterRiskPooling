@@ -263,8 +263,8 @@ server <- function(input, output, session) {
   # Download handler for peril data upload template
   output$peril_template_download <-
     downloadHandler(
-      filename = "manual_input_template.xlsx",
-      content = function(file) {file.copy("data/templates/manual_input_template.xlsx", file)}
+      filename = "manual_input_template.csv",
+      content = function(file) {file.copy("data/templates/manual_input_template.csv", file)}
       )
 
   # Download handler for peril data upload template

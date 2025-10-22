@@ -4,7 +4,7 @@ Phase 5: Optimising the pool
 ==========================================================
 
 
-.. figure:: ../src_img/guidanceimg/phase5.jpg
+.. figure:: ../src_img/guidanceimg/phase5.png
   :scale: 25%
   :alt: Phase 5 steps 
   

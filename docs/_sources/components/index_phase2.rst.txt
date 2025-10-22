@@ -3,7 +3,7 @@
 Phase 2: Setting your financial structure
 ==========================================================
 
-.. figure:: ../src_img/guidanceimg/phase2.jpg
+.. figure:: ../src_img/guidanceimg/phase2.png
   :scale: 25%
   :alt: Phase 2 steps 
 

@@ -3,7 +3,7 @@
 Phase 4: Emergency funding pool - financial analysis
 ==========================================================
 
-.. figure:: ../src_img/guidanceimg/phase4.jpg
+.. figure:: ../src_img/guidanceimg/phase4.png
   :scale: 25%
   :alt: Phase 4 steps 
 

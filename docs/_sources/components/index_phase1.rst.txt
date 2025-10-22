@@ -3,7 +3,7 @@
 Phase 1: Understanding the nature of the risks
 ==========================================================
 
-.. figure:: ../src_img/guidanceimg/phase1.jpg
+.. figure:: ../src_img/guidanceimg/phase1.png
   :scale: 25%
   :alt: Phase 1 steps
 

@@ -3,7 +3,7 @@
 Phase 3: Country risk - financial analysis
 ==========================================================
 
-.. figure:: ../src_img/guidanceimg/phase3.jpg
+.. figure:: ../src_img/guidanceimg/phase3.png
   :scale: 25%
   :alt: Phase 3 steps 
 

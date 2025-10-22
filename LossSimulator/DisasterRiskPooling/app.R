@@ -37,7 +37,11 @@ position: relative; text-align:center; border-radius: 6px; border-width: 2px"
 
 str_perils <- c("Drought", "Earthquake", "Flood", "Cyclone")
 
-colourList <- c("#ff0074", "#ff00e9", "#00053A", "#ff0000")
+colourList <- c("#ff0000", "#ff00e9", "#00053A", "#ff0074") 
+## "#ff0074" = IDF brand Red (not possible to use in some text boxes, so is replaced with "red")
+## "#ff00e9" = IDF brand Pink
+## "#00053A" = IDF brand Navy Blue, 
+## "#ff0000" = Black
 
 str_tabs <- c('Data Selection', 'Data Manipulation', 'Simulations', 'Outputs')
 

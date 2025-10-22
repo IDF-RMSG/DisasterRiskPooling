@@ -37,10 +37,10 @@ position: relative; text-align:center; border-radius: 6px; border-width: 2px"
 
 str_perils <- c("Drought", "Earthquake", "Flood", "Cyclone")
 
-colourList <- c("#ff0000", "#ff00e9", "#00053A", "#ff0074") 
+colourList <- c("#ff0000", "#ff00e9", "#00053A", "#ff0074")
 ## "#ff0074" = IDF brand Red (not possible to use in some text boxes, so is replaced with "red")
 ## "#ff00e9" = IDF brand Pink
-## "#00053A" = IDF brand Navy Blue, 
+## "#00053A" = IDF brand Navy Blue,
 ## "#ff0000" = Black
 
 str_tabs <- c('Data Selection', 'Data Manipulation', 'Simulations', 'Outputs')
@@ -1036,6 +1036,7 @@ server <- function(input, output, session) {
     # Update core data accordingly
     if (use_core_data_edited()){
       cdx <- core_data_edited$data
+      head(cdx)
     }
     else {
       cdx <- core_data()
@@ -1101,9 +1102,17 @@ server <- function(input, output, session) {
           "Country",
           "Peril",
           "Loss (USD)",
+          "Loss Type",
           "Min Year",
-          "Number of Years"
+          "Number of Years",
+          "Countries included",
+          "Perils included",
+          "Loss Summary (all perils all countries)",
+          "Value"
         )
+
+##      print(cdx_name)
+      print(exp_name)
 
       if (!identical(cdx_name, exp_name)) {
         err <-
@@ -1158,7 +1167,7 @@ server <- function(input, output, session) {
 
       cdx1 <-
         inFile$datapath %>%
-        readxl::read_xlsx(sheet = "data_upload") %>%
+        readxl::read_xlsx(sheet = "Historical_Loss_Data") %>%
         dplyr::select(- dplyr::contains("..."))
 
       data_info <-
@@ -1185,7 +1194,7 @@ server <- function(input, output, session) {
             "year" = "Year",
             "peril" = "Peril",
             "value" = "Loss (USD)",
-            "type" = "LossType"
+            "type" = "Loss Type"
           ) %>%
           dplyr::mutate(
                 peril =
@@ -2483,10 +2492,10 @@ server <- function(input, output, session) {
       ioc <- c('Observed data', 'Simulated data')
     }
     else if (ioc == 'Observed data') {
-      fill_colours <- colourList[1]
+      fill_colours <- fill_colours[1]
     }
     else if (ioc == 'Simulated data') {
-      fill_colours <- colourList[2]
+      fill_colours <- fill_colours[2]
     }
     observed_data <-
       rd[[1]] %>%

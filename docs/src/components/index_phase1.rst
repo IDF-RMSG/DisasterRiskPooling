@@ -228,7 +228,7 @@ Data Selection Tab (Advanced mode): users choosing to use a different data sourc
 
 Now you have a database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood.
 
-**Limitations:**   The Loss Simulator runs only type of input at a time. For example you cannot combine historical events _and_ modelled events for earthquake for a country. There is no consideration or estimation of correlation of losses between countries or perils in the Disaster Risk Pooling tool.**
+**Limitations:**   The Loss Simulator runs only type of input at a time. For example you cannot combine historical events _and_ modelled events for earthquake for a country. There is no consideration or estimation of correlation of losses between countries or perils in the Disaster Risk Pooling tool.
 
 
 In the next phase, you will use the Risk Pool Structuring tool to explore the principles of structuring a risk pool.

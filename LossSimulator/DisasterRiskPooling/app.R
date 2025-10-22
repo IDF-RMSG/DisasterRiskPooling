@@ -515,10 +515,9 @@ server <- function(input, output, session) {
     req(input$data_type)
     fluidPage(
       fluidRow(column(11, offset = 1,
-        p("Manual data must be uploaded with one entry row per event. Any cost-per-
-          person calculations must be done before the data is uploaded into this
-          tool. The tool can accept simulated event loss data or historical data, for any country.
-          Perils are restructed to quake, drought, flood, cyclone.")
+        p("Use this option to upload historical event loss data from another source. Include one row per event. 
+          Monetary loss in USD is required: any cost-per-person calculations must be done before data is uploaded.
+          Perils are restricted to earthquake, drought, flood, and cyclone.")
       )),
       fluidRow(column(11, offset = 1,
         downloadButton("peril_template_download", "Data Template")

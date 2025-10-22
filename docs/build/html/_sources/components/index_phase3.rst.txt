@@ -20,7 +20,7 @@ On the Financial Structure visualisation tab you can view how the coverage layer
    :scale: 25%
    :alt: Phase 3 steps 
 
-   Financial Structure visualisation tab
+   Financial Structure visualisation tab (Click to enlarge image)
 
 Guidance
 """"""""""""""""
@@ -49,7 +49,7 @@ Review the coverage and risk profile of each country you have in your risk pool 
    :scale: 25%
    :alt: Country Loss Analysis
 
-   Country Loss Analysis
+   Country Loss Analysis (Click to enlarge image)
  
 
 Guidance

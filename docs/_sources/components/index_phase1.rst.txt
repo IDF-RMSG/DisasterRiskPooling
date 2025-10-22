@@ -35,32 +35,30 @@ The first step is gathering data on past events for the risks to be included in 
 Guidance
 """"""""""""""""""
 
-**1. Identify which risks (hazard + country) to include in the risk pool:**
+**1. Identify which risks to include in the risk pool:**
 
-  Example: Zimbabwe – Drought. The risks included in the risk pool would receive guaranteed coverage if they occur in the future up to a pre agreed level of loss. 
+  A 'risk' refers to a combination of hazard and country historical data. 
+
+  Risks included in a risk pool are contractually covered by the risk pool and would receive guaranteed pay-outs upto a pre-agreed amount, if a loss was to occur for that hazard and country combination in the future. 
 
 
 **2. Build or locate a historical event catalog containing:**
 
-  1. Year
+  1. Year of Event
   2. Country
   3. Peril (Hazard)
-  4. Losses in US$ (any financial losses need to be converted to USD)
+  4. Loss Amount (for this tool, convert any financial losses (or response cost to USD)
 
   Data sources could include public loss databases (e.g., `EM-DAT <https://public.emdat.be/>`_), records from local stakeholders, and in-house or external models. Working with local agencies and stakeholders to identify and validate past data on events is key. 
 
+  The Loss Simulator tool includes EM-DAT data historical loss by default. The tool allows you to select a country and run that historical data through the simulation engine to prepare losses for use in the Disaster Risk Pool Structuring Tool (see Phase 2 Step 3 for more).
+
+
 **3. Identify possible sources of error:**
 
-  * Gaps in historical records
-  * Currency, inflation or misreporting
-  * Missing data for smaller events
-
-
-**4. Compile for each country and hazard risk, a separate input Excel file:**
-
-  A template is provided on `here on the Disaster Risk Pooling Tool GitHub <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadTemplate.xlsx>`_).
-   
-  An example of data is provided on `here on the Disaster Risk Pooling Tool GitHub <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_ (or `download directly <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_).
+  * Gaps in historical records, i.e., missing events or years of observation
+  * Use of different currency, and a need to scale for inflation, or misreporting of event information
+  * Missing data (for example for smaller events - their impacts are less likely to be recorded in a global historical loss data catalogue)
 
 
 
@@ -85,6 +83,7 @@ Knowing what gaps and limitations exist within your base event catalogue will gi
 
 
 
+
 Now you have a database of past event information on the risks that the pool will cover. This will provide information about the magnitude and frequency of those events and the overall likely financial need in total those types of crises may require. However, it will likely need some improvements using statistical techniques. 
 
 This is because, often, we will only have a small snapshot of those relationships and patterns, so we need ways to try to understand the broader relationship beyond the data we have for recorded events. The original dataset likely won't cover all potential events of interest (i.e. even rare ones that may occur once every 200 years) and therefore statistical techniques are used instead to re[resent what we can't see with our limited view. 
@@ -106,9 +105,12 @@ Step 2: Creating a Synthetic (Simulated) Loss Catalogue
 
 This step uses the online `Loss Simulator <https://idf-rmsg.shinyapps.io/DisasterRiskPooling>`_.
 
-This step is about how to use that information and try to project and understand more deeply the statistical patterns and likely probabilities of different events overall – this uses the tool to support creating a set of synthetic (or simulated) events. This will generate from a relatively small number of event entries (e.g., historical loss records) into tens of thousands of events losses, representing wider variability and extreme losses that do not appear in the historical record.
+This step shows how to use that information and to project, and better understand, the statistical patterns and likely probabilities of different events. 
 
-It is often difficult to understand long-term pattern of disaster impacts and losses because we typically  have a short duration of past event data. In some cases, there might only have two or three events with reliable data on impacts and losses. To address this, it is typical to create a stochastic set of events to model their impacts, or to statistically simulate a catalogue of losses. This essentially uses the patterns of available data to simulate the impacts of other statistically possible events, creating tens of thousands of simulated events. This makes understanding the long-term pattern of those events more statistically robust. 
+*The Loss Simulator creates a set of synthetic (or simulated) event losses, based on historical loss data.* 
+
+It is often difficult to understand long-term patterns of disaster impacts and losses because we typically have a short duration of recorded past event data. In some cases, there might only have two or three events with reliable data on impacts and losses. To address this, it is typical to create a stochastic set of events to model their impacts, or to statistically simulate a catalogue of losses.  A relatively small number of events in a historical catalogue can be used to simulate tens of thousands of event losses, representing wider variability than shown in the historical record, and extreme losses that have not been captured in the historical record.
+
 
 
 .. admonition:: Fundamental Principle
@@ -116,20 +118,27 @@ It is often difficult to understand long-term pattern of disaster impacts and lo
     **How reliable is our understanding of the magnitude frequency patterns?**
     Reviewing the quality of the event data available and the robustness of the distribution fitting will give decision-makers a clear idea of how reliable our knowledge of the magnitude frequency relationship is. This is important as the weight of the risk in the pool may be under or overestimated due to this. When it comes later on to assigning financial coverage to those risks, this would need to be a consideration alongside the nature of the risk depicted in the distribution. 
 
-    There are two kinds of catalogs that can be inputted. These include historical catalogs, where the base data you are inputting has come from recorded historical events. The second are catalogs which have already been generated by a model. In this case you may be using the tool to align to the 15 thousand years of events that this tool provides, to check the curve fitting or to convert the output into the format needed for the Risk Pool Structuring tool.
-
-  The Loss Simulator allows you to only run one type of input at a time. For example you cannot combine historical events _and_ modelled events for earthquake in Chile. 
-You also cannot add both a modelled simulated catalog and an historic simulated catalog for the same country peril in the Risk Pool Structuring tool. Currently it is either or for each country's risk. However, if different risks and countries you can use a mixture in the Risk Pool Structuring Tool (i.e modelled simulation for drought in Mali and simulation based on historical data for flood in Colombia).
 
 
 
 Guidance for using the Loss Simulator
 """""""""""""""""""""""""""""""""""""""""""""
 
-1. Data Selection Tab
+The Loss Simulator can be run in Basic Mode or Advanced Mode. It is recommended to begin with Basic Mode.
+ 
 
- Choose Advanced or Basic Input.
- Choose country from the drop-down list
+1. Data Selection Tab (Basic Mode)
+
+ This mode uses country input data pre-loaded into the Loss Simulator, from the EM-DAT global historical loss data catalogue
+ 
+ Select your country of analysis.
+
+ Select the impact metric you wish to use in the loss simulation. Your selection here determines the metric shown in the outputs and download for use in investigating the risk pool structure.
+ If using the simulated losses in a risk pool structure, use the same impact metric for all countries.  
+
+ If 'People Affected Response Cost' is selected, there is an option to set the response cost per person. This value converts the number of people affected per event in EM-DAT, to a response cost per event. A response cost can be estimated using the average loss per person in the historical data where both are available, or there may be an otherwise established / estimated cost per person for the country.
+
+ The chart / table shows the annual response cost or economic damage per peril for the selected country, as given in EM-DAT. The frequency of events can also be shown. Events are shown on the chart only if the impact metric is non-zero in the historical loss catalogue. It is common for events to have a zero loss for Economic Damage and non-zero loss for people affected - therefore the number of events displayed will differ by impact metric selected. **The metric type shown on this chart when you navigate to the next step (click 'Next'), will be the metric used in the rest of the analysis.**
 
  .. figure:: ../src_img/screenshots/step2_1_input.png
    :alt: Data selection tab
@@ -137,46 +146,50 @@ Guidance for using the Loss Simulator
    Data selection tab
 
 
- In advanced mode, upload your Excel/CSV file of historical events (completed in step 1). A graph of uploaded data appears at the bottom for validation.
 
- Set the cost per person you wish to set (this can be identified using the average loss per person in the historical loss (where both are available), or there may be an established cost per person you may be using or already established for the country and risk).
-
- Select the data type and the metrics which you would like to displayed on the chart. 
-Events are shown on the chart only if the impact metric is non-zero in the historical loss catalogue. It is common for events to have a zero loss for Economic Damage and non-zero loss for people affected - therefore the number of events displayed will differ by impact metric selected.
-
-**The metric type shown on this chart when you navigate to the next step (click 'Next'), will be the metric used in the rest of the analysis.**
 
 .. admonition:: Fundamental Principal
 
    The more historical event data you have from historical catalogs, the more robust the simulations will be to give the view of risk and the magnitude/frequency relationship. If only a small number of historical event information data points are available, there will be significant uncertainty in your financial risk modelling. This uncertainty increases if events close to your later attachment/trigger points are not well represented. Exercise caution in these cases as it may not be sensible to include risks based on such small amounts of data in the pool because they may not capture the potential funding liabilities. 
+	
+
+
+
+
+Data Selection Tab (Advanced mode): users choosing to use a different data source than provided in Basic Mode can upload their own event loss data using the Excel template provided along with a manual upload option, when Advanced Mode is selected. A graph of uploaded data appears at the bottom for validation, in the same way as it does on Basic Mode.
 
 
  .. figure:: ../src_img/screenshots/step2_2_manual_input.png
    :alt: Advanced .csv file upload
 
-   Advanced .csv file upload
+   Advanced Mode offering data upload - also showing the manual input file format
 
 
-2. Scaling
 
- Choose from the drop down menu of the scaling and trending data you want to include in your data set - Population, inflations, GDP or no scaling. If manual input data is used, and does not attribute loss data to a specific year, it will not be possible to scale the losses. Manual input data can be scaled prior to input to the Loss Simulator.
+2. Scaling (Basic Mode)
+
+ The historical data can be scaled to reflect the impact of changing socio-economic conditions. In Basic Model the default is that the data is scaled by Popoulation using data pre-loaded in the Loss Simulator. This provides a scaling factor per year, which is applied to the original historical loss data. 
+
+ The plot of 'Final Data' shows the scaled loss data.
 
  .. figure:: ../src_img/screenshots/step2_3_scaling.png
    :alt: Scaling options
 
    Scaling options
 
- The graph now shows the de-trended results.
+
+ In advanced mode there are more options to scale data by inflation or GDP, or use no scaling. Manual input data must attribute each loss to a specific year for scaling to be applied. If input data are scaled prior to input into the Loss Simulator., select 'no scaling' here.
 
 
 3. Simulation
 
- Click Run Tool (this could take up to 5 minutes).
+ Click Run Tool to simulate event losses from the historical data. *This could take up to 5 minutes)*.
 
+ In both Basic mode and Advanced mode the tool fits multiple statistical distributions for loss amount (severity) and selects the distribution with the best possible fit to the data. The severity distributions tested by default are Lognormal, Gamma and Weibull. 
 
- In both Basic mode and Advanced mode the tool fits multiple statistical distributions for loss amount (severity) and selects the distribution with the best possible fit to the data. The severity distributions tested by default are Lognormal, Gamma and Weibull. In Advanced mode you can change the distribution selection - but it is advised to only do this with expert support. For frequency of losses the tool tests the Poisson distribution assumption that sample variance equals the mean. If this is true in the data, Poisson frequency is used but where variance is less than the mean then the Negative Binomial frequency distribution is used.
+ In Advanced mode you can change the distribution selection - but it is advised to only do this with expert support. 
 
- The graph can display for each risk a display of the fitted distribution based on the observed data that was inputted, the simulated events through the model and both combined.
+ For frequency of losses the tool tests the Poisson distribution assumption that sample variance equals the mean. If this is true in the data, Poisson frequency is used but where variance is less than the mean then the Negative Binomial frequency distribution is used.
 
 
  .. figure:: ../src_img/screenshots/step2_5_simulations.png
@@ -184,29 +197,41 @@ Events are shown on the chart only if the impact metric is non-zero in the histo
 
    Simulation options
 
+
    
 4. Outputs
 
- Select each risk to see the simulated losses.
- Toggle 95% confidence intervals to see the range of uncertainty at each return period.
- The tool also provides graphs and other exhibits (e.g., estimated annual losses, loss exceedance curves, tables of return periods, comparisons of distributions).
- You can input a budget value to generate 'graph 4' exhibit to identify the annual funding gap. 
+ The 'Outputs' tab provides four exhibits from which to understand the simulated losses. Each exhibit provides a plot and a table of data. 
+
+ Options:
+  1. Select which of the perils to view in the outputs. 
+  2. Toggle 95% confidence intervals to see the range of uncertainty at each return period.  3. Enter a budget amount to compare losses to a budget.
+ 
+
+ The exhibits show:
+  1. Estimated annual losses for the country and peril(s) from the historical catalogue and the simulations. Return Period loss estimates are also shown from the simulated losses.  
+  2. The Loss Exceedance curve from the simulated losses, with probability of exceeding the defined budget. 
+  3. Average annual loss by likelihood - by defining a probability threshold for a 'severe' and 'extreme' loss, users can estimate what that level of loss looks like in terms of monetary amount.
+  4. Estimate of annual funding gap, based on comparison of the simulated loss severity and frequency, and the defined budget.
+
+ Download Simulations to save your new synthetic event catalog in the format needed for input into the Risk Pool Structuring tool. The data in this .csv file will need to be copied into the 'Country Input' sheets of the Risk Pool Structuring Tool. 
+
 
  .. figure:: ../src_img/screenshots/step2_7_outputs.png
    :alt: Simulation outputs
 
-   Simulation outputs
+   Simulation outputs tab. Guidance on each exhibit is provided below the plot.
 
 
- Download Simulations to save your new synthetic event catalog in the format needed for input into the Risk Pool Structuring tool (an Excel workbook).
 
 
 
 Now you have a database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood.
-**Limitation: There is no consideration or estimation of correlation of losses between countries or perils in the Disaster Risk Pooling tool.**
+
+**Limitations:**   The Loss Simulator runs only type of input at a time. For example you cannot combine historical events _and_ modelled events for earthquake for a country. There is no consideration or estimation of correlation of losses between countries or perils in the Disaster Risk Pooling tool.**
 
 
-In the next phase, you will add this data to the Risk Pool Structuring tool to explore the principles of structuring a risk pool.
+In the next phase, you will use the Risk Pool Structuring tool to explore the principles of structuring a risk pool.
 
 
 

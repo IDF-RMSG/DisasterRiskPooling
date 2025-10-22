@@ -515,7 +515,7 @@ server <- function(input, output, session) {
     req(input$data_type)
     fluidPage(
       fluidRow(column(11, offset = 1,
-        p("Use this option to upload historical event loss data from another source. Include one row per event. 
+        p("Use this option to upload historical event loss data from another source. Include one row per event.
           Monetary loss in USD is required: any cost-per-person calculations must be done before data is uploaded.
           Perils are restricted to earthquake, drought, flood, and cyclone.")
       )),
@@ -881,7 +881,7 @@ server <- function(input, output, session) {
                        yaxis = list(title = y_title, font = font_axis),
                        xaxis = list(title = "", autotick = F, dtick = 1, font = font_axis),
                        barmode = "stack",
-                       legend = list(orientation = "h", xanchor = "center", x = 0.5))
+                       legend = list(orientation = "h", xanchor = "center", x = 0.5, y=-0.3))
 
     } else {
 
@@ -2435,32 +2435,29 @@ server <- function(input, output, session) {
       }
     )
 
-  # Create table of simulations for exporting into Tool 2 ####AMES
+  # Create table of simulations for exporting into Risk Pooling spreadsheet
   get_sims_export <- reactive({
-
-
-
     country_select <-
       if (input$data_type == 'Manual Input') {upload_name()} else {input$country}
 
       ran_simulations()$Event %>%
         dplyr::rename(
-          "Simulation Number" = "year",
-          "Loss (USD)" = "value",
-          "Peril" = "key"
+          "Event Year" = "year",
+          "Peril" = "key",
+          "Loss (USD)" = "value"
         ) %>%
         dplyr::mutate(
           `Event ID` = dplyr::row_number(),
-          Region = country_select,
-          Type = "Occurrence"
+          Country = country_select,
+          `Loss Type` = "Occurrence"
         ) %>%
         dplyr::select(
-          "Simulation Number",
-          "Type",
+          "Event Year",
           "Event ID",
-          "Region",
+          "Country",
           "Peril",
-          "Loss (USD)"
+          "Loss (USD)",
+          "Loss Type"
         )
 
   })
@@ -2760,7 +2757,7 @@ server <- function(input, output, session) {
   output$budget_ui <- renderUI({
     fluidRow(column(11, offset = 1,
       numericInput('budget',
-                   paste0('Budget ', ccy_code, 'millions'),
+                   paste0('Budget (', ccy_code, ' millions)'),
                    min = 0,
                    step = 5,
                    value = 0),
@@ -3610,10 +3607,12 @@ server <- function(input, output, session) {
     ex4_desc_text <- fluidPage(
       p('This exhibit shows the probability of experiencing different sized funding gaps (the
         difference between the estimated aggregate annual cost and the available budget). When the
-        line is above 0 it indicates a funding surplus. When the line is below 0 it indicates a
-        funding deficit. The point at which the curve crosses 0 is the probability that the available
+        line is above 0 it indicates a funding surplus. When the line is below zero it indicates a
+        funding deficit. The point at which the curve crosses zero is the probability that the available
         funds will be fully used.'),
+      br(),
       p('Hover over the line to find the probability of a particular funding gap occurring.'),
+      br(),
       p('When confidence intervals are turned on, the two dotted lines either side of the loss
         exceedance curve show the upper and lower bound of the 95% confidence interval.'),
       get_dynamic_text()

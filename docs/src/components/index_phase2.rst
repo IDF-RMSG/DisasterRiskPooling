@@ -28,7 +28,7 @@ Guidance for using the Risk Pool Structuring tool
    :scale: 25%
    :alt: Country data input - repeat for all countries you are including in the pool
 
-   Country data input - repeat for all countries you are including in the pool
+   Country data input - repeat for all countries you are including in the pool (Click to enlarge image)
 
    
 2. Paste in the columns from your downloaded synthetic CSV for your first country event and simulated data set with the headers: Simulation, Type, Event ID, Region, Peril, and Financial Loss (USD)
@@ -60,7 +60,7 @@ Guidance
  .. figure:: ../src_img/screenshots/step4_structure.png
    :alt: Financial Structure Input
 
-   Financial Structure Input
+   Financial Structure Input (Click to enlarge image)
 
 
 Step 5: Set the Coverage Layers
@@ -83,7 +83,7 @@ Guidance
  .. figure:: ../src_img/screenshots/step5_coverageLayers.png
    :alt: Setting coverage layers
 
-   Setting coverage layers
+   Setting coverage layers (Click to enlarge image)
 
 
 2. Define Average cost of payout per person

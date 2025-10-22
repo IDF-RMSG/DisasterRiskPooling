@@ -28,7 +28,7 @@ Guidance
    :scale: 25%
    :alt: Total liability on the pool
 
-   Total liability on the pool
+   Total liability on the pool (click to enlarge image) 
 
 
 
@@ -55,8 +55,7 @@ The images below illustrate these concepts.
    Schematic of a risk pool with insurance
 
  .. figure:: ../src_img/guidanceimg/retentionToTransfer.jpg
-   :scale: 25%
-   :alt: Retention and Risk transfer layers
+   :alt: Retention and Risk transfer layers and their application to different types of events 
   
    Retention and Risk transfer layers
 

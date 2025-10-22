@@ -11,14 +11,13 @@ The Risk Pool Structuring Tool demonstrates how the processes of risk pooling an
 
 Contents
 ---------------------------------------------------------------
-* the Excel workbook Risk Pool Structuring Tool in which users can enter modelled and non-modelled loss data for multiple hazards (perils) and countries, then investigate how the risk can be accumulate and diversify within different structures of a risk pool. See file: 'RiskPoolingTool_main_v*.xlsb'
-* A template, with example data, for creating modelled losses: 'RiskPoolingTool_UploadTemplate.xlsx'
+* The Excel workbook Risk Pool Structuring Tool in which users can enter modelled and non-modelled loss data for multiple hazards (perils) and countries, then investigate how the risk can be accumulate and diversify within different structures of a risk pool. See file: 'RiskPoolingTool_main_v*.xlsb'
 * Step-by-step guidance on using the tool at: https://idf-rmsg.github.io/DisasterRiskPooling/index.html
 
 
 Instructions
 ---------------------------------------------------------------
-1.	Paste in loss data generated using the Loss Curve Generator tool, or from risk model Year Loss Table output files, for up to five countries in the respective tabs 'Country * Data Input'							
+1.	Paste in loss data generated using the Loss Curve Generator tool, or from risk model output files, for up to five countries in the respective tabs 'Country * Data Input'							
 2.	Enter the countries you wish to cover at the top of the page in the Financial Structure Input tab (note these countries are the same countries for which you'd need to paste the model output
 3.	Enter the perils you wish to cover for these countries in the Financial Structure Input Tab
 4.	Enter the terms of the risk pool and relevant layers

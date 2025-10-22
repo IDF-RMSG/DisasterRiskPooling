@@ -1101,6 +1101,7 @@ server <- function(input, output, session) {
           "Country",
           "Peril",
           "Loss (USD)",
+          "Loss Type",
           "Min Year",
           "Number of Years"
         )

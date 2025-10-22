@@ -261,8 +261,8 @@ server <- function(input, output, session) {
   # Download handler for peril data upload template
   output$peril_template_download <-
     downloadHandler(
-      filename = "manual_input_template.xlsx",
-      content = function(file) {file.copy("data/templates/manual_input_template.xlsx", file)}
+      filename = "LossSimulator_uploadTemplate.xlsx",
+      content = function(file) {file.copy("data/templates/LossSimulator_uploadTemplate.xlsx", file)}
       )
 
   # Download handler for peril data upload template
@@ -1053,7 +1053,7 @@ server <- function(input, output, session) {
       {
         shiny::req(input$ownFile, input$data_type)
         inFile <- input$ownFile
-        cdx3 <- readxl::read_xlsx(inFile$datapath, sheet = "data_upload")
+        cdx3 <- readxl::read_xlsx(inFile$datapath, sheet = "Historical_Loss_Data")
         upload_country <- unique(cdx3$Country)
         return(upload_country)
     }
@@ -1077,7 +1077,7 @@ server <- function(input, output, session) {
       }
 
       sheet_check <-
-        any(grepl("data_upload", readxl::excel_sheets(inFile$datapath)))
+        any(grepl("Historical_Loss_Data", readxl::excel_sheets(inFile$datapath)))
 
       if(!sheet_check){
         err <- 'Workbook not uploaded, data input sheet is missing'
@@ -1085,7 +1085,7 @@ server <- function(input, output, session) {
       }
 
       cdx1 <-
-        readxl::read_xlsx(inFile$datapath, sheet = "data_upload") %>%
+        readxl::read_xlsx(inFile$datapath, sheet = "Historical_Loss_Data") %>%
           dplyr::select(- dplyr::contains("..."))
 
       cdx_name <- names(cdx1)
@@ -1179,7 +1179,8 @@ server <- function(input, output, session) {
             "country" = "Country",
             "year" = "Year",
             "peril" = "Peril",
-            "value" = "Loss (USD)"
+            "value" = "Loss (USD)",
+            "type" = "LossType"
           ) %>%
           dplyr::mutate(
                 peril =

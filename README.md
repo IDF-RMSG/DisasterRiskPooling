@@ -14,3 +14,10 @@ The Disaster Risk Pooling Tool comprises:
 1. **Step-by-step user guide** (branch 'gh-pages'): https://idf-rmsg.github.io/DisasterRiskPooling/. This guide should be read before using any of the tools.
 2. **Loss Simulator**: An R-Shiny interface which enables users to pull data from online historical disaster loss catalogues, trend them according to population change for example, and then export modelled loss curves for use in the risk pooling spreadsheet in the next step. See folder 'LossSimulator' for the code. This app is deployed at: https://idf-rmsg.shinyapps.io/DisasterRiskPooling
 3. **Risk Pool Structuring**: An Excel spreadsheet which ingests losses from the Loss Simulator and can be used to test the effect of different risk pool structures. See folder 'RiskPoolStructuring'.
+
+
+Updating and Deploying:
+--------------------------
+Push future changes to `Develop` branch for testing and review. Run the app locally in RStudio to test the changes.
+When confirmed changes perform well and have been reviewed, push to main. The published version of the app should come from `main` branch.
+All branches require Pull Requests before merging.

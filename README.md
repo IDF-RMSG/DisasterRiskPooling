@@ -19,5 +19,5 @@ The Disaster Risk Pooling Tool comprises:
 Updating and Deploying:
 --------------------------
 Push future changes to `Develop` branch for testing and review. Run the app locally in RStudio to test the changes.
-When confirmed changes perform well and have been reviewed, push to main. The published version of the app should come from `main` branch.
+When confirmed changes perform well and have been reviewed, push to `main`. The published version of the app should come from `main` branch.
 All branches require Pull Requests before merging.

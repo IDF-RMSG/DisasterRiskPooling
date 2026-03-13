@@ -9,7 +9,7 @@ Phase 1: Understanding the nature of the risks
 
 
 
-Before adding risks to the pool and add funding coverage against them, there are a number of decisions or areas of understanding and prioritisation that have to be established outside of the tool and the calculation. 
+Before adding risks to the pool and adding funding coverage against them, there are a number of decisions or areas of understanding and prioritisation that have to be established outside of the tool and the calculation. 
 
 **What risks should be covered financially and include in the pool?**
 The risks to cover will likely be different for all organisations and will be dependent on several factors. This may be depend on the risks and impacts that a country has prioritised. It may include looking at the operational systems that are ready to utilise the money effectively in emergencies. How those country risks are identified will require decision-making criteria on those being prioritised for coverage. 
@@ -150,7 +150,7 @@ The Loss Simulator can be run in Basic Mode or Advanced Mode. It is recommended 
 
 .. admonition:: Fundamental Principal
 
-   The more historical event data you have from historical catalogs, the more robust the simulations will be to give the view of risk and the magnitude/frequency relationship. If only a small number of historical event information data points are available, there will be significant uncertainty in your financial risk modelling. This uncertainty increases if events close to your later attachment/trigger points are not well represented. Exercise caution in these cases as it may not be sensible to include risks based on such small amounts of data in the pool because they may not capture the potential funding liabilities. 
+   The more historical event data you have from historical catalogs, the more robust the simulations will be to give the view of risk and the magnitude/frequency relationship. If only a small number of historical event information data points are available, there will be significant uncertainty in your financial risk modelling. This uncertainty increases if events close to your layer attachment/trigger points are not well represented. Exercise caution in these cases as it may not be sensible to include risks based on such small amounts of data in the pool because they may not capture the potential funding liabilities. 
 	
 
 
@@ -168,7 +168,7 @@ Data Selection Tab (Advanced mode): users choosing to use a different data sourc
 
 2. Scaling (Basic Mode)
 
- The historical data can be scaled to reflect the impact of changing socio-economic conditions. In Basic Model the default is that the data is scaled by Popoulation using data pre-loaded in the Loss Simulator. This provides a scaling factor per year, which is applied to the original historical loss data. 
+ The historical data can be scaled to reflect the impact of changing socio-economic conditions. In the Basic Model the default is that the data is scaled by Population using data pre-loaded in the Loss Simulator. This provides a scaling factor per year, which is applied to the original historical loss data. 
 
  The plot of 'Final Data' shows the scaled loss data.
 
@@ -205,7 +205,8 @@ Data Selection Tab (Advanced mode): users choosing to use a different data sourc
 
  Options:
   1. Select which of the perils to view in the outputs. 
-  2. Toggle 95% confidence intervals to see the range of uncertainty at each return period.  3. Enter a budget amount to compare losses to a budget.
+  2. Toggle 95% confidence intervals to see the range of uncertainty at each return period.
+  3. Enter a budget amount to compare losses to a budget.
  
 
  The exhibits show:
@@ -228,8 +229,8 @@ Data Selection Tab (Advanced mode): users choosing to use a different data sourc
 
 Now you have a database of observed and simulated crisis events and their losses, from which the patterns of magnitude and severity can be better understood.
 
-**Limitations:**   The Loss Simulator runs only type of input at a time. For example you cannot combine historical events _and_ modelled events for earthquake for a country. There is no consideration or estimation of correlation of losses between countries or perils in the Disaster Risk Pooling tool.
-
+**Limitations:**
+The Loss Simulator and Disaster Risk Structuring tool do not consider or estimate correlation of losses between perils. 
 
 In the next phase, you will use the Risk Pool Structuring tool to explore the principles of structuring a risk pool.
 

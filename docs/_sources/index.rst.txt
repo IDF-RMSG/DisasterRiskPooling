@@ -4,11 +4,11 @@ Disaster Risk Pooling tool
 Introduction 
 --------------------
 
-The Disaster Risk Pooling tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Maximum Information <https://www.maxinfo.io/>`_ and the `World Bank Group's Finance, Competitiveness & Investment team <https://www.worldbank.org/en/about/unit/fci>`_.  
+The Disaster Risk Pooling tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Maximum Information <https://www.maxinfo.io/>`_ and the World Bank Disaster Risk Finance team under the Financial Services global department.  
 
 This is a free and open-source tool with code available on the `GitHub repository <https://github.com/idf-rmsg/DisasterRiskPooling>`_. 
 
-The Disaster Risk Pooling tool introduces how to model and structure financial risk for a disaster pool covering multiple hazards (e.g., floods, droughts, earthquakes) and multiple geographies. It comprises the `Loss Simulator tool <https://idf-rmsg.shinyapps.io/DisasterRiskPooling/>`_ to create and analyse synthetic event losses from historical data, and the `Risk Pooling tool <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/RiskPoolStructuring/RiskPoolingTool_main_v20250805.xlsb>`_ to analyse risk pool structures.
+The Disaster Risk Pooling tool introduces how to model and structure financial risk for a disaster pool covering multiple hazards (e.g., floods, droughts, earthquakes) and multiple geographies. It comprises the `Loss Simulator tool <https://idf-rmsg.shinyapps.io/DisasterRiskPooling/>`_ to create and analyse synthetic event losses from historical data, and the `Risk Pool Structuring tool <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/RiskPoolStructuring/RiskPoolingTool_main_v20250805.xlsb>`_ to analyse risk pool structures.
 
 The central purpose of this tool is educational, serving as an introduction to the different considerations that go into modelling financial risk within funds. The tool demonstrates how the processes of risk pooling and funding can be structured efficiently and responsibly even with events being highly uncertain year to year. It has been developed to support users to better understand the risk of climate and disaster losses and use of risk pools in response to requests in the development and humanitarian sectors for better understanding of these aspects.
 

@@ -61,8 +61,6 @@ Guidance
 
 3. Define Event Type in cell D6: select “Event” if you want the analysis to look at the data event by event or select “Yearly” to group together all events that happen in a year. 
 
-4. The sheet displays a graph of the losses by percentile and the accompanying.
-
 5. Adjust the graph scale in in cells A11, B11, D11 and E11. 
 
 6. Review the total country loss for all of the risks for that country (red line) and loss to layer 1 (yellow solid line) and layer 2 (blue solid line).

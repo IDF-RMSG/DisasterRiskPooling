@@ -4,11 +4,11 @@ Disaster Risk Pooling tool
 Introduction 
 --------------------
 
-The Disaster Risk Pooling tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Maximum Information <https://www.maxinfo.io/>`_ and the `World Bank Group's Finance, Competitiveness & Investment team <https://www.worldbank.org/en/about/unit/fci>`_.  
+The Disaster Risk Pooling tool is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Maximum Information <https://www.maxinfo.io/>`_ and the World Bank Disaster Risk Finance team under the Financial Services global department.  
 
 This is a free and open-source tool with code available on the `GitHub repository <https://github.com/idf-rmsg/DisasterRiskPooling>`_. 
 
-The Disaster Risk Pooling tool introduces how to model and structure financial risk for a disaster pool covering multiple hazards (e.g., floods, droughts, earthquakes) and multiple geographies. It comprises the `Loss Simulator tool <https://idf-rmsg.shinyapps.io/DisasterRiskPooling/>`_ to create and analyse synthetic event losses from historical data, and the `Risk Pooling tool <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/RiskPoolStructuring/RiskPoolingTool_main_v20250805.xlsb>`_ to analyse risk pool structures.
+The Disaster Risk Pooling tool introduces how to model and structure financial risk for a disaster pool covering multiple hazards (e.g., floods, droughts, earthquakes) and multiple geographies. It comprises the `Loss Simulator tool <https://idf-rmsg.shinyapps.io/DisasterRiskPooling/>`_ to create and analyse synthetic event losses from historical data, and the `Risk Pool Structuring tool <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/RiskPoolStructuring/RiskPoolingTool_main_v20250805.xlsb>`_ to analyse risk pool structures.
 
 The central purpose of this tool is educational, serving as an introduction to the different considerations that go into modelling financial risk within funds. The tool demonstrates how the processes of risk pooling and funding can be structured efficiently and responsibly even with events being highly uncertain year to year. It has been developed to support users to better understand the risk of climate and disaster losses and use of risk pools in response to requests in the development and humanitarian sectors for better understanding of these aspects.
 
@@ -32,15 +32,15 @@ By illustrating how risk pooling and funding can be set up with well-defined pay
    World Bank case studies and resources: `Disaster Risk Finance | Global Facility for Disaster Reduction and Recovery <https://www.gfdrr.org/en/disaster-risk-finance>`_ and `Financial Protection Forum <https://www.financialprotectionforum.org/>`_
 
 
-The tool guides those responsible for emergency fund allocations to take them through the steps of constructing structured disaster financing, exploring what the tool and technical calculations can support in terms of understanding and the additional decision-making required.
+The tool guides those responsible for emergency fund allocations through the steps of constructing structured disaster financing, exploring what technical calculations can support in terms of understanding benefits and limitations of financial structures, and the additional decision-making required outside of the tool.
 
 
 
 .. figure:: src_img/guidanceimg/RPTschematic.png
   :scale: 25%
-  :alt: Schematic of Risk Pooling Tool combining risks across multiple perils and geographies 
+  :alt: Schematic of the Disaster Risk Pooling Tool combining risks across multiple perils and geographies 
   
-  Risk Pooling Tool combining risks across multiple perils and geographies
+  The Disaster Risk Pooling Tool combining risks across multiple perils and geographies
 
 
 
@@ -59,19 +59,19 @@ Those managing a risk pool want to understand the liability that different kinds
 
 **Phase 2: Setting Your Financial Structure:**
 
-Now that those patterns are better understood, the user can select what risks to include in the pool and how you want to arrange the funding to set guaranteed payments for specific crises based on risk triggers. In this phase, we look at parameterising and setting constraining rules on the funding. Phase 2 covers layering, attachments, and exhaustion points for coverage layers of the pool, and is conducted in the `Risk Pooling tool <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/RiskPoolStructuring/RiskPoolingTool_main_v20250805.xlsb>`_.
+Now that those patterns are better understood, the user can select what risks to include in the pool and how you want to arrange the funding to set guaranteed payments for specific crises based on risk triggers. In this phase, we look at parameterising and setting constraining rules on the funding. Phase 2 covers layering, attachments, and exhaustion points for coverage layers of the pool, and is conducted in the `Risk Pool Structuring tool <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/RiskPoolStructuring/RiskPoolingTool_main_v20250805.xlsb>`_.
 
 **Phase 3: Country/Risk - Financial Analysis:**
 
-Once the financial structure has been set and the tool run, it presents results for each country in the user's risk pool, demonstrating the level of coverage from different layers, limits, and shapes. This allows you to compare the amount of prepositioned funding compared to the overall funding need and any gap in funding, or "protection gap". Phase 3 allows for a review of the coverage for each country-risk to ensure it aligns with operational objectives, again in the `Risk Pooling tool <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/RiskPoolStructuring/RiskPoolingTool_main_v20250805.xlsb>`_.
+Once the financial structure has been set and the tool run, it presents results for each country in the user's risk pool, demonstrating the level of coverage from different layers, limits, and shapes. This allows you to compare the amount of prepositioned funding compared to the overall funding need and any gap in funding, or "protection gap". Phase 3 allows for a review of the coverage for each country-risk to ensure it aligns with operational objectives, again in the `Risk Pool Structuring tool <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/RiskPoolStructuring/RiskPoolingTool_main_v20250805.xlsb>`_.
 
 **Phase 4: Emergency Funding Pool - Financial Analysis:**
 
-After viewing each country's coverage individually, the user can use the Risk Pooling tool to look at the financial implications of the risk pool in totality, i.e. understanding the total funding needed and the likelihood of running out of funds. The user can review how much financial risk the pool should retain and how much it should transfer (e.g., via reinsurance).
+After viewing each country's coverage individually, the user can use the Risk Pool Structuring tool to look at the financial implications of the risk pool in totality, i.e. understanding the total funding needed and the likelihood of running out of funds. The user can review how much financial risk the pool should retain and how much it should transfer (e.g., via reinsurance).
 
 **Phase 5: Optimising the Pool:**
 
-After constructing the risk pool, the user may find the needs have exceeded the available funding, or that the budget could have stretched further. In that case, using the Risk Pooling tool the user can go back and adjust the risk burden on your pool by changing the risks included in the pool, or adjusting parameters (attachment points, coverage limits, etc.) to match the available budget and risk appetite, ensuring the pool remains financially viable.
+After constructing the risk pool, the user may find the needs have exceeded the available funding, or that the budget could have stretched further. In that case, using the Risk Pool Structuring tool the user can go back and adjust the risk burden on your pool by changing the risks included in the pool, or adjusting parameters (attachment points, coverage limits, etc.) to match the available budget and risk appetite, ensuring the pool remains financially viable.
 
 
 

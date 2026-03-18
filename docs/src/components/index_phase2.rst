@@ -15,7 +15,7 @@ Step 3: Add Your Synthetic Data to the Risk Pool Structuring tool
 
 Once the loss data has been compiled for each 'risk' (hazard and country combination of loss data), it can be added to the Risk Pool Structuring Tool, to examine the different risk pool options and what predictable funding this could provide for the different risks. 
 
-The Risk Pool Structuring Tool is available on the `Disaster Risk Pooling Github <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/DisasterRiskPoolingTool/>`_: _RiskPoolingTool_main_v*.xlsb_. The folder also contains an `example of data to upload <https://github.com/IDF-RMSG/DisasterRiskPooling/raw/refs/heads/develop/DisasterRiskPoolingTool/PoolingTool_UploadExample.xlsx>`_. 
+The Risk Pool Structuring Tool is available on the `Disaster Risk Pooling Github <https://github.com/IDF-RMSG/DisasterRiskPooling/tree/main/RiskPoolStructuring>`_ (RiskPoolingTool_main_v*.xlsb). The folder also contains an `example of data to upload <https://github.com/IDF-RMSG/DisasterRiskPooling/tree/main/LossSimulator/DisasterRiskPooling/data/templates>`_. 
 
 
 

@@ -8,7 +8,7 @@ The Disaster Risk Pooling tool is an educational tool developed by the `Insuranc
 
 This is a free and open-source tool with code available on the `GitHub repository <https://github.com/idf-rmsg/DisasterRiskPooling>`_. 
 
-The Disaster Risk Pooling tool introduces how to model and structure financial risk for a disaster pool covering multiple hazards (e.g., floods, droughts, earthquakes) and multiple geographies. It comprises the `Loss Simulator tool <https://idf-rmsg.shinyapps.io/DisasterRiskPooling/>`_ to create and analyse synthetic event losses from historical data, and the `Risk Pool Structuring tool <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/RiskPoolStructuring/RiskPoolingTool_main_v20250805.xlsb>`_ to analyse risk pool structures.
+The Disaster Risk Pooling tool introduces how to model and structure financial risk for a disaster pool covering multiple hazards (e.g., floods, droughts, earthquakes) and multiple geographies. It comprises the `Loss Simulator tool <https://idf-rmsg.shinyapps.io/DisasterRiskPooling/>`_ to create and analyse synthetic event losses from historical data, and the `Risk Pool Structuring tool <https://github.com/IDF-RMSG/DisasterRiskPooling/tree/main/RiskPoolStructuring>`_ to analyse risk pool structures.
 
 The central purpose of this tool is educational, serving as an introduction to the different considerations that go into modelling financial risk within funds. The tool demonstrates how the processes of risk pooling and funding can be structured efficiently and responsibly even with events being highly uncertain year to year. It has been developed to support users to better understand the risk of climate and disaster losses and use of risk pools in response to requests in the development and humanitarian sectors for better understanding of these aspects.
 
@@ -59,7 +59,7 @@ Those managing a risk pool want to understand the liability that different kinds
 
 **Phase 2: Setting Your Financial Structure:**
 
-Now that those patterns are better understood, the user can select what risks to include in the pool and how you want to arrange the funding to set guaranteed payments for specific crises based on risk triggers. In this phase, we look at parameterising and setting constraining rules on the funding. Phase 2 covers layering, attachments, and exhaustion points for coverage layers of the pool, and is conducted in the `Risk Pool Structuring tool <https://github.com/IDF-RMSG/DisasterRiskPooling/blob/develop/RiskPoolStructuring/RiskPoolingTool_main_v20250805.xlsb>`_.
+Now that those patterns are better understood, the user can select what risks to include in the pool and how you want to arrange the funding to set guaranteed payments for specific crises based on risk triggers. In this phase, we look at parameterising and setting constraining rules on the funding. Phase 2 covers layering, attachments, and exhaustion points for coverage layers of the pool, and is conducted in the `Risk Pool Structuring tool <https://github.com/IDF-RMSG/DisasterRiskPooling/tree/main/RiskPoolStructuring>`_.
 
 **Phase 3: Country/Risk - Financial Analysis:**
 

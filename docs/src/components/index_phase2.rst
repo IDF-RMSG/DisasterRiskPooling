@@ -31,7 +31,7 @@ Guidance for using the Risk Pool Structuring tool
    Country data input - repeat for all countries you are including in the pool (Click to enlarge image)
 
    
-2. Paste in the columns from your downloaded synthetic CSV for your first country event and simulated data set with the headers: Simulation, Type, Event ID, Region, Peril, and Financial Loss (USD)
+2. Paste in the columns from your downloaded synthetic CSV for your first country event and simulated data set with the headers: Event Year, Event ID,	Country	Peril,	Loss (USD), Loss type.
 
 3. Check for Errors: Column G indicates True/False if any mismatch or missing data is found. Table A5 to D9 checks True/False errors on the peril information and type. Correct any issues, then re-upload if necessary.
 

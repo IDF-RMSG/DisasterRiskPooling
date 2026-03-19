@@ -1906,7 +1906,7 @@ server <- function(input, output, session) {
         ) %>%
         dplyr::rename("Disaster" = "peril", "Cost"= "value", "Year" = "year")
 
-    if (input$data_type == 'Manual Input') {
+    if (input$data_type == 'Manual Input' && !is.null(input$ownFile)) {
       included_perils <- uploaded_perils()
 
       if (length(included_perils) > 0) {

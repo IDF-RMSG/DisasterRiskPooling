@@ -28,6 +28,10 @@ df = df[[
 
 df["Type of event"] = df["Type of event"].replace("Storm", "Cyclone")
 
+# Ensure missing numeric values are represented as 0 for downstream aggregation
+df["Sum of Total affected"] = pd.to_numeric(df["Sum of Total affected"], errors="coerce").fillna(0)
+df["Sum of Total Damage"] = pd.to_numeric(df["Sum of Total Damage"], errors="coerce").fillna(0)
+
 df.to_csv(OUTPUT_FILE, index=False)
 last_update_date = datetime.fromtimestamp(OUTPUT_FILE.stat().st_mtime).strftime("%Y-%m-%d")
 METADATA_FILE.write_text(last_update_date + "\n", encoding="utf-8")

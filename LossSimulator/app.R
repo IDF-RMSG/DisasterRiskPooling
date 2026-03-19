@@ -522,7 +522,7 @@ server <- function(input, output, session) {
       fluidRow(column(11, offset = 1,
         p("Use this option to upload historical event loss data from another source. Include one row per event and data for one country only."),
         p("Monetary loss in USD is required: any cost-per-person calculations must be done before data is uploaded."),
-        p("Perils are restricted to earthquake, drought, flood, and cyclone.")
+        p("Perils are restricted to Earthquake, Drought, Flood, and Cyclone.")
       )),
       fluidRow(column(11, offset = 1,
         downloadButton("peril_template_download", "Data Template")

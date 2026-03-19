@@ -29,6 +29,17 @@ fontsize_title <- 12
 fontsize_axis <- 10
 font_colour <- "#000000"
 font_family <- "Raleway, sans-serif"
+
+# Helper to apply included-perils filtering and factor level ordering
+apply_included_perils_filter <- function(df, included_perils) {
+  if (length(included_perils) > 0) {
+    df %>%
+      dplyr::filter(as.character(.data$Disaster) %in% included_perils) %>%
+      dplyr::mutate(Disaster = factor(.data$Disaster, levels = included_perils))
+  } else {
+    df
+  }
+}
 font_title <- list(family = font_family, size = fontsize_title, color = font_colour)
 font_axis <- list(family = font_family, size = fontsize_axis, color = font_colour)
 
@@ -1908,13 +1919,7 @@ server <- function(input, output, session) {
 
     if (input$data_type == 'Manual Input' && !is.null(input$ownFile)) {
       included_perils <- uploaded_perils()
-
-      if (length(included_perils) > 0) {
-        out <-
-          out %>%
-          dplyr::filter(as.character(.data$Disaster) %in% included_perils) %>%
-          dplyr::mutate(Disaster = factor(.data$Disaster, levels = included_perils))
-      }
+      out <- apply_included_perils_filter(out, included_perils)
     }
 
     if(!too_much_data) {

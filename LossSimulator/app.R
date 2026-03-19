@@ -594,11 +594,14 @@ server <- function(input, output, session) {
       "Unable to read perils from uploaded file."
     })
 
+    peril_text <- as.character(peril_text)
+    formatted_peril_text <- if (grepl("[.!?]$", peril_text)) peril_text else paste0(peril_text, ".")
+
     fluidRow(
       column(
         11,
         offset = 1,
-        strong(paste0("Perils in uploaded file: ", peril_text, ". Distributions will not be fitted for missing perils."), style = "color: red")
+        strong(paste0("Perils in uploaded file: ", formatted_peril_text, " Distributions will not be fitted for missing perils."), style = "color: red")
       )
     )
   })

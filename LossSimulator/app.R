@@ -898,7 +898,12 @@ server <- function(input, output, session) {
       )
 
     if (input$data_type == 'Manual Input') {
-      included_perils <- uploaded_perils()
+      included_perils <-
+        if (is.null(input$ownFile)) {
+          character(0)
+        } else {
+          uploaded_perils()
+        }
 
       if (length(included_perils) > 0) {
         out <-

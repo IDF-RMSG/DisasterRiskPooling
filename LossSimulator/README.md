@@ -9,5 +9,5 @@ tool (see folder 'RiskPoolStructuring'). This app is based on an original tool b
 
 The Loss Simulator is available to run online at: https://idf-rmsg.shinyapps.io/DisasterRiskPooling
 
-To run the LossSimulator locally, download this folder and run LossSimulator/DisasterRiskPooling/app.R
-In addition to installing packages contained within the code, first install package 'qpcR', available in /DisasterRiskPooling/Rpackages
+To run the LossSimulator locally, download this folder and run LossSimulator/app.R
+In addition to installing packages contained within the code, first install package 'qpcR', available in /LossSimulator/Rpackages

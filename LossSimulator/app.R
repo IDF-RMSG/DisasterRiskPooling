@@ -1275,6 +1275,13 @@ server <- function(input, output, session) {
           dplyr::slice(1) %>%
           dplyr::mutate(`Data Type` = "Historical")
 
+      # Cache and normalize uploaded peril levels to avoid repeated calls and
+      # mismatches due to surrounding whitespace.
+      peril_levels <- uploaded_perils()
+      if (length(peril_levels) > 0L) {
+        peril_levels <- trimws(peril_levels)
+      }
+
       cdx1 <-
         cdx1  %>%
           dplyr::filter(
@@ -1292,13 +1299,19 @@ server <- function(input, output, session) {
             "value" = "Loss (USD)",
             "type" = "Loss Type"
           ) %>%
+          # Normalize peril values (e.g., trim whitespace) before factoring
+          dplyr::mutate(peril = trimws(.data$peril)) %>%
           dplyr::mutate(
-                peril =
-                  factor(
-                    .data$peril,
-                    levels = uploaded_perils()
-                  )
-              )
+            peril = {
+              if (length(peril_levels) > 0L) {
+                factor(.data$peril, levels = peril_levels)
+              } else {
+                # Fall back to using the raw peril values as levels to avoid
+                # coercing everything to NA when no uploaded perils are found.
+                factor(.data$peril)
+              }
+            }
+          )
 
       cdx2 <-
         cdx1 %>%
@@ -1311,11 +1324,13 @@ server <- function(input, output, session) {
             fill = list(value = 0)
           )  %>%
           dplyr::mutate(
-            peril =
-              factor(
-                .data$peril,
-                levels = uploaded_perils()
-              )
+            peril = {
+              if (length(peril_levels) > 0L) {
+                factor(.data$peril, levels = peril_levels)
+              } else {
+                factor(.data$peril)
+              }
+            }
           )
 
       use_core_data_edited(TRUE)

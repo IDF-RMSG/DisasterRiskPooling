@@ -147,6 +147,7 @@ body <- dashboardBody(
               # User input for uploading data and accompanying text
               conditionalPanel("input.data_type == 'Manual Input'", uiOutput('upload_ui')),
               conditionalPanel("input.data_type == 'Manual Input'", uiOutput('manual_data_chosen_ui')),
+              conditionalPanel("input.data_type == 'Manual Input'", uiOutput('uploaded_perils_ui')),
 
               # User input for picking country / archetype
               uiOutput('country_ui'),
@@ -519,9 +520,9 @@ server <- function(input, output, session) {
     req(input$data_type)
     fluidPage(
       fluidRow(column(11, offset = 1,
-        p("Use this option to upload historical event loss data from another source. Include one row per event.
-          Monetary loss in USD is required: any cost-per-person calculations must be done before data is uploaded.
-          Perils are restricted to earthquake, drought, flood, and cyclone.")
+        p("Use this option to upload historical event loss data from another source. Include one row per event and data for one country only."),
+        p("Monetary loss in USD is required: any cost-per-person calculations must be done before data is uploaded."),
+        p("Perils are restricted to earthquake, drought, flood, and cyclone.")
       )),
       fluidRow(column(11, offset = 1,
         downloadButton("peril_template_download", "Data Template")
@@ -537,7 +538,72 @@ server <- function(input, output, session) {
     )
   })
 
-  # Create dynamic text to describe whether user data has been imported of or not -
+  uploaded_perils <- reactive({
+    req(input$data_type, input$ownFile)
+
+    if (input$data_type != 'Manual Input') {
+      return(character(0))
+    }
+
+    inFile <- input$ownFile
+
+    tryCatch({
+      uploaded_data <- readxl::read_xlsx(inFile$datapath, sheet = "Historical_Loss_Data")
+
+      if (!("Peril" %in% names(uploaded_data))) {
+        return(character(0))
+      }
+
+      raw_perils <-
+        uploaded_data$Peril %>%
+        as.character() %>%
+        unique() %>%
+        .[!is.na(.) & . != ""]
+
+      str_perils[str_perils %in% raw_perils]
+    }, error = function(e) {
+      character(0)
+    })
+  })
+
+  # Show unique perils found in uploaded manual input file
+  output$uploaded_perils_ui <- renderUI({
+    req(input$data_type)
+
+    if (input$data_type != 'Manual Input' || is.null(input$ownFile)) {
+      return(NULL)
+    }
+
+    inFile <- input$ownFile
+
+    peril_text <- tryCatch({
+      uploaded_data <- readxl::read_xlsx(inFile$datapath, sheet = "Historical_Loss_Data")
+
+      if (!("Peril" %in% names(uploaded_data))) {
+        return("Peril column not found in uploaded file.")
+      }
+
+      perils <- uploaded_perils()
+
+      if (length(perils) == 0) {
+        "No perils found in uploaded file."
+      } else {
+        paste(perils, collapse = ", ")
+      }
+    }, error = function(e) {
+      "Unable to read perils from uploaded file."
+    })
+
+    fluidRow(
+      column(
+        11,
+        offset = 1,
+        strong(paste0("Perils in uploaded file: ", peril_text, ". Distributions will not be fitted for missing perils."), style = "color: red")
+      )
+    )
+  })
+
+  # Create dynamic text to describe whether user data has been imported or not -
   # commented out until we can be sure the error message doesn't contradict the 'data uploaded' message - i.e. is acting reactively.
   #output$manual_data_chosen_ui <-
   #  shiny::renderUI(
@@ -817,6 +883,17 @@ server <- function(input, output, session) {
         "Disaster" = "peril"
       )
 
+    if (input$data_type == 'Manual Input') {
+      included_perils <- uploaded_perils()
+
+      if (length(included_perils) > 0) {
+        out <-
+          out %>%
+          dplyr::filter(as.character(.data$Disaster) %in% included_perils) %>%
+          dplyr::mutate(Disaster = factor(.data$Disaster, levels = included_perils))
+      }
+    }
+
     if (input$view_data == 'Frequency')
       {
       perils_out <- peril_names_global
@@ -991,7 +1068,7 @@ server <- function(input, output, session) {
                   peril =
                     factor(
                       .data$peril,
-                      levels = str_peril
+                      levels = str_perils
                     )
                 )
 
@@ -1200,7 +1277,7 @@ server <- function(input, output, session) {
                 peril =
                   factor(
                     .data$peril,
-                    levels = str_perils
+                    levels = uploaded_perils()
                   )
               )
 
@@ -1218,7 +1295,7 @@ server <- function(input, output, session) {
             peril =
               factor(
                 .data$peril,
-                levels = str_perils
+                levels = uploaded_perils()
               )
           )
 
@@ -1794,6 +1871,17 @@ server <- function(input, output, session) {
           fill = list(value = 0)
         ) %>%
         dplyr::rename("Disaster" = "peril", "Cost"= "value", "Year" = "year")
+
+    if (input$data_type == 'Manual Input') {
+      included_perils <- uploaded_perils()
+
+      if (length(included_perils) > 0) {
+        out <-
+          out %>%
+          dplyr::filter(as.character(.data$Disaster) %in% included_perils) %>%
+          dplyr::mutate(Disaster = factor(.data$Disaster, levels = included_perils))
+      }
+    }
 
     if(!too_much_data) {
       if (input$damage_type == 'People Affected Response Cost')

@@ -538,6 +538,23 @@ server <- function(input, output, session) {
     )
   })
 
+  # Shared reactive: read and cache uploaded manual input data once
+  uploaded_manual_data <- reactive({
+    req(input$data_type, input$ownFile)
+
+    if (input$data_type != 'Manual Input') {
+      return(NULL)
+    }
+
+    inFile <- input$ownFile
+
+    tryCatch({
+      readxl::read_xlsx(inFile$datapath, sheet = "Historical_Loss_Data")
+    }, error = function(e) {
+      NULL
+    })
+  })
+
   uploaded_perils <- reactive({
     req(input$data_type, input$ownFile)
 
@@ -545,25 +562,23 @@ server <- function(input, output, session) {
       return(character(0))
     }
 
-    inFile <- input$ownFile
+    uploaded_data <- uploaded_manual_data()
 
-    tryCatch({
-      uploaded_data <- readxl::read_xlsx(inFile$datapath, sheet = "Historical_Loss_Data")
+    if (is.null(uploaded_data)) {
+      return(character(0))
+    }
 
-      if (!("Peril" %in% names(uploaded_data))) {
-        return(character(0))
-      }
+    if (!("Peril" %in% names(uploaded_data))) {
+      return(character(0))
+    }
 
-      raw_perils <-
-        uploaded_data$Peril %>%
-        as.character() %>%
-        unique() %>%
-        .[!is.na(.) & . != ""]
+    raw_perils <-
+      uploaded_data$Peril %>%
+      as.character() %>%
+      unique() %>%
+      .[!is.na(.) & . != ""]
 
-      str_perils[str_perils %in% raw_perils]
-    }, error = function(e) {
-      character(0)
-    })
+    str_perils[str_perils %in% raw_perils]
   })
 
   # Show unique perils found in uploaded manual input file
@@ -574,15 +589,13 @@ server <- function(input, output, session) {
       return(NULL)
     }
 
-    inFile <- input$ownFile
+    uploaded_data <- uploaded_manual_data()
 
-    peril_text <- tryCatch({
-      uploaded_data <- readxl::read_xlsx(inFile$datapath, sheet = "Historical_Loss_Data")
-
-      if (!("Peril" %in% names(uploaded_data))) {
-        return("Peril column not found in uploaded file.")
-      }
-
+    peril_text <- if (is.null(uploaded_data)) {
+      "Unable to read perils from uploaded file."
+    } else if (!("Peril" %in% names(uploaded_data))) {
+      "Peril column not found in uploaded file."
+    } else {
       perils <- uploaded_perils()
 
       if (length(perils) == 0) {
@@ -590,9 +603,7 @@ server <- function(input, output, session) {
       } else {
         paste(perils, collapse = ", ")
       }
-    }, error = function(e) {
-      "Unable to read perils from uploaded file."
-    })
+    }
 
     peril_text <- as.character(peril_text)
     formatted_peril_text <- if (grepl("[.!?]$", peril_text)) peril_text else paste0(peril_text, ".")

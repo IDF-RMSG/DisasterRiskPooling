@@ -48,7 +48,7 @@ end_year <- 2024
 #######################
 # EM-DAT
 emdat_data_occ <-
-  read.csv('data/Countries/emdat_country_occ.csv', stringsAsFactors = FALSE) |>
+  read.csv('data/Countries/emdat_country_losses.csv', stringsAsFactors = FALSE) |>
   dplyr::filter(
     dplyr::between(
       .data$Year, start_year, end_year

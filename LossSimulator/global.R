@@ -240,8 +240,7 @@ about_page <-
       p("
           The Loss Simulator was developed by Maximum Information on behalf of
           the Insurance Development Forum Risk Modelling Steering Group
-          (RMSG) and the World Bank Group's Finance, Competitiveness and Investment
-          team. It is based on the existing 'Financial Risk Assessment Tool'
+          (RMSG) and the World Bank Disaster Risk Finance team under the Financial Services global department. It is based on the existing 'Financial Risk Assessment Tool'
           developed by the World Bank for capacity building of their clients.
           Insurance Development Forum RMSG are responsible for the update of the Loss Simulator.
         "),

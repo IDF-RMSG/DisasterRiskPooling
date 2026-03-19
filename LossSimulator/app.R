@@ -991,7 +991,7 @@ server <- function(input, output, session) {
                   peril =
                     factor(
                       .data$peril,
-                      levels = str_peril
+                      levels = str_perils
                     )
                 )
 

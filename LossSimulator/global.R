@@ -64,7 +64,7 @@ emdat_country_btn_text <- paste0(
 # Read in country data
 #######################
 # EM-DAT
-emdat_data_occ <-
+emdat_data_losses <-
   read.csv('data/Countries/emdat_country_losses.csv', stringsAsFactors = FALSE) |>
   dplyr::filter(
     dplyr::between(
@@ -74,7 +74,7 @@ emdat_data_occ <-
   dplyr::mutate(Sum.of.Total.Damage = .data$`Sum.of.Total.Damage` * 1000)
 
 emdat_data_yearly <-
-  emdat_data_occ %>%
+  emdat_data_losses %>%
     dplyr::group_by(
       .data$`Country`,
       .data$`Year`,
@@ -87,7 +87,7 @@ emdat_data_yearly <-
       .groups = "drop"
     )
 
-emdat_data_occ$origin <- 'EM_DAT'
+emdat_data_losses$origin <- 'EM_DAT'
 
 # Combine data
 country_data <- emdat_data_occ

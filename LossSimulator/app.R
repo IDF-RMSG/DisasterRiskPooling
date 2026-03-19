@@ -296,7 +296,18 @@ server <- function(input, output, session) {
   output$allDataBtn <-
     downloadHandler(
       filename = "LossSimulator_Output.csv",
-      content = function(file) {write.csv(get_sims_export(), file, row.names = FALSE)},
+      content = function(file) {
+        write.csv(get_sims_export(), file, row.names = FALSE)
+      },
+      contentType = "text/csv"
+    )
+
+  output$allDataAggBtn <-
+    downloadHandler(
+      filename = "LossSimulator_AggOutput.csv",
+      content = function(file) {
+        write.csv(get_sims_export_agg(), file, row.names = FALSE)
+      },
       contentType = "text/csv"
     )
 
@@ -354,6 +365,20 @@ server <- function(input, output, session) {
             ),
             title = '',
             content = 'Click to download loss simulation data, for input to Risk Pool Structuring Tool',
+            placement = 'auto top',
+            trigger = 'hover',
+            options = NULL
+          ),
+        if (rv$page == n_tabs)
+          popify(
+            downloadButton("allDataAggBtn",
+                           "Download Aggregate",
+                           style = button_style,
+                           icon = icon("download"),
+                           width = '200px'
+            ),
+            title = '',
+            content = 'Click to download aggregated loss simulation data by year, country, and peril',
             placement = 'auto top',
             trigger = 'hover',
             options = NULL
@@ -2600,6 +2625,41 @@ server <- function(input, output, session) {
           "Loss Type"
         )
 
+  })
+
+  get_sims_export_agg <- reactive({
+    get_sims_export() %>%
+      dplyr::group_by(
+        `Event Year`,
+        Country,
+        Peril
+      ) %>%
+      dplyr::summarise(
+        `Loss (USD)` = sum(`Loss (USD)`),
+        .groups = "drop"
+      ) %>%
+      dplyr::mutate(
+        Peril = factor(Peril, levels = str_perils)
+      ) %>%
+      tidyr::pivot_wider(
+        names_from = Peril,
+        values_from = `Loss (USD)`,
+        values_fill = 0,
+        names_expand = TRUE,
+        names_glue = "{Peril} Loss (USD)"
+      ) %>%
+      dplyr::mutate(
+        `Loss Type` = "Aggregate"
+      ) %>%
+      dplyr::select(
+        `Event Year`,
+        Country,
+        `Drought Loss (USD)`,
+        `Earthquake Loss (USD)`,
+        `Flood Loss (USD)`,
+        `Cyclone Loss (USD)`,
+        `Loss Type`
+      )
   })
 
   # Run function to generate simulation exhibit

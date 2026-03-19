@@ -284,11 +284,7 @@ user_guide <-
       fluidRow(column(width = 12, align = "center",
                       br(),
                       actionButton("UG_btn", label ="User Guide", onclick = "window.open('https://idf-rmsg.github.io/DisasterRiskPooling', '_blank')")
-      )),
-      p(""),
-      p('Current limitations of this tool include: (1) no accounting for correlation of
-      losses between perils and countries, (2) Users cannot enter a hypothetical premium into pricing calculations.'
-        )
+      ))
     ))
   )
 

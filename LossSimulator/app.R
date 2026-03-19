@@ -581,7 +581,7 @@ server <- function(input, output, session) {
 
       if(input$data_type == 'Country'){
         btn_id <- "country"
-        btn_text <- "Select Country historical loss data from EM-DAT"
+        btn_text <- emdat_country_btn_text
         btn_choice <- countries
         btn_select <- 'Bangladesh'
         btn_width <- '250px'

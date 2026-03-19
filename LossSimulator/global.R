@@ -42,6 +42,23 @@ scale_size = 1000000 # scale by millions
 start_year <- 2002
 end_year <- 2024
 
+emdat_last_update_file <- "data/Countries/emdat_country_losses_last_update.txt"
+emdat_last_update <- if (file.exists(emdat_last_update_file)) {
+  trimws(readLines(emdat_last_update_file, warn = FALSE, n = 1))
+} else {
+  "unknown"
+}
+
+if (is.na(emdat_last_update) || emdat_last_update == "") {
+  emdat_last_update <- "unknown"
+}
+
+emdat_country_btn_text <- paste0(
+  "Select Country historical loss data from EM-DAT (last update: ",
+  emdat_last_update,
+  ")"
+)
+
 
 #######################
 # Read in country data

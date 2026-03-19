@@ -316,6 +316,7 @@ scale_heading <-
     for that year to give a corrected loss in terms of the most recent scaling year."),
     p("Edit the scaling data by double clicking and entering new population data in the relevant
     cell or by adjusting the data and using the advanced manual input approach."),
+    p("Manual input data which starts before 2002 will not be scaled using the pre-loaded scaling factors (2002 onwards). Scale your data before loading, and select no scaling."),
     br()
   ))
 

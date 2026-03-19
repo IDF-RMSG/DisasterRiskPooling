@@ -15,7 +15,7 @@
 
 1. Go to [https://www.emdat.be](https://www.emdat.be) and log in.
 2. Under **Data > Public**, query for all countries and all relevant disaster types (Drought, Earthquake, Flood, Storm).
-3. Export as **CSV**, saving the file into this folder (`data/Countries/`).
+3. Export as **CSV**, saving the file into this folder (`LossSimulator/data/Countries/`).
 
 ### 2. Update the input filename in `process_emdat.py`
 

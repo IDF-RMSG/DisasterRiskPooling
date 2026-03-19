@@ -7,7 +7,8 @@ INPUT_FILE = SCRIPT_DIR / "public_emdat_download_2026-03-19_forLossSimulator.csv
 OUTPUT_FILE = SCRIPT_DIR / "emdat_country_losses.csv"
 METADATA_FILE = SCRIPT_DIR / "emdat_country_losses_last_update.txt"
 
-df = pd.read_csv(INPUT_FILE)
+df = pd.read_csv(INPUT_FILE, encoding="utf-8-sig")
+df.columns = df.columns.str.replace("\ufeff", "", regex=False)
 
 df = df[[
     "DisNo.",

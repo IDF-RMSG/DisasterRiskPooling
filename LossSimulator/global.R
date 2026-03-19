@@ -257,8 +257,7 @@ about_page <-
       p("
           The Loss Simulator was developed by Maximum Information on behalf of
           the Insurance Development Forum Risk Modelling Steering Group
-          (RMSG) and the World Bank Group's Finance, Competitiveness and Investment
-          team. It is based on the existing 'Financial Risk Assessment Tool'
+          (RMSG) and the World Bank Disaster Risk Finance team under the Financial Services global department. It is based on the existing 'Financial Risk Assessment Tool'
           developed by the World Bank for capacity building of their clients.
           Insurance Development Forum RMSG are responsible for the update of the Loss Simulator.
         "),
@@ -301,11 +300,7 @@ user_guide <-
       fluidRow(column(width = 12, align = "center",
                       br(),
                       actionButton("UG_btn", label ="User Guide", onclick = "window.open('https://idf-rmsg.github.io/DisasterRiskPooling', '_blank')")
-      )),
-      p(""),
-      p('Current limitations of this tool include: (1) no accounting for correlation of
-      losses between perils and countries, (2) Users cannot enter a hypothetical premium into pricing calculations.'
-        )
+      ))
     ))
   )
 

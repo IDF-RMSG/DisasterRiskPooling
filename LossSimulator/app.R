@@ -105,7 +105,7 @@ sidebar <- dashboardSidebar(
       "),
     div(
       id = 'logo-div',
-      tags$img(id = 'allLogo', src = 'Vertical_logos_newIDFexclWB.png',
+      tags$img(id = 'allLogo', src = 'Vertical_logos_newIDFinclWB.png',
                alt = 'Contributors', width = '250px'
                )
       )
